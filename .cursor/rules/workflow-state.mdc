@@ -33,17 +33,21 @@ EpicStep: null
 3. Summarize requirements. *No code or planning.*
 
 ### [PHASE: BLUEPRINT]
-1. If `EpicReference` exists, read epic context from epics.mdc for step requirements and acceptance criteria.
-2. Decompose task into ordered steps.  
-3. Write pseudocode or file-level diff outline under **## Plan**.  
-4. Set `Status = NEEDS_PLAN_APPROVAL` and await user confirmation.
+1. **Architecture Validation**: Read architecture.mdc to understand current architecture and validate planned changes align with existing patterns and decisions.
+2. If `EpicReference` exists, read epic context from epics.mdc for step requirements and acceptance criteria.
+3. **Architecture Impact Assessment**: Evaluate if planned work requires architectural changes or updates.
+4. Decompose task into ordered steps.  
+5. Write pseudocode or file-level diff outline under **## Plan**.
+6. **Plan Architecture Updates**: Include steps to update architecture.mdc if architectural changes are being made.
+7. Set `Status = NEEDS_PLAN_APPROVAL` and await user confirmation.
 
 ### [PHASE: CONSTRUCT]
 1. Follow the approved **## Plan** exactly.  
 2. After each atomic change:  
    - run test / linter commands specified in `project_config.md`  
-   - capture tool output in **## Log**  
-3. On success of all steps, set `Phase = VALIDATE`.
+   - capture tool output in **## Log**
+3. **Architecture Updates**: When implementing architectural changes, update architecture.mdc with new patterns, decisions, or modifications.
+4. On success of all steps, set `Phase = VALIDATE`.
 
 ### [PHASE: VALIDATE]
 1. Rerun full test suite & any E2E checks.  
@@ -74,6 +78,22 @@ Action ▶
 2. Update corresponding epic step status to include completion percentage, date, and notes.
 3. Check if all steps in the phase are completed, update phase status accordingly.
 4. Add completion entry to epic notes section with timestamp.
+
+### RULE_ARCHITECTURE_UPDATE_01
+Trigger ▶ `Phase == CONSTRUCT && architectural changes are being implemented`
+Action ▶
+1. Identify the architectural change being made (new pattern, technology choice, design decision).
+2. Update the relevant section in architecture.mdc with the new information.
+3. Add entry to Architecture Changelog with timestamp and change type.
+4. Log the architecture update in workflow ## Log section.
+
+### RULE_ARCHITECTURE_VALIDATE_01
+Trigger ▶ `Phase == BLUEPRINT && CurrentItem involves architectural decisions`
+Action ▶
+1. Read current architecture.mdc to understand existing patterns and constraints.
+2. Validate that planned changes align with existing architectural decisions.
+3. Identify any conflicts with current architecture and note in plan.
+4. Include architecture update steps in the plan if new patterns are being introduced.
 
 ### RULE_SUMMARY_01
 Trigger ▶ `Phase == VALIDATE && Status == COMPLETED`  

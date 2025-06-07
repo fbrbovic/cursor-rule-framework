@@ -16,10 +16,11 @@ alwaysApply: false
 
 **AI Usage Rules**:
 1. **Epic Creation**: When user requests epic planning, create comprehensive plans here
-2. **No Execution**: Never execute epic work - that happens in workflow_state.mdc  
-3. **Natural Language Processing**: Translate user requests into epic context for workflow integration
-4. **Progress Updates**: Update epic status when user reports progress or workflow completes
-5. **Epic Search**: Search existing epics when user mentions epic work to set proper workflow context
+2. **Architecture Integration**: Always consider architecture.mdc when planning epics and include architectural impact in epic steps
+3. **No Execution**: Never execute epic work - that happens in workflow_state.mdc  
+4. **Natural Language Processing**: Translate user requests into epic context for workflow integration
+5. **Progress Updates**: Update epic status when user reports progress or workflow completes
+6. **Epic Search**: Search existing epics when user mentions epic work to set proper workflow context
 
 **Context Limits**: Maximum 3 active epics to maintain AI effectiveness
 
@@ -87,6 +88,7 @@ alwaysApply: false
 1. **[Step Name]**: [What needs to be built/implemented] - [STATUS_ICON] [COMPLETION_%]
    - Key requirements: [2-3 critical requirements]
    - Acceptance criteria: [What defines "done"]
+   - Architecture impact: [How this affects current architecture or introduces new patterns]
    - AI considerations: [Important context for AI execution]
    - Status: [PLANNED/IN_PROGRESS/COMPLETED] ([completion_%])
    - Started: [Date when work began]
@@ -168,6 +170,7 @@ Create comprehensive user management system with authentication and profiles
 1. **REGISTRATION_COMPONENT_STEP**: Build user registration form - ✅ 100%
    - Key requirements: Email validation, password strength, GDPR compliance
    - Acceptance criteria: Form validates inputs, stores user securely, sends confirmation
+   - Architecture impact: Establishes form validation patterns and authentication service integration
    - AI considerations: Use existing form patterns, integrate with Clerk
    - Status: COMPLETED (100%)
    - Started: 2025-01-16
@@ -178,6 +181,7 @@ Create comprehensive user management system with authentication and profiles
 2. **LOGIN_COMPONENT_STEP**: Implement secure login system - 🔄 75%
    - Key requirements: Session management, rate limiting, remember me
    - Acceptance criteria: Users can login/logout, sessions persist, security headers
+   - Architecture impact: Establishes session management patterns and security middleware
    - AI considerations: Follow OAuth patterns, secure cookie handling
    - Status: IN_PROGRESS (75%)
    - Started: 2025-01-18
@@ -188,6 +192,7 @@ Create comprehensive user management system with authentication and profiles
 3. **PASSWORD_RESET_STEP**: Build password reset flow - ⏳ 0%
    - Key requirements: Email verification, secure tokens, 1-hour expiration
    - Acceptance criteria: Users can reset via email, tokens expire properly
+   - Architecture impact: Introduces email service integration and token management patterns
    - AI considerations: Use email service, implement secure token generation
    - Status: PLANNED (0%)
    - Started: [Not started]

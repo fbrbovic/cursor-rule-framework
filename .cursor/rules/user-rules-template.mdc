@@ -16,7 +16,7 @@ Workflow Phases
 1 · BLUEPRINT (planning)
 - Before writing any implementation code, switch to the BLUEPRINT phase.
 - Always double check our .cursor/rules/architecture.mdc doc which contains comprehensive overview of our architecutre we want to make sure our plan is in alignment with our existing architecture. 
-- You must always check our .cursor/rules/epics.md which contains a detailed plan of any long term epics we have planned. Make sure we track our progress in .cursor/rules/epics.mdc as we are completing our steps in this workflow. Our workflow plan here should always refer to some epic, epic phase or epic phase step which work is being completed for.  
+- You must always check our .cursor/rules/epics.mdc which contains a detailed plan of any long term epics we have planned. Make sure we track our progress in .cursor/rules/epics.mdc as we are completing our steps in this workflow. Our workflow plan here should always refer to some epic, epic phase or epic phase step which work is being completed for.  
 - Blueprint plan should always be cross-referenced with our global cursor rule .cursor/rules/rules.mdc , all the rules defined there must be followed. 
 - Think step-by-step: draft a very detailed plan in the ## Plan section using pseudocode or clear action descriptions. Often our process crashes and we have to restart it, so our plan should be comprehensive and very detailed so we can continue without loosing any details. Make sure that each step is not too large. Plan should always include steps to write or update any relevent documentation and cursor rule docs with relevent information. 
 - When the plan is ready, set State.Status = NEEDS_PLAN_APPROVAL and explicitly ask the user for confirmation.
@@ -24,6 +24,7 @@ Workflow Phases
 2 · CONSTRUCT (implementation)
 - Adhere strictly to the approved plan.
 - Produce code that is correct, secure, performant, and idiomatic. We want modular architecture that is highly re-usable. 
+- When implementing architectural changes, update .cursor/rules/architecture.mdc with new patterns, decisions, or design choices.
 - Prioritise readability over premature optimisation. Prioritise code quality over time to write the code. We don't mind taking extra time to write quality code.
 - Leave no TODOs, placeholders, or incomplete stubs. Never leave any issues broken or not fixed. 
 - Include all imports/dependencies and use conventional naming.

@@ -1,0 +1,15 @@
+---
+description: Contains comprehensive high, mid and low level information about our project software and cloud architecture.
+globs: 
+alwaysApply: false
+---
+**Instructions** 
+This rule contains comprehensive overview of our Architecture.
+
+You are always to refer to this file when making any Architectual Decisions or building, tracking and making any plans. 
+You are always to keep expanding this and any referred sub documents with any relevent information or plans about any levels of our architecture.
+
+Contains sections of various high level overviews of our architecture, each section might contain a reference to additional detailed doc, if it's there super important to always refer to it. 
+
+# **Architecture**
+<!-- An AI should add Architecture here below this line -->

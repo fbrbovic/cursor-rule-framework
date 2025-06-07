@@ -1,0 +1,53 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# project-config.md
+Last-Updated: 2025-06-07
+
+## Project Goal
+e.g. Build an enterprise ready platform that allows users to build and launch websites
+
+## Tech Stack
+- **Language(s):** e.g TypeScript , Javascript
+- **Framework(s):** e.g. Nuxt.js, Encore TS, Vue.js
+- **Build / Tooling:** e.g. pnpm, Turborepo, docker
+- **Monorepo Structure:** e.g Turborepo-managed workspace with apps/frontend and apps/backend
+
+## Critical Patterns & Conventions
+- When ever possible recommend building an AI-First solution, where solution uses an AI to make the user experience easy and streamlines. 
+- Prioritize using open source packages whenever you can instead of building your own. Preferred package repository is npm, but do also search for open source github repos. 
+- Prioritize `@Docs` for internal documentation and `@Web` for external resources.
+- Use `@Git` and `@Folders` in combination to understand the codebase structure and history.
+- Structure tool calls logically, documenting the rationale before execution.
+- For complex tasks, break them down into smaller, manageable steps using tool calls.
+- When using `@Files` or `@Code`, specify the file path and relevant code sections clearly.
+- If a tool call fails, attempt to diagnose the issue using error messages and logs. Refer to the troubleshooting guides if needed:
+    - @Common Issues
+    - @Troubleshooting Guide
+- Follow consistent naming conventions (e.g., camelCase for variables, PascalCase for classes).
+- Use meaningful variable and function names.
+- Write clear and concise comments.
+- Break down complex functions into smaller, more manageable units.
+- Handle errors gracefully and provide informative error messages.
+- Write unit and integration tests for critical components.
+- Keep code DRY (Don't Repeat Yourself) by abstracting reusable logic into functions or modules.
+
+## Constraints
+- You have a limited context window (Claude's limitation).
+- You can make up to 25 tool calls per turn in Agent Composer mode.
+- Adhere to the "Cursor AI Operating Instructions" provided separately.
+- Prioritize code quality, maintainability, and security.
+- Avoid making assumptions; ask clarifying questions when needed.
+
+## Tokenization Settings
+- Estimated chars-per-token: 3.5  
+- Max tokens for the AI: 120 0000
+- Plan for summary when **workflow-state.mdc** exceeds ~12 K chars.
+
+---
+
+## Changelog
+<!-- The agent prepends the latest summary here as a new list item after each VALIDATE phase -->
+

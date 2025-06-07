@@ -1,0 +1,24 @@
+---
+description: Used when referred by @@EPIC or @@EPICS or when writing or completing any epic level of work or epic level of capabilities.
+globs: 
+alwaysApply: false
+---
+**Comprehensive Epics Plan** 
+<!-- Stores instructions on how to use this doc.  AI should always follow it.  AI should never modify or extend this section.  EPIC RULES section is reserved for AI -->
+Contains the fully planned list of all epics, its phases, steps that need to be completed. 
+You are always to keep that list tracked and updated as work is completed. Make sure that epics ( large initiatives ) are properly grouped and follow this 
+
+hierarchy:  EPIC GROUP ->  EPIC -> PHASE -> STEPS.   
+
+EPIC GROUP:  If needed, groups similar type of epics, creation of grouping is done automatically by AI, when it makes sense. 
+EPIC: Large collection of work to be completed ( Large collection of features )
+PHASE: Milestone that breaks up an EPIC in smaller sections of work to be completed ( group of features )
+STEP: Breaks up the phase into even smaller work that accomplishes a meaningful feature. ( single feature )
+
+IMPORTANT: When user invokes @EPIC or @EPICS plan, you are only instructed to build out a comprehensive plan for those epics and track it in this doc. Never actually execute on that plan, that is reserved for our workflow_state.mdc
+
+IMPORTANT: After succesful epic plan, you should offer user to execute that epic with our workflow process defined in workflow_state.mdc
+
+**EPICS PLANS**
+<!-- Stores and tracks the EPIC GROUP, EPIC, PHASE and STEP type of plans.  Only to be modified and used by an AI -->
+

@@ -1,0 +1,38 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Cursor Rule Organization and Codification
+This file contains all cursor rules that should be followed during development. When asked to remember a cursor rule, it will be added to the appropriate section below. All rules in this file must always be followed unless explicitly overridden by the user. 
+
+## Rule Locations and Scope
+
+- **/**: Contains rules and guidelines that apply to the entire application, across all workspaces and domains. Use this location for any rule that should be remembered and enforced globally.
+- **/[[domain]]**: e.g.  Contains rules and guidelines that apply only to the [[DOMAIN]] portion of the application. Use this location for rules specific to the [[DOMAIN]] codebase,
+
+## Best Practices
+- **All Cursor rules must use the `.mdc` extension.** Do not use `.md` or other extensions for rules files.
+- Always write and update rules in the correct workspace according to their intended scope.
+- Reference global rules from workspace-specific rules if needed, but do not duplicate content.
+- When in doubt, prefer to place rules in the most restrictive (specific) workspace that matches their scope.
+
+---
+
+This meta-rule ensures clarity and consistency in rule management across the project. Update this file if the rule organization strategy changes.
+
+## Rule addition instructions
+When the user asks to "remember a cursor rule", add it to the appropriate section below or create a new subsection if needed. 
+Always include:
+- Clear rule description
+- Context for when it applies
+- Any exceptions or special cases
+- Date added (as a commnet)
+- Keep the rule as short as possible without sacrificing clarity and understanding
+
+IMPORTANT: If below rules get larger than 500 lines, break up the rules into meaningful groups and store them as separate files in .cursor/rules directory starting with rules- prefix.  Then make sure to add the reference in this file to it with short instructions on how to read it and follow it. 
+
+## Development Rules
+<-- This area should store all the rules,  to be only completed and managed by AI -->
+
+ 

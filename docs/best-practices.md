@@ -195,39 +195,43 @@ Keep `workflow-state.mdc` as your single source of truth for current progress.
 
 ## 📋 Epic Planning Excellence
 
-### **Epic Hierarchy Management**
-Structure epics in manageable, trackable units.
+### **Realistic Epic Management**
+Structure epics as AI memory and high-level guidance (max 3 active).
 
 #### **Epic Decomposition**
 ```markdown
-# ✅ Well-Structured Epic
-## EPIC: User Management System
-### Phase 1: Authentication
-- Step 1.1: Login/logout functionality
-- Step 1.2: Password reset system  
-- Step 1.3: Session management
+# ✅ Well-Structured Epic (Simplified Template)
+### EPIC: User Management System
+**Status**: IN_PROGRESS
+**Priority**: High
+**Started**: 2025-01-10
+**Target Completion**: 2025-02-15
 
-### Phase 2: User Profiles
-- Step 2.1: Profile creation and editing
-- Step 2.2: Avatar upload system
-- Step 2.3: Privacy settings
+#### Goal
+Create secure user authentication and management system
 
-### Phase 3: User Administration  
-- Step 3.1: Admin user interface
-- Step 3.2: User role management
-- Step 3.3: Audit logging
+#### Success Criteria
+- [ ] Users can register, login, and manage profiles
+- [ ] Admin dashboard for user management
+- [ ] Security compliance and data protection
+
+#### PHASE 1: Authentication - ✅ COMPLETED
+**Goal**: Implement secure login system
+**Steps**: Registration component, login system, password reset
+
+#### PHASE 2: User Profiles - 🔄 IN_PROGRESS
+**Goal**: Build profile management capabilities  
+**Steps**: Profile display, profile editing, avatar upload
 ```
 
-#### **Epic Progress Tracking**
+#### **Epic Context Management**
 ```markdown
-# ✅ Clear Progress Indicators
-## Epic Status Tracking
-- **Epic**: USER-MGMT-001
-- **Status**: IN_PROGRESS
-- **Completed**: 3/8 phases
-- **Current Phase**: Authentication (Phase 1)
-- **Blocked**: None
-- **Next**: Profile system after auth completion
+# ✅ Context-Aware Epic Management
+## Portfolio Limits
+- **Max Active Epics**: 3 (maintains AI context effectiveness)
+- **Archive Policy**: Remove completed epics older than 6 months
+- **AI Memory**: Use epics for long-term context, workflow for execution
+- **Integration**: Reference epic context during active development
 ```
 
 ## 🤖 AI Interaction Patterns

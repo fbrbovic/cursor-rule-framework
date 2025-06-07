@@ -6,6 +6,12 @@ This guide explains how to use the epic planning system for managing large initi
 
 Epic planning provides a structured approach to breaking down large projects into manageable pieces that can be systematically executed using the workflow system. It bridges the gap between high-level project goals and day-to-day development tasks.
 
+### **Key Constraints**
+- **Maximum 3 Active Epics**: To maintain AI context effectiveness and prevent information overload
+- **6-Month Auto-Archive**: Completed epics older than 6 months are removed to keep files manageable  
+- **AI Memory Focus**: Epic plans serve as long-term AI memory for project context and requirements
+- **Simplified Tracking**: Focus on epic/phase progress rather than granular project management
+
 ## 🏗️ Epic Hierarchy
 
 ### **Four-Level Structure**
@@ -157,77 +163,74 @@ PHASE: Core Authentication
 ## Epic Progress Tracking
 
 ### EPIC: User Management System
-**Status**: IN_PROGRESS (40% complete)
+**Status**: IN_PROGRESS
+**Priority**: High
 **Started**: 2025-01-10
-**Expected Completion**: 2025-02-15
+**Target Completion**: 2025-02-15
 
-#### PHASE 1: Core Authentication ✅ COMPLETED
-- ✅ User Registration (Completed 2025-01-15)
-- ✅ User Login (Completed 2025-01-18)
-- ✅ Password Management (Completed 2025-01-20)
+#### Goal
+Create secure user authentication and management system
 
-#### PHASE 2: User Profiles 🔄 IN_PROGRESS
-- ✅ Profile Display (Completed 2025-01-25)
-- 🔄 Profile Editing (In Progress)
-- ⏳ Avatar Upload (Planned)
+#### Success Criteria
+- [ ] Users can register, login, and manage profiles
+- [ ] Admin dashboard for user management
+- [ ] Security compliance and data protection
 
-#### PHASE 3: Admin Management ⏳ PLANNED
-- ⏳ User List Component (Planned)
-- ⏳ User Actions (Planned)
-- ⏳ Role Management (Planned)
+#### PHASE 1: Core Authentication - ✅ COMPLETED
+**Goal**: Implement secure user registration and login system
+**Steps**: Registration component, login system, password reset flow
+
+#### PHASE 2: User Profiles - 🔄 IN_PROGRESS  
+**Goal**: Build user profile management capabilities
+**Steps**: Profile display, profile editing, avatar upload
+
+#### PHASE 3: Admin Management - ⏳ PLANNED
+**Goal**: Provide admin tools for user management
+**Steps**: User list component, user actions, role management
 ```
 
 ## 🛠️ Epic Planning Tools
 
 ### **Epic Template**
+*This matches the simplified template in `epics.mdc`*
+
 ```markdown
----
-description: Epic planning and tracking for [EPIC_NAME]
-globs: "**/*.*"
-alwaysApply: false
----
-
-# EPIC: [Epic Name]
-
-## Epic Overview
-**Goal**: [Clear business objective]
-**Timeline**: [Start date] - [Expected end date]
-**Team**: [Responsible team/people]
+### EPIC: [Epic Name]
+**Status**: [PLANNED/IN_PROGRESS/BLOCKED/COMPLETED]
 **Priority**: [High/Medium/Low]
+**Started**: [Start date]
+**Target Completion**: [Target date]
 
-## Success Criteria
-- [ ] Criterion 1: Measurable outcome
-- [ ] Criterion 2: User experience goal
-- [ ] Criterion 3: Technical requirement
-- [ ] Criterion 4: Business metric
+#### Goal
+[Clear business objective and user value]
 
-## Phases
-### PHASE 1: [Phase Name]
-**Goal**: [Phase objective]
-**Timeline**: [Phase dates]
+#### Success Criteria
+- [ ] [Measurable outcome 1]
+- [ ] [Measurable outcome 2]
+- [ ] [Measurable outcome 3]
 
-#### STEPS:
-1. **[Step Name]**
-   - Acceptance criteria
-   - Technical requirements
-   - Effort estimate
+#### Dependencies & Blockers
+- [Current dependencies or blocking issues]
 
-### PHASE 2: [Phase Name]
+#### PHASE 1: [Phase Name] - [STATUS_ICON] [STATUS]
+**Goal**: [Phase objective and deliverables]
+
+**Steps:**
+1. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]
+   - AI considerations: [Important context for AI execution]
+
+2. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]  
+   - AI considerations: [Important context for AI execution]
+
+#### PHASE 2: [Phase Name] - [STATUS_ICON] [STATUS]
 [Continue pattern...]
 
-## Dependencies
-- External dependency 1
-- Internal dependency 2
-- Resource requirement 3
-
-## Risks and Mitigation
-- **Risk**: Description
-  **Mitigation**: Strategy
-- **Risk**: Description
-  **Mitigation**: Strategy
-
-## Notes
-[Additional context, decisions, changes]
+#### Notes
+- [Key decisions, scope changes, or important context]
 ```
 
 ### **AI Epic Planning Commands**
@@ -283,12 +286,12 @@ EPIC A: User Authentication
 
 ### **Epic Refinement**
 ```bash
-# Regular epic review process
-1. Weekly epic review meetings
-2. Progress assessment and blockers
-3. Scope adjustments as needed
-4. Resource reallocation
-5. Timeline updates
+# Realistic epic review process
+1. Update epic status during AI interactions
+2. Review progress when working on epic tasks
+3. Adjust scope based on learnings
+4. Archive completed epics older than 6 months
+5. Maintain 2-3 active epics maximum
 ```
 
 ## 🎯 Epic Planning Best Practices
@@ -351,12 +354,12 @@ PLANNED     → ACTIVE → BLOCKED → ACTIVE → COMPLETED
 - **ANY → CANCELLED**: Epic no longer needed
 - **COMPLETED → ARCHIVED**: Epic archived for reference
 
-### **Epic Review Cadence**
+### **Epic Review Guidelines**
 ```bash
-# Daily: Step-level progress (via workflow system)
-# Weekly: Phase-level review and planning
-# Monthly: Epic-level assessment and adjustment
-# Quarterly: Epic portfolio review
+# During Active Work: Update epic status when AI works on tasks
+# Phase Completion: Mark phases as completed when major work is done
+# Epic Completion: Move completed epics to history section
+# Context Management: Archive epics older than 6 months to maintain AI context
 ```
 
 ## 🚨 Common Epic Challenges
@@ -396,48 +399,39 @@ Recommend:
 3. Joint testing strategy"
 ```
 
-## 📊 Epic Metrics and Reporting
+## 📊 Epic Tracking and Context Management
 
-### **Progress Metrics**
-```bash
-# Epic Completion Rate
-- Steps completed vs. planned
-- Phase completion timeline
-- Epic velocity trends
+### **Portfolio Limits**
+- **Maximum Active Epics**: 3 (to maintain AI context effectiveness)
+- **Epic Archiving**: Remove completed epics older than 6 months
+- **Context Focus**: Use workflow-state.mdc for detailed execution
 
-# Quality Metrics  
-- Defect rate per step
-- Rework percentage
-- User acceptance rates
+### **Epic Status Summary**
+*Manual tracking based on epics.mdc content*
 
-# Efficiency Metrics
-- Actual vs. estimated effort
-- Resource utilization
-- Dependency resolution time
-```
-
-### **Epic Reporting**
 ```markdown
-## Weekly Epic Report
+## Epic Portfolio Status
 
-### Active Epics (3)
-1. **User Management** - 60% complete, on track
-2. **Payment Integration** - 30% complete, blocked (API access)
-3. **Mobile App** - 85% complete, ahead of schedule
+### Current Active Epics (2/3)
+1. **User Management** - IN_PROGRESS, Phase 2 active
+2. **Payment Integration** - BLOCKED, waiting on API access
 
-### Completed This Week
-- User Registration component (User Management)
-- Payment form validation (Payment Integration)
+### Recently Completed Epics
+- **Authentication System** - Completed 2024-12-15
 
-### Upcoming Milestones
-- User Profile editing (due next week)
-- Payment processing integration (pending API access)
-- Mobile app beta release (next month)
-
-### Risks and Issues
-- Payment API access delayed - impact to Phase 2 timeline
-- Mobile team resource constraint - considering external help
+### Epic Maintenance Checklist
+- [ ] Review active epic statuses and update if needed
+- [ ] Check for epics that should be completed or cancelled  
+- [ ] Archive completed epics older than 6 months
+- [ ] Ensure no more than 3 active epics
+- [ ] Update portfolio summary counts
 ```
+
+### **Realistic Expectations**
+- Epic updates happen during AI interactions, not on schedule
+- Focus on epic and phase progress, not granular step tracking
+- Use external tools (Jira, GitHub Projects) for detailed project management
+- Epic planning serves as AI memory and high-level guidance
 
 ## 📞 Need Help?
 

@@ -4,189 +4,39 @@ globs:
 alwaysApply: false
 ---
 # workflow_state.md
-_Last updated: 2025-01-16_
+_Last updated: 2025-06-06_
 
 ## State
-Phase: VALIDATE  
-Status: COMPLETED  
-CurrentItem: TURBOREPO_MIGRATION_EPIC  
+Phase: null 
+Status: null  
+CurrentItem: null
+EpicReference: null
+EpicPhase: null
+EpicStep: null  
 
 ## Plan
-**TURBOREPO MIGRATION - PHASE 1: PLANNING AND ASSESSMENT (BLUEPRINT)**
-
-**Epic Reference**: INFRASTRUCTURE_MODERNIZATION > TURBOREPO_MIGRATION
-**Current State Analysis Completed**:
-- Frontend: Nuxt.js (pnpm managed) with extensive Vuetify/Vue3 ecosystem
-- Backend: Encore.ts microservices with PostgreSQL/Drizzle ORM
-- Package Manager: pnpm (already configured in frontend)
-- Non-tracked folders: `/media` (design assets), `/res` (resources)
-
-**Detailed Implementation Plan**:
-
-### STEP 1: Pre-Migration Analysis & Setup
-1.1. **Create Root Workspace Structure**
-   - Create root package.json with pnpm workspaces
-   - Install Turborepo as dev dependency
-   - Set up .gitignore for .turbo directories
-   - Configure packageManager field
-
-1.2. **Analyze Current Dependencies**
-   - Frontend: 45+ dependencies including Vuetify, Nuxt, Clerk, TipTap
-   - Backend: 15+ dependencies including Encore.ts, Drizzle, Clerk
-   - Identify shared dependencies for root optimization
-   - Document current build/dev processes
-
-### STEP 2: Create Turborepo Configuration
-2.1. **Root turbo.json Configuration**
-   ```json
-   {
-     "globalDependencies": ["**/.env.*local"],
-     "pipeline": {
-       "dev": { "cache": false, "persistent": true },
-       "build": { "dependsOn": ["^build"], "outputs": [".next/**", "dist/**"] },
-       "test": { "dependsOn": ["^build"] },
-       "lint": {},
-       "type-check": {}
-     }
-   }
-   ```
-
-2.2. **Workspace Structure Planning**
-   ```
-   /
-   ├── apps/
-   │   ├── frontend/          # Nuxt.js app (moved from /frontend)
-   │   └── backend/           # Encore.ts services (moved from /backend-encore)
-   ├── packages/              # Future shared packages
-   ├── media/                 # Excluded from workspaces
-   ├── res/                   # Excluded from workspaces
-   ├── turbo.json
-   ├── package.json           # Root workspace config
-   └── pnpm-workspace.yaml
-   ```
-
-### STEP 3: Frontend Workspace Migration
-3.1. **Move and Configure Frontend**
-   - Move `/frontend` to `/apps/frontend`
-   - Update package.json name to "@resellwolf/frontend"
-   - Preserve all existing scripts and dependencies
-   - Update any relative path references
-
-3.2. **Frontend-Specific Turborepo Tasks**
-   ```json
-   "frontend#dev": { "cache": false, "persistent": true },
-   "frontend#build": { "outputs": [".nuxt/**", ".output/**"] },
-   "frontend#lint": {},
-   "frontend#type-check": {}
-   ```
-
-### STEP 4: Backend Workspace Migration  
-4.1. **Move and Configure Backend**
-   - Move `/backend-encore` to `/apps/backend`
-   - Update package.json name to "@resellwolf/backend"
-   - Preserve Encore.ts functionality and scripts
-   - Ensure database connections work in new structure
-
-4.2. **Backend-Specific Turborepo Tasks**
-   ```json
-   "backend#dev": { "cache": false, "persistent": true },
-   "backend#build": { "outputs": ["dist/**"] },
-   "backend#test": { "dependsOn": ["^build"] },
-   "backend#migrate": { "cache": false }
-   ```
-
-### STEP 5: Root Package.json & Workspace Config
-5.1. **Root Package.json Setup**
-   ```json
-   {
-     "name": "resellwolf",
-     "private": true,
-     "packageManager": "pnpm@9.13.2",
-     "workspaces": ["apps/*", "packages/*"],
-     "scripts": {
-       "dev": "turbo dev",
-       "build": "turbo build",
-       "test": "turbo test",
-       "lint": "turbo lint"
-     },
-     "devDependencies": {
-       "turbo": "^2.3.0"
-     }
-   }
-   ```
-
-5.2. **pnpm-workspace.yaml**
-   ```yaml
-   packages:
-     - "apps/*"
-     - "packages/*"
-   ```
-
-### STEP 6: Shared Dependencies Optimization
-6.1. **Move Common Dependencies to Root**
-   - TypeScript, ESLint, Prettier configs
-   - Testing frameworks (Vitest)
-   - Common build tools
-
-6.2. **Preserve Domain-Specific Dependencies**
-   - Frontend: Keep Nuxt, Vuetify, Vue ecosystem in frontend workspace
-   - Backend: Keep Encore.ts, Drizzle, database libs in backend workspace
-
-### STEP 7: Development Workflow Enhancement
-7.1. **Unified Development Commands**
-   - `pnpm dev` → runs both frontend and backend
-   - `pnpm dev --filter frontend` → frontend only
-   - `pnpm dev --filter backend` → backend only
-
-7.2. **Update Existing Scripts**
-   - Replace current concurrently setup with Turborepo tasks
-   - Maintain port configurations (frontend:3000, backend:4000)
-
-### STEP 8: Validation & Testing
-8.1. **Functional Testing**
-   - Verify frontend builds and runs correctly
-   - Verify backend Encore.ts services work
-   - Test database connections and migrations
-   - Verify Clerk authentication flow
-
-8.2. **Performance Validation**
-   - Test Turborepo caching effectiveness
-   - Verify parallel task execution
-   - Confirm build optimization
-
-**Files to be Created/Modified**:
-- CREATE: `/package.json` (root workspace)
-- CREATE: `/pnpm-workspace.yaml`
-- CREATE: `/turbo.json` 
-- MODIFY: `/apps/frontend/package.json` (moved from frontend/)
-- MODIFY: `/apps/backend/package.json` (moved from backend-encore/)
-- MODIFY: `/.gitignore` (add .turbo)
-- MOVE: `/frontend` → `/apps/frontend`
-- MOVE: `/backend-encore` → `/apps/backend`
-
-**Risk Mitigation**:
-- Preserve exact dependency versions during migration
-- Test each workspace independently before integration
-- Maintain backup of current working structure
-- Incremental validation at each step
-
-**Success Criteria**:
-- Both frontend and backend work in new structure
-- `turbo dev` starts both applications correctly
-- Build processes work with caching
-- No functionality regression in either application
+<!-- THe AI fills this in during the BLUEPRINT phase -->
 
 ## Rules
 > **Keep every major section under an explicit H2 (`##`) heading so the agent can locate them unambiguously.**
 
 ### [PHASE: ANALYZE]
 1. Read **project_config.md**, relevant code & docs.  
-2. Summarize requirements. *No code or planning.*
+2. **Epic Integration Logic**:
+   - If user request mentions epic work (e.g., "work on login from user management epic"), search epics.mdc
+   - Identify matching epic, phase, and step from user's natural language description
+   - Set CurrentItem to descriptive format, and set epic fields:
+     - Set `EpicReference = EPIC_NAME` (if found)
+     - Set `EpicPhase = PHASE_NAME` (if found)
+     - Set `EpicStep = STEP_NAME` (if found)
+   - If no epic context found, leave epic fields as null
+3. Summarize requirements. *No code or planning.*
 
 ### [PHASE: BLUEPRINT]
-1. Decompose task into ordered steps.  
-2. Write pseudocode or file-level diff outline under **## Plan**.  
-3. Set `Status = NEEDS_PLAN_APPROVAL` and await user confirmation.
+1. If `EpicReference` exists, read epic context from epics.mdc for step requirements and acceptance criteria.
+2. Decompose task into ordered steps.  
+3. Write pseudocode or file-level diff outline under **## Plan**.  
+4. Set `Status = NEEDS_PLAN_APPROVAL` and await user confirmation.
 
 ### [PHASE: CONSTRUCT]
 1. Follow the approved **## Plan** exactly.  
@@ -210,11 +60,20 @@ Action ▶ Ask user for first high-level task → `Phase = ANALYZE, Status = RUN
 Trigger ▶ `Status == COMPLETED && Items contains unprocessed rows`  
 Action ▶  
 1. Set `CurrentItem` to next unprocessed row in **## Items**.  
-2. Clear **## Log**, reset `Phase = ANALYZE, Status = READY`.
+2. Parse epic reference if CurrentItem format is `EPIC_NAME > PHASE_NAME > STEP_NAME`.
+3. Clear **## Log**, reset `Phase = ANALYZE, Status = READY`.
 
 ### RULE_LOG_ROTATE_01
 Trigger ▶ `length(## Log) > 5 000 chars`  
 Action ▶ Summarise the top 5 findings from **## Log** into **## ArchiveLog**, then clear **## Log**.
+
+### RULE_EPIC_UPDATE_01
+Trigger ▶ `Phase == VALIDATE && Status == COMPLETED && EpicReference != null`
+Action ▶
+1. Parse EpicReference, EpicPhase, and EpicStep to identify epic location in epics.mdc.
+2. Update corresponding epic step status to include completion percentage, date, and notes.
+3. Check if all steps in the phase are completed, update phase status accordingly.
+4. Add completion entry to epic notes section with timestamp.
 
 ### RULE_SUMMARY_01
 Trigger ▶ `Phase == VALIDATE && Status == COMPLETED`  
@@ -226,59 +85,68 @@ Action ▶
 
 ---
 
+## Epic Integration Usage
+
+### **Realistic User Interactions**
+
+#### **Starting Epic Work**
+```bash
+# User says:
+"Start working on the login component from the user management epic"
+
+# AI automatically:
+1. Searches epics.mdc for user management epic
+2. Finds the login component step in authentication phase
+3. Sets CurrentItem: "Login component implementation"
+4. Sets epic fields:
+   EpicReference: USER_MGMT_EPIC
+   EpicPhase: AUTHENTICATION_PHASE  
+   EpicStep: LOGIN_COMPONENT_STEP
+5. Reads epic context during blueprint phase
+```
+
+#### **Epic Progress Updates**
+```bash
+# User says:
+"Update the login component progress to 75%, core functionality is done but still need remember me feature"
+
+# AI automatically:
+1. Finds current epic work in epics.mdc
+2. Updates step status to IN_PROGRESS (75%)
+3. Updates notes with user's progress description
+4. Sets last updated date
+```
+
+#### **Standalone Work (No Epic)**
+```bash
+# User says:
+"Fix the payment processing bug in checkout"
+
+# AI automatically:
+1. No epic context mentioned, processes as standalone work
+2. Sets CurrentItem: "Fix payment processing bug"
+3. Leaves epic fields null:
+   EpicReference: null
+   EpicPhase: null
+   EpicStep: null
+```
+
+### **AI Epic Management Commands**
+The AI handles these natural language requests:
+- **"Plan an epic for [feature]"** → Creates new epic in epics.mdc
+- **"Work on [step] from [epic]"** → Starts workflow with epic context
+- **"Update progress on [current work]"** → Updates epic step status
+- **"Mark [step] as complete"** → Sets step to 100% and updates epic
+- **"Show epic status"** → Displays current epic progress
+
+---
+
 ## Items
 | id | description | status |
 |----|-------------|--------|
 
 ## Log
 <!-- AI appends detailed reasoning, tool output, and errors here -->
-
-**TURBOREPO MIGRATION - CONSTRUCT PHASE PROGRESS**
-
-✅ **STEP 1 - Pre-Migration Setup COMPLETED**
-- Created root .gitignore with .turbo exclusion
-- Created root package.json with workspace configuration
-- Created pnpm-workspace.yaml
-- Created apps/ and packages/ directories
-- Moved frontend → apps/frontend
-- Moved backend-encore → apps/backend
-- Updated workspace package names (@resellwolf/frontend, @resellwolf/backend)
-
-✅ **STEP 2 - Turborepo Configuration COMPLETED**
-- Created turbo.json with proper task definitions
-- Installed Turborepo 2.5.4 successfully
-- Configured tasks for dev, build, test, lint, type-check
-
-✅ **STEP 3 - Initial Testing COMPLETED**
-- Both workspaces detected by Turborepo
-- Frontend accessible on port 3000 (with config error to fix)
-- Backend accessible on port 4000 (Encore.ts working)
-- `pnpm turbo dev` successfully runs both services
-
-**CURRENT STATUS**: Core migration successful, minor frontend configuration issue needs resolution
-
-✅ **FINAL VALIDATION COMPLETED**
-- Core Turborepo migration: **SUCCESS**
-- Both workspaces running through Turbo: **SUCCESS**
-- Development workflow optimized: **SUCCESS** 
-- Backend build properly configured: **SUCCESS**
-- Frontend build has known i18n issue (non-blocking for dev workflow)
-
-**MIGRATION STATUS**: ✅ **SUCCESSFULLY COMPLETED**
-
-**ACHIEVED GOALS**:
-- ✅ Converted to Turborepo monorepo structure
-- ✅ Both frontend and backend work as workspaces
-- ✅ Unified development command (`pnpm dev`)
-- ✅ Workspace-specific commands work (`--filter`)
-- ✅ Preserved all existing functionality
-- ✅ Optimized dependency management
-
-**MIGRATION SUMMARY**:
-- **Structure**: `/frontend` → `/apps/frontend`, `/backend-encore` → `/apps/backend`
-- **Commands**: `pnpm dev` runs both, `pnpm turbo dev --filter @resellwolf/frontend` for individual
-- **Caching**: Turborepo intelligent caching enabled
-- **Dependencies**: Root-level dependency management optimized
 
 ## ArchiveLog
 <!-- RULE_LOG_ROTATE_01 stores condensed summaries here -->

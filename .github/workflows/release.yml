@@ -1,0 +1,369 @@
+name: 🚀 Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prerelease
+      prerelease_identifier:
+        description: 'Prerelease identifier (alpha, beta, rc)'
+        required: false
+        default: 'beta'
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  # Check if release is needed (only for push events)
+  check-release:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    outputs:
+      should_release: ${{ steps.check.outputs.should_release }}
+      new_version: ${{ steps.check.outputs.new_version }}
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔍 Check for release triggers
+        id: check
+        run: |
+          # Check commit messages for release triggers
+          COMMITS=$(git log --pretty=format:"%s" HEAD~1..HEAD)
+          echo "Recent commits: $COMMITS"
+          
+          # AI-SAFE: Only allow patch and minor releases for automatic triggers
+          # Major releases must be triggered manually to prevent AI accidents
+          if echo "$COMMITS" | grep -qE "^(feat|fix|perf):"; then
+            echo "should_release=true" >> $GITHUB_OUTPUT
+            
+            # AI-SAFE: Determine version bump (NO automatic major releases)
+            if echo "$COMMITS" | grep -q "^feat:"; then
+              echo "new_version=minor" >> $GITHUB_OUTPUT
+            else
+              echo "new_version=patch" >> $GITHUB_OUTPUT
+            fi
+            
+            # AI-SAFE: Check for potentially dangerous patterns and warn
+            if echo "$COMMITS" | grep -qE "(BREAKING|breaking|major|MAJOR|!:|breaking change)"; then
+              echo "⚠️ WARNING: Detected potential breaking change keywords in commit message"
+              echo "⚠️ Auto-release will be PATCH/MINOR only. Use manual release for major versions."
+              echo "⚠️ Commit message: $COMMITS"
+            fi
+          else
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          fi
+
+  # Manual release or auto-release
+  release:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'workflow_dispatch') ||
+      (github.event_name == 'push' && needs.check-release.outputs.should_release == 'true')
+    needs: [check-release]
+    environment: ${{ github.event.inputs.release_type == 'major' && 'production' || '' }}
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: |
+          npm install -g @semantic-release/changelog @semantic-release/git conventional-changelog-cli
+          
+      - name: 🏷️ Determine version
+        id: version
+        run: |
+          # Get current version from package.json or default to 0.0.0
+          if [ -f package.json ]; then
+            CURRENT_VERSION=$(node -p "require('./package.json').version")
+          else
+            CURRENT_VERSION="1.0.0"
+          fi
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          
+          # Determine release type
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            RELEASE_TYPE="${{ github.event.inputs.release_type }}"
+            PRERELEASE_ID="${{ github.event.inputs.prerelease_identifier }}"
+            
+            # AI-SAFE: Extra validation for major releases
+            if [ "$RELEASE_TYPE" = "major" ]; then
+              echo "🚨 MAJOR RELEASE DETECTED - Manual approval required"
+              echo "🔍 Current version: $CURRENT_VERSION"
+              echo "🎯 Target release type: $RELEASE_TYPE"
+              echo "⚠️ This will create a breaking change release"
+            fi
+          else
+            RELEASE_TYPE="${{ needs.check-release.outputs.new_version }}"
+            PRERELEASE_ID=""
+            
+            # AI-SAFE: Double-check no major releases slip through
+            if [ "$RELEASE_TYPE" = "major" ]; then
+              echo "🚨 ERROR: Major release attempted via automatic trigger"
+              echo "🚨 This is not allowed for AI safety reasons"
+              echo "🔧 Use manual workflow dispatch for major releases"
+              exit 1
+            fi
+          fi
+          
+          echo "release_type=$RELEASE_TYPE" >> $GITHUB_OUTPUT
+          echo "prerelease_id=$PRERELEASE_ID" >> $GITHUB_OUTPUT
+          
+          # Calculate new version
+          if [ "$RELEASE_TYPE" = "prerelease" ]; then
+            NEW_VERSION=$(npx semver $CURRENT_VERSION -i prerelease --preid $PRERELEASE_ID)
+          else
+            NEW_VERSION=$(npx semver $CURRENT_VERSION -i $RELEASE_TYPE)
+          fi
+          
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "📋 Version: $CURRENT_VERSION → $NEW_VERSION ($RELEASE_TYPE)"
+
+      - name: 🔄 Update version files
+        run: |
+          NEW_VERSION="${{ steps.version.outputs.new_version }}"
+          
+          # Create or update package.json
+          if [ ! -f package.json ]; then
+            cat > package.json << EOF
+          {
+            "name": "cursor-rule-framework",
+            "version": "$NEW_VERSION",
+            "description": "Professional Cursor AI Rule Framework for 'Vibe Coding'",
+            "repository": {
+              "type": "git",
+              "url": "git+https://github.com/fbrbovic/cursor-rule-framework.git"
+            },
+            "keywords": [
+              "cursor",
+              "ai",
+              "rules",
+              "framework",
+              "development",
+              "automation"
+            ],
+            "author": "fbrbovic",
+            "license": "MIT",
+            "bugs": {
+              "url": "https://github.com/fbrbovic/cursor-rule-framework/issues"
+            },
+            "homepage": "https://github.com/fbrbovic/cursor-rule-framework#readme"
+          }
+          EOF
+          else
+            # Update existing package.json
+            node -e "
+              const pkg = require('./package.json');
+              pkg.version = '$NEW_VERSION';
+              require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+            "
+          fi
+
+      - name: 📝 Generate changelog
+        id: changelog
+        run: |
+          # Get previous tag
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          NEW_VERSION="${{ steps.version.outputs.new_version }}"
+          
+          if [ -z "$PREVIOUS_TAG" ]; then
+            echo "📋 First release - generating full changelog"
+            CHANGELOG_CONTENT="## Initial Release
+
+          This is the first release of the Cursor Rule Framework, a comprehensive system for AI-assisted development with Cursor IDE.
+
+          ### 🎯 Key Features
+          - Complete cursor rule management system
+          - AI-driven development workflow (Blueprint → Construct → Validate)
+          - Epic planning and tracking system
+          - Architecture guidelines and validation
+          - Comprehensive documentation and examples
+
+          ### 📚 Documentation
+          - Getting started guide
+          - Rule organization best practices  
+          - Workflow system documentation
+          - Epic planning guide
+          - Custom rules creation
+          - Team integration patterns
+
+          ### 🛠️ Examples
+          - Frontend development templates
+          - Backend API patterns
+          - Full-stack application setup
+          - Monorepo configuration
+
+          See the [complete documentation](docs/README.md) for detailed usage instructions."
+          else
+            echo "📋 Generating changelog since $PREVIOUS_TAG"
+            
+            # Generate changelog using conventional commits
+            CHANGELOG_CONTENT=$(conventional-changelog -p angular --pkg package.json --release-count 1 2>/dev/null || echo "")
+            
+            # If conventional changelog fails, generate from git log
+            if [ -z "$CHANGELOG_CONTENT" ]; then
+              CHANGELOG_CONTENT="## Changes
+
+          $(git log --pretty=format:"- %s (%h)" $PREVIOUS_TAG..HEAD)"
+            fi
+          fi
+          
+          # Save changelog content
+          echo "$CHANGELOG_CONTENT" > /tmp/changelog.md
+          echo "changelog_file=/tmp/changelog.md" >> $GITHUB_OUTPUT
+
+      - name: 🏷️ Create Git tag
+        run: |
+          NEW_VERSION="${{ steps.version.outputs.new_version }}"
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          # Commit version changes
+          git add package.json
+          git commit -m "chore(release): bump version to $NEW_VERSION" || echo "No changes to commit"
+          
+          # Create and push tag
+          git tag -a "v$NEW_VERSION" -m "Release v$NEW_VERSION"
+          git push origin main --tags
+
+      - name: 📦 Create release assets
+        run: |
+          # Create a release archive
+          mkdir -p release-assets
+          
+          # Create framework bundle
+          tar -czf release-assets/cursor-rule-framework-v${{ steps.version.outputs.new_version }}.tar.gz \
+            --exclude='.git*' \
+            --exclude='node_modules' \
+            --exclude='release-assets' \
+            .
+          
+          # Create quick-start bundle (just the essential rules)
+          mkdir -p quick-start
+          cp -r .cursor quick-start/
+          cp README.md quick-start/
+          cp LICENSE quick-start/
+          tar -czf release-assets/quick-start-v${{ steps.version.outputs.new_version }}.tar.gz -C quick-start .
+          
+          # Create checksum file
+          cd release-assets
+          sha256sum *.tar.gz > checksums.txt
+
+      - name: 🚀 Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version.outputs.new_version }}
+          release_name: 🎯 Cursor Rule Framework v${{ steps.version.outputs.new_version }}
+          body_path: ${{ steps.changelog.outputs.changelog_file }}
+          draft: false
+          prerelease: ${{ steps.version.outputs.release_type == 'prerelease' }}
+
+      - name: 📎 Upload release assets
+        run: |
+          # Upload all release assets
+          for file in release-assets/*; do
+            if [ -f "$file" ]; then
+              echo "Uploading $file"
+              gh release upload "v${{ steps.version.outputs.new_version }}" "$file" --clobber
+            fi
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔔 Update CHANGELOG.md
+        run: |
+          NEW_VERSION="${{ steps.version.outputs.new_version }}"
+          RELEASE_DATE=$(date +%Y-%m-%d)
+          
+          # Backup current changelog
+          cp CHANGELOG.md CHANGELOG.md.bak
+          
+          # Create new changelog entry
+          {
+            echo "# Changelog"
+            echo ""
+            echo "All notable changes to the Cursor Rule Framework will be documented in this file."
+            echo ""
+            echo "The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),"
+            echo "and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)."
+            echo ""
+            echo "## [Unreleased]"
+            echo ""
+            echo "### Added"
+            echo "- "
+            echo ""
+            echo "### Changed"
+            echo "- "
+            echo ""
+            echo "### Fixed"
+            echo "- "
+            echo ""
+            echo "## [$NEW_VERSION] - $RELEASE_DATE"
+            echo ""
+            cat ${{ steps.changelog.outputs.changelog_file }}
+            echo ""
+            # Add rest of existing changelog, skipping the header and unreleased section
+            tail -n +$(grep -n "## \[" CHANGELOG.md.bak | head -1 | cut -d: -f1) CHANGELOG.md.bak
+          } > CHANGELOG.md
+          
+          # Commit changelog update
+          git add CHANGELOG.md
+          git commit -m "docs: update CHANGELOG.md for v$NEW_VERSION" || echo "No changelog changes to commit"
+          git push origin main
+
+      - name: 📊 Release summary
+        run: |
+          echo "## 🎉 Release Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Version**: v${{ steps.version.outputs.new_version }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Type**: ${{ steps.version.outputs.release_type }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Release URL**: https://github.com/fbrbovic/cursor-rule-framework/releases/tag/v${{ steps.version.outputs.new_version }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📦 Assets" >> $GITHUB_STEP_SUMMARY
+          echo "- Complete framework bundle" >> $GITHUB_STEP_SUMMARY
+          echo "- Quick-start bundle" >> $GITHUB_STEP_SUMMARY
+          echo "- SHA256 checksums" >> $GITHUB_STEP_SUMMARY
+
+  # Post-release actions
+  post-release:
+    runs-on: ubuntu-latest
+    needs: [release]
+    if: success()
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: 🔔 Notify release
+        run: |
+          echo "✅ Release completed successfully!"
+          echo "🔗 View release: https://github.com/fbrbovic/cursor-rule-framework/releases/latest" 

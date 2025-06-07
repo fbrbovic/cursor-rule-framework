@@ -1,0 +1,85 @@
+{
+  "name": "cursor-rule-framework",
+  "version": "1.0.0",
+  "description": "Professional Cursor AI Rule Framework for 'Vibe Coding' - Co-Built by Engineers & AI, for Engineers & AI",
+  "main": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbrbovic/cursor-rule-framework.git"
+  },
+  "keywords": [
+    "cursor",
+    "cursor-ai",
+    "ai-development",
+    "rules",
+    "framework",
+    "development",
+    "automation",
+    "vibe-coding",
+    "ai-assistant",
+    "productivity",
+    "workflow",
+    "epic-planning",
+    "architecture",
+    "pair-programming"
+  ],
+  "author": {
+    "name": "fbrbovic",
+    "url": "https://github.com/fbrbovic"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fbrbovic/cursor-rule-framework/issues"
+  },
+  "homepage": "https://github.com/fbrbovic/cursor-rule-framework#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    ".cursor/",
+    "docs/",
+    "examples/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
+  ],
+  "scripts": {
+    "release": "npm run release:patch",
+    "release:patch": "npm version patch && git push --follow-tags",
+    "release:minor": "npm version minor && git push --follow-tags", 
+    "release:major": "npm version major && git push --follow-tags",
+    "release:prerelease": "npm version prerelease && git push --follow-tags",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "validate": "npm run validate:rules && npm run validate:docs",
+    "validate:rules": "node scripts/validate-rules.js",
+    "validate:docs": "node scripts/validate-docs.js",
+    "test": "echo \"No tests specified yet\" && exit 0",
+    "lint": "echo \"No linting configured yet\" && exit 0",
+    "format": "echo \"No formatting configured yet\" && exit 0"
+  },
+  "devDependencies": {
+    "conventional-changelog-cli": "^4.1.0",
+    "semver": "^7.5.4",
+    "js-yaml": "^4.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/fbrbovic"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "config": {
+    "release": {
+      "conventional-commits": true,
+      "generate-changelog": true
+    }
+  }
+} 

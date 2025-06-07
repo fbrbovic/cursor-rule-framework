@@ -8,6 +8,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- 
+
+### Changed
+- 
+
+### Fixed
+- 
+
+## [1.0.1] - 2025-06-07
+
+## Initial Release
+
+This is the first release of the Cursor Rule Framework, a comprehensive system for AI-assisted development with Cursor IDE.
+
+### 🎯 Key Features
+- Complete cursor rule management system
+- AI-driven development workflow (Blueprint → Construct → Validate)
+- Epic planning and tracking system
+- Architecture guidelines and validation
+- Comprehensive documentation and examples
+
+### 📚 Documentation
+- Getting started guide
+- Rule organization best practices  
+- Workflow system documentation
+- Epic planning guide
+- Custom rules creation
+- Team integration patterns
+
+### 🛠️ Examples
+- Frontend development templates
+- Backend API patterns
+- Full-stack application setup
+- Monorepo configuration
+
+See the [complete documentation](docs/README.md) for detailed usage instructions.
+
+## [Unreleased]
+
+### Added
 - Initial framework documentation
 - Example projects for different technology stacks
 

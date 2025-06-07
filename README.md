@@ -68,7 +68,40 @@ cd my-project
 rm -rf .git && git init
 ```
 
-### 2. **Install User Rules Template** ⚠️ **CRITICAL STEP**
+### 2. **Add to Existing Project** 
+```bash
+# Navigate to your existing project
+cd your-existing-project
+
+# Create the cursor rules directory
+mkdir -p .cursor/rules
+
+# Download the essential framework files
+curl -o .cursor/rules/cursor-rules-management.mdc \
+  https://raw.githubusercontent.com/fbrbovic/cursor-rule-framework/main/.cursor/rules/cursor-rules-management.mdc
+
+curl -o .cursor/rules/project-config.mdc \
+  https://raw.githubusercontent.com/fbrbovic/cursor-rule-framework/main/.cursor/rules/project-config.mdc
+
+curl -o .cursor/rules/workflow-state.mdc \
+  https://raw.githubusercontent.com/fbrbovic/cursor-rule-framework/main/.cursor/rules/workflow-state.mdc
+
+curl -o .cursor/rules/epics.mdc \
+  https://raw.githubusercontent.com/fbrbovic/cursor-rule-framework/main/.cursor/rules/epics.mdc
+
+curl -o .cursor/rules/architecture.mdc \
+  https://raw.githubusercontent.com/fbrbovic/cursor-rule-framework/main/.cursor/rules/architecture.mdc
+
+curl -o .cursor/rules/rules.mdc \
+  https://raw.githubusercontent.com/fbrbovic/cursor-rule-framework/main/.cursor/rules/rules.mdc
+
+curl -o .cursor/rules/user-rules-template.mdc \
+  https://raw.githubusercontent.com/fbrbovic/cursor-rule-framework/main/.cursor/rules/user-rules-template.mdc
+```
+
+**💡 Tip**: For comprehensive migration guidance, see our **[Migration Guide](docs/migration-guide.md)** with step-by-step instructions for existing projects.
+
+### 3. **Install User Rules Template** ⚠️ **CRITICAL STEP**
 ```bash
 # Copy the user rules template to Cursor IDE settings
 # This enables the framework workflow system
@@ -80,7 +113,7 @@ code .cursor/rules/user-rules-template.mdc
 
 This template is **required** for the AI-driven workflow system (Blueprint → Construct → Validate with epic integration) to function properly.
 
-### 3. **Customize Project Configuration**
+### 4. **Customize Project Configuration**
 ```bash
 # Edit your project-specific settings
 code .cursor/rules/project-config.mdc
@@ -91,7 +124,7 @@ Update the following sections:
 - **Tech Stack**: Your languages, frameworks, and tools
 - **Critical Patterns**: Your team's conventions and standards
 
-### 4. **Initialize Your Rules**
+### 5. **Initialize Your Rules**
 The framework comes with essential rules pre-configured:
 - `cursor-rules-management.mdc` - Rule organization and management
 - `project-config.mdc` - Project-specific configuration
@@ -99,7 +132,7 @@ The framework comes with essential rules pre-configured:
 - `epics.mdc` - Large initiative planning
 - `rules.mdc` - **Master rule registry** (accumulates custom rules as you develop)
 
-### 5. **Start Vibe Coding**
+### 6. **Start Vibe Coding**
 ```bash
 # Open in Cursor IDE
 cursor .

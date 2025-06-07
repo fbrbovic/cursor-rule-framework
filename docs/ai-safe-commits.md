@@ -16,9 +16,11 @@ Our release system includes multiple AI-safety features:
 - **Safety net**: Code will error if major release attempts automatic trigger
 
 ### 🔍 **Smart Pattern Detection**
-- Scans commit messages for dangerous keywords
-- Warns about potential breaking change language
-- Continues with safe patch/minor release
+- **Conventional Commits**: Respects `feat:`, `fix:`, `perf:` when used
+- **Smart File Analysis**: Detects changes when commit messages aren't conventional
+- **Keyword Analysis**: Scans commit content for feature/fix keywords
+- **Danger Detection**: Warns about potential breaking change language
+- **Safe Fallback**: Always defaults to patch/minor releases
 
 ### ✅ **Manual Approval for Major Changes**
 - Major releases require manual workflow dispatch
@@ -30,21 +32,44 @@ Our release system includes multiple AI-safety features:
 ### ✅ **Safe Patterns (Auto-Release)**
 
 ```bash
-# These patterns are SAFE for AI to generate:
+# CONVENTIONAL COMMITS (preferred)
+feat: add new architecture validation rules    # → Minor release
+fix: resolve cursor rule validation issue      # → Patch release
+docs: update installation instructions         # → Patch release
 
-# PATCH releases (bug fixes, docs, small improvements)
-fix: resolve cursor rule validation issue
-docs: update installation instructions  
-style: improve code formatting
-refactor: simplify validation logic
-test: add missing test cases
-chore: update dependencies
+# SMART DETECTION - Works even without conventional format!
+Add new validation system                      # → Minor (keywords: "add", "new")
+Fix parsing issue in rules                     # → Patch (keywords: "fix")
+Update documentation with examples             # → Patch (file changes: *.md)
+Create new cursor rule template                # → Minor (new files + keywords)
+Improve workflow automation                    # → Patch (workflow files)
+```
 
-# MINOR releases (new features, backward compatible)
-feat: add new architecture validation rules
-feat: implement epic progress tracking
-feat: add rule template generator
-feat: enhance documentation system
+### 🤖 **Smart Detection Logic**
+
+When Cursor AI doesn't use conventional commits, the system analyzes:
+
+**File Changes:**
+- **New files added** → Minor release (suggests new features)
+- **Documentation updates** → Patch release  
+- **New cursor rules** → Minor release
+- **Modified cursor rules** → Patch release
+- **Script/tool changes** → Minor release
+- **Workflow updates** → Patch release
+- **Dependencies updated** → Patch release
+
+**Commit Message Keywords:**
+- **Feature words**: "add", "create", "implement", "new", "enhance" → Minor
+- **Fix words**: "fix", "resolve", "correct", "repair", "bug" → Patch
+- **Danger words**: "breaking", "remove", "delete", "major" → ⚠️ Warning
+
+**Smart Examples:**
+```bash
+"Add new validation feature"           # → Minor (keyword: "add", "new")
+"Update documentation"                 # → Patch (files: *.md)
+"Create rule template"                 # → Minor (new file + keywords)
+"Fix issue with parsing"               # → Patch (keyword: "fix")
+"Improve workflow scripts"             # → Minor (script changes)
 ```
 
 ### ⚠️ **Dangerous Patterns (Manual Only)**

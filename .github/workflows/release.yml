@@ -34,6 +34,7 @@ jobs:
     outputs:
       should_release: ${{ steps.check.outputs.should_release }}
       new_version: ${{ steps.check.outputs.new_version }}
+      release_reason: ${{ steps.check.outputs.release_reason }}
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4
@@ -48,26 +49,129 @@ jobs:
           COMMITS=$(git log --pretty=format:"%s" HEAD~1..HEAD)
           echo "Recent commits: $COMMITS"
           
-          # AI-SAFE: Only allow patch and minor releases for automatic triggers
-          # Major releases must be triggered manually to prevent AI accidents
+          # Get file changes for smart detection
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          ADDED_FILES=$(git diff --name-only --diff-filter=A HEAD~1..HEAD)
+          MODIFIED_FILES=$(git diff --name-only --diff-filter=M HEAD~1..HEAD)
+          DELETED_FILES=$(git diff --name-only --diff-filter=D HEAD~1..HEAD)
+          
+          echo "📁 Changed files: $CHANGED_FILES"
+          echo "➕ Added files: $ADDED_FILES"
+          echo "📝 Modified files: $MODIFIED_FILES"
+          echo "🗑️ Deleted files: $DELETED_FILES"
+          
+          # Initialize release detection variables
+          SHOULD_RELEASE=false
+          RELEASE_TYPE="patch"
+          RELEASE_REASON=""
+          
+          # AI-SAFE: Check commit messages first (conventional commits)
           if echo "$COMMITS" | grep -qE "^(feat|fix|perf):"; then
-            echo "should_release=true" >> $GITHUB_OUTPUT
-            
-            # AI-SAFE: Determine version bump (NO automatic major releases)
+            SHOULD_RELEASE=true
             if echo "$COMMITS" | grep -q "^feat:"; then
-              echo "new_version=minor" >> $GITHUB_OUTPUT
+              RELEASE_TYPE="minor"
+              RELEASE_REASON="Conventional commit: feat"
             else
-              echo "new_version=patch" >> $GITHUB_OUTPUT
+              RELEASE_TYPE="patch"
+              RELEASE_REASON="Conventional commit: fix/perf"
+            fi
+          # SMART DETECTION: Analyze file changes when commit messages aren't conventional
+          else
+            echo "🤖 No conventional commit detected, analyzing file changes..."
+            
+            # Check for new features (likely minor release)
+            if echo "$ADDED_FILES" | grep -qE "\.(md|mdc|js|ts|py|go|java|rb|php)$" && [ -n "$ADDED_FILES" ]; then
+              if echo "$ADDED_FILES" | grep -qE "(feature|rule|template|example|doc)" || [ $(echo "$ADDED_FILES" | wc -l) -gt 2 ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="minor"
+                RELEASE_REASON="Smart detection: New files suggest feature addition"
+              fi
             fi
             
-            # AI-SAFE: Check for potentially dangerous patterns and warn
-            if echo "$COMMITS" | grep -qE "(BREAKING|breaking|major|MAJOR|!:|breaking change)"; then
-              echo "⚠️ WARNING: Detected potential breaking change keywords in commit message"
-              echo "⚠️ Auto-release will be PATCH/MINOR only. Use manual release for major versions."
-              echo "⚠️ Commit message: $COMMITS"
+            # Check for documentation updates (likely patch)
+            if echo "$CHANGED_FILES" | grep -qE "\.(md|mdc)$"; then
+              if [ "$SHOULD_RELEASE" = false ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="patch"
+                RELEASE_REASON="Smart detection: Documentation updates"
+              fi
             fi
+            
+            # Check for cursor rule changes (likely minor if new, patch if modified)
+            if echo "$CHANGED_FILES" | grep -qE "\.cursor/rules/.*\.mdc$"; then
+              if echo "$ADDED_FILES" | grep -qE "\.cursor/rules/.*\.mdc$"; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="minor"
+                RELEASE_REASON="Smart detection: New cursor rules added"
+              elif [ "$SHOULD_RELEASE" = false ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="patch"
+                RELEASE_REASON="Smart detection: Cursor rules updated"
+              fi
+            fi
+            
+            # Check for script/tool changes (likely minor)
+            if echo "$CHANGED_FILES" | grep -qE "(script|tool|bin)/.*\.(js|ts|py|sh)$"; then
+              if [ "$SHOULD_RELEASE" = false ] || [ "$RELEASE_TYPE" = "patch" ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="minor"
+                RELEASE_REASON="Smart detection: Scripts/tools updated"
+              fi
+            fi
+            
+            # Check for workflow/automation changes (patch)
+            if echo "$CHANGED_FILES" | grep -qE "\.github/workflows/.*\.yml$"; then
+              if [ "$SHOULD_RELEASE" = false ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="patch"
+                RELEASE_REASON="Smart detection: Workflow improvements"
+              fi
+            fi
+            
+            # Check for package.json or dependency changes (patch)
+            if echo "$CHANGED_FILES" | grep -qE "(package\.json|requirements\.txt|go\.mod|Cargo\.toml)$"; then
+              if [ "$SHOULD_RELEASE" = false ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="patch"
+                RELEASE_REASON="Smart detection: Dependencies updated"
+              fi
+            fi
+            
+            # Analyze commit message content for feature-like words
+            if echo "$COMMITS" | grep -qiE "(add|create|implement|introduce|new|feature|enhance|improve)"; then
+              if [ "$SHOULD_RELEASE" = false ] || [ "$RELEASE_TYPE" = "patch" ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="minor"
+                RELEASE_REASON="Smart detection: Commit message suggests new feature"
+              fi
+            fi
+            
+            # Analyze commit message for fix-like words
+            if echo "$COMMITS" | grep -qiE "(fix|resolve|correct|repair|patch|bug|issue)"; then
+              if [ "$SHOULD_RELEASE" = false ]; then
+                SHOULD_RELEASE=true
+                RELEASE_TYPE="patch" 
+                RELEASE_REASON="Smart detection: Commit message suggests bug fix"
+              fi
+            fi
+          fi
+          
+          # AI-SAFE: Check for potentially dangerous patterns and warn
+          if echo "$COMMITS" | grep -qiE "(BREAKING|breaking|major|MAJOR|!:|breaking change|remove|delete|deprecat)"; then
+            echo "⚠️ WARNING: Detected potential breaking change keywords in commit message"
+            echo "⚠️ Auto-release will be PATCH/MINOR only. Use manual release for major versions."
+            echo "⚠️ Commit message: $COMMITS"
+          fi
+          
+          # Output results
+          echo "should_release=$SHOULD_RELEASE" >> $GITHUB_OUTPUT
+          echo "new_version=$RELEASE_TYPE" >> $GITHUB_OUTPUT
+          echo "release_reason=$RELEASE_REASON" >> $GITHUB_OUTPUT
+          
+          if [ "$SHOULD_RELEASE" = true ]; then
+            echo "✅ Release triggered: $RELEASE_TYPE ($RELEASE_REASON)"
           else
-            echo "should_release=false" >> $GITHUB_OUTPUT
+            echo "⏸️ No release triggered - no significant changes detected"
           fi
 
   # Manual release or auto-release
@@ -143,6 +247,7 @@ jobs:
           
           echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
           echo "📋 Version: $CURRENT_VERSION → $NEW_VERSION ($RELEASE_TYPE)"
+          echo "🎯 Release reason: ${{ needs.check-release.outputs.release_reason || 'Manual trigger' }}"
 
       - name: 🔄 Update version files
         run: |
@@ -345,6 +450,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Version**: v${{ steps.version.outputs.new_version }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Type**: ${{ steps.version.outputs.release_type }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trigger**: ${{ needs.check-release.outputs.release_reason || 'Manual workflow dispatch' }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Release URL**: https://github.com/fbrbovic/cursor-rule-framework/releases/tag/v${{ steps.version.outputs.new_version }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### 📦 Assets" >> $GITHUB_STEP_SUMMARY

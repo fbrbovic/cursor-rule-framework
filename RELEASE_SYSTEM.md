@@ -6,7 +6,7 @@
 
 ✅ **Automated Release Workflow** - GitHub Actions for seamless releases  
 ✅ **Semantic Versioning** - SemVer with conventional commits  
-✅ **AI-Safe Releases** - Prevents accidental major releases with AI commits  
+✅ **AI-Safe Releases** - Smart detection + prevents accidental major releases  
 ✅ **Quality Gates** - Validation before every release  
 ✅ **Release Assets** - Downloadable bundles for users  
 ✅ **Changelog Automation** - Auto-generated release notes  
@@ -19,9 +19,15 @@
 
 ### Automatic Release (Recommended)
 ```bash
-# Use conventional commits for automatic releases
+# Conventional commits (preferred)
 git commit -m "feat: add new validation rules"  # → Minor release
 git commit -m "fix: resolve parsing issue"      # → Patch release  
+
+# Smart detection works even without conventional format!
+git commit -m "Add new rule template"           # → Minor (smart detection)
+git commit -m "Update documentation"            # → Patch (smart detection)
+git commit -m "Fix validation bug"              # → Patch (smart detection)
+
 # Note: Major releases require manual trigger for AI safety
 git push origin main
 ```

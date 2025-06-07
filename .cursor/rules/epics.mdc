@@ -3,22 +3,219 @@ description: Used when referred by @@EPIC or @@EPICS or when writing or completi
 globs: 
 alwaysApply: false
 ---
-**Comprehensive Epics Plan** 
-<!-- Stores instructions on how to use this doc.  AI should always follow it.  AI should never modify or extend this section.  EPIC RULES section is reserved for AI -->
-Contains the fully planned list of all epics, its phases, steps that need to be completed. 
-You are always to keep that list tracked and updated as work is completed. Make sure that epics ( large initiatives ) are properly grouped and follow this 
+**Epic Planning & Tracking System**
+<!-- AI INSTRUCTIONS: Always follow these rules. Never modify this section. -->
 
-hierarchy:  EPIC GROUP ->  EPIC -> PHASE -> STEPS.   
+**Purpose**: Plan and track large initiatives using the hierarchy: EPIC GROUP → EPIC → PHASE → STEPS
 
-EPIC GROUP:  If needed, groups similar type of epics, creation of grouping is done automatically by AI, when it makes sense. 
-EPIC: Large collection of work to be completed ( Large collection of features )
-PHASE: Milestone that breaks up an EPIC in smaller sections of work to be completed ( group of features )
-STEP: Breaks up the phase into even smaller work that accomplishes a meaningful feature. ( single feature )
+**Hierarchy Definitions**:
+- **EPIC GROUP**: Optional grouping of related epics
+- **EPIC**: Large collection of features/capabilities  
+- **PHASE**: Major milestone within an epic
+- **STEP**: Individual feature within a phase
 
-IMPORTANT: When user invokes @EPIC or @EPICS plan, you are only instructed to build out a comprehensive plan for those epics and track it in this doc. Never actually execute on that plan, that is reserved for our workflow_state.mdc
+**AI Usage Rules**:
+1. **Planning Only**: When user requests @EPIC or @EPICS, create comprehensive plans here
+2. **No Execution**: Never execute epic work - that happens in workflow_state.mdc  
+3. **Track Progress**: Update epic status as work completes via workflow system
+4. **Offer Execution**: After successful epic planning, offer to execute via workflow process
 
-IMPORTANT: After succesful epic plan, you should offer user to execute that epic with our workflow process defined in workflow_state.mdc
+**Context Limits**: Maximum 3 active epics to maintain AI effectiveness
 
 **EPICS PLANS**
 <!-- Stores and tracks the EPIC GROUP, EPIC, PHASE and STEP type of plans.  Only to be modified and used by an AI -->
+
+## EPIC PORTFOLIO STATUS
+
+### Current Portfolio Summary
+- **Total Active Epics**: 0 (Max: 3)
+- **Completed Epics**: 0
+- **Blocked Epics**: 0
+- **Last Updated**: [Date when portfolio was last updated]
+
+### Portfolio Limits
+**Max Active Epics**: 3 (to maintain AI context effectiveness)
+**Auto-Archive**: Completed epics older than 6 months
+
+### Epic Status Legend
+- ✅ **COMPLETED**: All phases and steps finished
+- 🔄 **IN_PROGRESS**: Currently being worked on
+- ⏳ **PLANNED**: Planned but not yet started
+- 🚫 **BLOCKED**: Stopped due to dependencies or issues
+- ⏸️ **PAUSED**: Temporarily suspended
+- ❌ **CANCELLED**: No longer needed
+- 📦 **ARCHIVED**: Completed and archived for reference
+
+---
+
+## ACTIVE EPICS
+
+<!-- Active epics will be listed here with progress tracking -->
+
+*No active epics currently planned. Use @EPIC or @EPICS to create new epic plans.*
+
+---
+
+## EPIC PROGRESS TRACKING
+
+<!-- This section tracks progress for each epic with detailed status -->
+
+### Simplified Epic Template
+```
+### EPIC: [Epic Name]
+**Status**: [PLANNED/IN_PROGRESS/BLOCKED/COMPLETED]
+**Priority**: [High/Medium/Low]
+**Started**: [Start date]
+**Target Completion**: [Target date]
+
+#### Goal
+[Clear business objective and user value]
+
+#### Success Criteria
+- [ ] [Measurable outcome 1]
+- [ ] [Measurable outcome 2]
+- [ ] [Measurable outcome 3]
+
+#### Dependencies & Blockers
+- [Current dependencies or blocking issues]
+
+#### PHASE 1: [Phase Name] - [STATUS_ICON] [STATUS]
+**Goal**: [Phase objective and deliverables]
+
+**Steps:**
+1. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]
+   - AI considerations: [Important context for AI execution]
+
+2. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]
+   - AI considerations: [Important context for AI execution]
+
+3. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]
+   - AI considerations: [Important context for AI execution]
+
+#### PHASE 2: [Phase Name] - [STATUS_ICON] [STATUS]
+**Goal**: [Phase objective and deliverables]
+
+**Steps:**
+1. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]
+   - AI considerations: [Important context for AI execution]
+
+2. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]
+   - AI considerations: [Important context for AI execution]
+
+#### PHASE 3: [Phase Name] - [STATUS_ICON] [STATUS]
+**Goal**: [Phase objective and deliverables]
+
+**Steps:**
+1. **[Step Name]**: [What needs to be built/implemented]
+   - Key requirements: [2-3 critical requirements]
+   - Acceptance criteria: [What defines "done"]
+   - AI considerations: [Important context for AI execution]
+
+#### Notes
+- [Key decisions, scope changes, or important context]
+```
+
+*Progress tracking entries will appear here as epics are created and executed.*
+
+---
+
+## EPIC COMPLETION HISTORY
+
+<!-- Recently completed epics (last 6 months) for reference -->
+<!-- Epics older than 6 months should be removed to maintain context size -->
+
+*No completed epics yet. Completed epics will be listed here with completion date and key outcomes.*
+
+---
+
+## EPIC REPORTING AND RETROSPECTIVES
+
+### Epic Status Summary (Manual Count)
+*Updated manually when reviewing epic portfolio*
+- **Current Active Epics**: [Count from Active Epics section]
+- **Total Completed Epics**: [Count from Completion History]
+- **Last Portfolio Review**: [Date of last manual review]
+
+### Epic Retrospective Template
+*Used when completing epics to capture learnings*
+```
+## Epic Retrospective: [Epic Name]
+
+### Epic Summary
+- **Final Status**: [Completed/Cancelled with reason]
+- **Key Phases Completed**: [List major phases finished]
+- **Original vs Actual Scope**: [Any scope changes made]
+
+### What Went Well
+- [Positive aspects of the epic execution]
+
+### What Could Be Improved
+- [Areas for improvement in future epics]
+
+### Lessons Learned
+- [Key learnings to apply to future epics]
+
+### Recommendations
+- [Specific recommendations for future epic planning/execution]
+```
+
+### Epic Maintenance Checklist
+*For occasional portfolio cleanup*
+- [ ] Review active epic statuses and update if needed
+- [ ] Check for epics that should be completed or cancelled
+- [ ] Archive completed epics older than 6 months
+- [ ] Ensure no more than 3 active epics
+- [ ] Update portfolio summary counts
+
+---
+
+## EPIC MANAGEMENT GUIDELINES
+
+### Epic State Management
+**State Transitions**:
+```
+PLANNED → IN_PROGRESS → COMPLETED
+    ↓         ↓            ↑
+ CANCELLED ← BLOCKED ← ─ ─ ┘
+    ↓         ↓
+ ARCHIVED ← PAUSED
+```
+
+### Update Guidelines
+- **During Active Work**: Update epic status when AI works on related tasks
+- **Phase Completion**: Mark phases as completed when all major steps are done
+- **Epic Completion**: Move completed epics to history section
+- **Context Management**: Archive epics older than 6 months
+
+### Portfolio Management
+- **Max Active Epics**: Keep only 2-3 active epics to maintain AI context effectiveness
+- **New Epic Planning**: If at limit, complete or pause existing epics before adding new ones
+- **Epic Focus**: Use workflow-state.mdc for detailed step execution, epics.mdc for high-level tracking
+
+### Realistic Expectations
+- Updates happen during AI interactions, not on schedule
+- Focus on epic and phase progress, not granular step tracking
+- Use external tools (Jira, GitHub Projects) for detailed project management
+
+---
+
+## EPIC PLANNING WORKSPACE
+
+<!-- Temporary workspace for drafting new epics before they become active -->
+
+*This section can be used for drafting and refining epic plans before moving them to the active section.*
+
+---
+
+<!-- END OF EPIC TRACKING STRUCTURE -->
 

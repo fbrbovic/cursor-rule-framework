@@ -579,7 +579,7 @@ function sanitizeObject(obj: any): any {
 
 ## 🛠️ Development Workflow
 
-### **AI-Driven API Development**
+### **AI-Driven API Development with Architecture Integration**
 ```bash
 # Epic planning for larger features
 "Plan an epic for user management API with authentication, profiles, and admin features"
@@ -592,29 +592,34 @@ function sanitizeObject(obj: any): any {
 
 # AI automatically:
 # - Integrates epic context when available
+# - Validates against existing API architecture patterns
+# - Updates architecture.mdc with new API patterns and decisions
 # - Creates comprehensive implementation plans
 # - Updates epic progress upon completion
 ```
 
 ### **Three-Phase API Development**
 ```bash
-# Blueprint Phase - AI includes epic requirements when available
+# Blueprint Phase - AI includes epic requirements and architecture validation
+# - Reviews existing API patterns in architecture.mdc
 # - Input validation schema from epic acceptance criteria
 # - Security considerations from epic requirements
-# - Database operations planned
-# - Error handling strategy
-# - Testing strategy
+# - Database operations planned following architectural patterns
+# - Error handling strategy consistent with existing patterns
+# - Testing strategy aligned with architecture guidelines
 
-# Construct Phase - AI implements following epic constraints
-# - Service layer with business logic
-# - Repository pattern for data access
-# - Validation middleware
-# - Comprehensive error handling
+# Construct Phase - AI implements following epic constraints and architecture
+# - Service layer with business logic following established patterns
+# - Repository pattern for data access consistent with architecture
+# - Validation middleware using documented patterns
+# - Comprehensive error handling following architectural guidelines
 # - Unit and integration tests
+# - Updates architecture.mdc with new patterns and decisions
 
-# Validate Phase - AI verifies and updates epic progress
+# Validate Phase - AI verifies and updates epic progress and architecture
 # - Runs test suite and security checks
 # - Validates API documentation
+# - Verifies architectural consistency
 # - Updates epic step progress if applicable
 ```
 

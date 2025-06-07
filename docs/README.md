@@ -21,15 +21,15 @@ New to the framework? Start here:
   - **The Master Rule Registry (`rules.mdc`)** - Dynamic rule accumulation
   - Location policies and best practices
 
-- **[Workflow System](workflow-system.md)** - AI-driven development with epic integration  
-  - Phase-by-phase development
-  - Quality gates and validation
-  - State management and tracking
+- **[Workflow System](workflow-system.md)** - AI-driven development with epic and architecture integration  
+  - Phase-by-phase development with automatic architecture validation
+  - Quality gates and validation with architectural consistency
+  - State management and tracking with epic progress updates
 
 - **[Epic Planning](epic-planning.md)** - Managing large initiatives with AI
-  - Epic → Phase → Step hierarchy
-  - AI-assisted planning techniques
-  - Progress tracking and validation
+  - Epic → Phase → Step hierarchy with architecture impact assessment
+  - AI-assisted planning techniques with automatic architecture integration
+  - Progress tracking and validation with workflow system integration
 
 ## 🛠️ Development Guides
 

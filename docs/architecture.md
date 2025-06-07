@@ -200,6 +200,58 @@ For reviewing and validating architecture:
 4. Provides implementation guidance consistent with patterns
 ```
 
+### **Workflow Integration**
+
+The architecture rule seamlessly integrates with the three-phase workflow:
+
+#### **Blueprint Phase Integration**
+```bash
+# During Blueprint phase, AI automatically:
+1. Reads architecture.mdc for existing patterns and constraints
+2. Validates planned changes against current architecture
+3. Identifies architectural impact of new features
+4. Includes architecture updates in implementation plan
+```
+
+#### **Construct Phase Integration**
+```bash
+# During Construct phase, AI automatically:
+1. Implements code following architectural patterns
+2. Updates architecture.mdc with new decisions and patterns
+3. Logs architectural changes with timestamps
+4. Maintains consistency with established conventions
+```
+
+#### **Validate Phase Integration**
+```bash
+# During Validate phase, AI automatically:
+1. Verifies implementation follows architectural guidelines
+2. Checks architecture documentation is up to date
+3. Validates consistency across architectural decisions
+```
+
+### **Epic Integration**
+
+Architecture considerations are built into epic planning:
+
+#### **Epic-Level Architecture Planning**
+```bash
+# When creating epics, AI considers:
+1. Architectural impact of epic on system design
+2. New patterns or technologies being introduced
+3. Alignment with existing architectural decisions
+4. Cross-epic architectural consistency
+```
+
+#### **Step-Level Architecture Tracking**
+```bash
+# Each epic step includes:
+- Architecture impact assessment
+- New patterns being introduced
+- Dependencies on existing architecture
+- Required updates to architecture.mdc
+```
+
 ### **Pattern Enforcement**
 
 ```bash

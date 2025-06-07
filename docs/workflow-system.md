@@ -24,13 +24,17 @@ The workflow system provides a structured approach to AI-assisted development th
 
 #### **What Happens**
 - **Requirement Analysis**: Understand the problem and context
-- **Architecture Planning**: Design the solution structure
-- **Implementation Strategy**: Create detailed step-by-step plan
+- **Architecture Validation**: Check existing architecture.mdc for patterns and constraints
+- **Epic Context Integration**: Include epic requirements and acceptance criteria when available
+- **Architecture Planning**: Design the solution structure that aligns with existing architecture
+- **Implementation Strategy**: Create detailed step-by-step plan including architecture updates
 - **Risk Assessment**: Identify potential challenges and solutions
 
 #### **Phase Rules**
 - ✅ **Planning and Design**: Create detailed implementation plans
 - ✅ **Problem Analysis**: Understand requirements and constraints
+- ✅ **Architecture Validation**: Review architecture.mdc for existing patterns and decisions
+- ✅ **Epic Integration**: Include epic context and requirements when available
 - ✅ **Architecture Discussion**: Design system structure and patterns
 - ❌ **No Code Writing**: Implementation happens in Construct phase
 - ❌ **No File Changes**: Only planning and documentation
@@ -100,6 +104,8 @@ Would you like me to proceed with this plan?"
 
 #### **What Happens**
 - **Code Implementation**: Write code following the approved plan
+- **Architecture Updates**: Update architecture.mdc when implementing new patterns or decisions
+- **Epic Progress Tracking**: Update epic status and progress when working on epic-related tasks
 - **Iterative Development**: Build incrementally with frequent validation
 - **Error Handling**: Address issues as they arise
 - **Quality Assurance**: Apply coding standards and best practices
@@ -107,6 +113,8 @@ Would you like me to proceed with this plan?"
 #### **Phase Rules**
 - ✅ **Follow the Plan**: Implement exactly what was approved in Blueprint
 - ✅ **Write Production Code**: Create fully functional, tested code
+- ✅ **Update Architecture**: Document new patterns and decisions in architecture.mdc
+- ✅ **Update Epic Progress**: Track progress on epic steps when applicable
 - ✅ **Handle Errors**: Address compilation and runtime errors
 - ✅ **Apply Standards**: Follow project coding conventions
 - ❌ **No Plan Changes**: Major changes require return to Blueprint
@@ -229,6 +237,28 @@ npm run format        # Prettier applied
 - ✅ Usage examples updated
 - ✅ API documentation current
 ```
+
+## 🤖 Automatic Integration Rules
+
+### **Architecture Integration**
+The workflow system automatically integrates with your project architecture:
+
+- **RULE_ARCHITECTURE_VALIDATE_01**: During Blueprint phase, validates planned changes against existing architecture
+- **RULE_ARCHITECTURE_UPDATE_01**: During Construct phase, updates architecture.mdc with new patterns and decisions
+- **Architecture Conflict Resolution**: Handles simultaneous AI/user updates with timestamp-based conflict resolution
+
+### **Epic Integration**
+The workflow system seamlessly integrates with epic planning:
+
+- **RULE_EPIC_UPDATE_01**: Automatically updates epic progress when workflow completes epic-related tasks
+- **Epic Context Loading**: Automatically includes epic requirements and acceptance criteria in Blueprint phase
+- **Natural Language Processing**: Interprets user requests to identify epic context and set workflow accordingly
+
+### **Integration Benefits**
+- **Consistency**: All development work aligns with existing architecture
+- **Traceability**: Epic progress is automatically tracked through workflow completion
+- **Knowledge Capture**: Architectural decisions are documented as they're made
+- **Conflict Prevention**: Clear protocols for simultaneous AI/user updates
 
 ## 🔄 Workflow State Management
 

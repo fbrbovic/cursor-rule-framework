@@ -188,7 +188,7 @@ export function useUser() {
 
 ## 🛠️ Development Workflow
 
-### **AI-Driven Epic Integration**
+### **AI-Driven Epic and Architecture Integration**
 ```bash
 # Start epic work with natural language
 "Plan an epic for user authentication with login, registration, and password reset"
@@ -202,6 +202,8 @@ export function useUser() {
 # AI automatically:
 # - Creates and manages epics in epics.mdc
 # - Integrates epic context into workflow
+# - Validates against existing architecture patterns
+# - Updates architecture.mdc with new React patterns
 # - Updates progress as work completes
 ```
 
@@ -211,14 +213,20 @@ export function useUser() {
 # For epic work: Requirements and acceptance criteria included
 # For standalone work: Standard planning process
 
+# Architecture validation happens automatically:
+# - Reviews existing React patterns in architecture.mdc
+# - Validates component design against established conventions
+# - Plans architecture updates for new patterns
+
 # Define interfaces and types first
-# AI uses epic requirements to guide component design
+# AI uses epic requirements and architecture patterns to guide component design
 ```
 
 ### **Construct Phase**
 ```bash
 # AI enforces naming conventions and patterns from rules
 # Implements exactly what was planned in blueprint
+# Updates architecture.mdc with new React patterns and decisions
 # Updates epic progress automatically upon completion
 ```
 

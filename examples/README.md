@@ -171,24 +171,35 @@ example-name/
 └── package.json           # Dependencies and scripts
 ```
 
+## 🎯 What You'll Learn
+
+Each example demonstrates:
+
+1. **Rule Organization**: How to structure cursor rules for different project types
+2. **AI-Driven Workflow**: Blueprint → Construct → Validate methodology with epic and architecture integration
+3. **Architecture Integration**: Automatic validation and documentation of architectural decisions
+4. **Quality Gates**: Automated testing, linting, and validation
+5. **Team Collaboration**: Shared standards and knowledge preservation
+6. **Epic Management**: Long-term project planning with AI assistance and architectural alignment
+
 ## 🎓 Learning Path
 
 ### **Beginner Path**
 1. Start with [React TypeScript App](./frontend-react-typescript/)
 2. Learn basic rule structure and organization
-3. Practice with workflow phases
+3. Practice with workflow phases and architecture integration
 4. Experiment with custom rules
 
 ### **Intermediate Path**
 1. Explore [Full-Stack SaaS](./fullstack-saas-starter/)
 2. Understand multi-domain rule organization
-3. Learn epic planning for larger features
+3. Learn epic planning for larger features with architecture considerations
 4. Practice team collaboration patterns
 
 ### **Advanced Path**
 1. Study [Monorepo Enterprise](./monorepo-nx-enterprise/)
-2. Master complex rule hierarchies
-3. Design custom workflow patterns
+2. Master complex rule hierarchies and architecture documentation
+3. Design custom workflow patterns with architecture validation
 4. Create reusable rule libraries
 
 ## 🛠️ Customization Guidelines

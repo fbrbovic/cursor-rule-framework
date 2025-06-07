@@ -36,10 +36,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `epics.mdc` - Large initiative planning and tracking system
   - `architecture.mdc` - Architecture guidelines template
 
-- **Workflow System**: AI-driven development methodology
-  - Blueprint phase with automatic epic context integration
-  - Construct phase for AI-guided implementation with epic tracking
-  - Validate phase with automatic epic progress updates
+- **Workflow System**: AI-driven development methodology with architecture integration
+  - Blueprint phase with automatic epic context and architecture validation
+  - Construct phase for AI-guided implementation with architecture updates and epic tracking
+  - Validate phase with automatic epic progress updates and architecture verification
 
 - **Epic Management**: AI-driven project planning system
   - Natural language epic creation and management
@@ -64,6 +64,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Location Policy**: Standardized `.cursor/rules/` directory structure
 - **Glob Pattern Support**: Context-aware rule application
 - **Rule Inheritance**: Global → Domain → Feature-specific rule hierarchy
+- **Architecture Integration**: Automatic architecture validation and documentation updates
+- **Epic-Workflow Integration**: Natural language epic management with automatic progress tracking
 - **Quality Gates**: Automated validation and testing requirements
 
 ### Documentation

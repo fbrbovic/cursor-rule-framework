@@ -64,6 +64,8 @@ code .cursor/rules/user-rules-template.mdc
 ✅ Follow Blueprint → Construct → Validate phases with epic context  
 ✅ Update workflow-state.mdc automatically
 ✅ Reference epics and architecture rules
+✅ Validate against architecture.mdc during planning
+✅ Update architecture.mdc with new patterns during implementation
 ✅ Maintain detailed logs of progress
 
 # If these behaviors are missing, the user rules are not properly installed
@@ -86,6 +88,7 @@ ls -la .cursor/rules/
 # - project-config.mdc
 # - workflow-state.mdc
 # - epics.mdc
+# - architecture.mdc
 # - rules.mdc
 
 # 2. Verify file extensions
@@ -198,6 +201,78 @@ console.log(`\nValidation complete: ${valid}/${total} rules valid`)
 EOF
 
 node scripts/validate-rules.js
+```
+
+## 🏗️ Architecture Integration Issues
+
+### **Architecture Not Being Referenced**
+
+#### **Symptoms**
+- AI doesn't check existing architecture patterns
+- New implementations don't follow established patterns
+- Architecture.mdc remains empty or outdated
+
+#### **Diagnosis Steps**
+```bash
+# 1. Check architecture.mdc exists and has content
+cat .cursor/rules/architecture.mdc
+
+# 2. Verify user rules template mentions architecture
+grep -i "architecture" .cursor/rules/user-rules-template.mdc
+
+# 3. Check workflow rules include architecture steps
+grep -i "architecture" .cursor/rules/workflow-state.mdc
+```
+
+#### **Solutions**
+```bash
+# Fix 1: Ensure architecture.mdc has proper metadata
+head -10 .cursor/rules/architecture.mdc
+# Should start with YAML frontmatter
+
+# Fix 2: Verify user rules template includes architecture checking
+# Should mention checking architecture.mdc in Blueprint phase
+
+# Fix 3: Restart workflow with explicit architecture reference
+"Review the current architecture in @architecture.mdc before planning this feature"
+```
+
+### **Architecture Updates Not Happening**
+
+#### **Symptoms**
+- AI implements new patterns but doesn't document them
+- Architecture.mdc doesn't get updated during development
+- Architectural decisions are lost
+
+#### **Solutions**
+```bash
+# Fix 1: Explicitly request architecture updates
+"Update the architecture documentation with the new authentication patterns we just implemented"
+
+# Fix 2: Check RULE_ARCHITECTURE_UPDATE_01 is active
+grep -A 5 "RULE_ARCHITECTURE_UPDATE_01" .cursor/rules/workflow-state.mdc
+
+# Fix 3: Manual architecture update prompt
+"Document the new [pattern/decision] in architecture.mdc with timestamp and rationale"
+```
+
+### **Architecture Conflicts**
+
+#### **Symptoms**
+- Conflicting patterns in different parts of codebase
+- AI suggests solutions that contradict existing architecture
+- Inconsistent architectural decisions
+
+#### **Solutions**
+```bash
+# Fix 1: Review and consolidate architecture.mdc
+"Review our architecture.mdc for any conflicting patterns and consolidate them"
+
+# Fix 2: Establish clear architectural principles
+"Define the core architectural principles for our project in architecture.mdc"
+
+# Fix 3: Architecture decision review
+"Review the recent architectural decisions and ensure they align with our overall system design"
 ```
 
 ## 📋 Workflow System Issues

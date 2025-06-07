@@ -325,7 +325,7 @@ export function UserProfile({ user, className }: UserProfileProps) {
 
 ## 🛠️ Development Workflow
 
-### **AI-Driven Component Development**
+### **AI-Driven Component Development with Architecture Integration**
 ```bash
 # Epic planning for UI features
 "Plan an epic for user profile management with view, edit, and preferences components"
@@ -338,26 +338,31 @@ export function UserProfile({ user, className }: UserProfileProps) {
 
 # AI automatically:
 # - Integrates epic requirements when available
+# - Validates against existing frontend architecture patterns
+# - Updates architecture.mdc with new component patterns and decisions
 # - Follows component naming and structure rules
 # - Updates epic progress upon completion
 ```
 
 ### **Three-Phase Component Development**
 ```bash
-# Blueprint Phase - AI includes epic context when available
+# Blueprint Phase - AI includes epic context and architecture validation
+# - Reviews existing frontend patterns in architecture.mdc
 # - Component structure and props from epic requirements
-# - Styling approach following design system
+# - Styling approach following design system and architectural guidelines
 # - Testing strategy for comprehensive coverage
 
-# Construct Phase - AI implements with frontend patterns
-# - TypeScript interfaces and component structure
-# - CSS modules with responsive design
+# Construct Phase - AI implements with frontend patterns and architecture
+# - TypeScript interfaces and component structure following documented patterns
+# - CSS modules with responsive design per architectural guidelines
 # - Unit tests and accessibility features
 # - Integration with existing components
+# - Updates architecture.mdc with new component patterns and decisions
 
-# Validate Phase - AI verifies and updates progress
+# Validate Phase - AI verifies and updates progress and architecture
 # - Runs tests and accessibility checks
-# - Validates coding standards and patterns
+# - Validates coding standards and architectural patterns
+# - Verifies architectural consistency
 # - Updates epic component progress if applicable
 ```
 

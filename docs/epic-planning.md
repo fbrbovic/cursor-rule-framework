@@ -141,6 +141,23 @@ EPIC GROUP (Optional)
 
 ## 🔄 Epic Execution
 
+### **Architecture Integration**
+Epic planning automatically integrates with your project architecture:
+
+```bash
+# During epic creation, AI considers:
+1. Existing architectural patterns from architecture.mdc
+2. Alignment with current technology stack
+3. Impact on system design and boundaries
+4. New architectural decisions needed
+
+# Each epic step includes:
+- Architecture impact assessment
+- New patterns being introduced
+- Consistency with existing decisions
+- Updates needed to architecture.mdc
+```
+
 ### **Integration with Workflow System**
 Each step follows the AI-driven workflow system:
 
@@ -219,11 +236,13 @@ Create secure user authentication and management system
 1. **[Step Name]**: [What needs to be built/implemented]
    - Key requirements: [2-3 critical requirements]
    - Acceptance criteria: [What defines "done"]
+   - Architecture impact: [How this affects current architecture or introduces new patterns]
    - AI considerations: [Important context for AI execution]
 
 2. **[Step Name]**: [What needs to be built/implemented]
    - Key requirements: [2-3 critical requirements]
-   - Acceptance criteria: [What defines "done"]  
+   - Acceptance criteria: [What defines "done"]
+   - Architecture impact: [How this affects current architecture or introduces new patterns]
    - AI considerations: [Important context for AI execution]
 
 #### PHASE 2: [Phase Name] - [STATUS_ICON] [STATUS]

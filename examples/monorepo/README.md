@@ -604,7 +604,7 @@ pnpm -r build
 pnpm -r test
 ```
 
-### **AI-Driven Package Development**
+### **AI-Driven Package Development with Architecture Integration**
 ```bash
 # Epic planning for cross-package features
 "Plan an epic for design system integration across web and mobile apps"
@@ -617,25 +617,29 @@ pnpm -r test
 
 # AI automatically:
 # - Manages epic context across package boundaries
+# - Validates against existing monorepo architecture patterns
+# - Updates architecture.mdc with new package patterns and decisions
 # - Ensures consistency between related packages
 # - Updates epic progress for multi-package work
 ```
 
 ### **Package Development Workflow**
 ```bash
-# Blueprint Phase - AI includes epic requirements for cross-package work
+# Blueprint Phase - AI includes epic requirements and architecture validation
+# - Reviews existing monorepo patterns in architecture.mdc
 # - Analyzes package dependencies and relationships
-# - Plans consistent APIs across packages
-# - Considers version compatibility
+# - Plans consistent APIs across packages following architectural guidelines
+# - Considers version compatibility and architectural constraints
 
-# Construct Phase - AI implements with package context
-# - Creates package structure following monorepo patterns
-# - Implements with proper internal dependencies
+# Construct Phase - AI implements with package context and architecture
+# - Creates package structure following documented monorepo patterns
+# - Implements with proper internal dependencies per architecture
 # - Updates dependent packages when needed
+# - Updates architecture.mdc with new package patterns and decisions
 
-# Validate Phase - AI verifies across package boundaries
-# - Tests package integration
-# - Validates version compatibility
+# Validate Phase - AI verifies across package boundaries and architecture
+# - Tests package integration following architectural guidelines
+# - Validates version compatibility and architectural consistency
 # - Updates epic progress for multi-package features
 ```
 

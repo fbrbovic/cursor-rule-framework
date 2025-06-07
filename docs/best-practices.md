@@ -46,9 +46,17 @@ The Blueprint → Construct → Validate cycle with epic integration is the fram
 "Plan user authentication using our current architecture rules. 
 Check @architecture.mdc for existing patterns and 
 @epics.mdc for related work. Provide detailed plan with:
-- Integration points with existing systems
-- Rule compliance verification 
+- Architecture validation against existing patterns
+- Integration points with existing systems  
+- Rule compliance verification
+- Architecture update steps for new patterns
 - Step-by-step implementation sequence"
+
+# AI automatically:
+# - Reads architecture.mdc for existing patterns
+# - Includes epic context when available
+# - Validates against current architectural decisions
+# - Plans architecture updates if new patterns are introduced
 
 # ❌ Ineffective Blueprint Interaction
 "Make login work"
@@ -57,6 +65,8 @@ Check @architecture.mdc for existing patterns and
 #### **Construct Phase Adherence**
 - **Follow the Plan**: Stick to approved blueprint unless blocked
 - **Update Workflow State**: Keep `workflow-state.mdc` current
+- **Update Architecture**: Automatically update `architecture.mdc` with new patterns and decisions
+- **Update Epic Progress**: Automatically track epic step progress when applicable
 - **Document Decisions**: Log rule additions and modifications
 - **Incremental Progress**: Make atomic changes with clear validation
 

@@ -105,7 +105,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to th
 
 ## Links
 
-- [Repository](https://github.com/your-username/cursor-rule-framework)
-- [Issues](https://github.com/your-username/cursor-rule-framework/issues)
-- [Discussions](https://github.com/your-username/cursor-rule-framework/discussions)
-- [Releases](https://github.com/your-username/cursor-rule-framework/releases) 
+- [Repository](https://github.com/fbrbovic/cursor-rule-framework)
+- [Issues](https://github.com/fbrbovic/cursor-rule-framework/issues)
+- [Discussions](https://github.com/fbrbovic/cursor-rule-framework/discussions)
+- [Releases](https://github.com/fbrbovic/cursor-rule-framework/releases) 

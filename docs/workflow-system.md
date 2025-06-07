@@ -62,11 +62,14 @@ The workflow system provides a structured approach to AI-assisted development th
 ```
 
 #### **Example Blueprint Phase**
-```bash
-# User Request
-"Add user authentication to the React app"
 
-# AI Response (Blueprint Phase)
+#### **User Request:**
+```bash
+"Add user authentication to the React app"
+```
+
+#### **AI Response (Blueprint Phase):**
+```bash
 "I'll help you add user authentication. Let me start by analyzing your current setup and creating a comprehensive plan.
 
 ## Current State Analysis
@@ -358,10 +361,17 @@ CurrentItem: PAYMENT_INTEGRATION
 ### **Blueprint Phase Challenges**
 
 #### **Unclear Requirements**
-```bash
-# Problem: Vague or incomplete requirements
-# Solution: AI asks clarifying questions
 
+**Problem:** Vague or incomplete requirements  
+**Solution:** AI asks clarifying questions
+
+#### **User Request:**
+```bash
+"Add authentication to the app"
+```
+
+#### **AI Response:**
+```bash
 "I need more details about the user authentication:
 - What authentication method? (email/password, OAuth, etc.)
 - Do you need password reset functionality?
@@ -370,10 +380,17 @@ CurrentItem: PAYMENT_INTEGRATION
 ```
 
 #### **Large Feature Scope**
-```bash
-# Problem: Feature too big for single implementation
-# Solution: Break into smaller, manageable pieces
 
+**Problem:** Feature too big for single implementation  
+**Solution:** Break into smaller, manageable pieces
+
+#### **User Request:**
+```bash
+"Build a complete e-commerce system with user accounts, product catalog, shopping cart, payment processing, and admin dashboard"
+```
+
+#### **AI Response:**
+```bash
 "This feature is quite large. I recommend breaking it into phases:
 1. Basic login/logout (this sprint)
 2. Password reset (next sprint)  
@@ -384,20 +401,24 @@ CurrentItem: PAYMENT_INTEGRATION
 ### **Construct Phase Challenges**
 
 #### **Plan Doesn't Match Reality**
-```bash
-# Problem: Implementation reveals plan issues
-# Solution: Document and return to Blueprint
 
+**Problem:** Implementation reveals plan issues  
+**Solution:** Document and return to Blueprint
+
+#### **AI Response during Construct:**
+```bash
 "During implementation, I discovered the existing API doesn't support 
 the planned authentication flow. I need to revise the plan to work 
 with the current backend constraints."
 ```
 
 #### **Unexpected Errors**
-```bash
-# Problem: Technical issues during implementation
-# Solution: Handle incrementally, document decisions
 
+**Problem:** Technical issues during implementation  
+**Solution:** Handle incrementally, document decisions
+
+#### **AI Response during Construct:**
+```bash
 "Encountered TypeScript error with the Context pattern. 
 Applying alternative approach using custom hook pattern 
 as discussed in project patterns. Continuing with implementation."
@@ -406,20 +427,24 @@ as discussed in project patterns. Continuing with implementation."
 ### **Validate Phase Challenges**
 
 #### **Tests Failing**
-```bash
-# Problem: Tests don't pass after implementation
-# Solution: Fix issues or return to appropriate phase
 
+**Problem:** Tests don't pass after implementation  
+**Solution:** Fix issues or return to appropriate phase
+
+#### **AI Response during Validate:**
+```bash
 "Two tests are failing due to missing mock setup. 
 Fixing the test configuration and updating mocks 
 to match the new authentication flow."
 ```
 
 #### **Performance Issues**
-```bash
-# Problem: Feature works but has performance problems
-# Solution: Optimize or plan performance improvements
 
+**Problem:** Feature works but has performance problems  
+**Solution:** Optimize or plan performance improvements
+
+#### **AI Response during Validate:**
+```bash
 "Feature functions correctly but causes re-renders. 
 Adding useMemo optimization to the authentication context 
 to prevent unnecessary component updates."

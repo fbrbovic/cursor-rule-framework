@@ -128,7 +128,7 @@ Select the example that most closely matches your project type or technology sta
 ### 2. **Copy the Structure**
 ```bash
 # Clone the entire framework
-git clone https://github.com/your-username/cursor-rule-framework.git
+git clone https://github.com/fbrbovic/cursor-rule-framework.git
 
 # Navigate to your chosen example
 cd cursor-rule-framework/examples/frontend-react-typescript

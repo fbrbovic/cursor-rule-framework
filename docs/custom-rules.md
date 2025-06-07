@@ -54,6 +54,13 @@ References to other rules that complement this one
 ## 🚀 Creating Domain-Specific Rules
 
 ### **Frontend Component Rules**
+
+#### **User Request:**
+```bash
+"Create a rule for our React components that enforces our design system patterns and accessibility requirements"
+```
+
+#### **AI Creates Rule:**
 ```yaml
 ---
 description: React component development standards for our design system
@@ -163,6 +170,13 @@ export function button({ text, clickHandler }) {
 ```
 
 ### **API Development Rules**
+
+#### **User Request:**
+```bash
+"Create a rule for our Node.js API endpoints that enforces our REST conventions, security standards, and error handling patterns"
+```
+
+#### **AI Creates Rule:**
 ```yaml
 ---
 description: Node.js API development standards and conventions
@@ -200,209 +214,324 @@ interface ApiResponse<T> {
   }
 }
 
-// ✅ Error response format
-interface ApiError {
+// ✅ Standard error response
+interface ErrorResponse {
   success: false
   error: {
-    code: 'VALIDATION_ERROR' | 'NOT_FOUND' | 'UNAUTHORIZED' | 'SERVER_ERROR'
+    code: 'VALIDATION_ERROR' | 'AUTHENTICATION_ERROR' | 'AUTHORIZATION_ERROR' | 'NOT_FOUND' | 'INTERNAL_ERROR'
     message: string
-    details?: ValidationError[]
+    details?: ValidationError[] | string
   }
 }
 ```
 
-## Security Requirements
-- All endpoints must validate input using Joi or Zod
-- Authentication required for protected routes
-- Rate limiting implemented for public endpoints
-- SQL injection prevention with parameterized queries
-- XSS protection with input sanitization
-
-## Documentation Standards
-- OpenAPI/Swagger documentation for all endpoints
-- Request/response examples included
-- Error codes and messages documented
-- Authentication requirements specified
-
-## Examples
-
-### ✅ Good Endpoint
+## Input Validation
 ```typescript
+// ✅ Required validation pattern
+import { z } from 'zod'
+
+const createUserSchema = z.object({
+  email: z.string().email().max(255),
+  name: z.string().min(1).max(100),
+  role: z.enum(['user', 'admin', 'moderator']).optional().default('user')
+})
+
 /**
- * GET /api/v1/users/:id
- * Retrieves user profile by ID
+ * POST /api/v1/users
+ * Create a new user account
  */
-export async function getUserProfile(
-  req: AuthenticatedRequest,
-  res: Response
-): Promise<void> {
+router.post('/users', async (req: Request, res: Response) => {
   try {
-    // Input validation
-    const { id } = await userParamsSchema.parseAsync(req.params)
+    const validatedData = createUserSchema.parse(req.body)
+    const user = await userService.create(validatedData)
     
-    // Business logic
-    const user = await userService.findById(id)
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        error: {
-          code: 'NOT_FOUND',
-          message: 'User not found'
-        }
-      })
-    }
-
-    // Authorization check
-    if (!canAccessUser(req.user, user)) {
-      return res.status(403).json({
-        success: false,
-        error: {
-          code: 'FORBIDDEN',
-          message: 'Access denied'
-        }
-      })
-    }
-
-    // Success response
-    res.json({
+    res.status(201).json({
       success: true,
       data: user
     })
   } catch (error) {
-    handleApiError(error, res)
+    return handleApiError(error, res)
   }
-}
-```
-
-### ❌ Poor Endpoint
-```typescript
-// No input validation
-// No error handling
-// Inconsistent response format
-app.get('/user/:id', (req, res) => {
-  const user = db.query(`SELECT * FROM users WHERE id = ${req.params.id}`)
-  res.json(user)
 })
 ```
-```
-
-### **Database Schema Rules**
-```yaml
----
-description: Database schema and migration standards
-globs: "migrations/**/*.sql"
-alwaysApply: false
----
-
-# Database Schema Standards
-
-## Purpose
-Ensure consistent, scalable, and maintainable database schemas with proper relationships and constraints.
-
-## Naming Conventions
-- **Tables**: snake_case, plural nouns (`user_profiles`)
-- **Columns**: snake_case, descriptive names (`created_at`)
-- **Indexes**: table_column_idx (`user_profiles_email_idx`)
-- **Foreign Keys**: table_referenced_table_fkey (`orders_user_id_fkey`)
-
-## Column Standards
-```sql
--- ✅ Standard columns for all tables
-CREATE TABLE user_profiles (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  version INTEGER DEFAULT 1,
-  
-  -- Table-specific columns
-  email VARCHAR(255) NOT NULL UNIQUE,
-  name VARCHAR(100) NOT NULL,
-  status user_status_enum DEFAULT 'active',
-  
-  -- Constraints
-  CONSTRAINT user_profiles_email_format 
-    CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
-);
-```
-
-## Migration Standards
-- All migrations must be reversible
-- Include meaningful comments
-- Use transactions for complex operations
-- Test migrations on staging data
-- Include performance impact assessment
 
 ## Security Requirements
-- Row-level security (RLS) for multi-tenant tables
-- Sensitive data encryption at rest
-- Audit logging for data changes
-- Proper user permissions and roles
+- All endpoints must validate input using schemas
+- Authentication required for non-public endpoints
+- Rate limiting for all public endpoints
+- SQL injection prevention through parameterized queries
+- XSS prevention through output encoding
+
+## Error Handling
+```typescript
+// ✅ Centralized error handling
+function handleApiError(error: unknown, res: Response) {
+  if (error instanceof z.ZodError) {
+    return res.status(400).json({
+      success: false,
+      error: {
+        code: 'VALIDATION_ERROR',
+        message: 'Invalid request data',
+        details: error.errors
+      }
+    })
+  }
+  
+  if (error instanceof AuthenticationError) {
+    return res.status(401).json({
+      success: false,
+      error: {
+        code: 'AUTHENTICATION_ERROR',
+        message: 'Authentication required'
+      }
+    })
+  }
+  
+  // Log internal errors, don't expose details
+  console.error('Internal API error:', error)
+  return res.status(500).json({
+    success: false,
+    error: {
+      code: 'INTERNAL_ERROR', 
+      message: 'An internal error occurred'
+    }
+  })
+}
 ```
 
-## 🎨 UI/UX Pattern Rules
+## Documentation Requirements
+- OpenAPI/Swagger documentation for all endpoints
+- Request/response examples
+- Error code documentation
+- Authentication requirements clearly specified
 
-### **Design System Rules**
+## Testing Requirements
+- Unit tests for all business logic
+- Integration tests for API endpoints
+- Authentication/authorization testing
+- Error scenario coverage
+```
+
+### **Database Rules**
+
+#### **User Request:**
+```bash
+"Create a rule for our database access layer that enforces our repository pattern, error handling, and performance standards"
+```
+
+#### **AI Creates Rule:**
 ```yaml
 ---
-description: Design system implementation and usage guidelines
-globs: "src/components/**/*.{tsx,jsx,css,scss}"
+description: Database access patterns and repository implementation standards
+globs: "src/repositories/**/*.ts,src/database/**/*.ts"
 alwaysApply: false
 ---
 
-# Design System Implementation
+# Database Access Standards
 
 ## Purpose
-Ensure consistent implementation of our design system across all UI components.
+Ensure consistent, performant, and secure database operations through standardized repository patterns.
 
-## Color Usage
+## Repository Pattern Requirements
 ```typescript
-// ✅ Use design tokens, not hardcoded values
-const styles = {
-  primary: 'var(--color-primary-500)',
-  secondary: 'var(--color-secondary-500)',
-  danger: 'var(--color-danger-500)',
-  text: 'var(--color-text-primary)'
+// ✅ Required repository interface
+interface BaseRepository<T, CreateInput, UpdateInput> {
+  findById(id: string): Promise<T | null>
+  findMany(options: QueryOptions): Promise<PaginatedResult<T>>
+  create(data: CreateInput): Promise<T>
+  update(id: string, data: UpdateInput): Promise<T>
+  delete(id: string): Promise<void>
+  count(filters?: FilterOptions): Promise<number>
 }
 
-// ❌ Avoid hardcoded colors
-const styles = {
-  primary: '#3b82f6',
-  text: '#1f2937'
+// ✅ Standard query options
+interface QueryOptions {
+  page?: number
+  limit?: number
+  sort?: SortOption[]
+  filters?: FilterOptions
+  include?: string[]
 }
-```
 
-## Typography Scale
-```css
-/* ✅ Use predefined typography classes */
-.heading-1 { @apply text-4xl font-bold leading-tight; }
-.heading-2 { @apply text-3xl font-semibold leading-snug; }
-.body-large { @apply text-lg leading-relaxed; }
-.body-regular { @apply text-base leading-normal; }
-
-/* ❌ Avoid custom font sizes */
-.custom-text { font-size: 18px; line-height: 1.4; }
-```
-
-## Spacing System
-- Use 8px grid system (multiples of 8)
-- Predefined spacing tokens (`space-1` = 8px, `space-2` = 16px)
-- Consistent component padding and margins
-- Responsive spacing adjustments
-
-## Component Variants
-```typescript
-// ✅ Systematic variant implementation
-const buttonVariants = {
-  variant: {
-    primary: 'bg-primary-500 text-white hover:bg-primary-600',
-    secondary: 'bg-secondary-100 text-secondary-900 hover:bg-secondary-200',
-    outline: 'border border-primary-500 text-primary-500 hover:bg-primary-50'
-  },
-  size: {
-    small: 'px-3 py-1.5 text-sm',
-    medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg'
+interface PaginatedResult<T> {
+  data: T[]
+  pagination: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
   }
+}
+```
+
+## Error Handling Standards
+```typescript
+// ✅ Repository error handling
+export class UserRepository implements BaseRepository<User, CreateUserInput, UpdateUserInput> {
+  async findById(id: string): Promise<User | null> {
+    try {
+      const user = await this.db.user.findUnique({
+        where: { id },
+        include: this.defaultIncludes
+      })
+      return user
+    } catch (error) {
+      this.logger.error('Failed to find user by ID', { userId: id, error })
+      throw new DatabaseError('Failed to retrieve user', { cause: error })
+    }
+  }
+
+  async create(data: CreateUserInput): Promise<User> {
+    try {
+      return await this.db.user.create({
+        data,
+        include: this.defaultIncludes
+      })
+    } catch (error) {
+      if (error instanceof PrismaClientKnownRequestError) {
+        if (error.code === 'P2002') {
+          throw new ConflictError('User with this email already exists')
+        }
+      }
+      this.logger.error('Failed to create user', { data, error })
+      throw new DatabaseError('Failed to create user', { cause: error })
+    }
+  }
+}
+```
+
+## Performance Standards
+- Always use proper indexes for query filters
+- Implement pagination for list operations (max 100 items)
+- Use database transactions for multi-table operations
+- Implement connection pooling
+- Cache frequently accessed, static data
+
+## Security Requirements
+- Use parameterized queries (Prisma handles this automatically)
+- Validate all input data before database operations
+- Implement proper access control at repository level
+- Log all data modification operations for audit trail
+- Never expose internal database errors to API responses
+```
+
+## 🧪 Testing and Validation Rules
+
+### **Testing Pattern Rules**
+
+#### **User Request:**
+```bash
+"Create comprehensive testing rules that cover our unit testing, integration testing, and end-to-end testing standards"
+```
+
+#### **AI Creates Rule:**
+```yaml
+---
+description: Comprehensive testing patterns and requirements
+globs: "**/*.{test,spec}.{ts,tsx,js,jsx}"
+alwaysApply: false
+---
+
+# Testing Implementation Standards
+
+## Purpose
+Ensure comprehensive, maintainable, and reliable test coverage across all application layers.
+
+## Test Organization
+```typescript
+// ✅ Well-organized test structure
+describe('UserProfile Component', () => {
+  // Setup and teardown
+  beforeEach(() => {
+    vi.clearAllMocks()
+    setupTestEnvironment()
+  })
+
+  // Happy path tests
+  describe('when user data is available', () => {
+    it('displays user information correctly', () => {
+      // Test implementation
+    })
+
+    it('allows profile editing when authorized', () => {
+      // Test implementation  
+    })
+  })
+
+  // Error scenarios
+  describe('when user data is unavailable', () => {
+    it('shows loading state while fetching', () => {
+      // Test implementation
+    })
+
+    it('displays error message on fetch failure', () => {
+      // Test implementation
+    })
+  })
+
+  // Edge cases
+  describe('edge cases', () => {
+    it('handles malformed user data gracefully', () => {
+      // Test implementation
+    })
+  })
+})
+```
+
+## Mock Strategy
+```typescript
+// ✅ Proper mocking patterns
+vi.mock('../services/userService', () => ({
+  userService: {
+    findById: vi.fn(),
+    update: vi.fn(),
+    delete: vi.fn()
+  }
+}))
+
+// ✅ Mock setup with realistic data
+const mockUser: User = {
+  id: '123',
+  email: 'test@example.com',
+  name: 'Test User',
+  createdAt: new Date('2025-01-01'),
+  status: 'active'
+}
+
+beforeEach(() => {
+  vi.mocked(userService.findById).mockResolvedValue(mockUser)
+})
+```
+
+## Coverage Requirements
+- **Unit Tests**: 90%+ coverage for business logic
+- **Integration Tests**: All API endpoints and database operations
+- **E2E Tests**: Critical user workflows and payment flows
+- **Accessibility Tests**: All interactive components
+
+## Test Data Management
+```typescript
+// ✅ Centralized test fixtures
+export const testFixtures = {
+  users: {
+    basicUser: {
+      id: '1',
+      email: 'user@example.com',
+      name: 'Basic User',
+      role: 'user'
+    },
+    adminUser: {
+      id: '2', 
+      email: 'admin@example.com',
+      name: 'Admin User',
+      role: 'admin'
+    }
+  },
+  
+  createUser: (overrides: Partial<User> = {}) => ({
+    ...testFixtures.users.basicUser,
+    ...overrides
+  })
 }
 ```
 ```
@@ -410,6 +539,13 @@ const buttonVariants = {
 ## 🔐 Security Pattern Rules
 
 ### **Authentication & Authorization Rules**
+
+#### **User Request:**
+```bash
+"Create security rules that enforce our authentication patterns, authorization checks, and data protection standards"
+```
+
+#### **AI Creates Rule:**
 ```yaml
 ---
 description: Security patterns for authentication and authorization
@@ -502,290 +638,173 @@ function registerUser(req: Request) {
 ```
 ```
 
-## 🧪 Testing Pattern Rules
+## 🎯 Rule Management and Evolution
 
-### **Testing Strategy Rules**
+### **Creating Your First Rule**
+
+#### **User Request:**
+```bash
+"I want to create a rule for our specific styling patterns. We use Tailwind CSS with specific naming conventions and component structures"
+```
+
+#### **AI Guides Rule Creation:**
+```bash
+"I'll help you create a styling rule for your Tailwind CSS patterns. Let me create a comprehensive rule that covers naming conventions, component structure, and best practices for your team."
+
+# AI creates rule template and saves to .cursor/rules/styling-standards.mdc
+```
+
+#### **Resulting Rule:**
 ```yaml
 ---
-description: Comprehensive testing patterns and requirements
-globs: "**/*.{test,spec}.{ts,tsx,js,jsx}"
+description: Tailwind CSS styling standards and component patterns
+globs: "src/**/*.{tsx,jsx,ts,js,css}"
 alwaysApply: false
 ---
 
-# Testing Implementation Standards
+# Styling Standards
 
 ## Purpose
-Ensure comprehensive, maintainable, and reliable test coverage across all application layers.
+Enforce consistent Tailwind CSS usage and styling patterns across components.
 
-## Test Organization
+## Utility Class Organization
 ```typescript
-// ✅ Well-organized test structure
-describe('UserProfile Component', () => {
-  // Setup and teardown
-  beforeEach(() => {
-    vi.clearAllMocks()
-    setupTestEnvironment()
-  })
-
-  // Happy path tests
-  describe('when user data is available', () => {
-    it('displays user information correctly', () => {
-      // Test implementation
-    })
-
-    it('allows profile editing when authorized', () => {
-      // Test implementation  
-    })
-  })
-
-  // Error scenarios
-  describe('when user data is unavailable', () => {
-    it('shows loading state while fetching', () => {
-      // Test implementation
-    })
-
-    it('displays error message on fetch failure', () => {
-      // Test implementation
-    })
-  })
-
-  // Edge cases
-  describe('edge cases', () => {
-    it('handles malformed user data gracefully', () => {
-      // Test implementation
-    })
-  })
-})
+// ✅ Logical grouping of classes
+<div className={cn(
+  // Layout
+  'flex items-center justify-between',
+  // Spacing  
+  'p-4 mb-6',
+  // Appearance
+  'bg-white rounded-lg shadow-md',
+  // Interactive states
+  'hover:shadow-lg transition-shadow',
+  // Responsive
+  'md:p-6 lg:p-8'
+)}>
 ```
 
-## Mock Strategy
+## Component Styling Patterns
+- Use `cn()` utility for conditional classes
+- Group classes logically (layout, spacing, appearance, states)
+- Use design system tokens (`bg-primary-500`, not arbitrary values)
+- Implement proper responsive design patterns
+- Include focus and hover states for interactive elements
+
+## Custom CSS Guidelines
+- Use CSS modules for component-specific styles
+- Prefix custom properties with component name
+- Avoid `!important` declarations
+- Use Tailwind `@apply` for repeated utility combinations
+
+## Dark Mode Support
 ```typescript
-// ✅ Proper mocking patterns
-vi.mock('../services/userService', () => ({
-  userService: {
-    findById: vi.fn(),
-    update: vi.fn(),
-    delete: vi.fn()
-  }
-}))
-
-// ✅ Mock setup with realistic data
-const mockUser: User = {
-  id: '123',
-  email: 'test@example.com',
-  name: 'Test User',
-  createdAt: new Date('2025-01-01'),
-  status: 'active'
-}
-
-beforeEach(() => {
-  vi.mocked(userService.findById).mockResolvedValue(mockUser)
-})
+// ✅ Proper dark mode implementation
+<div className={cn(
+  'bg-white dark:bg-gray-800',
+  'text-gray-900 dark:text-gray-100',
+  'border border-gray-200 dark:border-gray-700'
+)}>
+```
 ```
 
-## Assertion Patterns
-```typescript
-// ✅ Specific, meaningful assertions
-expect(screen.getByRole('heading', { name: 'User Profile' }))
-  .toBeInTheDocument()
+### **Rule Testing and Iteration**
 
-expect(screen.getByDisplayValue('test@example.com'))
-  .toHaveAttribute('readonly')
-
-expect(mockOnUpdate).toHaveBeenCalledWith({
-  ...mockUser,
-  name: 'Updated Name'
-})
-
-// ❌ Vague or weak assertions
-expect(container.firstChild).toBeTruthy()
-expect(mockFunction).toHaveBeenCalled() // Too generic
-```
-
-## Test Coverage Requirements
-- **Unit Tests**: 90%+ coverage for business logic
-- **Integration Tests**: All API endpoints and user workflows
-- **E2E Tests**: Critical user journeys and edge cases
-- **Performance Tests**: Load testing for high-traffic features
-- **Security Tests**: Authentication, authorization, input validation
-```
-
-## 🔄 Dynamic Rule Creation
-
-### **AI-Assisted Rule Generation**
+#### **User Request:**
 ```bash
-# Generate rules from existing code patterns
-"Analyze our React components and create a rule that codifies our current patterns for:
-- Component file structure and organization
-- Props interface definitions and naming
-- State management patterns
-- Error handling approaches
-- Testing strategies"
-
-# Create rules from team decisions
-"Create a rule that captures our decision to use React Query for server state management, including:
-- Query key naming conventions
-- Error handling patterns
-- Cache configuration standards
-- Mutation patterns"
+"Test the new styling rule I just created and see if it's working with AI interactions"
 ```
 
-### **Rule Templates**
-```yaml
-# Framework Component Rule Template
----
-description: [Framework] component development standards
-globs: "src/**/*.{component-extensions}"
-alwaysApply: false
----
-
-# [Framework] Component Standards
-
-## Purpose
-[Explain why this rule exists]
-
-## Naming Conventions
-- [Convention 1]: [Description and example]
-- [Convention 2]: [Description and example]
-
-## Structure Requirements
-```[language]
-// ✅ Required structure
-[Code example showing correct pattern]
-```
-
-## [Specific Framework] Patterns
-[Framework-specific requirements and patterns]
-
-## Testing Standards
-[Testing requirements for this component type]
-
-## Examples
-
-### ✅ Good Implementation
-```[language]
-[Example of following the rule]
-```
-
-### ❌ Poor Implementation  
-```[language]
-[Example of violating the rule]
-```
-
-## Exceptions
-[When deviations might be acceptable]
-```
-
-## 📈 Rule Evolution and Maintenance
-
-### **Rule Lifecycle**
+#### **AI Tests Rule:**
 ```bash
-# Rule Creation
-1. Identify pattern or need
-2. Create draft rule with examples
-3. Team review and feedback
-4. Implementation and testing
-5. Documentation and training
+"I'll test your styling rule by creating a component that should follow these patterns:
 
-# Rule Updates
-1. Monitor rule effectiveness
-2. Gather feedback from usage
-3. Identify improvement opportunities
-4. Update rule with new requirements
-5. Communicate changes to team
+# Testing the styling rule effectiveness..."
 
-# Rule Retirement
-1. Identify obsolete or conflicting rules
-2. Plan migration strategy
-3. Update dependent rules
-4. Archive deprecated rules
-5. Clean up documentation
+# AI creates test component following the rule
+# Validates that the rule guidance is being followed
+# Provides feedback on rule clarity and completeness
 ```
 
-### **Rule Quality Metrics**
+### **Rule Refinement**
+
+#### **User Request:**
 ```bash
-# Measure rule effectiveness
-- Adoption rate across codebase
-- Consistency improvements
-- Reduction in code review comments
-- Developer satisfaction scores
-- Time to onboard new team members
+"The styling rule is too strict about class ordering. Update it to be more flexible while still maintaining consistency"
 ```
 
-### **Rule Documentation**
-```markdown
-## Rule Change Log
-
-### [Rule Name] (Updated 2025-01-16)
-**Change**: Added TypeScript interface requirements
-**Reason**: Improving type safety and developer experience
-**Migration**: Update existing components to include interfaces
-**Impact**: All new components must follow new pattern
-**Breaking**: No, existing code continues to work
-
-### [Rule Name] (Created 2025-01-10)
-**Purpose**: Standardize API error handling patterns
-**Scope**: All API endpoint implementations
-**Requirements**: Use standard error response format
-**Examples**: See examples/api-error-handling.md
-```
-
-## 🚨 Common Custom Rule Patterns
-
-### **Technology-Specific Rules**
+#### **AI Updates Rule:**
 ```bash
-# Database/ORM rules
-- Schema naming conventions
-- Migration patterns
-- Query optimization guidelines
-- Security requirements
+"I'll update your styling rule to be more flexible about class ordering while keeping the logical grouping guidance. The updated rule will focus on consistency rather than strict ordering."
 
-# Frontend framework rules  
-- Component patterns
-- State management
-- Routing conventions
-- Performance optimizations
-
-# API/Backend rules
-- Endpoint conventions
-- Authentication patterns
-- Data validation
-- Error handling
-
-# DevOps/Infrastructure rules
-- Deployment patterns
-- Configuration management
-- Monitoring requirements
-- Security policies
+# AI modifies the existing rule file
+# Preserves the core standards while adding flexibility
+# Updates examples to reflect the new approach
 ```
 
-### **Business Domain Rules**
+## 📊 Rule Effectiveness and Monitoring
+
+### **Rule Performance Analysis**
+
+#### **User Request:**
 ```bash
-# E-commerce domain
-- Product catalog patterns
-- Order processing workflows
-- Payment handling security
-- Inventory management
-
-# Healthcare domain
-- HIPAA compliance requirements
-- Patient data protection
-- Audit logging patterns
-- Integration standards
-
-# Financial domain
-- PCI compliance requirements
-- Transaction handling
-- Risk management patterns
-- Regulatory reporting
+"Analyze how well our custom rules are working and suggest improvements"
 ```
 
-## 📞 Need Help?
+#### **AI Analyzes Rule Effectiveness:**
+```bash
+"Based on recent development sessions, here's how your custom rules are performing:
 
-- **Rule Creation Issues**: See [Troubleshooting Guide](troubleshooting.md)
-- **Pattern Identification**: Check [Best Practices](best-practices.md)
-- **Team Implementation**: Read [Team Integration](team-integration.md)
+## Rule Effectiveness Analysis
+
+### Frontend Component Rules
+- **Adherence Rate**: 95% (AI successfully applied patterns)
+- **Issues Found**: Some accessibility requirements need clarification
+- **Suggestion**: Add more specific ARIA label examples
+
+### API Development Rules
+- **Adherence Rate**: 88% (consistently applied validation patterns)
+- **Issues Found**: Error handling examples could be more comprehensive
+- **Suggestion**: Add examples for specific database errors
+
+### Styling Standards
+- **Adherence Rate**: 92% (good adoption of class organization)
+- **Issues Found**: Dark mode patterns need refinement
+- **Suggestion**: Create more comprehensive color token examples
+
+## Recommendations
+1. Clarify accessibility requirements with specific examples
+2. Expand error handling scenarios in API rules
+3. Create interactive examples for styling patterns
+4. Add rule effectiveness metrics tracking"
+```
+
+### **Rule Evolution Process**
+
+#### **User Request:**
+```bash
+"Our team has learned new patterns over the last month. Update our rules to reflect current best practices"
+```
+
+#### **AI Evolves Rules:**
+```bash
+"I'll review recent development patterns and update your rules to reflect current best practices:
+
+## Identified Pattern Evolution
+- New authentication patterns using NextAuth.js
+- Improved error boundaries with better user experience
+- Enhanced accessibility patterns with screen reader support
+- Performance optimizations with React.memo usage
+
+## Updating Rules
+1. Adding NextAuth.js patterns to authentication rules
+2. Enhancing error boundary examples in component rules  
+3. Expanding accessibility requirements with concrete examples
+4. Including performance optimization patterns
+
+Updated rules will be saved and ready for immediate use."
+```
 
 ---
 
-*Custom rules are the key to making the framework truly yours - they capture your team's unique knowledge and ensure consistent implementation across your projects.* 
+**Ready to create your first custom rule?** Start with a specific problem your team faces repeatedly, and let the AI help you encode the solution into a reusable rule!

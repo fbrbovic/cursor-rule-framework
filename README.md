@@ -63,7 +63,7 @@ Special thanks to the original contributors:
 # Click "Use this template" → "Create a new repository"
 
 # Option B: Clone directly
-git clone https://github.com/your-username/cursor-rule-framework.git my-project
+git clone https://github.com/fbrbovic/cursor-rule-framework.git my-project
 cd my-project
 rm -rf .git && git init
 ```
@@ -109,6 +109,9 @@ cursor .
 ```
 
 ## 📚 Documentation
+
+### 🏠 **[📖 Complete Documentation Hub](docs/README.md)**
+**→ Comprehensive guides, tutorials, and references for mastering the framework**
 
 ### Core Concepts
 - **[Architecture Guide](docs/architecture.md)** - How to use the architecture rule for project architecture management
@@ -252,4 +255,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ for the Cursor AI community**
 
-*Ready to start Vibe Coding? [Get started now](#-quick-start) or [read the docs](docs/)!*
+*Ready to start Vibe Coding? [Get started now](#-quick-start) or [explore the complete documentation](docs/README.md)!*

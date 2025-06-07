@@ -16,18 +16,35 @@ The Cursor Rule Framework transforms traditional architecture practices by:
 ### **Pattern 1: Architecture-First Development**
 
 #### **Using the Framework**
+
+#### **1. Start with Architecture Planning**
+
+**User Request:**
 ```bash
-# 1. Start with architecture planning
 "Plan an epic for migrating to microservices architecture"
+```
+
+**AI Response:**
+```bash
+"I'll create a comprehensive microservices migration epic. Let me analyze your current monolith architecture and plan a phased migration approach."
 
 # AI automatically:
 # - Reviews current architecture.mdc
 # - Creates comprehensive migration epic
 # - Plans architecture validation steps
 # - Structures implementation phases
+```
 
-# 2. Work on architectural components
+#### **2. Work on Architectural Components**
+
+**User Request:**
+```bash
 "Start working on the user service extraction from the microservices migration epic"
+```
+
+**AI Response:**
+```bash
+"I'll begin extracting the user service. I found this step in the Microservices Migration Epic, Phase 1: Service Extraction. Let me start with the Blueprint phase to plan the service boundaries and data migration."
 
 # AI automatically:
 # - Includes architectural constraints from epic
@@ -75,24 +92,36 @@ The Cursor Rule Framework transforms traditional architecture practices by:
 ### **Pattern 3: Microservices with Workflow Phases**
 
 #### **Three-Phase Microservice Development**
+
+#### **Blueprint Phase - AI Architectural Validation**
+
+**User Request:**
 ```bash
-# Blueprint Phase - AI architectural validation
 "Plan the order processing microservice following our service patterns"
+```
+
+**AI Response:**
+```bash
+"I'll plan the order processing microservice using our established patterns. Let me analyze the existing service architecture and create a comprehensive implementation plan."
 
 # AI automatically:
 # 1. Reviews existing service patterns in architecture.mdc
 # 2. Validates service boundaries and responsibilities
 # 3. Plans database and API design
 # 4. Includes deployment and monitoring considerations
+```
 
-# Construct Phase - AI-guided implementation
+#### **Construct Phase - AI-Guided Implementation**
+```bash
 # AI implements following architectural constraints:
 # - Service interface patterns
 # - Data access patterns
 # - Error handling standards
 # - Security and authentication integration
+```
 
-# Validate Phase - Architectural verification
+#### **Validate Phase - Architectural Verification**
+```bash
 # AI verifies:
 # - Service follows documented patterns
 # - Integration points work correctly

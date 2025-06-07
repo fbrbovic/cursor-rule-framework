@@ -5,15 +5,34 @@ This guide helps you diagnose and resolve common issues when using the Cursor Ru
 ## 🎯 Quick Diagnosis
 
 ### **Framework Not Working?**
-```bash
-# Quick health check
-1. ✅ Cursor IDE recognizing .cursor/rules/ directory?
-2. ✅ Rules files have .mdc extension?
-3. ✅ Proper YAML frontmatter in rules?
-4. ✅ workflow-state.mdc exists and is accessible?
-5. ✅ No syntax errors in rule files?
 
-# If any fail, see detailed sections below
+#### **Quick Health Check:**
+
+**User Request:**
+```bash
+"Check if the Cursor Rule Framework is working properly"
+```
+
+**AI Response (if working correctly):**
+```bash
+"I can see your framework setup:
+✅ Found .cursor/rules/ directory with 6 rule files
+✅ All files have .mdc extension
+✅ YAML frontmatter is properly formatted
+✅ workflow-state.mdc is accessible
+✅ No syntax errors detected
+
+The framework is functioning correctly. I can help you with Blueprint → Construct → Validate workflow and epic management."
+```
+
+**AI Response (if broken):**
+```bash
+"I notice some issues with your framework setup:
+❌ Cannot access .cursor/rules/ directory
+❌ Some rule files have .md extension instead of .mdc
+❌ Missing user rules template installation
+
+Let me help you fix these issues..."
 ```
 
 ### **AI Not Following Rules?**

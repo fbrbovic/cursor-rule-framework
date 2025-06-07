@@ -57,7 +57,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
 Found a bug? Help us fix it!
 
 **Before submitting:**
-- Check existing [issues](https://github.com/your-username/cursor-rule-framework/issues)
+- Check existing [issues](https://github.com/fbrbovic/cursor-rule-framework/issues)
 - Test with the latest version
 - Gather relevant information
 
@@ -330,9 +330,9 @@ Contributors are recognized in several ways:
 
 ### Getting Help
 
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/cursor-rule-framework/discussions)
-- **Issues**: [Bug reports and feature requests](https://github.com/your-username/cursor-rule-framework/issues)
-- **Wiki**: [Community knowledge base](https://github.com/your-username/cursor-rule-framework/wiki)
+- **Discussions**: [GitHub Discussions](https://github.com/fbrbovic/cursor-rule-framework/discussions)
+- **Issues**: [Bug reports and feature requests](https://github.com/fbrbovic/cursor-rule-framework/issues)
+- **Wiki**: [Community knowledge base](https://github.com/fbrbovic/cursor-rule-framework/wiki)
 
 ### Communication Guidelines
 
@@ -352,8 +352,8 @@ Ready to contribute? Here's how to get started:
 
 ## 📞 Need Help?
 
-- **General Questions**: [GitHub Discussions](https://github.com/your-username/cursor-rule-framework/discussions)
-- **Bug Reports**: [GitHub Issues](https://github.com/your-username/cursor-rule-framework/issues)
+- **General Questions**: [GitHub Discussions](https://github.com/fbrbovic/cursor-rule-framework/discussions)
+- **Bug Reports**: [GitHub Issues](https://github.com/fbrbovic/cursor-rule-framework/issues)
 - **Security Issues**: Email security@your-domain.com
 
 ---

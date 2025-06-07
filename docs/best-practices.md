@@ -37,8 +37,8 @@ alwaysApply: true
 - **Single Responsibility**: Each rule should address one clear concern
 - **Context Awareness**: Rules should understand when they apply vs when they don't
 
-### **2. Three-Phase Workflow Discipline**
-The Blueprint → Construct → Validate cycle is the framework's backbone.
+### **2. AI-Driven Workflow Discipline**
+The Blueprint → Construct → Validate cycle with epic integration is the framework's backbone.
 
 #### **Blueprint Phase Excellence**
 ```bash
@@ -257,9 +257,10 @@ authentication system documented in @architecture.mdc."
 "Follow the API standards defined in @backend-rules.mdc"  
 "Use the security patterns from @security-rules.mdc"
 
-# Reference epic context for larger work
-"Continue work on epic AUTH-001 as defined in @epics.mdc"
-"Move to next phase of the current epic"
+# Reference epic context for larger work (AI-driven)
+"Continue working on the login component from the user management epic"
+"Update the authentication progress to 75%, core functionality is complete"
+"Move to next step in the current epic"
 ```
 
 ### **Iterative Rule Development**

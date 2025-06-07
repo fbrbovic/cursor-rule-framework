@@ -11,7 +11,7 @@ This example demonstrates setting up a modern monorepo with the Cursor Rule Fram
 # 2. Copy ALL content (Ctrl+A, Ctrl+C)
 # 3. Cursor IDE → Settings → Features → Rules for AI → User Rules  
 # 4. Paste content and restart Cursor IDE
-# This enables coordinated monorepo development with Blueprint → Construct → Validate
+# This enables AI-driven monorepo development with epic integration
 ```
 
 ## 🚀 Project Overview
@@ -604,26 +604,39 @@ pnpm -r build
 pnpm -r test
 ```
 
+### **AI-Driven Package Development**
+```bash
+# Epic planning for cross-package features
+"Plan an epic for design system integration across web and mobile apps"
+
+# Work on specific epic components
+"Start working on the Button component from the design system epic"
+
+# Standalone package development
+"Create a new utility package for date formatting functions"
+
+# AI automatically:
+# - Manages epic context across package boundaries
+# - Ensures consistency between related packages
+# - Updates epic progress for multi-package work
+```
+
 ### **Package Development Workflow**
 ```bash
-# 1. Create new package
-mkdir packages/new-package
-cd packages/new-package
-pnpm init
+# Blueprint Phase - AI includes epic requirements for cross-package work
+# - Analyzes package dependencies and relationships
+# - Plans consistent APIs across packages
+# - Considers version compatibility
 
-# 2. Develop with hot reload
-pnpm --filter @company/new-package dev
+# Construct Phase - AI implements with package context
+# - Creates package structure following monorepo patterns
+# - Implements with proper internal dependencies
+# - Updates dependent packages when needed
 
-# 3. Test package in consumer app
-pnpm --filter web dev
-
-# 4. Build and test
-pnpm --filter @company/new-package build
-pnpm --filter @company/new-package test
-
-# 5. Version and publish
-pnpm changeset add
-pnpm changeset version
+# Validate Phase - AI verifies across package boundaries
+# - Tests package integration
+# - Validates version compatibility
+# - Updates epic progress for multi-package features
 ```
 
 ## 📈 Performance Optimization

@@ -337,7 +337,7 @@ alwaysApply: false
 - [ ] **CRITICAL**: Install user-rules-template.mdc in Cursor IDE User Rules
 - [ ] Read .cursor/rules/project-config.mdc
 - [ ] Review .cursor/rules/team-conventions.mdc
-- [ ] Understand workflow system (Blueprint → Construct → Validate)
+- [ ] Understand AI-driven workflow system with epic integration
 
 ## Week 1: Hands-On Learning
 - [ ] Pair program with team member on small feature
@@ -487,7 +487,7 @@ alwaysApply: false
 
 ### **What the Framework Actually Provides**
 - Shared `.mdc` files with consistent rule format
-- Three-phase workflow methodology teams can adopt
+- AI-driven workflow methodology teams can adopt
 - Epic planning structure for larger initiatives
 - Rule organization patterns that scale with teams
 

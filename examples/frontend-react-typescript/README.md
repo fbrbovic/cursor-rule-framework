@@ -18,7 +18,7 @@ cp -r /path/to/cursor-rule-framework/examples/frontend-react-typescript/.cursor/
 ### 2. **Install User Rules Template** ⚠️ **CRITICAL**
 ```bash
 # MUST DO: Install the framework's user rules template
-# This enables Blueprint → Construct → Validate workflow
+# This enables AI-driven workflow with epic integration
 
 # 1. Copy template content
 code .cursor/rules/user-rules-template.mdc
@@ -188,43 +188,46 @@ export function useUser() {
 
 ## 🛠️ Development Workflow
 
+### **AI-Driven Epic Integration**
+```bash
+# Start epic work with natural language
+"Plan an epic for user authentication with login, registration, and password reset"
+
+# Work on specific epic steps
+"Start working on the login component from the user authentication epic"
+
+# Update progress naturally
+"Update the login component progress to 75%, core functionality complete"
+
+# AI automatically:
+# - Creates and manages epics in epics.mdc
+# - Integrates epic context into workflow
+# - Updates progress as work completes
+```
+
 ### **Blueprint Phase**
 ```bash
-# 1. Plan your feature using epics
-# Ask Cursor: "Help me plan a user authentication feature"
+# AI automatically includes epic context when available
+# For epic work: Requirements and acceptance criteria included
+# For standalone work: Standard planning process
 
-# 2. Update architecture documentation
-# Cursor will guide you through component design
-
-# 3. Define interfaces and types first
-# Create TypeScript interfaces before implementation
+# Define interfaces and types first
+# AI uses epic requirements to guide component design
 ```
 
 ### **Construct Phase**
 ```bash
-# 1. Implement components following rules
-# Cursor will enforce naming conventions and patterns
-
-# 2. Write tests as you develop
-# Follow testing rules for comprehensive coverage
-
-# 3. Use custom hooks for state logic
-# Extract reusable logic into custom hooks
+# AI enforces naming conventions and patterns from rules
+# Implements exactly what was planned in blueprint
+# Updates epic progress automatically upon completion
 ```
 
 ### **Validate Phase**
 ```bash
-# 1. Run tests
-npm test
+# Automated validation
+npm test && npm run type-check && npm run lint
 
-# 2. Check TypeScript
-npm run type-check
-
-# 3. Lint code
-npm run lint
-
-# 4. Format code
-npm run format
+# Epic progress automatically updated to 100% when complete
 ```
 
 ## 🧪 Testing Strategy

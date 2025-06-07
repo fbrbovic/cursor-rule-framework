@@ -23,7 +23,7 @@ rm -rf .cursor-framework
 ### **Install User Rules Template** ⚠️ **CRITICAL**
 ```bash
 # FIRST: Install the framework's user rules template
-# This enables the three-phase workflow system
+# This enables the AI-driven workflow system with epic integration
 
 # 1. Copy user rules template content
 code .cursor/rules/user-rules-template.mdc
@@ -325,28 +325,40 @@ export function UserProfile({ user, className }: UserProfileProps) {
 
 ## 🛠️ Development Workflow
 
-### **Component Development Process**
+### **AI-Driven Component Development**
 ```bash
-# 1. Blueprint Phase - Plan component
-"Plan a UserProfile component that displays user information with edit capabilities"
+# Epic planning for UI features
+"Plan an epic for user profile management with view, edit, and preferences components"
 
-# AI will analyze requirements and create detailed plan
-# Including component structure, props, styling, and testing approach
+# Work on specific epic components
+"Start working on the UserProfile display component from the user management epic"
 
-# 2. Construct Phase - Implement component
-"Implement the UserProfile component according to our plan"
+# Standalone component development
+"Create a reusable Modal component with accessibility features"
 
-# AI follows frontend rules and creates:
-# - TypeScript interface
-# - React component with proper structure
-# - CSS Module styles
-# - Unit tests
-# - Accessibility features
+# AI automatically:
+# - Integrates epic requirements when available
+# - Follows component naming and structure rules
+# - Updates epic progress upon completion
+```
 
-# 3. Validate Phase - Test and verify
-"Validate the UserProfile component implementation"
+### **Three-Phase Component Development**
+```bash
+# Blueprint Phase - AI includes epic context when available
+# - Component structure and props from epic requirements
+# - Styling approach following design system
+# - Testing strategy for comprehensive coverage
 
-# AI runs tests, checks accessibility, verifies coding standards
+# Construct Phase - AI implements with frontend patterns
+# - TypeScript interfaces and component structure
+# - CSS modules with responsive design
+# - Unit tests and accessibility features
+# - Integration with existing components
+
+# Validate Phase - AI verifies and updates progress
+# - Runs tests and accessibility checks
+# - Validates coding standards and patterns
+# - Updates epic component progress if applicable
 ```
 
 ### **Common Development Patterns**

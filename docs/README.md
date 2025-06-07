@@ -21,7 +21,7 @@ New to the framework? Start here:
   - **The Master Rule Registry (`rules.mdc`)** - Dynamic rule accumulation
   - Location policies and best practices
 
-- **[Workflow System](workflow-system.md)** - Blueprint → Construct → Validate phases  
+- **[Workflow System](workflow-system.md)** - AI-driven development with epic integration  
   - Phase-by-phase development
   - Quality gates and validation
   - State management and tracking
@@ -130,7 +130,7 @@ New to the framework? Start here:
 ## 💡 Tips for Success
 
 1. **Start Small**: Begin with simple rules and gradually add complexity
-2. **Iterate Often**: Use the three-phase workflow to maintain quality
+2. **Iterate Often**: Use the AI-driven workflow system to maintain quality
 3. **Share Knowledge**: Document your patterns for team reuse
 4. **Stay Organized**: Follow the location and naming conventions
 5. **Test Thoroughly**: Validate rules in real projects before sharing

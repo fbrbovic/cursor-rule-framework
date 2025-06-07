@@ -32,19 +32,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Core Rule Framework**: Complete cursor rule management system
   - `cursor-rules-management.mdc` - Comprehensive rule organization and metadata preservation
   - `project-config.mdc` - Project-specific configuration template
-  - `workflow-state.mdc` - Blueprint → Construct → Validate development workflow
+  - `workflow-state.mdc` - AI-driven development workflow with epic integration
   - `epics.mdc` - Large initiative planning and tracking system
   - `architecture.mdc` - Architecture guidelines template
 
-- **Workflow System**: Three-phase development methodology
-  - Blueprint phase for thorough planning with AI assistance
-  - Construct phase for AI-guided implementation
-  - Validate phase for quality assurance and completion
+- **Workflow System**: AI-driven development methodology
+  - Blueprint phase with automatic epic context integration
+  - Construct phase for AI-guided implementation with epic tracking
+  - Validate phase with automatic epic progress updates
 
-- **Epic Management**: Hierarchical project planning
-  - Epic Group → Epic → Phase → Step structure
-  - AI-assisted epic planning and tracking
-  - Integration with workflow system
+- **Epic Management**: AI-driven project planning system
+  - Natural language epic creation and management
+  - Automatic epic-workflow integration through AI interpretation
+  - Progress tracking with completion percentages and dates
+  - Context-aware epic selection and step management
 
 - **Documentation Framework**: Comprehensive project documentation
   - Professional README with clear value proposition

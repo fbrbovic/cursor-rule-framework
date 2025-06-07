@@ -12,7 +12,7 @@ This example demonstrates setting up a robust backend API with the Cursor Rule F
 # 3. Cursor IDE → Settings → Features → Rules for AI → User Rules  
 # 4. Paste content and restart Cursor IDE
 # 5. Test: Ask "Help me plan an API endpoint" - should use Blueprint phase
-# Without this step, the three-phase workflow will not function!
+# Without this step, the AI-driven workflow system will not function!
 ```
 
 ### **Project Initialization**
@@ -579,32 +579,43 @@ function sanitizeObject(obj: any): any {
 
 ## 🛠️ Development Workflow
 
-### **API Development Process**
+### **AI-Driven API Development**
 ```bash
-# 1. Blueprint Phase - Plan API endpoint
-"Plan a user registration endpoint with email validation and password hashing"
+# Epic planning for larger features
+"Plan an epic for user management API with authentication, profiles, and admin features"
 
-# AI analyzes requirements and creates plan:
-# - Input validation schema
-# - Security considerations
-# - Database operations
-# - Error handling
+# Work on specific epic components
+"Start working on the user registration endpoint from the user management epic"
+
+# Standalone API development
+"Create a password reset endpoint with secure token generation"
+
+# AI automatically:
+# - Integrates epic context when available
+# - Creates comprehensive implementation plans
+# - Updates epic progress upon completion
+```
+
+### **Three-Phase API Development**
+```bash
+# Blueprint Phase - AI includes epic requirements when available
+# - Input validation schema from epic acceptance criteria
+# - Security considerations from epic requirements
+# - Database operations planned
+# - Error handling strategy
 # - Testing strategy
 
-# 2. Construct Phase - Implement endpoint
-"Implement the user registration endpoint according to our plan"
-
-# AI creates:
-# - Controller with proper error handling
+# Construct Phase - AI implements following epic constraints
 # - Service layer with business logic
-# - Repository for data access
+# - Repository pattern for data access
 # - Validation middleware
+# - Comprehensive error handling
 # - Unit and integration tests
 
-# 3. Validate Phase - Test and verify
-"Validate the user registration endpoint implementation"
-
-# AI runs tests, checks security, validates API documentation
+# Validate Phase - AI verifies and updates epic progress
+# - Runs test suite and security checks
+# - Validates API documentation
+# - Updates epic step progress if applicable
 ```
 
 ### **Common Development Patterns**

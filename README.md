@@ -43,7 +43,7 @@ Special thanks to the original contributors:
 - **Hierarchical Organization**: Global → Domain → Feature-specific rules
 
 ### 🏭 **Enterprise-Ready Workflow**
-- **Three-Phase Development**: Blueprint → Construct → Validate
+- **AI-Integrated Development**: Blueprint → Construct → Validate with epic context
 - **Epic Management**: Large initiative planning and tracking
 - **Quality Gates**: Automated testing, linting, and validation
 - **Documentation Standards**: Comprehensive project documentation
@@ -78,7 +78,7 @@ code .cursor/rules/user-rules-template.mdc
 **Important**: Copy the entire content of `user-rules-template.mdc` and paste it into:
 - **Cursor IDE** → **Cursor** → **Settings** → **Cursor Settings** → **Rules** → **User Rules**
 
-This template is **required** for the three-phase workflow (Blueprint → Construct → Validate) to function properly.
+This template is **required** for the AI-driven workflow system (Blueprint → Construct → Validate with epic integration) to function properly.
 
 ### 3. **Customize Project Configuration**
 ```bash
@@ -156,7 +156,7 @@ cursor-rule-framework/
 1. **🎯 Blueprint Phase** - Plan thoroughly with AI assistance
 2. **🔨 Construct Phase** - Implement with AI pair programming
 3. **✅ Validate Phase** - Ensure quality with AI-powered testing
-4. **📈 Epic Management** - Scale to large initiatives systematically
+4. **📈 Epic Management** - AI-driven initiative planning with natural language interaction
 
 This methodology ensures:
 - **High Code Quality** through structured validation

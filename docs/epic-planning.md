@@ -142,7 +142,7 @@ EPIC GROUP (Optional)
 ## 🔄 Epic Execution
 
 ### **Integration with Workflow System**
-Each step follows the three-phase workflow:
+Each step follows the AI-driven workflow system:
 
 ```bash
 # Step execution follows workflow
@@ -407,7 +407,7 @@ Recommend:
 - **Context Focus**: Use workflow-state.mdc for detailed execution
 
 ### **Epic Status Summary**
-*Manual tracking based on epics.mdc content*
+*AI-driven tracking based on epic interactions and progress updates*
 
 ```markdown
 ## Epic Portfolio Status

@@ -31,7 +31,7 @@ This guide helps you diagnose and resolve common issues when using the Cursor Ru
 ### **User Rules Template Not Installed** ⚠️ **CRITICAL**
 
 #### **Symptoms**
-- AI doesn't follow three-phase workflow (Blueprint → Construct → Validate)
+- AI doesn't follow workflow system (Blueprint → Construct → Validate with epic integration)
 - No workflow state management
 - AI doesn't ask for plan approval
 - Framework seems completely non-functional
@@ -61,7 +61,7 @@ code .cursor/rules/user-rules-template.mdc
 ```bash
 # The AI should now:
 ✅ Ask for plan approval before implementing
-✅ Follow Blueprint → Construct → Validate phases  
+✅ Follow Blueprint → Construct → Validate phases with epic context  
 ✅ Update workflow-state.mdc automatically
 ✅ Reference epics and architecture rules
 ✅ Maintain detailed logs of progress
@@ -205,7 +205,7 @@ node scripts/validate-rules.js
 ### **Workflow State Problems**
 
 #### **Symptoms**
-- AI doesn't follow three-phase workflow
+- AI doesn't follow workflow system
 - State transitions seem broken
 - Progress tracking inconsistent
 

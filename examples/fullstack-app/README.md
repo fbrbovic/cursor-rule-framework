@@ -11,7 +11,7 @@ This example demonstrates building a complete full-stack application using the C
 # 2. Copy ALL content (Ctrl+A, Ctrl+C)
 # 3. Cursor IDE → Settings → Features → Rules for AI → User Rules  
 # 4. Paste content and restart Cursor IDE
-# This enables Blueprint → Construct → Validate workflow for fullstack development
+# This enables AI-driven workflow system with epic integration for fullstack development
 ```
 
 ## 🚀 Project Overview

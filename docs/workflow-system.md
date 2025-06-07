@@ -1,6 +1,6 @@
 # ⚡ Workflow System Guide
 
-This guide explains the three-phase development methodology at the heart of the Cursor Rule Framework: **Blueprint → Construct → Validate**.
+This guide explains the AI-driven development methodology at the heart of the Cursor Rule Framework: **Blueprint → Construct → Validate** with automatic epic integration.
 
 ## ⚠️ Prerequisites
 
@@ -11,7 +11,7 @@ This guide explains the three-phase development methodology at the heart of the 
 3. In Cursor IDE: **Settings** → **Features** → **Rules for AI** → **User Rules**
 4. Paste the content into the User Rules field
 
-**Without this setup, the three-phase workflow will not function correctly.**
+**Without this setup, the AI-driven workflow system will not function correctly.**
 
 ## 🎯 Overview
 
@@ -398,15 +398,23 @@ to prevent unnecessary component updates."
 ## 📈 Advanced Workflow Patterns
 
 ### **Epic-Level Planning**
-For large initiatives, combine workflow with epic planning:
+For large initiatives, workflow automatically integrates with epic planning:
 
 ```bash
-# Epic spans multiple workflow cycles
-EPIC: User Management System
-├── Phase 1: Authentication (Blueprint → Construct → Validate)
-├── Phase 2: User Profiles (Blueprint → Construct → Validate) 
-├── Phase 3: Permissions (Blueprint → Construct → Validate)
-└── Phase 4: Admin Panel (Blueprint → Construct → Validate)
+# User requests epic work with natural language
+User: "Start working on the login component from the user management epic"
+
+# AI automatically:
+1. Searches epics.mdc for matching epic and step
+2. Sets workflow context with epic reference
+3. Includes epic requirements during blueprint phase
+4. Updates epic progress when workflow completes
+
+# Epic-workflow integration is AI-driven:
+Epic: User Management System
+├── Phase 1: Authentication (AI manages workflow integration)
+├── Phase 2: User Profiles (AI tracks progress automatically)
+├── Phase 3: Admin Panel (AI updates epic status)
 ```
 
 ### **Iterative Development**

@@ -6,7 +6,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Cursor IDE](https://img.shields.io/badge/Cursor-IDE-black.svg)](https://cursor.com/)
 
-A comprehensive, production-ready framework of Cursor AI rules and best practices designed to supercharge your development workflow. This framework embodies years of experience working with Cursor AI in enterprise environments, distilled into reusable, maintainable cursor rules.
+A comprehensive, production-ready framework of Cursor AI rules and best practices designed to supercharge your development workflow. If you wanted to do vibe coding but didn't know how to start. 
 
 ## 🚀 What Is This?
 

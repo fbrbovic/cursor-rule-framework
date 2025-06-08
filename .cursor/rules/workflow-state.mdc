@@ -79,6 +79,16 @@ Action ▶
 3. Check if all steps in the phase are completed, update phase status accordingly.
 4. Add completion entry to epic notes section with timestamp.
 
+### RULE_EPIC_COMPLETION_ARCHIVE_01
+Trigger ▶ `Epic Status == COMPLETED in epics.mdc`
+Action ▶
+1. Identify completed epic(s) in the ACTIVE EPICS section of epics.mdc.
+2. Move the completed epic from ACTIVE EPICS section to EPIC COMPLETION HISTORY section.
+3. Update portfolio summary counts: decrease Active Epics, increase Completed Epics.
+4. Preserve all epic details, phases, steps, and outcomes in the completion history.
+5. Update Epic Status Summary section with current counts.
+6. Log the epic archival in workflow ## Log section.
+
 ### RULE_ARCHITECTURE_UPDATE_01
 Trigger ▶ `Phase == CONSTRUCT && architectural changes are being implemented`
 Action ▶

@@ -1,0 +1,61 @@
+---
+description: Fast lookup index for core architectural components - patterns, maintenance rules, and foundational concepts
+globs: 
+alwaysApply: false
+---
+# Core Architecture Index
+**🔍 Fast Lookup - Core Domain Files**
+
+## 🤖 AI Instructions
+**When to use**: Navigate core architectural components - patterns, maintenance rules, and foundational concepts
+**How to use**: Scan table → identify pattern → apply to ALL development work
+**Context**: Database-style index for core architecture patterns required by all domains
+
+## 📊 CORE FILE INDEX
+
+### 🚨 **MANDATORY PATTERNS** (Apply to ALL Development)
+| **File** | **When to Use** | **Line Count** | **Contains** |
+|----|-----|----|----- |
+| `patterns.mdc` | ALL development work | 485 lines | Dual User ID System, Organization Access Control, Database patterns |
+| `maintenance.mdc` | Architecture file creation/modification | 279 lines | File size limits, metadata requirements, quality gates |
+
+## ⚡ **QUICK DECISION PATHS**
+
+```
+🎯 WHAT ARE YOU BUILDING?
+
+NEW FEATURE:
+├─ patterns.mdc (Dual User ID + Organization Access)
+└─ maintenance.mdc (if creating architecture docs)
+
+API DEVELOPMENT:
+├─ patterns.mdc (Database patterns + User ID system)
+└─ maintenance.mdc (architecture compliance)
+
+AUTHENTICATION/AUTHORIZATION:
+├─ patterns.mdc (Organization Access Control)
+└─ ../backend/security/index.mdc (specific implementation)
+
+ARCHITECTURE DOCUMENTATION:
+└─ maintenance.mdc (file standards + quality gates)
+```
+
+## 🔗 **PATTERN DEPENDENCIES**
+
+**Dual User ID System**: Required by frontend auth + backend APIs  
+**Organization Access Control**: Required by ALL multi-tenant features  
+**Database Patterns**: Required by ALL backend data operations  
+**Maintenance Rules**: Required by ALL architecture documentation  
+
+## 📋 **CORE COMPLIANCE CHECKLIST**
+
+✅ Apply Dual User ID System (internal UUID + Clerk ID)  
+✅ Implement Organization Access Control for all features  
+✅ Follow Database patterns for schema design  
+✅ Maintain architecture file standards  
+
+---
+
+**Domain**: Core (Foundational Patterns)  
+**Files**: 2 mandatory pattern files  
+**Purpose**: Essential cross-domain architecture patterns

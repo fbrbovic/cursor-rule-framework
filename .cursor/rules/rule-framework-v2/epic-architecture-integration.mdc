@@ -1,0 +1,110 @@
+---
+description: This file provides straightforward guidance for integrating architecture consultation into epic planning. Use these rules when creating epic blueprints to ensure architectural alignment and consistency.
+globs: 
+alwaysApply: false
+---
+# Epic-Architecture Integration Rules
+**Simple Architecture Consultation for Epic Planning**
+
+## Usage Instructions
+This file provides straightforward guidance for integrating architecture consultation into epic planning. Use these rules when creating epic blueprints to ensure architectural alignment and consistency.
+
+## 🎯 Core Purpose
+**Simple Mandate**: All epics MUST consult relevant architecture files during BLUEPRINT phase to ensure implementation follows established patterns and maintains system coherence.
+
+## 📋 Architecture Consultation Requirements
+
+### BLUEPRINT Phase - Architecture Validation
+**Requirement**: Reference architecture files relevant to your epic scope
+**When**: During epic blueprint creation, before implementation begins
+**Goal**: Ensure proposed implementation aligns with established patterns
+
+#### **Essential Architecture References by Epic Type**
+
+**Technology-Specific Epics**:
+- ✅ `architecture/core/patterns.mdc` - **MANDATORY** core architectural patterns
+- ✅ Technology-specific architecture files - Development principles and patterns
+- ✅ `architecture/decisions/` - Relevant architectural decisions and context
+
+**Cross-Domain Epics**:
+- ✅ `architecture/core/patterns.mdc` - Core patterns affecting all components
+- ✅ Multiple domain-specific architecture files as relevant
+- ✅ `architecture/decisions/` - Historical context for major decisions
+
+**Infrastructure Epics**:
+- ✅ `architecture/core/patterns.mdc` - Core patterns and conventions
+- ✅ Infrastructure-specific architecture documentation
+- ✅ `architecture/decisions/` - Infrastructure and deployment decisions
+
+#### **Architecture Consultation Checklist**
+```markdown
+## Epic Architecture Consultation
+**Epic**: [EPIC_NAME]
+**Type**: [TECHNOLOGY_DOMAIN/CROSS_DOMAIN/INFRASTRUCTURE]
+
+### Architecture References Consulted
+- [ ] **Core Patterns**: Validated against architecture/core/patterns.mdc
+- [ ] **Domain Guidelines**: Read relevant domain-specific architecture files
+- [ ] **Technical Patterns**: Reviewed domain-specific technical architecture
+- [ ] **Security Requirements**: Checked security architecture for compliance
+- [ ] **Decision Context**: Reviewed architecture/decisions/ for relevant ADRs
+
+### Architecture Compliance Validation  
+- [ ] **Pattern Adherence**: Implementation follows established architecture patterns
+- [ ] **Decision Consistency**: New decisions align with existing architectural choices
+- [ ] **File Organization**: Planned changes respect architecture file organization
+- [ ] **Quality Standards**: Implementation will maintain architecture quality standards
+
+**Architecture Consultation Status**: [ ] COMPLETE
+```
+
+## 🔧 Implementation Guidelines
+
+### During CONSTRUCT Phase
+**Ongoing Responsibility**: Follow architecture patterns exactly as specified in consulted files
+**Documentation**: Update architecture files if new patterns are established
+**Compliance**: Maintain adherence to architecture guidelines throughout implementation
+
+### During VALIDATE Phase  
+**Final Check**: Verify implementation correctly follows architecture patterns
+**Documentation**: Ensure any architecture updates are completed and accurate
+**Quality**: Confirm architecture file size limits and organization maintained
+
+## 📁 Architecture File Organization Reference
+
+**Core Architecture**: `.cursor/rules/rule-framework-v2/architecture/`
+- `core/patterns.mdc` - **HIGHEST PRIORITY** mandatory patterns
+- `decisions/` - All ADRs and major architectural decisions
+
+**Domain-Specific Architecture**: Project-specific organization
+- Create domain-specific architecture files as needed for your technology stack
+- Follow core patterns while implementing technology-specific requirements
+- Document decisions and patterns specific to your chosen technologies
+
+## 🚀 Quick Integration Workflow
+
+### For Epic Creators
+1. **Identify Epic Scope**: Determine which architectural domains are affected
+2. **Consult Core Patterns**: Read architecture/core/patterns.mdc for mandatory patterns
+3. **Review Domain Architecture**: Check relevant domain-specific architecture files
+4. **Validate Approach**: Ensure epic approach aligns with established architecture
+5. **Document Consultation**: Include architecture consultation status in epic blueprint
+
+### For Epic Reviewers
+1. **Verify Consultation**: Confirm architecture files were referenced
+2. **Validate Alignment**: Check proposed approach follows architecture patterns
+3. **Approve Blueprint**: Ensure architecture consultation complete before approval
+
+---
+
+## Integration Changelog
+**Format**: [YYYY-MM-DD] [AI/USER] [CHANGE_TYPE] - Description
+
+- [2025-01-27] [AI] [FRAMEWORK_V2] - Made epic-architecture integration technology-agnostic and applicable to any project architecture
+- [2025-01-27] [AI] [CREATION] - Epic-architecture integration rules established with mandatory consultation requirements
+
+---
+
+**Last Updated**: 2025-01-27  
+**File Size**: ~80 lines (optimized for AI consumption)  
+**Status**: ✅ PRODUCTION READY - Technology Agnostic

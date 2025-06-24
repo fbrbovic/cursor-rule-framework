@@ -1,0 +1,134 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# ADR Template - Architectural Decision Record
+
+## 🤖 AI Instructions
+**When to use**: Creating new architectural decision records (ADRs) for any significant architectural choice
+**How to use**: Copy this template, fill in all sections, and save as new ADR file
+**Context**: Standardized format for documenting architectural decisions with rationale and consequences
+
+## 📋 ADR Template Structure
+
+### **ADR-[NUMBER]: [DECISION TITLE]**
+**Status**: [Proposed | Accepted | Deprecated | Superseded]  
+**Date**: [YYYY-MM-DD]  
+**Deciders**: [List of people involved in decision]  
+**Technical Story**: [Brief description or ticket reference]
+
+---
+
+### **Context**
+[Describe the context and problem statement that led to this decision. Include any relevant background information, constraints, or requirements that influenced the decision.]
+
+### **Decision**
+[State the architectural decision that was made. Be specific and clear about what was chosen.]
+
+### **Rationale**
+[Explain why this decision was made. Include the reasoning, analysis, and factors that led to this choice.]
+
+### **Alternatives Considered**
+[List and briefly describe the alternative options that were considered but not chosen.]
+
+#### **Alternative 1: [Name]**
+- **Description**: [Brief description]
+- **Pros**: [Benefits of this alternative]
+- **Cons**: [Drawbacks or limitations]
+- **Why not chosen**: [Specific reasons for rejection]
+
+#### **Alternative 2: [Name]**
+- **Description**: [Brief description]
+- **Pros**: [Benefits of this alternative]
+- **Cons**: [Drawbacks or limitations]
+- **Why not chosen**: [Specific reasons for rejection]
+
+### **Consequences**
+[Describe the positive and negative consequences of this decision.]
+
+#### **Positive Consequences**
+- [List positive outcomes and benefits]
+- [Include performance, maintainability, and development impacts]
+
+#### **Negative Consequences**
+- [List drawbacks, limitations, or risks]
+- [Include technical debt or future constraints]
+
+#### **Neutral Consequences**
+- [List consequences that are neither clearly positive nor negative]
+
+### **Implementation**
+[Describe how this decision will be implemented.]
+
+#### **Implementation Steps**
+1. [First step]
+2. [Second step]
+3. [Additional steps as needed]
+
+#### **Timeline**
+- **Start Date**: [When implementation begins]
+- **Target Completion**: [When implementation should be complete]
+- **Milestones**: [Key milestones during implementation]
+
+### **Validation**
+[Describe how the success of this decision will be measured.]
+
+#### **Success Criteria**
+- [Measurable criteria for success]
+- [Performance metrics or quality indicators]
+
+#### **Monitoring**
+- [How the decision outcomes will be monitored]
+- [What metrics will be tracked]
+
+### **Related Decisions**
+[List related ADRs or decisions that are connected to this one.]
+- **ADR-[NUMBER]**: [Brief description of relationship]
+- **Related Architecture**: [Links to relevant architecture documentation]
+
+### **Notes**
+[Any additional notes, assumptions, or context that doesn't fit in other sections.]
+
+---
+
+## 📝 ADR Creation Guidelines
+
+### **When to Create an ADR**
+- Significant architectural choices that affect multiple components
+- Technology selection decisions
+- Design pattern or architectural style choices
+- Infrastructure or deployment decisions
+- Security architecture decisions
+- Performance or scalability decisions
+
+### **ADR Numbering**
+- Use sequential numbering: ADR-001, ADR-002, etc.
+- Maintain consistent numbering across all project ADRs
+- Include the number in the filename: `adr-001-decision-title.mdc`
+
+### **Decision Status Lifecycle**
+1. **Proposed**: Decision is under consideration
+2. **Accepted**: Decision has been approved and is being implemented
+3. **Deprecated**: Decision is no longer recommended but still in use
+4. **Superseded**: Decision has been replaced by a newer decision
+
+### **Writing Best Practices**
+- Be concise but comprehensive
+- Use clear, non-technical language when possible
+- Include diagrams or examples when helpful
+- Focus on the "why" not just the "what"
+- Consider future readers who weren't involved in the decision
+
+### **Review Process**
+1. Create ADR in "Proposed" status
+2. Share with relevant stakeholders for review
+3. Address feedback and update ADR
+4. Change status to "Accepted" when approved
+5. Update related documentation and architecture files
+
+---
+
+**Template Purpose**: Standardized format for documenting architectural decisions  
+**Framework Integration**: Compatible with any technology stack or project type  
+**Maintenance**: Update template based on project needs and lessons learned

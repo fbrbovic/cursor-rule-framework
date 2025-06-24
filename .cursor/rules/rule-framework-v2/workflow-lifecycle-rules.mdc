@@ -1,0 +1,333 @@
+---
+description: Describes the workflow lifecycle, used when executing workflows or preparring workflow plans
+globs: 
+alwaysApply: false
+---
+# Workflow Lifecycle Rules
+**Last Updated**: 2025-01-27
+**Version**: 2.0 - Optimized for AI Safety and Epic Integration
+
+## Purpose
+This file contains the **immutable workflow lifecycle rules** that define how the AI should process tasks, manage workflow phases, and integrate with the epic system. These rules must **NEVER be modified during workflow execution**.
+
+> ⚠️ **CRITICAL**: AI must **NEVER edit this file** during workflow operations. This file contains the engine rules that drive the workflow system.
+
+---
+
+## 🔄 WORKFLOW PHASE DEFINITIONS
+
+### **[PHASE: ANALYZE]**
+**Purpose**: Initial task analysis and epic context identification
+
+**Required Actions**:
+1. **Read Project Context**: Read `project-config.mdc`, relevant code & documentation
+2. **Epic Integration Logic**:
+   - If user request mentions epic work, search `epic-active.mdc` for matching epic
+   - Identify specific epic, phase, and step from user's natural language description
+   - Parse epic format: `EPIC_NAME > PHASE_NAME > STEP_NAME`
+   - Set `EpicReference`, `EpicPhase`, `EpicStep` fields in workflow state
+   - If no epic context found, leave epic fields as null
+3. **Requirement Summary**: Summarize requirements without code or planning
+4. **Architecture Consultation**: Review `architecture/index.mdc` for domain navigation and relevant patterns
+
+### **[PHASE: BLUEPRINT]**
+**Purpose**: Detailed planning with architecture and epic validation
+
+**Required Actions**:
+1. **Architecture Validation**: 
+   - Read `architecture/index.mdc` to navigate to relevant domain patterns
+   - Consult `architecture-lifecycle.mdc` for framework compliance requirements
+   - **MANDATORY**: Check `architecture/core/patterns.mdc` for critical system-wide patterns
+   - Validate planned changes align with existing architectural decisions
+2. **Epic Context Integration**:
+   - If `EpicReference` exists, read context from `epic-active.mdc`
+   - Extract step requirements and acceptance criteria
+   - Include epic progress tracking in plan
+3. **Architecture Impact Assessment**: Evaluate architectural changes needed
+4. **Task Decomposition**: Break down task into ordered implementation steps
+5. **Plan Documentation**: Write detailed plan in workflow state `## Plan` section
+6. **Architecture Update Planning**: Include architecture documentation updates if needed
+7. **Approval Gate**: Set `Status = NEEDS_PLAN_APPROVAL` and request user confirmation
+
+### **[PHASE: CONSTRUCT]**
+**Purpose**: Implementation following the approved plan
+
+**Required Actions**:
+1. **Plan Adherence**: Follow the approved `## Plan` exactly
+2. **Atomic Implementation**: 
+   - Make changes in small, testable increments
+   - Run tests/linters after each atomic change (per `project-config.mdc`)
+   - Log results in workflow state `## Log` section
+3. **Architecture Updates**: When implementing architectural changes:
+   - Update relevant architecture files with new patterns/decisions
+   - Add entries to Architecture Changelog with timestamps
+   - Document new patterns following architecture standards
+4. **Progress Tracking**: Log completion of each step briefly in `## Log`
+5. **Phase Completion**: Set `Phase = VALIDATE` on successful completion
+
+### **[PHASE: VALIDATE]**
+**Purpose**: Final validation and workflow completion
+
+**Required Actions**:
+1. **Test Suite Execution**: Re-run full test suite and E2E checks
+2. **Quality Validation**: Confirm all acceptance criteria met
+3. **Status Update**: If validation passes, set `Status = COMPLETED`
+4. **Rule Trigger**: Automatically trigger applicable automation rules
+
+---
+
+## 🤖 AUTOMATION RULES
+
+### **RULE_INIT_01**
+**Trigger**: `Phase == INIT`  
+**Action**: 
+- Ask user for first high-level task description
+- Set `Phase = ANALYZE, Status = RUNNING`
+
+### **RULE_ITERATE_01**
+**Trigger**: `Status == COMPLETED && Items contains unprocessed rows`  
+**Action**:
+1. Set `CurrentItem` to next unprocessed row in **Items** table
+2. Parse epic reference if CurrentItem format matches `EPIC_NAME > PHASE_NAME > STEP_NAME`
+3. Clear **Log** section, reset `Phase = ANALYZE, Status = READY`
+
+### **RULE_LOG_ROTATE_01**
+**Trigger**: `length(Log section) > 5,000 chars`  
+**Action**: 
+- Summarize top 5 findings from **Log** into **ArchiveLog**
+- Clear **Log** section to prevent overflow
+
+### **RULE_EPIC_UPDATE_01**
+**Trigger**: `Phase == VALIDATE && Status == COMPLETED && EpicReference != null`
+**Action**:
+1. Parse `EpicReference`, `EpicPhase`, `EpicStep` to locate epic in `epic-active.mdc`
+2. Update corresponding epic step status with completion percentage and date
+3. Check if all phase steps completed, update phase status accordingly
+4. Add completion entry to epic notes with timestamp
+5. Log epic update in workflow **Log** section
+
+### **RULE_EPIC_COMPLETION_ARCHIVE_01**
+**Trigger**: `Epic Status == COMPLETED in epic-active.mdc`
+**Action**:
+1. Identify completed epic(s) in epic-active.mdc
+2. Move completed epic to `epic-completed.mdc`
+3. Update epic portfolio summary counts
+4. Preserve all epic details, phases, steps, and outcomes
+5. Log epic archival in workflow **Log** section
+
+### **RULE_ARCHITECTURE_UPDATE_01**
+**Trigger**: `Phase == CONSTRUCT && architectural changes are being implemented`
+**Action**:
+1. Identify architectural change type (pattern, technology, design decision)
+2. Follow `architecture-lifecycle.mdc` framework for proper file organization and compliance
+3. Update relevant architecture domain file (core/, frontend/, backend/, etc.)
+4. Ensure metadata headers and file size limits per `architecture-lifecycle.mdc` rules
+5. Add entry to Architecture Changelog with timestamp and change type
+6. Log architecture update in workflow **Log** section
+
+### **RULE_ARCHITECTURE_VALIDATE_01**
+**Trigger**: `Phase == BLUEPRINT && CurrentItem involves architectural decisions`
+**Action**:
+1. Read current `architecture/index.mdc` for domain navigation and `architecture-lifecycle.mdc` for framework requirements
+2. **MANDATORY**: Check `architecture/core/patterns.mdc` for critical system-wide patterns
+3. Access relevant domain-specific files (frontend/index.mdc, backend/index.mdc, etc.)
+4. Validate planned changes align with existing architectural decisions and framework compliance
+5. Identify conflicts with current architecture and note in plan
+6. Include architecture update steps if new patterns being introduced
+
+### **RULE_SUMMARY_01**
+**Trigger**: `Phase == VALIDATE && Status == COMPLETED`  
+**Action**:
+1. Read `project-config.mdc` for changelog location
+2. Construct one-sentence summary of completed work
+3. Find `## Changelog` heading in `project-config.mdc`
+4. Insert new summary as first item in changelog list
+
+---
+
+## 🎯 EPIC INTEGRATION PATTERNS
+
+### **Epic Context Resolution**
+When user mentions epic work in natural language:
+
+**Pattern Matching Examples**:
+- `"work on login from user management epic"` → Search for user management epic
+- `"implement dashboard from auth epic phase 2"` → Find auth epic, phase 2
+- `"complete the API integration step"` → Match current epic context
+
+**Epic Field Population**:
+```
+EpicReference: EPIC_NAME (from epic-active.mdc)
+EpicPhase: PHASE_NAME (specific phase within epic)
+EpicStep: STEP_NAME (specific step within phase)
+```
+
+### **Epic Progress Updates**
+AI automatically handles:
+- **Progress Tracking**: Update step completion percentages
+- **Status Changes**: Mark steps/phases as completed
+- **Note Updates**: Add progress descriptions and timestamps
+- **Architecture Sync**: Update architecture docs when epic work affects patterns
+
+### **Standalone Work Processing**
+For non-epic work:
+- Set descriptive `CurrentItem` 
+- Leave epic fields as null
+- Process normally through workflow phases
+- No epic system integration required
+
+---
+
+## 📋 WORKFLOW STATE MANAGEMENT
+
+### **State File Organization**
+The workflow state is maintained in `workflow-state.mdc` with these sections:
+
+**Mutable Sections** (AI writes here):
+- `## State` - Current workflow state variables
+- `## Plan` - Detailed implementation plan (BLUEPRINT phase)
+- `## Items` - Task queue table
+- `## Log` - Implementation progress and tool output
+- `## ArchiveLog` - Rotated log summaries
+
+**Immutable Sections** (AI never modifies):
+- `## Usage Examples` - Documentation and examples
+- All rule definitions and lifecycle documentation
+
+### **State Variables**
+Required state tracking in `workflow-state.mdc`:
+```yaml
+Phase: [INIT|ANALYZE|BLUEPRINT|CONSTRUCT|VALIDATE]
+Status: [READY|RUNNING|NEEDS_PLAN_APPROVAL|COMPLETED|BLOCKED]
+CurrentItem: "Descriptive task name"
+EpicReference: "EPIC_NAME" or null
+EpicPhase: "PHASE_NAME" or null  
+EpicStep: "STEP_NAME" or null
+```
+
+---
+
+## 🔗 FILE REFERENCES AND INTEGRATION
+
+### **Required File Consultations**
+During workflow execution, AI must reference:
+
+**Always Required**:
+- `workflow-state.mdc` - Current state and mutable workspace
+- `project-config.mdc` - Project standards and test commands
+- `architecture/index.mdc` - Master architecture navigation and domain lookup
+- `architecture-lifecycle.mdc` - Architecture framework compliance requirements
+
+**Epic Work Required**:
+- `epic-active.mdc` - Active epic definitions and progress
+- `epic-lifecycle-rules.mdc` - Epic management automation
+
+**Architecture Work Required**:
+- `architecture/core/patterns.mdc` - **MANDATORY** system-wide patterns (Dual User ID, etc.)
+- `architecture/decisions/index.mdc` - Architectural Decision Records navigation
+- `architecture/frontend/index.mdc` - Frontend-specific patterns and guidelines
+- `architecture/backend/index.mdc` - Backend-specific patterns and guidelines
+- `architecture/backend/security/index.mdc` - Authentication and authorization patterns
+
+### **Cross-Reference Integrity**
+- All file references use current centralized `.cursor/rules/rule-framework-v2/` structure
+- Epic system files maintain bidirectional consistency
+- Architecture files maintain cross-reference links following `architecture-lifecycle.mdc` framework
+- Workflow state tracks epic progress accurately
+- Architecture framework compliance enforced through `architecture-lifecycle.mdc` rules
+
+---
+
+## 🚀 WORKFLOW SAFETY PATTERNS
+
+### **Rule Preservation**
+- **This file (`workflow-lifecycle-rules.mdc`) must NEVER be edited during workflow**
+- Workflow state modifications only occur in `workflow-state.mdc`
+- Epic updates only occur in epic system files
+- Architecture updates follow established architecture maintenance patterns
+
+### **Error Recovery**
+- If workflow crashes, state in `workflow-state.mdc` provides full context
+- Detailed plans enable continuation without loss of progress
+- Epic integration maintains progress tracking across interruptions
+- Architecture validation prevents inconsistent implementations
+
+### **Quality Assurance**
+- All phases include validation checkpoints
+- Architecture compliance verified at blueprint phase
+- Epic acceptance criteria integrated into validation
+- Test/linter execution mandatory at construct phase
+
+---
+
+## 🏗️ ARCHITECTURE LIFECYCLE INTEGRATION
+
+### **Framework Compliance Requirements**
+The workflow system MUST integrate with the architecture lifecycle framework defined in `architecture-lifecycle.mdc`:
+
+#### **Architecture Navigation Pattern**
+1. **Master Index First**: Always start with `architecture/index.mdc` for domain navigation
+2. **Domain-Specific Access**: Navigate to specific domain indexes (frontend/, backend/, core/)
+3. **Framework Compliance**: Follow `architecture-lifecycle.mdc` rules for all architecture work
+4. **Metadata Validation**: Ensure all architecture files have proper Cursor rule metadata
+
+#### **Architecture File Organization Compliance**
+- **Domain Structure**: All architecture files organized under `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/`
+- **File Size Limits**: Maximum 500 lines per file, 300 lines for index files (enforced)
+- **Metadata Headers**: All architecture files MUST include proper YAML metadata
+- **Index Optimization**: Database-style fast lookup structures for all index files
+
+#### **Architecture Framework Integration Points**
+```yaml
+BLUEPRINT Phase:
+  - Consult architecture/index.mdc for domain navigation
+  - Reference architecture-lifecycle.mdc for framework requirements  
+  - Access domain-specific files through index navigation
+  - Validate framework compliance for planned changes
+
+CONSTRUCT Phase:
+  - Follow architecture-lifecycle.mdc rules for file modifications
+  - Maintain domain organization and file size limits
+  - Update metadata headers when creating new architecture files
+  - Ensure index file optimization standards
+
+VALIDATE Phase:
+  - Verify architecture framework compliance
+  - Confirm metadata headers and file organization
+  - Validate cross-reference integrity
+  - Check file size limits and index efficiency
+```
+
+#### **Architecture Lifecycle Automation Rules**
+- **RULE_ARCHITECTURE_FRAMEWORK_01**: Enforce architecture-lifecycle.mdc compliance
+- **RULE_ARCHITECTURE_METADATA_01**: Validate metadata headers on architecture files
+- **RULE_ARCHITECTURE_SIZE_01**: Monitor and enforce file size limits
+- **RULE_ARCHITECTURE_INDEX_01**: Maintain index file optimization standards
+
+---
+
+## 📊 INTEGRATION HEALTH MONITORING
+
+### **Epic System Integration**
+- Epic context correctly identified from natural language
+- Epic progress updates reflect actual implementation progress
+- Epic completion triggers proper archival workflow
+- Epic-architecture relationships maintained
+
+### **Architecture Integration**  
+- Architecture patterns consulted before implementation
+- Architecture documentation updated when patterns change
+- Architecture Decision Records maintained for major choices
+- Cross-reference integrity preserved across files
+
+### **Workflow Efficiency**
+- Plans detailed enough to survive interruptions
+- Phase transitions follow validation checkpoints
+- Automation rules reduce manual overhead
+- State management prevents information loss
+
+---
+
+**Last Updated**: 2025-01-27  
+**Maintenance Status**: ✅ ACTIVE  
+**Integration Status**: ✅ FULL COMPATIBILITY with epic and architecture systems

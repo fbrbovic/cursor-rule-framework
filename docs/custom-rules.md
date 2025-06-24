@@ -1,6 +1,34 @@
-# 🔧 Custom Rules Guide
+# 🛠️ Custom Rules Guide v2
 
-This guide explains how to create domain-specific rules that extend the Cursor Rule Framework for your project's unique needs.
+This guide explains how to create **technology-agnostic and domain-specific custom rules** in the Cursor Rule Framework v2.
+
+## 🆕 What's New in v2 Custom Rules
+
+### **Technology-Agnostic Rule Creation**
+- **Universal Patterns**: Create rules that work across any programming language or framework
+- **Technology-Specific Extensions**: Add domain-specific implementations when needed
+- **Epic Integration**: Link custom rules to epic context and architecture impact
+- **Architecture Framework Integration**: Coordinate with modular architecture system
+
+### **Enhanced Rule Organization**
+- **Technology Structure**: Organize rules in `project-specific/` for technology-specific patterns
+- **Core Patterns**: Universal rules in `architecture/core/patterns.mdc`
+- **Architecture Decisions**: ADR integration for rule decisions
+- **Epic Context**: Rules can be linked to specific epic initiatives
+
+### **v2 Rule Capabilities**
+- **Cross-Technology Validation**: Rules that validate patterns across multiple technologies
+- **Architecture Impact Tracking**: Automatic architecture framework coordination
+- **Epic Progress Integration**: Rules that support epic management workflow
+- **Migration Readiness**: Rules designed for technology transition scenarios
+
+---
+
+# Creating Your First v2 Rule
+
+Let me walk you through creating a custom rule in the v2 framework. This process demonstrates both technology-agnostic and specific approaches.
+
+## 🎯 Rule Creation Process (v2)
 
 ## 🎯 Overview
 

@@ -1,0 +1,369 @@
+---
+description: Any time any architecture docs (cursor rules) need to be generated or updated should be referenced. Contains rules on how our architecture docs lifecycle operates. 
+globs: 
+alwaysApply: false
+---
+# Architecture Lifecycle Framework
+**AI-Optimized Architecture Documentation Generation & Navigation System**
+
+## 🤖 AI USAGE INSTRUCTIONS
+**When to use**: ALWAYS reference this file before generating, modifying, or accessing architecture documentation
+**How to use**: Follow domain categorization, file organization, and generation patterns exactly as specified
+**Context Priority**: This file provides complete AI navigation framework - reference first, then access specific domains
+
+## 🚨 MANDATORY FRAMEWORK RULES
+
+### Rule 1: Domain-Based Organization (CRITICAL)
+**Location**: ALL architecture files MUST be in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/` directory
+**Structure**: Organized by domains, categories, and topics for optimal AI navigation
+**File Limit**: Maximum 500 lines per file (NO EXCEPTIONS)
+**Index Limit**: Maximum 300 lines for index files
+
+### Rule 2: AI-First Design (MANDATORY)
+**Purpose**: Optimize for AI consumption, not human readability
+**Context Awareness**: Minimize content, maximize actionable guidance
+**Navigation**: Clear domain/category/topic hierarchy for instant AI lookup
+**Instructions**: Every file MUST include AI usage instructions
+
+### Rule 3: Metadata & Cursor Integration (MANDATORY)
+**Metadata Headers**: All architecture files MUST include proper cursor rule metadata
+**Description Sync**: "When to use" from AI Instructions MUST match metadata description
+**AlwaysApply**: MUST be set to false for all architecture files
+**Integration**: Seamless integration with Cursor's rule system
+
+### Rule 4: Self-Enforcing Maintenance (AUTOMATED)
+**Compliance**: Continuous monitoring of file sizes, organization, and cross-references
+**Quality Gates**: Block creation of oversized or incorrectly organized files
+**Automation**: Self-healing systems for common compliance issues
+**Index Optimization**: Continuous monitoring of index efficiency and navigation speed
+
+### Rule 5: Index File Optimization (MANDATORY)
+**Purpose**: Enforce database-style fast lookup structures for all index files
+**Standard**: Index files must function as instant navigation tools, not narrative documents
+**Structure**: Table-based file listings with "When to Use" and "Contains" columns
+**Speed**: AI must be able to scan and navigate in under 2 seconds
+
+### Rule 6: Metadata Header Compliance (MANDATORY)
+**Purpose**: Ensure all architecture files have proper Cursor rule metadata headers
+**Standard**: ALL architecture files MUST include YAML metadata at the beginning
+**Format**: Exact structure with description copied from AI Instructions and alwaysApply: false
+**Validation**: Automated checking with zero tolerance for missing or incomplete metadata
+
+#### **Required Metadata Structure**
+```yaml
+---
+description: [Copy exact text from "When to use" in AI Instructions section]
+alwaysApply: false
+---
+```
+
+#### **Compliance Enforcement**
+- **Pre-creation**: Block creation of architecture files without proper metadata
+- **Modification**: Validate metadata presence on every file edit
+- **Audit**: Regular automated scanning for metadata compliance
+- **Repair**: Automated metadata generation from AI Instructions when missing
+
+## 📁 ARCHITECTURE DOMAIN STRUCTURE
+
+### Core Architecture Directory: `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/`
+
+```
+/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/
+├── index.mdc                    # Master navigation (300 lines max)
+├── core/
+│   ├── index.mdc               # Fast lookup table of core files
+│   ├── patterns.mdc            # Dual User ID System + Critical patterns
+│   └── maintenance.mdc         # Architecture maintenance automation
+├── frontend/
+│   ├── index.mdc               # Fast lookup table of frontend files
+│   ├── guidelines.mdc          # MANDATORY development principles
+│   ├── technical.mdc           # Nuxt.js/Vue patterns
+│   ├── components.mdc          # UI component patterns
+│   ├── security.mdc            # Clerk auth patterns
+│   ├── infrastructure.mdc      # Performance/deployment
+│   └── utilities/
+│       ├── component-audit.mdc  # Template component inventory
+│       ├── materialize-templates.mdc
+│       ├── project-structure.mdc
+│       ├── logo-and-layout.mdc
+│       └── profile-menu.mdc
+├── backend/
+│   ├── index.mdc               # Fast lookup table of backend files
+│   ├── guidelines.mdc          # MANDATORY development principles
+│   ├── technical.mdc           # Encore.ts patterns
+│   ├── domain.mdc              # Service boundaries
+│   ├── integrations.mdc        # External APIs
+│   ├── infrastructure.mdc      # Database/deployment patterns
+│   └── security/
+│       ├── index.mdc           # Fast lookup table of security files
+│       ├── authentication.mdc  # Auth middleware patterns
+│       ├── authorization.mdc   # RBAC patterns
+│       └── integrations.mdc    # External service security
+├── decisions/
+│   ├── index.mdc               # Fast lookup table of ADR files
+│   ├── core-decisions.mdc      # Core architecture ADRs
+│   ├── frontend-decisions.mdc  # Frontend ADRs
+│   └── backend-decisions.mdc   # Backend ADRs
+└── workflows/
+    ├── index.mdc               # Fast lookup table of workflow files
+    ├── epic-integration.mdc    # Epic architecture patterns
+    └── development.mdc         # Development workflows
+```
+
+## 🎯 AI NAVIGATION PATTERNS
+
+### Level 1: Domain Identification
+**AI Decision Tree**:
+```
+IF (frontend development) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/frontend/
+IF (backend development) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/backend/
+IF (core patterns needed) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/
+IF (architectural decision) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/decisions/
+IF (workflow guidance) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/workflows/
+```
+
+### Level 2: Category Selection
+**Within Each Domain**:
+- `guidelines.mdc` - MANDATORY development principles (START HERE)
+- `technical.mdc` - Framework/technology implementation patterns
+- `security.mdc` - Authentication/authorization patterns
+- `infrastructure.mdc` - Deployment/performance patterns
+
+### Level 3: Topic Access
+**AI Lookup Pattern**:
+1. Check domain index for topic location
+2. Access specific file for detailed patterns
+3. Apply patterns to current development context
+
+## 📋 FILE GENERATION STANDARDS
+
+### Every Architecture File MUST Include:
+
+#### Cursor Rule Metadata Header:
+```markdown
+---
+description: [Copy the "When to use" description from AI Instructions section]
+alwaysApply: false
+---
+```
+
+#### File Header Template:
+```markdown
+# [FILE_TITLE]
+**[ONE_LINE_PURPOSE]**
+
+## 🤖 AI Instructions
+**When to use**: [Specific scenarios when AI should reference this file]
+**How to use**: [Exact steps for AI to apply this content]
+**Context**: [How this relates to other architecture files]
+
+## Content Sections...
+```
+
+#### INDEX FILE SPECIFIC REQUIREMENTS (MANDATORY):
+```markdown
+# [DOMAIN] Architecture Index
+**🔍 Fast Lookup - [Domain] Domain Files**
+
+## 🤖 AI Instructions
+**When to use**: Navigate [domain] architecture files - instant lookup
+**How to use**: Scan table → identify need → go to specific file
+**Context**: Database-style index for [domain] architecture navigation
+
+## 📊 [DOMAIN] FILE INDEX
+
+### 🚨 **MANDATORY START** (Use Every Time)
+| **File** | **When to Use** | **Line Count** | **Contains** |
+|----------|-----------------|----------------|--------------|
+| `file.mdc` | Description | ### lines | Content summary |
+
+### 🏗️ **Category Name** (Purpose)
+| **File** | **When to Use** | **Line Count** | **Contains** |
+|----------|-----------------|----------------|--------------|
+| `file.mdc` | Description | ### lines | Content summary |
+
+## ⚡ **QUICK DECISION PATHS**
+```
+🎯 WHAT ARE YOU BUILDING?
+├─ Use case 1 → file1.mdc + file2.mdc
+├─ Use case 2 → file3.mdc + core/patterns.mdc
+└─ Use case 3 → file4.mdc
+```
+```
+
+#### INDEX QUALITY STANDARDS:
+- **Table Format**: All files listed in markdown tables with consistent columns
+- **Line Counts**: Include actual line counts for size awareness
+- **Decision Trees**: Quick ASCII decision trees for common use cases
+- **Speed Optimization**: Scannable in under 2 seconds by AI
+- **No Narrative**: Eliminate verbose descriptions, focus on lookup speed
+
+#### AI Usage Guidelines:
+- **When to use**: Specific triggers for AI to access this file (COPY TO METADATA DESCRIPTION)
+- **How to use**: Step-by-step application instructions
+- **Dependencies**: References to other required architecture files
+- **Context**: Integration with broader architecture framework
+
+#### Cross-Reference Pattern:
+```markdown
+**Related Files**:
+- [Dependency] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc`
+- [Integration] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc`
+```
+
+## 🔧 AUTOMATED GENERATION PATTERNS
+
+### Pattern 1: New Architecture File Creation
+**AI Process**:
+1. Identify domain/category/topic from content
+2. Check file size limits in target location
+3. Generate with mandatory header template
+4. Update relevant index files
+5. Validate cross-references
+
+### Pattern 2: File Size Management & Content Distribution
+**When**: File approaches 450+ lines or logical content separation needed
+**AI Process**:
+1. Analyze content for logical separation points
+2. Create domain-appropriate new files or sub-folders if needed
+3. Generate clear index files for navigation
+4. Update parent index files with new structure
+5. Maintain cross-reference integrity
+6. Archive original if completely migrated
+
+**Sub-folder Creation Guidelines**:
+- Create sub-folders when domain has 5+ related files
+- Each sub-folder MUST have its own index.mdc
+- Parent index MUST link to sub-folder indices
+- Sub-folder structure: `domain/category/index.mdc` + topic files
+
+### Pattern 3: Architecture Index Optimization
+**AI Responsibility**:
+1. Keep index files under 300 lines for optimal AI scanning
+2. Design indexes for SPEED - quick navigation, minimal content
+3. Use table format for file listings with "When to Use" and "Contains" columns
+4. Include quick decision trees for common development scenarios
+5. Maintain accurate line counts for all indexed files
+6. Ensure AI lookup patterns remain optimal across all index levels
+7. Eliminate narrative content - focus purely on navigation speed
+
+**Index Design Principles**:
+- **Speed First**: Indexes should be scannable in seconds by AI
+- **Table Structure**: Consistent markdown tables for all file listings
+- **Decision Trees**: ASCII trees for instant use case navigation
+- **Line Count Tracking**: Actual file sizes for AI context awareness
+- **No Verbose Content**: Database-style lookup, not documentation
+- **Hierarchical Structure**: Master → Domain → Category → Topic
+
+## 🚀 AI DEVELOPMENT WORKFLOW INTEGRATION
+
+### Epic Planning Phase
+**AI Must**:
+1. Consult `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/workflows/epic-integration.mdc`
+2. Reference domain-specific guidelines for epic scope
+3. Validate against core patterns in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/`
+4. Document architecture consultation in epic blueprint
+
+### Development Phase
+**AI Must**:
+1. START with domain guidelines (`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/[domain]/guidelines.mdc`)
+2. Apply core patterns (`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/`)
+3. Follow technical implementation patterns
+4. Maintain security and infrastructure standards
+
+### Validation Phase
+**AI Must**:
+1. Verify implementation follows architecture patterns
+2. Confirm all architecture files remain under 500 lines
+3. Validate cross-reference integrity
+4. Update architecture documentation if patterns evolved
+
+## 📊 AUTOMATED COMPLIANCE MONITORING
+
+### File Size Enforcement
+```bash
+# Auto-check command for AI to run
+find /.cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec wc -l {} + | awk '$1 > 500 {print "VIOLATION: " $2 " (" $1 " lines)"}'
+```
+
+### Cross-Reference Validation
+```bash
+# Validate internal links
+grep -r "\[.*\](mdc:.*\.mdc)" /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/ | while IFS=: read file content; do
+  link=$(echo "$content" | grep -o "\[.*\](mdc:.*\.mdc)" | grep -o "(.*\.mdc)" | tr -d "()")
+  [[ ! -f "$(dirname "$file")/$link" ]] && echo "BROKEN: $file → $link"
+done
+```
+
+### Index File Optimization
+```bash
+# Check index file sizes
+find /.cursor/rules/rule-framework-v2/architecture -name "index.mdc" -exec wc -l {} + | awk '$1 > 300 {print "INDEX VIOLATION: " $2 " (" $1 " lines)"}'
+```
+
+## 🔄 ARCHITECTURE EVOLUTION PATTERNS
+
+### Pattern: New Domain Addition
+**AI Process**:
+1. Create domain directory in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/[domain]/`
+2. Generate domain index with standard categories
+3. Update master index with new domain
+4. Create initial guidelines file for domain
+
+### Pattern: Category Expansion
+**AI Process**:
+1. Identify if new category fits existing domain
+2. Create category-specific file following naming conventions
+3. Update domain index with new category
+4. Ensure file stays under 500-line limit
+
+### Pattern: Cross-Domain Integration
+**AI Process**:
+1. Create integration patterns in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/workflows/`
+2. Reference from relevant domain files
+3. Maintain single source of truth for shared patterns
+4. Update navigation indices appropriately
+
+## 📋 AI QUALITY GATES
+
+### Before Architecture File Creation
+- [ ] Domain/category/topic identified correctly
+- [ ] Target location follows framework structure
+- [ ] File size will remain under 500 lines
+- [ ] Required AI instructions included
+
+### During Architecture Development
+- [ ] Content follows domain-specific patterns
+- [ ] Cross-references maintained accurately
+- [ ] Index files updated when needed
+- [ ] AI navigation patterns preserved
+
+### After Architecture Updates
+- [ ] All references validated functional
+- [ ] File sizes within limits
+- [ ] Index files under 300 lines
+- [ ] AI lookup patterns optimized
+
+---
+
+## 🚨 CRITICAL AI DIRECTIVES
+
+### ALWAYS Do:
+1. Reference `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/index.mdc` first for navigation
+2. Follow domain → category → topic hierarchy
+3. Include AI usage instructions in every architecture file
+4. Maintain file size limits strictly
+5. Update indices when creating/modifying files
+
+### NEVER Do:
+1. Create architecture files outside `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/`
+2. Exceed 500 lines in any architecture file
+3. Create files without AI usage instructions
+4. Break cross-reference integrity
+5. Generate human-optimized over AI-optimized content
+
+---
+
+**Last Updated**: 2025-01-27  
+**Framework Status**: ✅ PRODUCTION READY  
+**AI Compliance**: MANDATORY for all architecture work

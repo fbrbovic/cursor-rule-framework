@@ -1,0 +1,279 @@
+---
+description: Architecture file maintenance rules and quality gates - file size limits, metadata requirements, and automated compliance
+globs: 
+alwaysApply: false
+---
+
+# Architecture Maintenance Automation
+**Self-Enforcing Systems for Sustainable Architecture Quality**
+
+## 🤖 AI Instructions
+**When to use**: Reference when creating/modifying architecture documentation, implementing architecture features, validating compliance in workflows, or detecting documentation regression - establishes permanent maintenance automation for architecture optimization
+**How to use**: Apply maintenance rules as automated quality gates and follow compliance procedures for all architecture work
+**Context**: Ensures architecture documentation remains AI-accessible, maintainable, and continuously optimized for development productivity
+
+## 🚨 CRITICAL MAINTENANCE RULES
+
+### **Rule 1: File Size Enforcement (MANDATORY)**
+**Standard**: ALL architecture files MUST remain under 500 lines for optimal AI processing
+**Index Limit**: ALL index files MUST remain under 300 lines for speed optimization
+**Enforcement**: Automated blocking of oversized files with split strategy guidance
+
+#### **File Size Monitoring**
+```bash
+# Automated check for file size compliance
+find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec wc -l {} + | awk '
+$1 >= 500 {print "🚨 EXCEEDS LIMIT: " $2 " (" $1 " lines)"}
+$1 >= 450 && $1 < 500 {print "⚠️ APPROACHING LIMIT: " $2 " (" $1 " lines)"}
+END {if (violations > 0) exit 1}'
+
+# Index file specific check
+find .cursor/rules/rule-framework-v2/architecture -name "index.mdc" -exec wc -l {} + | awk '
+$1 >= 300 {print "🚨 INDEX EXCEEDS: " $2 " (" $1 " lines)"}
+$1 >= 250 && $1 < 300 {print "⚠️ INDEX APPROACHING: " $2 " (" $1 " lines)"}'
+```
+
+#### **Content Distribution Strategy**
+- **450+ lines**: Immediate content analysis for split opportunities
+- **400-449 lines**: Review for logical separation points  
+- **350-399 lines**: Monitor for growth patterns
+- **Under 350 lines**: Optimal range for AI processing
+
+### **Rule 2: Metadata Compliance (MANDATORY)**
+**Standard**: ALL architecture files MUST include proper Cursor rule metadata headers
+**Format**: Exact YAML metadata structure with specific fields
+**Validation**: Automated metadata presence and format verification
+
+#### **Required Metadata Structure**
+```yaml
+---
+description: [Copy exact text from "When to use" in AI Instructions]
+alwaysApply: false
+---
+```
+
+#### **Metadata Validation Script**
+```bash
+# Check for missing metadata headers
+find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec grep -L "^---" {} \; | \
+while read file; do
+  echo "📝 MISSING METADATA: $file"
+done
+
+# Validate metadata completeness
+find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" | while read file; do
+  if ! head -10 "$file" | grep -q "description:" || ! head -10 "$file" | grep -q "alwaysApply:"; then
+    echo "🔍 INCOMPLETE METADATA: $file"
+  fi
+done
+```
+
+### **Rule 3: Index Optimization (CRITICAL)**
+**Standard**: Index files designed for maximum AI navigation speed
+**Purpose**: Enable rapid content discovery under 2 seconds
+**Structure**: Hierarchical navigation with minimal content, maximum linkage
+
+#### **Index Design Principles**
+- **Speed First**: Scannable by AI in under 2 seconds
+- **Clear Navigation**: Direct links to specific content areas
+- **Minimal Content**: Overview only, detailed content in target files
+- **Hierarchical Flow**: Master → Domain → Category → Topic
+- **Sub-folder Integration**: Seamless navigation across directory levels
+
+#### **Sub-folder Creation Rules**
+- **Trigger**: Domain accumulates 5+ architecture files
+- **Structure**: Sub-folder with mandatory index.mdc
+- **Navigation**: Parent index links to sub-folder index
+- **Depth Limit**: Maximum 3 levels for AI navigation efficiency
+
+### **Rule 4: Cross-Reference Integrity (AUTOMATED)**
+**Standard**: All internal links MUST remain valid across file reorganization
+**Validation**: Automated link checking on file structure changes
+**Repair**: Self-healing cross-reference system
+
+#### **Link Standards**
+```markdown
+# Internal links format
+[File Name] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc`
+
+# Section links format  
+[Section Name] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc#section-anchor`
+
+# Related files format
+**Related Files**:
+- [Description] → `relative/path/to/file.mdc`
+```
+
+#### **Cross-Reference Validation Script**
+```bash
+# Validate internal links
+grep -r "→ \`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/" .cursor/rules/rule-framework-v2/rule-framework-v2/architecture/ | \
+while read line; do
+  file=$(echo "$line" | cut -d: -f1)
+  link=$(echo "$line" | sed -n 's/.*→ `\([^`]*\)`.*/\1/p')
+  if [ ! -f "$link" ]; then
+    echo "🔗 BROKEN LINK: $file → $link"
+  fi
+done
+```
+
+### **Rule 5: Epic Integration Enforcement (MANDATORY)**
+**Standard**: ALL epic blueprints MUST include architecture validation checkpoints
+**Integration**: Architecture consultation integrated into epic lifecycle phases
+**Compliance**: Epic progression blocked until architecture standards met
+
+#### **Epic Integration Requirements**
+- **BLUEPRINT Phase**: Mandate consultation of relevant architecture files
+- **CONSTRUCT Phase**: Validate implementation against architecture patterns  
+- **VALIDATE Phase**: Confirm architecture compliance and update documentation
+- **Epic Completion**: Archive architecture changes and update maintenance records
+
+## 🔄 AUTOMATED QUALITY GATES
+
+### **Gate 1: Pre-Creation Validation**
+**Triggers**: Before creating new architecture files
+**Checks**:
+- Proper domain placement validation
+- File naming convention compliance
+- Metadata header requirement verification
+- Content size projection analysis
+
+### **Gate 2: Modification Compliance**
+**Triggers**: On architecture file edits
+**Checks**:
+- File size limit enforcement (500 lines)
+- Metadata integrity validation
+- Cross-reference link verification
+- Content structure compliance
+
+### **Gate 3: Post-Reorganization Healing**
+**Triggers**: After file moves or deletions
+**Actions**:
+- Cross-reference link updates
+- Index file synchronization
+- Navigation path corrections
+- Orphaned content detection
+
+## 📁 DOMAIN ORGANIZATION STANDARDS
+
+### **Optimized Architecture Structure**
+```
+/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/
+├── index.mdc                 # Master navigation (under 300 lines)
+├── core/                     # System-wide patterns
+│   ├── index.mdc            # Core domain navigation
+│   ├── patterns.mdc         # Mandatory patterns (under 500 lines)
+│   └── maintenance.mdc      # This file
+├── frontend/                 # Frontend-specific architecture
+│   ├── index.mdc            # Frontend navigation
+│   ├── guidelines.mdc       # Frontend development principles
+│   └── utilities/           # Sub-folder when 5+ files
+├── backend/                  # Backend-specific architecture
+│   ├── index.mdc            # Backend navigation  
+│   ├── guidelines.mdc       # Backend development principles
+│   └── domain/              # Sub-folder for complex domains
+└── decisions/                # Architecture Decision Records
+    ├── index.mdc            # ADR navigation
+    └── [topic]-decisions.mdc # Specific decision records
+```
+
+### **Sub-folder Management**
+- **Creation Trigger**: Domain accumulates 5+ architecture files
+- **Structure Requirement**: Sub-folder with mandatory index.mdc
+- **Navigation Integration**: Parent index links to sub-folder index
+- **Depth Control**: Maximum 3 levels for optimal AI navigation
+
+## 🚀 CONTINUOUS OPTIMIZATION
+
+### **Performance Monitoring Framework**
+- **AI Access Patterns**: Analysis for index optimization
+- **File Size Growth**: Tracking and early intervention at 450+ lines
+- **Cross-Reference Health**: Usage metrics for navigation improvements
+- **User Feedback Integration**: Structure refinements based on developer input
+
+### **Quality Metrics Dashboard**
+- **File Size Compliance**: Target 100% under 500 lines
+- **Index Efficiency**: Target under 2 seconds AI scan time
+- **Cross-Reference Integrity**: Target 100% valid links
+- **Metadata Compliance**: Target 100% proper headers
+
+### **Regression Prevention System**
+- **Size Monitoring**: Automated alerts at 450+ lines
+- **Link Verification**: On every file modification
+- **Metadata Validation**: In file creation workflows
+- **Structure Compliance**: In development pipelines
+
+## 🔧 MAINTENANCE AUTOMATION TOOLS
+
+### **Daily Maintenance Script**
+```bash
+#!/bin/bash
+# Daily architecture health check
+
+echo "=== ARCHITECTURE MAINTENANCE DASHBOARD ==="
+
+# File size compliance
+echo "File Size Violations:"
+find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec wc -l {} + | \
+awk '$1 >= 500 {violations++; print "🚨 " $2 " (" $1 " lines)"} 
+     END {print (violations ? violations : 0) " total violations"}'
+
+# Metadata compliance
+echo "Metadata Compliance:"
+total=$(find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" | wc -l)
+compliant=$(find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec grep -l "description:\|alwaysApply:" {} \; | wc -l)
+echo "$compliant/$total files compliant ($(( compliant * 100 / total ))%)"
+
+# Cross-reference health check
+echo "Cross-Reference Validation:"
+broken_links=$(grep -r "→ \`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/" .cursor/rules/rule-framework-v2/rule-framework-v2/architecture/ | \
+while read line; do
+  link=$(echo "$line" | sed -n 's/.*→ `\([^`]*\)`.*/\1/p')
+  [ ! -f "$link" ] && echo "broken"
+done | wc -l)
+echo "$broken_links broken links detected"
+
+echo "=== MAINTENANCE COMPLETE ==="
+```
+
+### **Weekly Quality Review Tasks**
+- [ ] Architecture Usage Analytics Review
+- [ ] Epic Integration Effectiveness Analysis  
+- [ ] Optimization Impact Measurement
+- [ ] Compliance Trends Identification
+
+### **Monthly Architecture Health Check**
+- [ ] Complete Cross-Reference Audit
+- [ ] Content Relevance Review
+- [ ] AI Navigation Optimization Assessment
+- [ ] Maintenance Rule Updates Based on Learnings
+
+## 📋 SELF-IMPROVEMENT PATTERNS
+
+### **Automatic Content Distribution**
+**Pattern**: When files approach 450+ lines, trigger guided content restructuring
+**Implementation**: Automated analysis of logical separation points with split recommendations
+
+### **Usage-Based Optimization**
+**Pattern**: Monitor architecture file access patterns for optimization
+**Implementation**: Track AI rule pickup rates and prioritize high-traffic content areas
+
+### **AI Feedback Integration** 
+**Pattern**: Incorporate AI interaction patterns to improve accessibility
+**Implementation**: Monitor rule pickup success rates and optimize low-performance areas
+
+### **Epic Workflow Enhancement**
+**Pattern**: Continuously improve architecture integration in development workflows
+**Implementation**: Analyze epic success rates and identify consultation gaps
+
+**Related Files**:
+- [Core Patterns] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/patterns.mdc`
+- [Master Index] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/index.mdc`
+- [Frontend Guidelines] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/frontend/guidelines.mdc`
+- [Backend Guidelines] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/backend/guidelines.mdc`
+
+---
+
+**Last Updated**: 2025-01-27  
+**Status**: ✅ ACTIVE - CONTINUOUS MONITORING  
+**Automation Level**: FULLY AUTOMATED QUALITY GATES

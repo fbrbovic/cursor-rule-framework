@@ -1,0 +1,166 @@
+---
+description: These are the planned epics, not ready yet to be worked on. 
+globs: 
+alwaysApply: false
+---
+# Planned Epics - Development Pipeline
+**Last Updated**: 2025-01-27
+**Framework Version**: 2.0 - Generic Template
+
+## Purpose & Framework Integration
+Pipeline of planned epics awaiting activation. Maintains **complete integration** with epic lifecycle framework, architecture validation, and workflow coordination systems.
+
+### 🔄 Framework Integration
+- ✅ **Epic Lifecycle**: Full compliance with epic-lifecycle-rules.mdc framework
+- ✅ **Architecture Validation**: All epics validated against architecture/index.mdc patterns
+- ✅ **Workflow Coordination**: Ready for seamless activation and workflow integration
+- ✅ **Quality Standards**: All epics meet framework quality and documentation requirements
+
+## Pipeline Status
+- **Planned Epics**: 3 sample epics (technology-agnostic examples)
+- **Framework Compliance**: 100% compliant with epic lifecycle framework
+- **Architecture Alignment**: Validated against generic architecture patterns
+- **Activation Ready**: All epics ready for activation when capacity available
+
+---
+
+<!-- START: AUTHENTICATION_SYSTEM_EPIC -->
+### EPIC: AUTHENTICATION_SYSTEM_EPIC
+**Status**: PLANNED
+**Priority**: High
+**Estimated Duration**: 3-4 weeks
+**Dependencies**: Core architecture defined, security requirements established
+
+#### Goal
+Implement comprehensive authentication and authorization system with modern security practices, user management, and role-based access control.
+
+#### Success Criteria
+- [ ] **Secure Authentication**: Multi-factor authentication, secure session management
+- [ ] **Authorization Framework**: Role-based permissions, resource access control
+- [ ] **User Management**: Registration, profile management, password policies
+- [ ] **Security Standards**: Industry-standard security practices, audit logging
+- [ ] **Integration Ready**: APIs and components ready for application integration
+
+#### Architecture Impact
+- **Core Patterns**: Authentication patterns, security middleware, session management
+- **API Design**: Authentication endpoints, authorization middleware, token handling
+- **Database Schema**: User tables, role definitions, permission mappings
+- **Security Framework**: Encryption standards, audit logging, compliance patterns
+
+#### Phases Overview
+1. **Authentication Foundation**: Core auth system, user registration, login/logout
+2. **Authorization Framework**: Role-based permissions, access control, resource protection
+3. **Security Hardening**: MFA, audit logging, security monitoring, compliance validation
+
+#### Notes
+- Critical foundation epic for applications requiring user authentication
+- Demonstrates security-focused development patterns
+- Shows integration between authentication and authorization systems
+- Example of infrastructure epic with broad system impact
+<!-- END: AUTHENTICATION_SYSTEM_EPIC -->
+
+---
+
+<!-- START: API_INTEGRATION_PLATFORM_EPIC -->
+### EPIC: API_INTEGRATION_PLATFORM_EPIC
+**Status**: PLANNED
+**Priority**: Medium
+**Estimated Duration**: 4-5 weeks
+**Dependencies**: Core architecture, authentication system, data models
+
+#### Goal
+Build comprehensive API integration platform enabling seamless connection with external services, data synchronization, and webhook management.
+
+#### Success Criteria
+- [ ] **External API Integration**: Support for REST, GraphQL, and webhook integrations
+- [ ] **Data Synchronization**: Bi-directional sync, conflict resolution, data mapping
+- [ ] **Integration Management**: API key management, rate limiting, error handling
+- [ ] **Monitoring & Analytics**: Integration health monitoring, performance metrics
+- [ ] **Developer Experience**: Integration SDK, documentation, testing tools
+
+#### Architecture Impact
+- **Integration Patterns**: API client patterns, webhook handlers, sync mechanisms
+- **Data Architecture**: Integration data models, mapping schemas, conflict resolution
+- **Infrastructure**: Rate limiting, caching, queue management, error handling
+- **Monitoring**: Integration health checks, performance monitoring, alerting systems
+
+#### Phases Overview
+1. **Core Integration Framework**: API client architecture, authentication, basic CRUD operations
+2. **Advanced Features**: Webhooks, real-time sync, batch operations, error recovery
+3. **Management & Monitoring**: Integration dashboard, analytics, developer tools
+
+#### Notes
+- Demonstrates complex integration architecture patterns
+- Shows handling of external dependencies and error scenarios
+- Example of platform epic enabling broader application capabilities
+- Illustrates data synchronization and conflict resolution patterns
+<!-- END: API_INTEGRATION_PLATFORM_EPIC -->
+
+---
+
+<!-- START: USER_INTERFACE_SYSTEM_EPIC -->
+### EPIC: USER_INTERFACE_SYSTEM_EPIC
+**Status**: PLANNED
+**Priority**: Medium
+**Estimated Duration**: 3-4 weeks
+**Dependencies**: Design system, component library, accessibility standards
+
+#### Goal
+Develop comprehensive user interface system with reusable components, responsive design, accessibility compliance, and modern user experience patterns.
+
+#### Success Criteria
+- [ ] **Component Library**: Comprehensive, reusable UI components with consistent design
+- [ ] **Responsive Design**: Mobile-first, cross-device compatibility, adaptive layouts
+- [ ] **Accessibility**: WCAG compliance, screen reader support, keyboard navigation
+- [ ] **User Experience**: Intuitive navigation, loading states, error handling, feedback systems
+- [ ] **Developer Experience**: Component documentation, design tokens, development tools
+
+#### Architecture Impact
+- **Component Architecture**: Reusable component patterns, composition strategies, state management
+- **Design System**: Design tokens, theming, consistent visual language, brand integration
+- **Accessibility Framework**: A11y patterns, testing strategies, compliance validation
+- **Performance**: Code splitting, lazy loading, optimization strategies, bundle management
+
+#### Phases Overview
+1. **Foundation Components**: Basic UI elements, forms, navigation, layout components
+2. **Advanced Components**: Data tables, charts, complex interactions, animation systems
+3. **System Integration**: Theming, accessibility validation, performance optimization
+
+#### Notes
+- Demonstrates frontend-focused development patterns
+- Shows component-driven architecture and design system integration
+- Example of user-facing epic with strong UX/UI focus
+- Illustrates accessibility and performance optimization patterns
+<!-- END: USER_INTERFACE_SYSTEM_EPIC -->
+
+---
+
+## 📋 Epic Activation Guidelines
+
+### Activation Criteria
+- **Capacity Available**: Maximum 3 active epics in epic-active.mdc
+- **Dependencies Satisfied**: All prerequisite work completed
+- **Architecture Alignment**: Epic validated against current architecture patterns
+- **Resource Availability**: Development resources allocated and available
+
+### Activation Process
+1. **Epic Selection**: Choose highest priority epic meeting activation criteria
+2. **Architecture Validation**: Verify alignment with current architecture patterns
+3. **Dependency Check**: Confirm all dependencies satisfied or manageable
+4. **Resource Allocation**: Ensure development capacity and expertise available
+5. **Epic Transfer**: Move complete epic details to epic-active.mdc
+6. **Registry Update**: Update epic status in epic-registry.mdc
+
+### Planning Considerations
+- **Epic Sequencing**: Consider dependencies and logical development order
+- **Resource Planning**: Balance epic complexity with available development capacity
+- **Architecture Evolution**: Plan epics to build upon and enhance existing architecture
+- **Risk Management**: Identify and plan for potential blockers and dependencies
+
+---
+
+**Framework Notes**:
+- All planned epics are technology-agnostic examples demonstrating framework capabilities
+- Replace sample epics with actual project epics when implementing the framework
+- Epic structure demonstrates proper phase organization, architecture impact, and quality standards
+- Examples show different epic types: infrastructure, integration, and user-facing development

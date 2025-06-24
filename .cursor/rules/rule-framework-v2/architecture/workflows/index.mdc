@@ -1,0 +1,55 @@
+---
+description: Fast lookup index for workflow architecture patterns - integration of architecture into epic planning and development processes
+globs: 
+alwaysApply: false
+---
+
+# Workflows Architecture Index
+**🔍 Fast Lookup - Workflow Domain Files**
+
+## 🤖 AI Instructions
+**When to use**: Navigate workflow architecture patterns - integration of architecture into epic planning and development processes
+**How to use**: Scan table → identify workflow → apply integration patterns
+**Context**: Database-style index for workflow architecture integration
+
+## 📊 WORKFLOWS FILE INDEX
+
+### 🔄 **PROCESS INTEGRATION** (Development Workflows)
+| **File** | **When to Use** | **Line Count** | **Contains** |
+|----------|-----------------|----------------|--------------|
+| `epic-integration.mdc` | Epic planning with architecture | 400 lines | Architecture consultation in epic workflows |
+| `development.mdc` | Development process integration | 300 lines | Architecture checkpoints in development phases |
+
+## ⚡ **QUICK DECISION PATHS**
+
+```
+🎯 WHAT ARE YOU PLANNING?
+
+EPIC PLANNING:
+└─ epic-integration.mdc (Architecture consultation patterns)
+
+DEVELOPMENT PROCESS:
+└─ development.mdc (Architecture validation checkpoints)
+
+QUALITY ASSURANCE:
+└─ development.mdc (Architecture compliance validation)
+```
+
+## 🔗 **RELATED DOMAINS**
+
+**Epic Management**: `../../epic-active.mdc`  
+**Architecture Guidelines**: `../frontend/guidelines.mdc` + `../backend/guidelines.mdc`  
+**Core Patterns**: `../core/index.mdc`
+
+## 📋 **INTEGRATION CHECKLIST**
+
+✅ Include architecture consultation in epic planning  
+✅ Apply architecture validation checkpoints  
+✅ Update architecture docs during development  
+✅ Validate architecture compliance  
+
+---
+
+**Domain**: Workflows (Architecture Process Integration)  
+**Files**: 2 workflow integration files  
+**Purpose**: Fast navigation to development process patterns

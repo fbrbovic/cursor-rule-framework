@@ -1,0 +1,239 @@
+---
+description: Critical architectural patterns that MUST be followed in all development work - dual user ID system, organization access control, and core framework patterns
+globs: 
+alwaysApply: false
+---
+# Core Architectural Patterns
+**🚨 MANDATORY SYSTEM-WIDE PATTERNS - Zero Exceptions Policy**
+
+## 🤖 AI Instructions
+**When to use**: Critical architectural patterns that MUST be followed in all development work - reference this file FIRST before making any architectural decisions or implementing features - mandatory with zero exceptions
+**How to use**: Apply all patterns as mandatory requirements - no exceptions allowed. Use specific pattern sections based on implementation context
+**Context**: Core foundation for all development - these patterns ensure system integrity, security, and scalability
+
+## 🚨 CRITICAL PATTERN HIERARCHY
+
+### **Pattern 1: Consistent Data Modeling - MANDATORY**
+**CRITICAL RULE**: System uses consistent data identification and modeling patterns
+
+#### **Primary Identifier Strategy**
+- **Format**: Choose consistent identifier format (UUID, incremental ID, etc.)
+- **Usage**: **ALL internal system operations without exception**
+  - ALL database queries, inserts, updates, deletes
+  - ALL API endpoints and business logic
+  - ALL database relationships and foreign keys
+  - ALL access control and authorization checks
+  - ALL service-to-service communication
+
+#### **External System Integration**
+- **Format**: Maintain separate identifiers for external systems when needed
+- **Usage**: **EXCLUSIVELY for external system integration**
+  - ONLY when calling external APIs
+  - ONLY when processing external webhooks
+  - ONLY when syncing data TO external systems
+  - ONLY when mapping between internal and external entities
+
+#### **Implementation Guidelines**
+```pseudo
+// ✅ CORRECT - Internal operations use internal identifiers
+function getEntityData(entityId: InternalID) {
+  return database.query(
+    "SELECT * FROM entities WHERE id = ?", 
+    entityId
+  )
+}
+
+// ✅ CORRECT - External API calls use external identifiers
+function syncToExternalSystem(externalEntityID: ExternalID) {
+  return externalAPI.updateEntity(externalEntityID, data)
+}
+
+// ❌ WRONG - Never mix identifier types
+function badExample(externalEntityID: ExternalID) {
+  return database.query(
+    "SELECT * FROM entities WHERE id = ?", 
+    externalEntityID  // WRONG!
+  )
+}
+```
+
+### **Pattern 2: Access Control and Data Isolation - MANDATORY**
+**CRITICAL RULE**: All data operations must respect proper access control and data isolation
+
+#### **Multi-Tenant Data Patterns**
+- ALL data queries MUST include proper tenant/organization context
+- NO cross-tenant data leakage allowed
+- Consistent access control across all data operations
+
+#### **Access Control Implementation**
+```pseudo
+// ✅ CORRECT - Always include tenant context
+function getUserData(userID: ID, tenantId: ID) {
+  return database.query(
+    "SELECT * FROM user_data WHERE user_id = ? AND tenant_id = ?", 
+    userID, tenantId
+  )
+}
+
+// ❌ WRONG - Missing tenant context allows data leakage
+function badGetUserData(userID: ID) {
+  return database.query(
+    "SELECT * FROM user_data WHERE user_id = ?", 
+    userID  // Missing tenant isolation!
+  )
+}
+```
+
+### **Pattern 3: Service Architecture - MANDATORY**
+**CRITICAL RULE**: All services must follow consistent architectural patterns
+
+#### **API Definition Pattern**
+```pseudo
+// Service endpoint with proper authentication and authorization
+function createEntity(entityData: EntityData): Entity {
+  // 1. Authenticate request
+  auth = getAuthenticationContext()
+  
+  // 2. Authorize access
+  validateAccess(auth.userID, entityData.tenantId)
+  
+  // 3. Validate input
+  validatedData = validateEntityData(entityData)
+  
+  // 4. Execute business logic
+  return createEntityInDatabase(validatedData)
+}
+```
+
+#### **Error Handling Pattern**
+- Consistent error response format across all services
+- Proper error logging and monitoring
+- Graceful degradation for non-critical failures
+- Security-conscious error messages (no sensitive data leakage)
+
+### **Pattern 4: Data Architecture - MANDATORY**
+**CRITICAL RULE**: Consistent data storage and access patterns
+
+#### **Schema Design Principles**
+- Consistent naming conventions across all entities
+- Proper relationships and constraints
+- Appropriate indexing strategy
+- Data validation at multiple levels
+
+#### **Query Patterns**
+```pseudo
+// ✅ CORRECT - Always include proper context and constraints
+function getRelatedData(entityID: ID, tenantId: ID) {
+  return database.query(`
+    SELECT * FROM related_entities 
+    WHERE entity_id = ? 
+    AND tenant_id = ?
+    AND active = true
+  `, entityID, tenantId)
+}
+```
+
+### **Pattern 5: Integration Architecture - MANDATORY**
+**CRITICAL RULE**: Consistent integration patterns for internal and external systems
+
+#### **Internal Service Communication**
+```pseudo
+// Type-safe service-to-service communication
+function callInternalService(serviceData: ServiceRequest) {
+  try {
+    return internalServiceClient.call(serviceData)
+  } catch (error) {
+    handleServiceError(error)
+    throw new ServiceUnavailableError("Internal service call failed")
+  }
+}
+```
+
+#### **External System Integration**
+```pseudo
+// Robust external system integration with error handling
+function integrateWithExternalSystem(externalData: ExternalRequest) {
+  try {
+    result = externalSystemClient.call(externalData)
+    return mapExternalToInternal(result)
+  } catch (error) {
+    logExternalSystemError(error)
+    return fallbackResponse()
+  }
+}
+```
+
+## 🔧 IMPLEMENTATION REQUIREMENTS
+
+### **Development Checklist**
+Before implementing any feature, verify:
+- [ ] Consistent identifiers used for ALL data operations
+- [ ] Proper access control and data isolation implemented
+- [ ] Service patterns followed for ALL API endpoints
+- [ ] Type safety maintained across system boundaries
+- [ ] Authentication and authorization properly implemented
+- [ ] Error handling implemented at all levels
+- [ ] Logging and monitoring configured appropriately
+
+### **Code Review Criteria**
+- No mixing of internal and external identifier types
+- All data queries include proper access control
+- API endpoints follow consistent patterns
+- Components use proper abstraction layers
+- Authentication flows use established patterns
+- Error states properly handled
+- Security considerations addressed
+
+### **Testing Requirements**
+- Unit tests verify access control and data isolation
+- Integration tests validate identifier handling
+- Security tests ensure no data leakage
+- Performance tests validate query optimization
+- End-to-end tests verify complete user flows
+
+## 🚫 ANTI-PATTERNS TO AVOID
+
+### **Data Access Anti-Patterns**
+- ❌ Missing access control or tenant isolation
+- ❌ Mixing internal and external identifiers
+- ❌ Direct database access without proper abstraction
+- ❌ Inconsistent error handling across services
+
+### **Security Anti-Patterns**
+- ❌ Exposing sensitive data in error messages
+- ❌ Missing authentication or authorization checks
+- ❌ Inconsistent security patterns across endpoints
+- ❌ Storing sensitive data without proper encryption
+
+### **Integration Anti-Patterns**
+- ❌ Tight coupling between internal services
+- ❌ Missing error handling for external dependencies
+- ❌ Inconsistent data mapping between systems
+- ❌ Missing monitoring and alerting for integrations
+
+## 📊 PATTERN VALIDATION
+
+### **Automated Validation**
+- Linting rules enforce identifier consistency
+- Database constraints prevent data integrity issues
+- API tests validate access control patterns
+- Security scans identify potential vulnerabilities
+
+### **Manual Validation**
+- Code reviews verify pattern compliance
+- Architecture reviews validate system design
+- Security reviews ensure proper access control
+- Performance reviews optimize critical paths
+
+---
+
+**Related Files**:
+- [Core Domain Index] → `/.cursor/rules/rule-framework-v2/architecture/core/index.mdc`
+- [Architecture Maintenance] → `/.cursor/rules/rule-framework-v2/architecture/core/maintenance.mdc`
+- [Architectural Decisions] → `/.cursor/rules/rule-framework-v2/architecture/decisions/index.mdc`
+
+---
+
+**Last Updated**: 2025-01-27  
+**Status**: ✅ ACTIVE - MANDATORY COMPLIANCE  
+**Framework Compliance**: ZERO EXCEPTIONS POLICY

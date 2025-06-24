@@ -1,0 +1,89 @@
+---
+description: Fast lookup index for architectural decisions - ADRs and decision documentation
+globs: 
+alwaysApply: false
+---
+# Architecture Decisions Index
+**🔍 Fast Lookup - Decisions Domain Files**
+
+## 🤖 AI Instructions
+**When to use**: Navigate architectural decision files - ADR creation, decision review, and decision history
+**How to use**: Scan table → identify decision type → access specific ADR or template
+**Context**: Database-style index for architectural decision documentation and management
+
+## 📊 DECISIONS FILE INDEX
+
+### 📋 **DECISION DOCUMENTATION** (Management)
+| **File** | **When to Use** | **Line Count** | **Contains** |
+|----|-----|----|----- |
+| `adr-template.mdc` | Creating new ADRs | 78 lines | ADR structure, decision format, documentation standards |
+| `sample-decisions.mdc` | Reviewing decision examples | 156 lines | Sample architectural decisions, decision patterns |
+
+## ⚡ **QUICK DECISION PATHS**
+
+```
+🎯 WHAT DECISION WORK ARE YOU DOING?
+
+CREATING NEW ADR:
+├─ sample-decisions.mdc (review decision patterns)
+└─ adr-template.mdc (create new ADR)
+
+REVIEWING ARCHITECTURE DECISIONS:
+├─ sample-decisions.mdc (decision examples and patterns)
+└─ project-specific decision files (your actual decisions)
+
+UNDERSTANDING DECISION CONTEXT:
+├─ sample-decisions.mdc (decision reasoning examples)
+└─ adr-template.mdc (decision documentation format)
+
+DECISION AUDIT/REVIEW:
+├─ sample-decisions.mdc (decision tracking examples)
+└─ project-specific files (comprehensive review)
+```
+
+## 🔗 **DECISION DEPENDENCIES**
+
+**Core Architecture**: `../core/index.mdc` (Implementation context and patterns)  
+**Workflow Integration**: `../workflows/index.mdc` (Decision integration with epic planning)  
+
+## 📋 **DECISION MANAGEMENT CHECKLIST**
+
+✅ Check existing decisions before making new ones  
+✅ Use adr-template.mdc for proper ADR documentation  
+✅ Reference sample-decisions.mdc for decision patterns  
+✅ Update decision tracking when decisions change  
+✅ Link decisions to relevant architecture patterns  
+
+## 📝 **DECISION CREATION PROCESS**
+
+### **1. Decision Identification**
+- Identify architectural choice that needs documentation
+- Assess impact scope and stakeholder involvement
+- Determine decision urgency and timeline
+
+### **2. Research and Analysis**
+- Review existing decisions for precedent
+- Analyze alternatives and trade-offs
+- Gather stakeholder input and requirements
+
+### **3. Decision Documentation**
+- Use ADR template for consistent documentation
+- Include context, alternatives, and consequences
+- Document decision rationale and assumptions
+
+### **4. Decision Review and Approval**
+- Review with relevant stakeholders
+- Validate against architectural principles
+- Approve and communicate decision
+
+### **5. Decision Implementation and Tracking**
+- Update relevant architecture documentation
+- Track implementation progress
+- Monitor decision outcomes and impacts
+
+---
+
+**Domain**: Decisions (Architectural Decision Records)  
+**Files**: 2 core decision files + project-specific decision files  
+**Purpose**: Fast navigation to architectural decision documentation  
+**Framework**: Technology-agnostic decision management patterns

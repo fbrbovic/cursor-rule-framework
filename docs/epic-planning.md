@@ -1,20 +1,41 @@
-# 📈 Epic Planning Guide
+# 📈 Epic Planning Guide v2
 
-This guide explains how to use the epic planning system for managing large initiatives with AI assistance in the Cursor Rule Framework.
+This guide explains how to use the **comprehensive v2 epic management system** for managing large initiatives with AI assistance in the Cursor Rule Framework v2.
+
+## 🆕 What's New in v2 Epic System
+
+### **7 Specialized Components**
+The v2 framework includes a complete epic lifecycle management system:
+
+1. **`epic-lifecycle-rules.mdc`** - Epic lifecycle automation and state management
+2. **`epic-active.mdc`** - Active epics workspace with current initiatives
+3. **`epic-planned.mdc`** - Planned epics pipeline for future work
+4. **`epic-completed.mdc`** - Completed epics archive for reference
+5. **`epic-registry.mdc`** - Master epic registry with comprehensive tracking
+6. **`epic-validation-automation.mdc`** - Automated validation and consistency checks
+7. **`epic-architecture-integration.mdc`** - Epic-architecture coordination
+
+### **Enhanced Features**
+- **Technology-Agnostic Planning**: Works with any programming language or framework
+- **Architecture Integration**: Automatic coordination with modular architecture system
+- **Workflow Coordination**: Seamless integration with enhanced workflow lifecycle
+- **Validation Automation**: Automated consistency checking and validation
+- **Epic Lifecycle Management**: Comprehensive state tracking and automation
 
 ## 🎯 Overview
 
-Epic planning provides a structured approach to breaking down large projects into manageable pieces that can be systematically executed using the workflow system. It bridges the gap between high-level project goals and day-to-day development tasks.
+Epic planning provides a structured, technology-agnostic approach to breaking down large projects into manageable pieces that can be systematically executed using the v2 workflow system. It bridges the gap between high-level project goals and day-to-day development tasks while maintaining architectural consistency.
 
-### **Key Constraints**
+### **Key v2 Principles**
 - **Maximum 3 Active Epics**: To maintain AI context effectiveness and prevent information overload
-- **6-Month Auto-Archive**: Completed epics older than 6 months are removed to keep files manageable  
+- **Technology Agnostic**: Epic patterns work with any programming language or framework
+- **Architecture Coordination**: Automatic integration with architecture framework
+- **Lifecycle Automation**: Automated state transitions and validation
 - **AI Memory Focus**: Epic plans serve as long-term AI memory for project context and requirements
-- **Simplified Tracking**: Focus on epic/phase progress rather than granular project management
 
-## 🏗️ Epic Hierarchy
+## 🏗️ v2 Epic Hierarchy
 
-### **Four-Level Structure**
+### **Enhanced Four-Level Structure**
 
 ```
 EPIC GROUP (Optional)
@@ -22,694 +43,475 @@ EPIC GROUP (Optional)
     ├── PHASE (Milestone)
         ├── STEP (Feature)
             └── TASK (Implementation)
+                └── ARCHITECTURE_IMPACT (Auto-tracked)
 ```
 
 #### **Epic Group** (Optional)
 - **Purpose**: Groups related epics for very large projects
 - **Scope**: Multiple months to years
-- **Example**: "Platform Modernization", "User Experience Overhaul"
+- **Technology**: Framework-agnostic
+- **Example**: "Platform Modernization", "User Experience Overhaul", "API Integration Platform"
 
 #### **Epic** (Required)
 - **Purpose**: Large collection of work with clear business value
 - **Scope**: 1-3 months of development
-- **Example**: "User Authentication System", "Payment Processing"
+- **Architecture Integration**: Automatic architecture domain coordination
+- **Example**: "User Authentication System", "Payment Processing", "Multi-Platform Mobile App"
 
 #### **Phase** (Required)
 - **Purpose**: Milestone that groups related features
 - **Scope**: 1-4 weeks of development
-- **Example**: "Basic Authentication", "Advanced Security Features"
+- **Workflow Integration**: Aligned with Blueprint → Construct → Validate phases
+- **Example**: "Core Authentication Logic", "Frontend Integration", "Testing & Validation"
 
 #### **Step** (Required)
 - **Purpose**: Single feature or component
 - **Scope**: 1-5 days of development
-- **Example**: "Login Component", "Password Reset Flow"
+- **Architecture Impact**: Automatically tracked and validated
+- **Example**: "Login Component", "Password Reset Flow", "API Gateway Integration"
 
-## 📋 Epic Planning Process
+## 📋 v2 Epic Planning Process
 
-### **1. Epic Creation**
+### **1. Epic Creation with Architecture Integration**
 
 #### **User Prompt:**
 ```bash
-"Plan an epic for implementing user management in our React application"
+"Plan an epic for implementing user management that works with React frontend and Node.js backend"
 ```
 
-#### **AI Response:**
+#### **AI v2 Response:**
 ```bash
-"I'll help you create a comprehensive epic plan for user management. Let me break this down systematically into phases and steps that align with your React application architecture."
+"I'll help you create a comprehensive epic plan for user management. Let me break this down systematically into phases and steps that align with your multi-technology architecture, coordinating with our architecture framework and ensuring technology-agnostic patterns where possible."
 ```
 
-#### **AI Creates Epic Structure:**
+#### **AI Creates Epic Structure with Architecture Coordination:**
 ```markdown
-### EPIC: User Management System
+### EPIC: User Management System (MULTI_PLATFORM_USER_SYSTEM)
 **Status**: PLANNED
 **Priority**: High
+**Technology Stack**: React, Node.js, PostgreSQL
+**Architecture Domains**: Frontend, Backend, Database
 **Started**: [Not started]
 **Target Completion**: [To be determined]
 
 #### Goal
-Create comprehensive user management system with authentication, profiles, and admin capabilities
+Create comprehensive user management system with authentication, profiles, and admin capabilities that demonstrates technology-agnostic patterns while leveraging specific technology strengths
 
 #### Success Criteria
-- [ ] Users can register and authenticate securely
-- [ ] User profile management with real-time updates  
+- [ ] Users can register and authenticate securely across platforms
+- [ ] User profile management with real-time updates
 - [ ] Admin dashboard for user administration
 - [ ] Role-based access control system
+- [ ] Architecture patterns documented for reuse across technologies
+
+#### Architecture Impact Assessment
+- **Frontend Domain**: New authentication components, state management patterns
+- **Backend Domain**: Authentication middleware, user API endpoints
+- **Database Domain**: User schema design, security constraints
+- **Integration**: Authentication token flow, API contract definitions
 
 #### Dependencies & Blockers
-- Database schema needs to be designed
-- Authentication service selection required
-- UI component library should be available
+- Database schema design coordination
+- Authentication service technology selection
+- UI component library compatibility
+- Backend framework integration patterns
 ```
 
-### **2. Epic Structure Definition**
+### **2. Epic Structure Definition with Architecture Coordination**
 
 #### **User Prompt:**
 ```bash
-"Break down the user management epic into detailed phases and steps"
+"Break down the user management epic into detailed phases with architecture consideration"
 ```
 
-#### **AI Response:**
+#### **AI v2 Response:**
 ```markdown
-## EPIC: User Management System
+## EPIC: User Management System (MULTI_PLATFORM_USER_SYSTEM)
 
 ### Epic Goals
-- Implement comprehensive user authentication
-- Enable user profile management
-- Add role-based access control
-- Provide admin user management tools
+- Implement comprehensive user authentication (technology-agnostic patterns)
+- Enable user profile management (frontend-backend coordination)
+- Add role-based access control (security architecture integration)
+- Provide admin user management tools (full-stack coordination)
 
 ### Success Criteria
-- Users can register, login, and manage profiles
+- Users can register, login, and manage profiles across platforms
 - Admins can manage user accounts and permissions
 - Security standards are met (authentication, authorization)
 - System scales to 10,000+ users
+- Architecture patterns documented for future technology migrations
 
-### Dependencies
-- Database design completed
-- UI component library available
-- Authentication service selected
+### Technology Stack Coordination
+- **Frontend**: React components with reusable patterns
+- **Backend**: Node.js with technology-agnostic API design
+- **Database**: PostgreSQL with portable schema patterns
+- **Integration**: RESTful APIs with potential GraphQL upgrade path
+
+### Architecture Dependencies
+- Core authentication patterns (documented in architecture/core/patterns.mdc)
+- API design decisions (tracked in architecture/decisions/)
+- Security architecture integration
+- Database design coordination
 ```
 
-### **3. Phase Breakdown**
+### **3. Enhanced Phase Breakdown with Architecture Integration**
 
 #### **User Prompt:**
 ```bash
-"Detail the phases for the user management epic with specific steps"
+"Detail the phases for the user management epic with architecture impact analysis"
 ```
 
-#### **AI Creates Phases:**
+#### **AI Creates Phases with Architecture Coordination:**
 ```markdown
-### PHASE 1: Core Authentication (Week 1-2)
-**Goal**: Basic user registration and login functionality
+### PHASE 1: Core Authentication Foundation (Week 1-2)
+**Goal**: Technology-agnostic authentication patterns with React/Node.js implementation
+**Architecture Domains**: Backend (Primary), Frontend (Secondary), Security (Cross-cutting)
 
 #### STEPS:
-1. **User Registration Component**
-   - Registration form with validation
-   - Email verification workflow
-   - Password requirements enforcement
-   - Integration with backend API
+1. **Authentication Architecture Design**
+   - Technology-agnostic authentication patterns
+   - JWT token strategy documentation
+   - Security architecture integration
+   - API contract specification (compatible with multiple frontend frameworks)
+   - **Architecture Impact**: New security patterns, API design decisions
 
-2. **User Login System**
-   - Login form component
-   - Authentication token handling
-   - Session management
-   - Error handling and feedback
+2. **Backend Authentication Service**
+   - Node.js authentication middleware (with portable patterns)
+   - User registration and login endpoints
+   - Password hashing and validation
+   - JWT token generation and validation
+   - **Architecture Impact**: Backend security patterns, database integration
 
-3. **Password Management**
-   - Password reset request flow
-   - Email-based reset tokens
-   - New password validation
-   - Security audit logging
+3. **Frontend Authentication Components**
+   - React authentication components (with reusable patterns)
+   - Authentication state management
+   - Token storage and refresh logic
+   - Route protection implementation
+   - **Architecture Impact**: Frontend security patterns, state management
 
-### PHASE 2: User Profiles (Week 3-4)
-**Goal**: User profile management and personalization
+### PHASE 2: User Profile System (Week 3-4)
+**Goal**: Profile management with frontend-backend coordination
+**Architecture Domains**: Frontend (Primary), Backend (Secondary), Database (Supporting)
 
 #### STEPS:
-1. **Profile Display Component**
-   - User profile information display
-   - Avatar upload and management
-   - Profile data fetching
-   - Loading and error states
+1. **Profile Data Architecture**
+   - User profile schema design (database-agnostic patterns)
+   - API endpoints for profile operations
+   - Data validation rules (technology-portable)
+   - **Architecture Impact**: Database schema patterns, API design evolution
 
-2. **Profile Editing Interface**
-   - Editable profile form
-   - Real-time validation
-   - Update persistence
-   - Change confirmation notifications
+2. **Profile Management Interface**
+   - React profile components (with design system integration)
+   - Form validation and error handling
+   - Real-time profile updates
+   - File upload for avatars
+   - **Architecture Impact**: Frontend data patterns, UI component evolution
+
+### PHASE 3: Role-Based Access Control (Week 5-6)
+**Goal**: Enterprise-grade permissions system with architecture documentation
+**Architecture Domains**: Backend (Primary), Database (Primary), Frontend (Secondary)
+
+#### STEPS:
+1. **RBAC Architecture Design**
+   - Technology-agnostic permission patterns
+   - Role hierarchy design
+   - Permission checking middleware
+   - **Architecture Impact**: New authorization patterns, security architecture evolution
+
+2. **Permission System Implementation**
+   - Database tables for roles and permissions
+   - Backend permission checking logic
+   - Frontend permission-aware components
+   - **Architecture Impact**: Database security patterns, backend authorization patterns
 ```
 
-### **4. Step Detailing**
+### **4. Step Detailing with Architecture Integration**
 
 #### **User Prompt:**
 ```bash
-"Give me detailed requirements for the user registration component step"
+"Give me detailed requirements for the authentication architecture design step with v2 framework integration"
 ```
 
-#### **AI Response:**
+#### **AI v2 Response:**
 ```markdown
-#### STEP: User Registration Component
+#### STEP: Authentication Architecture Design (MULTI_PLATFORM_USER_SYSTEM.Phase1.Step1)
 
 **Acceptance Criteria:**
-- Form includes email, password, confirm password fields
-- Validates email format and uniqueness
-- Enforces password complexity requirements
-- Shows appropriate error messages
-- Redirects to dashboard on successful registration
+- Technology-agnostic authentication patterns documented
+- JWT token strategy defined with security considerations
+- API contract specification (compatible with multiple frontend frameworks)
+- Integration with v2 architecture framework completed
+- Architecture Decision Records (ADRs) created
 
 **Technical Requirements:**
-- React functional component with TypeScript
-- Form validation using react-hook-form
-- Integration with authentication API
-- Error handling and loading states
-- Unit and integration tests
+- Document patterns in architecture/core/patterns.mdc
+- Create ADRs in architecture/decisions/
+- Define API contracts using OpenAPI specification
+- Security architecture integration documentation
+- Technology migration strategy documented
+
+**Architecture Integration:**
+- **Domain**: Backend Security, API Design
+- **ADRs to Create**: 
+  - Authentication Strategy Selection
+  - JWT vs Session-Based Authentication
+  - API Authentication Design Patterns
+- **Pattern Documentation**: 
+  - Token-based authentication flow
+  - Password security requirements
+  - API error handling patterns
+
+**v2 Framework Integration:**
+- Links to epic-architecture-integration.mdc
+- Updates architecture/index.mdc navigation
+- Coordinates with workflow-lifecycle-rules.mdc
+- Validates against architecture/core/maintenance.mdc rules
 
 **Estimated Effort:** 2 days
-**Dependencies:** API endpoints, validation rules
-**Assigned To:** Frontend Team
+**Dependencies:** Security requirements, technology stack finalization
+**Epic Context**: MULTI_PLATFORM_USER_SYSTEM
+**Architecture Impact**: Medium (new security patterns, API evolution)
 ```
 
-## 🔄 Epic Execution
+## 🔄 v2 Epic Execution with Enhanced Workflow Integration
 
-### **Starting Epic Work**
+### **Starting Epic Work with Architecture Coordination**
 
 #### **User Prompt:**
 ```bash
-"Start working on the user registration component from the user management epic"
+"Start working on the authentication architecture design from the user management epic using v2 workflow"
 ```
 
-#### **AI Response:**
+#### **AI v2 Response:**
 ```bash
-"I'll begin work on the user registration component. I found this step in the User Management Epic, Phase 1: Core Authentication. Let me start with the Blueprint phase to plan the implementation."
+# Workflow Integration
+Setting workflow context for MULTI_PLATFORM_USER_SYSTEM epic, Phase 1, Step 1.
+Coordinating with architecture framework for authentication patterns.
+Updating epic-active.mdc with current progress.
 
-# AI automatically:
-1. Sets workflow context with epic reference
-2. Includes step requirements from epic
-3. Begins Blueprint phase with epic constraints
+# Architecture Integration
+Reviewing architecture/core/patterns.mdc for existing authentication patterns.
+Preparing to create new ADRs in architecture/decisions/.
+Validating against architecture maintenance rules.
+
+# Epic Progress Tracking
+Updating epic registry with step initiation.
+Linking to architecture domains: Backend Security, API Design.
+Preparing architecture impact assessment.
+
+## BLUEPRINT Phase Initiated
+Current Epic: MULTI_PLATFORM_USER_SYSTEM
+Current Phase: Phase 1 - Core Authentication Foundation
+Current Step: Authentication Architecture Design
+Architecture Domains: Backend Security, API Design, Cross-cutting Security
+
+I'll now plan the authentication architecture design following our v2 framework patterns:
+
+### 1. Architecture Pattern Analysis
+- Review existing authentication patterns in architecture/core/patterns.mdc
+- Identify technology-agnostic authentication principles
+- Plan JWT token strategy with security considerations
+
+### 2. ADR Creation Planning
+- Authentication Strategy Selection (JWT vs alternatives)
+- Token Storage and Security Patterns
+- API Authentication Design Patterns
+
+### 3. Integration Coordination
+- Backend authentication middleware patterns
+- Frontend authentication state management
+- Cross-platform authentication flow design
+
+Ready to proceed with Blueprint planning. Should I continue with detailed architecture design?
 ```
+
+## 📊 v2 Epic Management System Components
+
+### **1. Epic Lifecycle Rules (`epic-lifecycle-rules.mdc`)**
+Manages epic state transitions and automation:
+
+```markdown
+## Epic States
+- PLANNED → ACTIVE → COMPLETED → ARCHIVED
+- BLOCKED → ACTIVE (when unblocked)
+- ACTIVE → PAUSED → ACTIVE (temporary suspension)
+
+## Automation Rules
+- Auto-archive epics after 6 months completion
+- Auto-validate epic structure and dependencies
+- Auto-update architecture integration
+- Auto-coordinate with workflow phases
+```
+
+### **2. Active Epics Workspace (`epic-active.mdc`)**
+Current epic workspace with real-time tracking:
+
+```markdown
+## Current Active Epics
+
+### EPIC: User Management System (MULTI_PLATFORM_USER_SYSTEM)
+**Status**: ACTIVE - Phase 1, Step 2
+**Progress**: 35% (2 of 6 steps completed)
+**Architecture Domains**: Backend, Frontend, Security
+**Technology Stack**: React, Node.js, PostgreSQL
+**Current Focus**: Backend Authentication Service Implementation
+**Blockers**: None
+**Next Milestone**: Phase 1 Completion (Authentication Foundation)
+```
+
+### **3. Planned Epics Pipeline (`epic-planned.mdc`)**
+Future epic queue with priority and dependency tracking:
+
+```markdown
+## Planned Epic Pipeline
+
+### EPIC: API Integration Platform
+**Priority**: High
+**Dependencies**: User Management System (authentication patterns)
+**Technology**: Framework-agnostic API design
+**Estimated Start**: After User Management Phase 2
+**Architecture Impact**: New integration patterns, API design evolution
+
+### EPIC: Mobile Application
+**Priority**: Medium  
+**Dependencies**: User Management System, API Integration Platform
+**Technology**: React Native with shared authentication
+**Estimated Start**: Q2 2025
+**Architecture Impact**: Mobile-specific patterns, cross-platform coordination
+```
+
+### **4. Epic Registry (`epic-registry.mdc`)**
+Master epic tracking with comprehensive metadata:
+
+```markdown
+## Epic Registry
+
+| Epic ID | Name | Status | Priority | Progress | Architecture Domains | Technology Stack |
+|---------|------|--------|----------|----------|---------------------|------------------|
+| MULTI_PLATFORM_USER_SYSTEM | User Management System | ACTIVE | High | 35% | Backend, Frontend, Security | React, Node.js, PostgreSQL |
+| API_INTEGRATION_PLATFORM | API Integration Platform | PLANNED | High | 0% | Backend, Integration | Framework-agnostic |
+| MOBILE_APPLICATION | Mobile Application | PLANNED | Medium | 0% | Mobile, Backend | React Native, GraphQL |
+```
+
+### **5. Epic Validation Automation (`epic-validation-automation.mdc`)**
+Automated consistency checking and validation:
+
+```markdown
+## Validation Rules
+- Epic structure completeness validation
+- Architecture domain consistency checking
+- Technology stack compatibility validation
+- Dependency resolution verification
+- Progress tracking accuracy validation
+
+## Automated Checks
+- Daily epic structure validation
+- Architecture integration consistency
+- Cross-epic dependency validation
+- Technology stack evolution tracking
+```
+
+### **6. Epic-Architecture Integration (`epic-architecture-integration.mdc`)**
+Coordination between epics and architecture framework:
+
+```markdown
+## Epic-Architecture Coordination
+
+### Architecture Impact Tracking
+Each epic tracks its impact on architecture domains:
+- **Core Patterns**: New universal patterns created
+- **Technology Domains**: Domain-specific pattern evolution
+- **Decisions**: ADRs created or updated
+- **Workflow Integration**: Process pattern changes
+
+### Automatic Updates
+- Epic progress updates architecture documentation
+- New patterns from epics update architecture/core/patterns.mdc
+- Epic-driven ADRs update architecture/decisions/
+- Technology-specific patterns update project-specific/
+```
+
+### **7. Completed Epics Archive (`epic-completed.mdc`)**
+Historical epic tracking with lessons learned:
+
+```markdown
+## Completed Epics Archive
+
+### EPIC: Foundation Setup (FOUNDATION_SETUP_EPIC)
+**Completed**: 2025-01-15
+**Duration**: 6 weeks
+**Architecture Contributions**: 
+- Core project patterns established
+- Initial technology stack decisions
+- Foundation architecture patterns documented
+**Lessons Learned**: Early architecture planning crucial for multi-technology projects
+**Technology Stack**: React, Node.js, PostgreSQL, Docker
+```
+
+## 🎯 v2 Epic Planning Best Practices
+
+### **Technology-Agnostic Planning**
+1. **Universal Patterns First**: Identify patterns that work across technologies
+2. **Technology Specificity When Needed**: Use technology-specific patterns only when necessary
+3. **Migration Readiness**: Plan epics to survive technology changes
+4. **Cross-Platform Coordination**: Consider multiple platforms in epic design
 
 ### **Architecture Integration**
+1. **Domain Awareness**: Consider architecture domain impact in all epic steps
+2. **ADR Planning**: Plan Architecture Decision Records as part of epic execution
+3. **Pattern Documentation**: Document reusable patterns during epic execution
+4. **Cross-Epic Learning**: Share patterns across different epic contexts
 
-#### **User Prompt:**
-```bash
-"How will this epic impact our current architecture?"
-```
+### **Workflow Coordination**
+1. **Phase Alignment**: Align epic phases with workflow phases
+2. **Quality Gates**: Include architecture validation in epic steps
+3. **Automation Integration**: Leverage validation automation for consistency
+4. **Progress Tracking**: Use epic system for workflow context
 
-#### **AI Response:**
-```bash
-# During epic creation, AI considers:
-1. Existing architectural patterns from architecture.mdc
-2. Alignment with current technology stack
-3. Impact on system design and boundaries
-4. New architectural decisions needed
+### **Team Collaboration**
+1. **Epic Ownership**: Clear epic ownership with architecture responsibility
+2. **Cross-Team Coordination**: Epic-driven architecture coordination across teams
+3. **Knowledge Sharing**: Epic-driven pattern sharing and documentation
+4. **Review Processes**: Regular epic-architecture alignment reviews
 
-# Each epic step includes:
-- Architecture impact assessment
-- New patterns being introduced
-- Consistency with existing decisions
-- Updates needed to architecture.mdc
-```
+## 📈 Advanced v2 Epic Patterns
 
-### **Integration with Workflow System**
-
-#### **User Prompt:**
-```bash
-"Continue working on the login component from phase 1"
-```
-
-#### **AI Workflow Integration:**
-```bash
-# Step execution follows workflow
-STEP: User Login System
-├── BLUEPRINT: Plan component architecture and integration
-├── CONSTRUCT: Implement login functionality
-└── VALIDATE: Test authentication flow and security
-
-# Multiple steps per phase
-PHASE: Core Authentication
-├── STEP 1: Registration (Blueprint → Construct → Validate)
-├── STEP 2: Login (Blueprint → Construct → Validate)  
-└── STEP 3: Password Reset (Blueprint → Construct → Validate)
-```
-
-### **Progress Tracking**
-
-#### **User Prompt:**
-```bash
-"Update the login component progress to 75%, core functionality is working but need to add error handling"
-```
-
-#### **AI Updates Epic:**
+### **Multi-Technology Epic Coordination**
 ```markdown
-## Epic Progress Tracking
+### EPIC: Cross-Platform Authentication
+**Technology Matrix**:
+- Web Frontend: React
+- Mobile App: React Native  
+- Backend API: Node.js
+- Admin Panel: Vue.js
+- Desktop App: Electron
 
-### EPIC: User Management System
-**Status**: IN_PROGRESS
-**Priority**: High
-**Started**: 2025-01-10
-**Target Completion**: 2025-02-15
-
-#### Goal
-Create secure user authentication and management system
-
-#### Success Criteria
-- [ ] Users can register, login, and manage profiles
-- [ ] Admin dashboard for user management
-- [ ] Security compliance and data protection
-
-#### PHASE 1: Core Authentication - 🔄 IN_PROGRESS
-**Goal**: Implement secure user registration and login system
-
-**Steps:**
-1. **User Registration Component**: Complete user signup flow - ✅ 100%
-   - Status: COMPLETED (100%)
-   - Completed: 2025-01-12
-   - Notes: Successfully implemented with validation and API integration
-
-2. **User Login System**: Secure authentication with session management - 🔄 75%
-   - Status: IN_PROGRESS (75%)
-   - Started: 2025-01-13
-   - Last Updated: 2025-01-15
-   - Notes: Core functionality working, adding error handling
-
-3. **Password Management**: Password reset and security features - ⏳ 0%
-   - Status: PLANNED (0%)
-   - Notes: Waiting for login completion
-
-#### PHASE 2: User Profiles - ⏳ PLANNED
-**Goal**: User profile management and personalization
+**Architecture Coordination**:
+- Shared authentication patterns across platforms
+- Technology-specific implementation details
+- Cross-platform state management coordination
+- Universal API contract design
 ```
 
-## 🎛️ Epic Management Commands
-
-### **Creating New Epics**
-
-#### **User Prompt:**
-```bash
-"Plan an epic for implementing a notification system"
-```
-
-#### **AI Response:**
-```bash
-"I'll create a comprehensive notification system epic. This will include real-time notifications, email alerts, and user preferences management."
-
-# AI automatically creates structured epic in epics.mdc
-```
-
-### **Epic Status Updates**
-
-#### **User Prompt:**
-```bash
-"Mark the user registration step as complete and move to the next phase"
-```
-
-#### **AI Response:**
-```bash
-"I've marked the user registration component as completed (100%) and updated the epic progress. The next step in Phase 1 is the User Login System. Would you like to start working on that?"
-```
-
-### **Epic Progress Review**
-
-#### **User Prompt:**
-```bash
-"Show me the current status of all active epics"
-```
-
-#### **AI Response:**
-```bash
-"Here's your current epic portfolio:
-
-## Active Epics (2/3)
-
-1. **User Management System** - 45% complete
-   - Phase 1 (Authentication): 75% complete
-   - Phase 2 (Profiles): Not started
-
-2. **Payment Integration** - 20% complete  
-   - Phase 1 (Setup): 60% complete
-   - Phase 2 (Processing): Not started
-
-You have capacity for 1 more active epic."
-```
-
-### **Epic Scope Changes**
-
-#### **User Prompt:**
-```bash
-"Add social media login to the user management epic"
-```
-
-#### **AI Response:**
-```bash
-"I'll add social media authentication to Phase 1 of the User Management Epic as a new step. This aligns well with the existing authentication work."
-
-# AI adds new step to existing phase
-```
-
-## 📊 Epic Portfolio Management
-
-### **Portfolio Overview**
-
-#### **User Prompt:**
-```bash
-"What's my current epic portfolio status?"
-```
-
-#### **AI Response:**
+### **Epic-Driven Architecture Evolution**
 ```markdown
-### Current Portfolio Summary
-- **Total Active Epics**: 2 (Max: 3)
-- **Completed Epics**: 1 
-- **Blocked Epics**: 0
-- **Last Updated**: 2025-01-15
-
-### Active Epics Performance
-1. **User Management System**: On track, 45% complete
-2. **Payment Integration**: Slightly behind, 20% complete
-
-### Recommendations
-- Focus on completing User Management Phase 1 before starting new epic
-- Consider breaking Payment Integration into smaller phases
+### Architecture Evolution Tracking
+Epic execution drives architecture documentation:
+- New patterns discovered → architecture/core/patterns.mdc
+- Technology decisions → architecture/decisions/
+- Technology-specific patterns → project-specific/
+- Integration patterns → architecture/workflows/
 ```
 
-### **Epic Sequencing**
-
-#### **User Prompt:**
-```bash
-"Plan the sequence for completing my epics"
-```
-
-#### **AI Response:**
-```bash
-"Based on your active epics and dependencies, I recommend:
-
-1. **Complete User Management Phase 1** (1 week)
-   - Finish authentication components
-   - Provides foundation for other features
-
-2. **Start Payment Integration Phase 2** (2 weeks)
-   - User authentication is now available
-   - Can focus on payment flow
-
-3. **Complete User Management Phase 2** (1 week)  
-   - User profiles complement payment system
-   - Full user experience available"
-```
-
-## 🎯 Epic Planning Best Practices
-
-### **Epic Scoping**
-
-#### **User Prompt:**
-```bash
-"Is my e-commerce platform epic too large? It includes user management, product catalog, shopping cart, payment processing, and admin dashboard"
-```
-
-#### **AI Response:**
-```bash
-"This epic is too large for effective management. I recommend breaking it into focused epics:
-
-## Recommended Epic Structure:
-
-1. **User Management Epic** (3-4 weeks)
-   - Authentication, profiles, account management
-
-2. **Product Catalog Epic** (2-3 weeks)  
-   - Product display, search, categories
-
-3. **Shopping Experience Epic** (3-4 weeks)
-   - Cart, checkout, order management
-
-4. **Payment Processing Epic** (2-3 weeks)
-   - Payment integration, processing, receipts
-
-5. **Admin Dashboard Epic** (4-5 weeks)
-   - Admin tools, analytics, management
-
-This gives you 5 focused epics instead of 1 overwhelming epic."
-```
-
-### **Epic Success Criteria**
-
-#### **User Prompt:**
-```bash
-"Help me define clear success criteria for my user management epic"
-```
-
-#### **AI Response:**
+### **Epic Dependency Management**
 ```markdown
-## Success Criteria for User Management Epic
-
-### Functional Criteria
-- [ ] New users can register with email verification
-- [ ] Users can login/logout with session persistence  
-- [ ] Password reset works via email workflow
-- [ ] User profiles can be viewed and edited
-- [ ] Basic role-based access control functions
-
-### Technical Criteria  
-- [ ] Authentication API handles 1000+ concurrent users
-- [ ] All components have 90%+ test coverage
-- [ ] Security audit passes with no critical issues
-- [ ] API response times under 200ms
-
-### User Experience Criteria
-- [ ] Registration completes in under 2 minutes
-- [ ] Login process has clear error messaging
-- [ ] Profile editing saves changes immediately
-- [ ] Mobile responsive across all components
-```
-
-### **Epic Dependencies**
-
-#### **User Prompt:**
-```bash
-"What are the dependencies for starting the payment processing epic?"
-```
-
-#### **AI Response:**
-```bash
-"Here are the dependencies for the Payment Processing Epic:
-
-## Hard Dependencies (Must be complete)
-- ✅ User Management Epic: Authentication system required
-- ❌ Product Catalog Epic: Need products to purchase
-- ❌ Shopping Cart Epic: Need cart functionality
-
-## Soft Dependencies (Helpful but not required)
-- Admin Dashboard: For payment management
-- Email System: For payment confirmations
-
-## External Dependencies
-- Payment provider selection (Stripe, PayPal, etc.)
-- SSL certificate for secure transactions
-- Legal compliance review for payment handling
-
-**Recommendation**: Complete User Management and Product Catalog epics before starting Payment Processing."
-```
-
-## 🔄 Epic State Management
-
-### **Epic Status Transitions**
-
-#### **User Prompt:**
-```bash
-"Move the user management epic from planned to active status"
-```
-
-#### **AI Response:**
-```bash
-"I've updated the User Management Epic status:
-
-**Status Change**: PLANNED → IN_PROGRESS
-**Started**: 2025-01-15
-**Active Phase**: Phase 1 - Core Authentication
-**Next Step**: User Registration Component
-
-The epic is now active in your portfolio (2/3 active epics)."
-```
-
-### **Epic Completion**
-
-#### **User Prompt:**
-```bash
-"Mark the user management epic as completed"
-```
-
-#### **AI Response:**
-```bash
-"I've completed the User Management Epic:
-
-## Epic Completion Summary
-- **Epic**: User Management System
-- **Status**: COMPLETED ✅
-- **Duration**: 6 weeks (planned 8 weeks)
-- **Phases Completed**: 3/3
-- **Steps Completed**: 8/8
-
-## Success Criteria Review
-- ✅ User registration and authentication
-- ✅ Profile management system
-- ✅ Role-based access control
-- ✅ Admin user management tools
-
-The epic has been moved to completion history and you now have capacity for a new epic (1/3 active)."
-```
-
-### **Epic Archiving**
-
-#### **User Prompt:**
-```bash
-"Archive completed epics older than 6 months"
-```
-
-#### **AI Response:**
-```bash
-"Archiving old completed epics:
-
-## Archived Epics
-- **Legacy System Migration** (completed 8 months ago)
-- **Initial MVP Development** (completed 7 months ago)
-
-## Retained Epics  
-- **User Management System** (completed 2 months ago) - kept for reference
-- **Payment Integration** (completed 1 month ago) - kept for reference
-
-Archived epics have been removed from epics.mdc to maintain file size and AI context effectiveness."
-```
-
-## 💡 Advanced Epic Patterns
-
-### **Epic Templates by Domain**
-
-#### **User Prompt:**
-```bash
-"Create an epic template for API development projects"
-```
-
-#### **AI Response:**
-```markdown
-### API Development Epic Template
-
-#### PHASE 1: API Design & Documentation
-1. **API Specification**: OpenAPI/Swagger documentation
-2. **Data Models**: Request/response schemas  
-3. **Authentication Strategy**: API security design
-
-#### PHASE 2: Core Implementation
-1. **Endpoint Development**: CRUD operations
-2. **Data Validation**: Input sanitization and validation
-3. **Error Handling**: Standardized error responses
-
-#### PHASE 3: Integration & Testing
-1. **Integration Testing**: End-to-end API tests
-2. **Performance Testing**: Load and stress testing
-3. **Documentation**: API guides and examples
-
-#### Success Criteria Template
-- [ ] All endpoints documented in OpenAPI format
-- [ ] 95%+ test coverage on business logic  
-- [ ] API handles expected load (X requests/second)
-- [ ] Security audit passes
-- [ ] Developer documentation complete
-```
-
-### **Cross-Epic Dependencies**
-
-#### **User Prompt:**
-```bash
-"How do I handle dependencies between the user management and payment processing epics?"
-```
-
-#### **AI Response:**
-```bash
-"I'll help you manage cross-epic dependencies:
-
-## Dependency Mapping
-**Payment Processing Epic** depends on **User Management Epic**:
-- Authentication system (user login required)
-- User profiles (billing information storage)
-- Session management (payment security)
-
-## Coordination Strategy
-1. **Sequential Phases**: Complete User Management Phase 1 before starting Payment Processing
-2. **Shared Components**: Design authentication to support payment flows
-3. **Interface Contracts**: Define user data requirements for payment system
-4. **Integration Testing**: Test combined user + payment workflows
-
-## Epic Coordination Notes
-- Both epics will update shared architecture.mdc
-- Payment epic steps reference user management APIs
-- Integration testing spans both epic domains"
-```
-
-## 📈 Epic Metrics and Reporting
-
-### **Epic Performance Tracking**
-
-#### **User Prompt:**
-```bash
-"Generate a report on our epic completion performance"
-```
-
-#### **AI Response:**
-```markdown
-## Epic Performance Report (Last 6 Months)
-
-### Completion Metrics
-- **Total Epics Completed**: 4
-- **Average Epic Duration**: 5.2 weeks (target: 6 weeks)
-- **On-Time Completion Rate**: 75% (3/4 epics)
-- **Epic Success Rate**: 100% (all met success criteria)
-
-### Phase Performance
-- **Phase 1 Completion**: Average 95% of estimate
-- **Phase 2 Completion**: Average 110% of estimate  
-- **Phase 3 Completion**: Average 90% of estimate
-
-### Insights
-- Phase 2 consistently takes longer than estimated
-- Epic scoping accuracy improving over time
-- Team velocity stable at ~8 story points per week
-
-### Recommendations
-- Increase Phase 2 estimates by 15%
-- Consider breaking large Phase 2 work into smaller steps
-- Maintain current epic planning approach
-```
-
-### **Epic ROI Analysis**
-
-#### **User Prompt:**
-```bash
-"Analyze the business value delivered by completed epics"
-```
-
-#### **AI Response:**
-```markdown
-## Epic ROI Analysis
-
-### Completed Epic Value
-1. **User Management System**
-   - **User Engagement**: +45% (authentication reduced friction)
-   - **Support Tickets**: -30% (self-service profiles)
-   - **Development Velocity**: +20% (reusable auth components)
-
-2. **Payment Processing Integration**
-   - **Revenue**: +$50K/month (enabled online sales)
-   - **Conversion Rate**: +15% (streamlined checkout)
-   - **Payment Errors**: -80% (improved error handling)
-
-3. **Admin Dashboard**
-   - **Admin Efficiency**: +60% (centralized management)
-   - **Data Accuracy**: +35% (real-time updates)
-   - **Onboarding Time**: -50% (better admin tools)
-
-### Investment vs Return
-- **Development Investment**: 18 weeks total
-- **Business Value Generated**: $200K+ annually
-- **ROI**: 400%+ in first year
+### Dependency Coordination
+- **Technology Dependencies**: Framework version compatibility
+- **Architecture Dependencies**: Pattern evolution coordination
+- **Epic Dependencies**: Cross-epic pattern sharing
+- **Team Dependencies**: Cross-team architecture coordination
 ```
 
 ---
 
-**Ready to start epic planning?** Use these realistic prompts to begin structuring your large initiatives with AI assistance!
+**v2 Epic System Advantage**: The comprehensive 7-component epic management system provides robust project coordination with automatic architecture integration, supporting complex multi-technology projects while maintaining consistency and enabling efficient AI-assisted development.

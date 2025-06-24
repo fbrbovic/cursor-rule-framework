@@ -1,0 +1,194 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Sample Architectural Decisions
+**Examples of ADR patterns and decision documentation**
+
+## 🤖 AI Instructions
+**When to use**: Reference examples when creating new ADRs or reviewing decision patterns
+**How to use**: Use these samples as inspiration for documenting your own architectural decisions
+**Context**: Generic examples demonstrating decision documentation patterns for any technology stack
+
+## 📋 Sample ADRs
+
+### **ADR-001: Database Technology Selection**
+**Status**: Accepted  
+**Date**: 2025-01-15  
+**Deciders**: Architecture Team, Development Team  
+**Technical Story**: Need to select primary database technology for new application
+
+#### **Context**
+The application requires persistent data storage with ACID properties, support for complex queries, and ability to scale with growing user base. Data includes user information, transactional records, and reporting requirements.
+
+#### **Decision**
+Use PostgreSQL as the primary database technology.
+
+#### **Rationale**
+- Strong ACID compliance for transactional integrity
+- Excellent performance for complex queries
+- Rich feature set including JSON support, full-text search
+- Strong ecosystem and community support
+- Good scaling options (read replicas, partitioning)
+
+#### **Alternatives Considered**
+
+**Alternative 1: MySQL**
+- **Pros**: Widespread adoption, good performance, familiar to team
+- **Cons**: Less advanced feature set, weaker consistency guarantees
+- **Why not chosen**: PostgreSQL's advanced features better match requirements
+
+**Alternative 2: MongoDB**
+- **Pros**: Document model, horizontal scaling, flexible schema
+- **Cons**: Eventual consistency, less mature transaction support
+- **Why not chosen**: ACID requirements favor relational database
+
+#### **Consequences**
+- **Positive**: Strong data consistency, rich query capabilities, JSON support
+- **Negative**: Learning curve for team members unfamiliar with PostgreSQL
+- **Neutral**: Standard SQL knowledge transfers well
+
+---
+
+### **ADR-002: API Design Pattern**
+**Status**: Accepted  
+**Date**: 2025-01-20  
+**Deciders**: Backend Team, Frontend Team  
+**Technical Story**: Establish consistent API design patterns for service communication
+
+#### **Context**
+Multiple services need to communicate with each other and with frontend applications. Need consistent patterns for error handling, authentication, and data serialization.
+
+#### **Decision**
+Adopt RESTful API design with JSON serialization and standardized error responses.
+
+#### **Rationale**
+- Industry standard approach with widespread tooling support
+- Clear resource-based URL structure
+- HTTP status codes provide semantic meaning
+- JSON is lightweight and universally supported
+- Good caching characteristics with HTTP
+
+#### **Alternatives Considered**
+
+**Alternative 1: GraphQL**
+- **Pros**: Flexible querying, strong typing, single endpoint
+- **Cons**: Additional complexity, caching challenges, learning curve
+- **Why not chosen**: REST simplicity better matches team experience
+
+**Alternative 2: gRPC**
+- **Pros**: High performance, strong typing, streaming support
+- **Cons**: Limited browser support, binary protocol complexity
+- **Why not chosen**: HTTP/JSON better for web application needs
+
+#### **Consequences**
+- **Positive**: Familiar patterns, good tooling, clear semantics
+- **Negative**: Potential over-fetching compared to GraphQL
+- **Neutral**: Standard HTTP caching and monitoring apply
+
+---
+
+### **ADR-003: Authentication Strategy**
+**Status**: Accepted  
+**Date**: 2025-01-25  
+**Deciders**: Security Team, Architecture Team  
+**Technical Story**: Define authentication and authorization approach for user access
+
+#### **Context**
+Application requires user authentication with role-based access control. Need to support both web and mobile clients with secure token management.
+
+#### **Decision**
+Implement JWT-based authentication with refresh token rotation.
+
+#### **Rationale**
+- Stateless tokens reduce server-side session storage
+- JWT payload can include user context and permissions
+- Refresh token rotation improves security
+- Works well with both web and mobile clients
+- Industry standard with good library support
+
+#### **Alternatives Considered**
+
+**Alternative 1: Session-based Authentication**
+- **Pros**: Simple implementation, secure by default, easy revocation
+- **Cons**: Server-side state, scaling challenges, cookie limitations
+- **Why not chosen**: Stateless approach better for microservices
+
+**Alternative 2: OAuth 2.0 with External Provider**
+- **Pros**: Delegated authentication, reduced security responsibility
+- **Cons**: External dependency, user experience complexity
+- **Why not chosen**: Need for custom user management and control
+
+#### **Consequences**
+- **Positive**: Scalable authentication, flexible authorization, mobile-friendly
+- **Negative**: Token management complexity, potential security risks if misconfigured
+- **Neutral**: Standard JWT libraries handle most implementation details
+
+---
+
+## 🔍 Decision Pattern Analysis
+
+### **Common Decision Categories**
+
+#### **Technology Selection Decisions**
+- Database technology choices
+- Programming language selection
+- Framework and library decisions
+- Infrastructure and deployment platform choices
+
+#### **Architecture Pattern Decisions**
+- API design patterns (REST, GraphQL, gRPC)
+- Authentication and authorization strategies
+- Data modeling and storage patterns
+- Service communication patterns
+
+#### **Quality Attribute Decisions**
+- Performance optimization strategies
+- Security implementation approaches
+- Scalability and reliability patterns
+- Maintainability and development velocity choices
+
+### **Decision Documentation Patterns**
+
+#### **Context Patterns**
+- Business requirements driving the decision
+- Technical constraints and limitations
+- Team capabilities and experience
+- Timeline and resource considerations
+
+#### **Alternative Analysis Patterns**
+- Systematic evaluation of options
+- Pros and cons analysis
+- Risk assessment for each alternative
+- Cost-benefit analysis
+
+#### **Consequence Patterns**
+- Short-term and long-term impacts
+- Technical debt considerations
+- Team training and adoption requirements
+- Integration and compatibility effects
+
+## 📊 Decision Tracking
+
+### **Decision Status Examples**
+- **Proposed**: ADR-004 (Caching Strategy) - Under review
+- **Accepted**: ADR-001, ADR-002, ADR-003 - Implemented
+- **Deprecated**: None currently
+- **Superseded**: None currently
+
+### **Decision Dependencies**
+- ADR-002 (API Design) depends on ADR-001 (Database Selection)
+- ADR-003 (Authentication) influences ADR-002 (API Design)
+- Future caching decisions will depend on ADR-001 and ADR-002
+
+### **Decision Review Schedule**
+- Quarterly review of all accepted decisions
+- Annual architecture review for potential updates
+- Ad-hoc reviews when new requirements emerge
+
+---
+
+**Sample Purpose**: Demonstrate ADR patterns and decision documentation best practices  
+**Framework Integration**: Generic examples applicable to any technology stack  
+**Usage**: Reference these patterns when creating project-specific ADRs

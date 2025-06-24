@@ -1,245 +1,344 @@
-# ⚡ Workflow System Guide
+# ⚡ Workflow System Guide v2
 
-This guide explains the AI-driven development methodology at the heart of the Cursor Rule Framework: **Blueprint → Construct → Validate** with automatic epic integration.
+This guide explains the **enhanced AI-driven development methodology** at the heart of the Cursor Rule Framework v2: **Blueprint → Construct → Validate** with comprehensive epic and architecture integration.
+
+## 🆕 What's New in v2 Workflow System
+
+### **Enhanced Features**
+- **Workflow Lifecycle Rules (`workflow-lifecycle-rules.mdc`)**: Comprehensive automation and phase management
+- **Architecture Integration**: Automatic coordination with modular architecture framework
+- **Epic-Workflow Coordination**: Seamless integration with 7-component epic management system
+- **Technology-Agnostic Patterns**: Workflow patterns that work with any programming language or framework
+- **Automated Quality Gates**: Enhanced validation with architecture compliance checking
+- **State Management Automation**: Advanced workflow state tracking and coordination
+
+### **v2 Integration Points**
+- **Epic Management**: Automatic epic context and progress tracking
+- **Architecture Framework**: Automatic architecture validation and documentation updates
+- **Validation Automation**: Automated consistency checking across all framework components
 
 ## ⚠️ Prerequisites
 
-**CRITICAL**: Before using the workflow system, you must install the user rules template:
+**CRITICAL**: Before using the v2 workflow system, you must install the enhanced user rules template:
 
-1. Open `.cursor/rules/user-rules-template.mdc`
+1. Open `.cursor/rules/rule-framework-v2/user-rules-template.mdc`
 2. Copy the entire file content
 3. In Cursor IDE: **Settings** → **Features** → **Rules for AI** → **User Rules**
 4. Paste the content into the User Rules field
 
-**Without this setup, the AI-driven workflow system will not function correctly.**
+**Without this setup, the v2 AI-driven workflow system will not function correctly.**
 
 ## 🎯 Overview
 
-The workflow system provides a structured approach to AI-assisted development that ensures quality, maintainability, and consistency. It's designed to work seamlessly with Cursor AI while maintaining human oversight at critical decision points.
+The v2 workflow system provides a structured, technology-agnostic approach to AI-assisted development that ensures quality, maintainability, and architectural consistency. It's designed to work seamlessly with Cursor AI while maintaining human oversight at critical decision points and coordinating with the comprehensive epic and architecture management systems.
 
-## 🏗️ The Three-Phase Methodology
+## 🏗️ Enhanced Three-Phase Methodology
 
-### **Phase 1: 🎯 Blueprint**
-**Purpose**: Plan thoroughly with AI assistance before writing any code.
+### **Phase 1: 🎯 Blueprint (Enhanced)**
+**Purpose**: Plan thoroughly with AI assistance, architecture validation, and epic coordination before writing any code.
 
 #### **What Happens**
-- **Requirement Analysis**: Understand the problem and context
-- **Architecture Validation**: Check existing architecture.mdc for patterns and constraints
-- **Epic Context Integration**: Include epic requirements and acceptance criteria when available
-- **Architecture Planning**: Design the solution structure that aligns with existing architecture
+- **Requirement Analysis**: Understand the problem and context (technology-agnostic)
+- **Architecture Framework Integration**: Check `architecture/core/patterns.mdc` and relevant domain patterns
+- **Epic Context Integration**: Include epic requirements, progress tracking, and architecture impact assessment
+- **Technology-Agnostic Planning**: Design solutions that work across technology stacks when possible
+- **Architecture Decision Planning**: Plan ADRs when architectural decisions are needed
 - **Implementation Strategy**: Create detailed step-by-step plan including architecture updates
-- **Risk Assessment**: Identify potential challenges and solutions
+- **Risk Assessment**: Identify potential challenges and technology-specific solutions
 
-#### **Phase Rules**
-- ✅ **Planning and Design**: Create detailed implementation plans
-- ✅ **Problem Analysis**: Understand requirements and constraints
-- ✅ **Architecture Validation**: Review architecture.mdc for existing patterns and decisions
-- ✅ **Epic Integration**: Include epic context and requirements when available
-- ✅ **Architecture Discussion**: Design system structure and patterns
+#### **Enhanced Phase Rules**
+- ✅ **Planning and Design**: Create detailed, technology-aware implementation plans
+- ✅ **Problem Analysis**: Understand requirements and multi-technology constraints
+- ✅ **Architecture Framework Validation**: Review architecture framework for existing patterns and decisions
+- ✅ **Epic Integration**: Include epic context, progress tracking, and architecture coordination
+- ✅ **Technology-Agnostic Architecture**: Design patterns that work across technology stacks
+- ✅ **ADR Planning**: Plan Architecture Decision Records when needed
 - ❌ **No Code Writing**: Implementation happens in Construct phase
 - ❌ **No File Changes**: Only planning and documentation
 
-#### **Deliverables**
+#### **Enhanced Deliverables**
 ```markdown
-## Plan
-### Implementation Steps
-1. Create component structure in src/components/
-2. Define TypeScript interfaces in types/
-3. Implement core logic with error handling
-4. Add comprehensive tests
-5. Update documentation
+## v2 Implementation Plan
 
-### Architecture Decisions
-- Use React functional components with hooks
-- Implement state management with Context API
-- Follow existing naming conventions
-- Integrate with current testing framework
+### Epic Context
+- **Epic**: MULTI_PLATFORM_USER_SYSTEM
+- **Phase**: Phase 1 - Core Authentication Foundation
+- **Step**: Authentication Architecture Design
+- **Architecture Impact**: Medium (new security patterns, API evolution)
+
+### Architecture Integration
+- **Domains Affected**: Backend Security, API Design, Frontend State Management
+- **Patterns to Document**: Token-based authentication flow, API security patterns
+- **ADRs to Create**: Authentication Strategy Selection, JWT vs Session-Based Authentication
+- **Technology Files to Update**: project-specific/backend-node.mdc, project-specific/frontend-react.mdc
+
+### Technology-Agnostic Implementation Steps
+1. **Authentication Pattern Design** (universal patterns)
+   - Document JWT token strategy (works with any backend/frontend)
+   - Define API contract specifications (technology-portable)
+   - Create security architecture integration patterns
+
+2. **Technology-Specific Implementation** (React + Node.js)
+   - Backend authentication middleware (Node.js patterns)
+   - Frontend authentication components (React patterns)
+   - Database integration (PostgreSQL patterns)
+
+3. **Architecture Documentation Updates**
+   - Update architecture/core/patterns.mdc with authentication patterns
+   - Create ADRs in architecture/decisions/
+   - Update domain-specific files
+
+### Epic Progress Coordination
+- Update epic-active.mdc with step progress
+- Coordinate with epic-architecture-integration.mdc
+- Track architecture impact in epic registry
 
 ### Risk Mitigation
-- Identify potential integration challenges
-- Plan for error handling scenarios
-- Define rollback strategies
+- Plan for technology migration scenarios
+- Define architecture evolution strategies
+- Consider cross-platform authentication requirements
 ```
 
-#### **Example Blueprint Phase**
+#### **Example v2 Blueprint Phase**
 
 #### **User Request:**
 ```bash
-"Add user authentication to the React app"
+"Add user authentication that works with our React frontend and Node.js backend, coordinated with our User Management epic"
 ```
 
-#### **AI Response (Blueprint Phase):**
+#### **AI v2 Response (Enhanced Blueprint Phase):**
 ```bash
-"I'll help you add user authentication. Let me start by analyzing your current setup and creating a comprehensive plan.
+"I'll help you add user authentication following v2 framework patterns. Let me start by analyzing your current setup, coordinating with the epic system, and creating a comprehensive plan.
 
-## Current State Analysis
-- React 18 with TypeScript
-- No existing authentication system
-- Uses Context API for state management
-- Vitest + React Testing Library for testing
+## Epic Context Analysis
+- **Current Epic**: MULTI_PLATFORM_USER_SYSTEM (Phase 1, Step 2)
+- **Epic Progress**: 35% (2 of 6 steps completed)
+- **Architecture Impact**: Authentication patterns affect Backend, Frontend, Security domains
 
-## Implementation Plan
-1. **Authentication Context Setup**
-   - Create AuthContext with login/logout/user state
-   - Implement AuthProvider component
-   - Add authentication types and interfaces
+## Current State Analysis (Technology-Agnostic + Specific)
+- **Frontend**: React 18 with TypeScript (technology-specific patterns available)
+- **Backend**: Node.js with Express (technology-specific patterns available)
+- **Architecture Status**: Core patterns documented, authentication patterns needed
+- **Epic Coordination**: Step aligns with epic authentication foundation phase
 
-2. **Component Implementation**
-   - LoginForm component with validation
-   - ProtectedRoute wrapper component
-   - User profile display component
+## v2 Implementation Plan
 
-3. **Integration**
-   - Wrap App with AuthProvider
-   - Update routing with protected routes
-   - Add authentication state to navigation
+### 1. Architecture Pattern Development (Universal)
+- Document JWT-based authentication flow (technology-agnostic)
+- Create API security patterns (works with any backend/frontend combination)
+- Define authentication state management patterns (universal concepts)
 
-4. **Testing Strategy**
-   - Unit tests for auth context
-   - Integration tests for login flow
-   - Mock authentication API calls
+### 2. Technology-Specific Implementation
+- **Backend (Node.js)**: Authentication middleware, JWT generation/validation
+- **Frontend (React)**: Authentication components, state management, route protection
+- **Integration**: Token flow between React and Node.js
 
-Would you like me to proceed with this plan?"
+### 3. Architecture Framework Updates
+- **Create ADR**: "Authentication Strategy Selection - JWT vs Session-Based"
+- **Update Core Patterns**: Add authentication flow to architecture/core/patterns.mdc
+- **Update Domain Files**: Backend and frontend specific authentication patterns
+
+### 4. Epic Coordination
+- Update epic-active.mdc with step progress
+- Track architecture impact in epic-architecture-integration.mdc
+- Coordinate with Phase 1 completion goals
+
+Would you like me to proceed with this enhanced v2 plan?"
 ```
 
-### **Phase 2: 🔨 Construct**
-**Purpose**: Implement the approved plan with AI pair programming.
+### **Phase 2: 🔨 Construct (Enhanced)**
+**Purpose**: Implement the approved plan with AI pair programming, architecture updates, and epic coordination.
 
 #### **What Happens**
-- **Code Implementation**: Write code following the approved plan
-- **Architecture Updates**: Update architecture.mdc when implementing new patterns or decisions
-- **Epic Progress Tracking**: Update epic status and progress when working on epic-related tasks
-- **Iterative Development**: Build incrementally with frequent validation
-- **Error Handling**: Address issues as they arise
-- **Quality Assurance**: Apply coding standards and best practices
+- **Code Implementation**: Write code following the approved plan (technology-aware)
+- **Architecture Framework Updates**: Update relevant architecture files when implementing new patterns
+- **Epic Progress Tracking**: Update epic system with real-time progress and architecture coordination
+- **Technology-Specific Pattern Application**: Apply technology-specific patterns from project-specific/
+- **ADR Creation**: Create Architecture Decision Records when planned
+- **Cross-Technology Coordination**: Ensure patterns work across different technology stacks
+- **Quality Assurance**: Apply coding standards and architectural consistency
 
-#### **Phase Rules**
-- ✅ **Follow the Plan**: Implement exactly what was approved in Blueprint
-- ✅ **Write Production Code**: Create fully functional, tested code
-- ✅ **Update Architecture**: Document new patterns and decisions in architecture.mdc
-- ✅ **Update Epic Progress**: Track progress on epic steps when applicable
-- ✅ **Handle Errors**: Address compilation and runtime errors
-- ✅ **Apply Standards**: Follow project coding conventions
+#### **Enhanced Phase Rules**
+- ✅ **Follow the Enhanced Plan**: Implement exactly what was approved in Blueprint with architecture coordination
+- ✅ **Write Production Code**: Create fully functional, tested, architecturally consistent code
+- ✅ **Update Architecture Framework**: Document new patterns in appropriate architecture files
+- ✅ **Create ADRs**: Document architectural decisions as planned
+- ✅ **Update Epic Progress**: Track progress and coordinate with epic management system
+- ✅ **Apply Technology Patterns**: Use technology-specific patterns from project-specific/
+- ✅ **Ensure Cross-Technology Compatibility**: Design patterns for technology migration readiness
 - ❌ **No Plan Changes**: Major changes require return to Blueprint
-- ❌ **No Shortcuts**: Maintain quality and completeness
+- ❌ **No Architecture Shortcuts**: Maintain architectural consistency and documentation
 
-#### **Implementation Pattern**
+#### **v2 Implementation Pattern**
 ```bash
-# Step-by-step execution
-1. Implement core interfaces/types
-2. Create main components/functions
-3. Add error handling and validation
-4. Write tests for new functionality
-5. Update documentation
-6. Validate each step before proceeding
+# Enhanced step-by-step execution with architecture coordination
+1. **Architecture Pattern Creation**
+   - Document universal patterns in architecture/core/patterns.mdc
+   - Create relevant ADRs in architecture/decisions/
+   
+2. **Technology-Specific Implementation**
+   - Apply technology patterns from project-specific/
+   - Implement backend components (Node.js patterns)
+   - Implement frontend components (React patterns)
+   
+3. **Epic Coordination**
+   - Update epic-active.mdc with step progress
+   - Update epic-architecture-integration.mdc with architecture impact
+   
+4. **Quality Validation**
+   - Test implementation against epic acceptance criteria
+   - Validate architecture consistency
+   - Ensure cross-technology compatibility
+
+5. **Documentation Updates**
+   - Update domain-specific architecture files
+   - Update epic progress tracking
+   - Validate against architecture maintenance rules
 ```
 
-#### **Error Handling**
-```bash
-# When errors occur during Construct:
-1. Analyze the error and root cause
-2. Apply immediate fix if it's a simple issue
-3. Update plan if architectural change needed
-4. Document decision and continue
-5. Never leave broken code
-```
-
-#### **Example Construct Phase**
-```typescript
-// Step 1: Create authentication types
-interface User {
-  id: string
-  email: string
-  name: string
-}
-
-interface AuthContextValue {
-  user: User | null
-  login: (email: string, password: string) => Promise<void>
-  logout: () => void
-  isLoading: boolean
-}
-
-// Step 2: Implement AuthContext
-const AuthContext = createContext<AuthContextValue | undefined>(undefined)
-
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const login = async (email: string, password: string) => {
-    setIsLoading(true)
-    try {
-      // Implementation follows the plan...
-    } catch (error) {
-      // Error handling as planned...
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  // Continue implementation...
-}
-```
-
-### **Phase 3: ✅ Validate**
-**Purpose**: Ensure quality with AI-powered testing and validation.
+### **Phase 3: ✅ Validate (Enhanced)**
+**Purpose**: Ensure quality with AI-powered testing, architecture validation, and epic coordination.
 
 #### **What Happens**
-- **Functionality Testing**: Verify features work as intended
-- **Quality Checks**: Run linting, formatting, type checking
-- **Integration Testing**: Ensure components work together
-- **Documentation Review**: Verify documentation is up to date
+- **Functionality Testing**: Verify features work as intended (technology-specific)
+- **Architecture Validation**: Ensure compliance with architecture framework
+- **Epic Success Criteria Validation**: Verify epic requirements are met
+- **Cross-Technology Compatibility**: Test patterns work across technology stacks
+- **Quality Gates**: Run technology-specific linting, formatting, type checking
+- **Integration Testing**: Ensure components work together across technology boundaries
+- **Documentation Validation**: Verify architecture and epic documentation is updated
 
-#### **Phase Rules**
-- ✅ **Comprehensive Testing**: Run all relevant tests
-- ✅ **Quality Gates**: Pass linting, formatting, type checks
-- ✅ **Integration Validation**: Test feature in full context
-- ✅ **Documentation Update**: Ensure docs reflect changes
+#### **Enhanced Phase Rules**
+- ✅ **Comprehensive Testing**: Run all relevant tests (technology-specific and integration)
+- ✅ **Architecture Compliance**: Validate against architecture framework rules
+- ✅ **Epic Validation**: Verify epic success criteria and progress tracking
+- ✅ **Quality Gates**: Pass technology-specific quality checks
+- ✅ **Cross-Technology Testing**: Ensure patterns work across technology stacks
+- ✅ **Documentation Validation**: Verify architecture and epic documentation updates
 - ❌ **No New Features**: Focus only on validation
 - ❌ **No Major Refactoring**: Save for next Blueprint phase
 
-#### **Validation Checklist**
-```bash
-# Technical Validation
-- [ ] All tests pass (unit, integration, e2e)
-- [ ] TypeScript compilation successful
-- [ ] ESLint rules pass
-- [ ] Prettier formatting applied
-- [ ] No console errors or warnings
+#### **v2 Validation Checklist**
+```markdown
+## Enhanced Validation Checklist
 
-# Functional Validation  
-- [ ] Feature works as specified in Blueprint
-- [ ] Error handling behaves correctly
-- [ ] User experience is smooth
-- [ ] Performance is acceptable
+### Epic Coordination Validation
+- [ ] Epic step marked as completed in epic-active.mdc
+- [ ] Epic progress updated in epic-registry.mdc
+- [ ] Architecture impact documented in epic-architecture-integration.mdc
+- [ ] Epic success criteria validation passed
 
-# Documentation Validation
-- [ ] README updated if needed
-- [ ] Code comments are clear
-- [ ] API documentation current
-- [ ] Examples work correctly
+### Architecture Framework Validation
+- [ ] New patterns documented in architecture/core/patterns.mdc
+- [ ] ADRs created in architecture/decisions/ as planned
+- [ ] Technology-specific patterns updated in project-specific/
+- [ ] Architecture maintenance rules compliance validated
+
+### Technology-Specific Validation
+- [ ] Backend tests passing (Node.js specific)
+- [ ] Frontend tests passing (React specific)
+- [ ] Integration tests across technology boundaries
+- [ ] Technology-specific quality gates passed
+
+### Cross-Technology Compatibility
+- [ ] Patterns documented for technology migration scenarios
+- [ ] API contracts designed for multiple frontend technologies
+- [ ] Authentication flow works with multiple client types
 ```
 
-#### **Example Validate Phase**
-```bash
-# Run comprehensive validation
-npm test              # All tests pass
-npm run type-check    # TypeScript validation
-npm run lint          # ESLint passes
-npm run format        # Prettier applied
+## 📊 v2 Workflow Integration Components
 
-# Manual testing
-- ✅ Login form accepts valid credentials
-- ✅ Protected routes redirect unauthenticated users
-- ✅ User profile displays correctly
-- ✅ Logout clears authentication state
+### **Workflow Lifecycle Rules (`workflow-lifecycle-rules.mdc`)**
+Comprehensive automation and phase management:
 
-# Documentation check
-- ✅ Authentication setup documented
-- ✅ Usage examples updated
-- ✅ API documentation current
+```markdown
+## Phase Transition Rules
+- Blueprint → Construct: Requires approved plan and architecture validation
+- Construct → Validate: Requires implementation completion and architecture updates
+- Validate → Complete: Requires all quality gates and epic coordination
+
+## Automation Triggers
+- Epic progress updates: Automatic when workflow steps complete
+- Architecture updates: Automatic when new patterns are implemented
+- Quality validation: Automatic when validate phase initiates
 ```
+
+### **Epic-Workflow Coordination**
+Seamless integration with epic management system:
+
+```markdown
+## Current Workflow Context
+- **Epic**: MULTI_PLATFORM_USER_SYSTEM
+- **Phase**: Phase 1 - Core Authentication Foundation
+- **Step**: Backend Authentication Service Implementation
+- **Architecture Domains**: Backend Security, API Design
+- **Progress**: 45% (Step 2 of 4 in Phase 1)
+```
+
+### **Architecture-Workflow Integration**
+Automatic coordination with architecture framework:
+
+```markdown
+## Architecture Impact Tracking
+- **Patterns Created**: JWT Authentication Flow (universal)
+- **ADRs Generated**: 2 (Authentication Strategy, API Security Design)
+- **Domain Updates**: backend-node.mdc, frontend-react.mdc
+- **Compliance Status**: Validated against architecture maintenance rules
+```
+
+## 🎯 v2 Advanced Workflow Patterns
+
+### **Multi-Technology Workflow Coordination**
+```bash
+# Example: Authentication across React, Vue, and React Native
+## Blueprint Phase
+- Plan universal authentication patterns
+- Design technology-specific implementations
+- Coordinate across multiple domain files
+
+## Construct Phase  
+- Implement universal API patterns
+- Create React-specific components
+- Create Vue-specific components  
+- Create React Native patterns
+
+## Validate Phase
+- Test cross-technology compatibility
+- Validate universal pattern effectiveness
+- Ensure epic success criteria across all technologies
+```
+
+### **Epic-Driven Workflow Execution**
+```bash
+# Workflow automatically coordinates with epic system
+## Epic Context Integration
+- Epic requirements automatically included in Blueprint planning
+- Epic progress automatically updated during Construct
+- Epic success criteria automatically validated in Validate phase
+
+## Architecture Impact Coordination
+- Epic architecture impact automatically tracked
+- Architecture domain updates coordinated with epic progress
+- Cross-epic pattern sharing automatically managed
+```
+
+### **Architecture Evolution Through Workflow**
+```bash
+# Workflow drives architecture documentation evolution
+## Pattern Discovery
+- New patterns discovered during implementation
+- Universal patterns extracted and documented
+- Technology-specific patterns organized by domain
+
+## ADR Creation
+- Architectural decisions documented during workflow execution
+- Decision context captured from epic and workflow state
+- Cross-technology decision implications tracked
+```
+
+---
+
+**v2 Workflow Advantage**: The enhanced workflow system provides comprehensive coordination between development phases, epic management, and architecture evolution, enabling efficient AI-assisted development that maintains consistency across complex multi-technology projects.
 
 ## 🤖 Automatic Integration Rules
 

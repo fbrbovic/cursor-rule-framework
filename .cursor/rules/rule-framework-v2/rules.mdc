@@ -1,0 +1,75 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Core Development Rules
+**Essential rules for all projects using the Cursor Rule Framework v2**
+
+## 🎯 Purpose
+This file contains ONLY the most critical global rules. Detailed implementations are in specialized rule files.
+
+---
+
+## 📁 Rule File Organization
+
+### **Specialized Rule Files** (Reference for details)
+- **`architecture/core/patterns.mdc`** → Core architectural patterns and conventions
+- **`workflow-lifecycle-rules.mdc`** → Blueprint requirements, workflow phases, automation rules  
+- **`architecture-lifecycle.mdc`** → File size limits, metadata requirements, quality gates
+- **`epic-lifecycle-rules.mdc`** → Epic management, progress tracking, completion automation
+- **`architecture/index.mdc`** → Master architecture navigation and domain lookup
+
+### **Rule Scope Guidelines**
+- **Global rules** → This file (rules.mdc)
+- **Domain-specific rules** → `architecture/` directory  
+- **Specialized rules** → Named pattern files (e.g., `architecture-*.mdc`, `epic-*.mdc`)
+
+---
+
+## 🚨 MANDATORY GLOBAL RULES
+
+### **1. Architecture Governance (CRITICAL)**
+**Rule**: ALWAYS consult architecture files before making decisions
+**Action**: Use `fetch_rules(['architecture'])` to validate alignment with existing patterns
+**Exception**: None - ALL architectural decisions must validate against established patterns
+
+### **2. Workflow Phase Compliance (CRITICAL)** 
+**Rule**: Follow BLUEPRINT → CONSTRUCT → VALIDATE workflow for all development
+**Action**: Reference `workflow-lifecycle-rules.mdc` for detailed phase requirements
+**Exception**: None - all development must follow this workflow
+
+### **3. Epic Integration (REQUIRED)**
+**Rule**: Link work to active epics when applicable using EpicReference/EpicPhase/EpicStep
+**Action**: Consult `epic-active.mdc` for current epic context
+**Exception**: Standalone work (no epic context) is allowed
+
+### **4. Architecture File Size Limits (ENFORCED)**
+**Rule**: Maximum 500 lines per architecture file, 300 lines for index files
+**Action**: Split oversized files immediately using patterns in `architecture-lifecycle.mdc`
+**Exception**: None - strictly enforced for AI accessibility
+
+---
+
+## 📋 Development Checklist
+
+Before starting any development work:
+- [ ] **Architecture Validation**: Consult relevant architecture files
+- [ ] **Epic Context**: Identify if work relates to active epic
+- [ ] **Blueprint Planning**: Create detailed implementation plan
+- [ ] **File Organization**: Place rules in correct workspace directory
+
+---
+
+## 🔗 Quick Reference Links
+
+**For Architecture Work**: → `architecture/index.mdc` (master navigation)  
+**For Workflow Management**: → `workflow-lifecycle-rules.mdc`  
+**For Epic Development**: → `epic-active.mdc`  
+**For File Maintenance**: → `architecture-lifecycle.mdc`  
+
+---
+
+**File Purpose**: Minimal essential global rules with references to specialized implementations  
+**Maintenance**: Keep under 100 lines - move detailed rules to specialized files  
+**Last Updated**: 2025-01-27

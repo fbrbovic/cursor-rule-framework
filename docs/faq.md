@@ -1,4 +1,55 @@
-# ❓ Frequently Asked Questions
+# ❓ Frequently Asked Questions (v2)
+
+Common questions about the **Cursor Rule Framework v2** and their answers.
+
+## 🆕 v2 Framework Questions
+
+### **Q: What's the difference between v1 and v2?**
+**A:** v2 is a complete evolution with several major improvements:
+- **Technology-Agnostic**: Works with any programming language or framework (v1 was ResellWolf-specific)
+- **7-Component Epic System**: Comprehensive epic management (v1 had single epics.mdc)
+- **Modular Architecture Framework**: Organized architecture with domains, decisions, workflows
+- **Enhanced Workflow Integration**: Better coordination between workflow, epics, and architecture
+- **Universal Patterns**: Patterns that work across technology stacks
+- **Complete Migration Guide**: [v1 → v2 Migration Guide](v1-to-v2-migration.md)
+
+### **Q: Can I use v2 with my existing technology stack?**
+**A:** Yes! v2 is designed to be technology-agnostic. It works with:
+- **Frontend**: React, Vue.js, Angular, Svelte, vanilla JavaScript, etc.
+- **Backend**: Node.js, Python, Java, C#, Go, PHP, Ruby, etc.
+- **Mobile**: React Native, Flutter, native iOS/Android
+- **Database**: PostgreSQL, MySQL, MongoDB, Redis, any database
+- **Languages**: Any programming language
+
+### **Q: How do I migrate from v1 to v2?**
+**A:** Follow our comprehensive [v1 → v2 Migration Guide](v1-to-v2-migration.md). The process involves:
+1. Directory restructuring to `rule-framework-v2/`
+2. Separating technology-specific from universal patterns
+3. Epic system upgrade (1 file → 7 component system)
+4. Architecture framework migration
+5. Technology-agnostic pattern transformation
+
+### **Q: What are the 7 epic management components in v2?**
+**A:** The v2 epic system includes:
+1. `epic-lifecycle-rules.mdc` - Epic lifecycle automation
+2. `epic-active.mdc` - Active epics workspace
+3. `epic-planned.mdc` - Planned epics pipeline
+4. `epic-completed.mdc` - Completed epics archive
+5. `epic-registry.mdc` - Master epic registry
+6. `epic-validation-automation.mdc` - Validation automation
+7. `epic-architecture-integration.mdc` - Architecture coordination
+
+### **Q: How does the v2 architecture framework work?**
+**A:** The v2 architecture framework is modular:
+- `architecture/core/patterns.mdc` - Universal patterns (technology-agnostic)
+- `project-specific/` - Technology-specific patterns (React, Node.js, etc.)
+- `architecture/decisions/` - ADR management system
+- `architecture/workflows/` - Workflow integration patterns
+- Automatic coordination with epic system and workflow lifecycle
+
+---
+
+## 🎯 General Framework Questions
 
 Common questions and answers about the Cursor Rule Framework.
 
@@ -96,7 +147,7 @@ For simple bug fixes or typos, you can work directly without the formal workflow
 - **Step**: Individual feature within a phase (e.g., "Login Component")
 
 ### **Q: How many epics should I have active at once?**
-**A:** Maximum 2-3 active epics. This keeps AI context manageable and ensures focused development. Archive completed epics older than 6 months.
+**A:** Maximum 3 active epics. This keeps AI context manageable and ensures focused development. Archive completed epics older than 6 months.
 
 ### **Q: Can I work on something that's not part of an epic?**
 **A:** Yes! Not all work needs to be epic-related. Use epics for:

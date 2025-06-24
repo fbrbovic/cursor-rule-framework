@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Configuration Template
+**Framework Version**: 2.0 - Generic Template
+**Last Updated**: 2025-01-27
+
+## Project Goal
+[Replace with your project's main objective and purpose]
+
+### Project Features
+[List your project's key features and capabilities]
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Tech Stack
+[Define your technology choices]
+- **Language(s):** [Your programming languages]
+- **Framework(s):** [Your frameworks]
+- **Build / Tooling:** [Your build tools]
+- **Architecture:** [Your architectural pattern]
+
+## Critical Patterns & Conventions
+[Define your project-specific patterns and conventions]
+- Follow consistent naming conventions appropriate for your language/framework
+- Use meaningful variable and function names
+- Write clear and concise comments
+- Break down complex functions into smaller, more manageable units
+- Handle errors gracefully and provide informative error messages
+- Write comprehensive tests for critical components
+- Keep code DRY (Don't Repeat Yourself) by abstracting reusable logic
+- Prioritize code quality, maintainability, and security
+- If you encounter complex issues, break them down into smaller issues and document your thinking
+
+## Constraints
+[Define your project constraints]
+- Limited AI context window considerations
+- Follow established coding standards and best practices
+- Avoid making assumptions; ask clarifying questions when needed
+
+## Framework Integration Settings
+[Configure framework-specific settings]
+- Estimated chars-per-token: 3.5  
+- Max tokens for AI: 120,000
+- Plan for summary when **workflow-state.mdc** exceeds ~15K chars
+
+---
+
+## Changelog
+<!-- The AI prepends the latest summary here as a new list item after each VALIDATE phase -->
+<!-- Example format: -->
+<!-- - [YYYY-MM-DD] [AI] [CATEGORY] - Brief description of completed work -->

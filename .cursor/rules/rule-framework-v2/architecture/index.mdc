@@ -1,0 +1,67 @@
+---
+description: Master architecture index providing fast lookup to all architectural components - domains, decisions, workflows, and core patterns
+globs: 
+alwaysApply: false
+---
+# Architecture Master Index
+**🔍 Fast Lookup - Complete Architecture Navigation**
+
+## 🤖 AI Instructions
+**When to use**: ALWAYS reference this file FIRST before accessing any architecture documentation
+**How to use**: Scan table → identify domain → go to specific domain index → access target file
+**Context**: Database-style master index for instant domain lookup and navigation
+
+## 📊 ARCHITECTURE DOMAIN INDEX
+
+### 🚨 **MANDATORY START** (Use Every Time)
+| **Domain** | **When to Use** | **Line Count** | **Contains** |
+|------------|-----------------|----------------|--------------|
+| `core/index.mdc` | ALL development work | 61 lines | Core patterns, conventions, and architectural principles |
+
+### 🏗️ **SPECIALIZED DOMAINS** (Specific Use Cases)
+| **Domain** | **When to Use** | **Line Count** | **Contains** |
+|------------|-----------------|----------------|--------------|
+| `decisions/index.mdc` | Creating ADRs or reviewing decisions | 70 lines | ADR templates and architectural decisions |
+| `workflows/index.mdc` | Epic planning and process integration | 55 lines | Architecture workflow integration patterns |
+
+## ⚡ **QUICK DECISION PATHS**
+
+```
+🎯 WHAT ARE YOU BUILDING?
+
+NEW FEATURE:
+├─ core/index.mdc (mandatory patterns)
+└─ decisions/index.mdc (if architectural decisions needed)
+
+ARCHITECTURAL DECISION:
+├─ decisions/index.mdc (check existing + create new ADR)
+└─ core/index.mdc (implementation patterns)
+
+EPIC PLANNING:
+├─ workflows/index.mdc (process integration)
+├─ core/index.mdc (mandatory patterns)
+└─ decisions/index.mdc (decision documentation)
+
+FRAMEWORK SETUP:
+└─ core/index.mdc (foundational patterns and conventions)
+```
+
+## 🔗 **DOMAIN DEPENDENCIES**
+
+**Core Patterns**: Required by ALL other domains and development work  
+**Decisions**: References core patterns, documents architectural choices  
+**Workflows**: Integrates all domains for epic and project planning  
+
+## 📋 **NAVIGATION RULES**
+
+✅ **ALWAYS** start with core/index.mdc for mandatory patterns  
+✅ **DECISIONS**: decisions/index.mdc → core patterns for implementation  
+✅ **EPIC PLANNING**: workflows/index.mdc → core → decisions  
+✅ **TECHNOLOGY-SPECIFIC**: Extend core patterns for your tech stack  
+
+---
+
+**Master Index Status**: ✅ OPTIMIZED for instant domain lookup  
+**Total Domains**: 3 (Core, Decisions, Workflows)  
+**AI Navigation**: Under 2-second lookup time  
+**Technology Agnostic**: Suitable for any programming language or framework

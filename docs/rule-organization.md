@@ -1,330 +1,390 @@
-# 📐 Rule Organization Guide
+# 📐 Rule Organization Guide v2
 
-This guide explains how to structure, organize, and manage cursor rules effectively within the framework.
+This guide explains how to structure, organize, and manage cursor rules effectively within the **v2 framework**.
 
 ## 🎯 Overview
 
-Rule organization is fundamental to maintaining a clean, scalable, and maintainable cursor rule system. This framework provides a structured approach to organizing rules by scope, domain, and functionality.
+Rule organization is fundamental to maintaining a clean, scalable, and maintainable cursor rule system. The **v2 framework** provides a comprehensive, technology-agnostic approach to organizing rules by scope, domain, and functionality with enhanced modularity and epic integration.
 
-## 📂 Directory Structure
+## 📂 v2 Directory Structure
 
-### Standard Layout
+### v2 Standard Layout
 ```
 .cursor/
 └── rules/
-    ├── cursor-rules-management.mdc     # Framework management
-    ├── project-config.mdc              # Project configuration
-    ├── workflow-state.mdc              # Development workflow
-    ├── epics.mdc                       # Epic planning
-    ├── architecture.mdc                # Architecture guidelines
-    ├── frontend-rules.mdc              # Frontend-specific rules
-    ├── backend-rules.mdc               # Backend-specific rules
-    ├── testing-rules.mdc               # Testing guidelines
-    └── deployment-rules.mdc            # Deployment procedures
+    └── rule-framework-v2/              # 🆕 v2 Framework Root
+        ├── Core Framework Files/
+        │   ├── project-config.mdc           # Project template
+        │   ├── rules.mdc                    # Technology-agnostic global rules
+        │   ├── workflow-state.mdc           # Workflow management
+        │   └── user-rules-template.mdc      # ⚠️ INSTALL IN CURSOR SETTINGS
+        ├── Epic Management (7 Files)/       # 🆕 7 Specialized Components
+        │   ├── epic-lifecycle-rules.mdc     # Epic lifecycle automation
+        │   ├── epic-active.mdc              # Active epics workspace
+        │   ├── epic-planned.mdc             # Planned epics pipeline
+        │   ├── epic-completed.mdc           # Completed epics archive
+        │   ├── epic-registry.mdc            # Master epic registry
+        │   ├── epic-validation-automation.mdc # Validation automation
+        │   └── epic-architecture-integration.mdc # Architecture integration
+        ├── Workflow System/                 # 🆕 Enhanced Workflow Management
+        │   └── workflow-lifecycle-rules.mdc # Workflow automation
+        ├── Architecture Framework/          # 🆕 Modular Architecture System
+        │   ├── index.mdc                    # Master architecture navigation
+        │   ├── core/
+        │   │   ├── index.mdc                # Core patterns navigation
+        │   │   ├── patterns.mdc             # Universal patterns
+        │   │   └── maintenance.mdc          # Maintenance rules
+        │   ├── decisions/
+        │   │   ├── index.mdc                # Decision navigation
+        │   │   ├── adr-template.mdc         # ADR template
+        │   │   └── sample-decisions.mdc     # Example ADRs
+        │   └── workflows/
+        │       └── index.mdc                # Workflow patterns
+        └── Framework Management/            # 🆕 Lifecycle Management
+            ├── architecture-lifecycle.mdc   # Architecture automation
+            └── cursor-rules-management.mdc  # Rule management
 ```
 
-### Rule Categories
+### Custom Project Extensions (Optional)
+```
+.cursor/rules/rule-framework-v2/
+└── project-specific/                   # 🎯 Add Your Technology-Specific Rules
+    ├── frontend-react.mdc              # React-specific patterns (create as needed)
+    ├── backend-node.mdc                # Node.js-specific patterns (create as needed)
+    ├── database-postgres.mdc           # PostgreSQL-specific patterns (create as needed)
+    ├── mobile-react-native.mdc         # React Native patterns (create as needed)
+    └── testing-jest.mdc                # Jest testing patterns (create as needed)
+```
+
+### v2 Rule Categories
 
 #### **Core Framework Rules** (Always Required)
-- `cursor-rules-management.mdc` - Rule system management
-- `project-config.mdc` - Project configuration
-- `workflow-state.mdc` - Development workflow
-- `epics.mdc` - Epic planning
-- `rules.mdc` - **Master rule registry** (dynamic rule accumulation)
+- `project-config.mdc` - Technology-agnostic project configuration template
+- `rules.mdc` - Universal global rules applicable to any technology stack
+- `workflow-state.mdc` - Enhanced development workflow management
+- `user-rules-template.mdc` - Cursor IDE integration template
 
-#### **Domain-Specific Rules** (Project Dependent)
-- `frontend-rules.mdc` - UI/UX development
-- `backend-rules.mdc` - Server-side development
-- `database-rules.mdc` - Database design and queries
-- `api-rules.mdc` - API design and implementation
+#### **Epic Management System** (7 Specialized Components)
+- `epic-lifecycle-rules.mdc` - Epic lifecycle automation and state management
+- `epic-active.mdc` - Active epics workspace with current initiatives
+- `epic-planned.mdc` - Planned epics pipeline for future work
+- `epic-completed.mdc` - Completed epics archive for reference
+- `epic-registry.mdc` - Master epic registry with comprehensive tracking
+- `epic-validation-automation.mdc` - Automated validation and consistency checks
+- `epic-architecture-integration.mdc` - Epic-architecture coordination
 
-#### **Process Rules** (Team/Project Dependent)
-- `testing-rules.mdc` - Testing strategies
-- `security-rules.mdc` - Security guidelines
-- `performance-rules.mdc` - Performance optimization
-- `deployment-rules.mdc` - Deployment procedures
+#### **Architecture Framework** (Modular System)
+- `architecture/index.mdc` - Master architecture navigation and domain organization
+- `architecture/core/patterns.mdc` - Universal architectural patterns (technology-agnostic)
+- `architecture/core/maintenance.mdc` - Architecture maintenance and quality gates
+- `architecture/decisions/` - ADR management system with templates and examples
+- `architecture/workflows/` - Workflow integration patterns
 
-## 🏗️ Rule Hierarchy
+#### **Technology-Specific Extensions** (Project Created)
+- `project-specific/frontend-*.mdc` - Frontend technology patterns (create as needed)
+- `project-specific/backend-*.mdc` - Backend technology patterns (create as needed)
+- `project-specific/database-*.mdc` - Database-specific patterns (create as needed)
+- `project-specific/mobile-*.mdc` - Mobile development patterns (create as needed)
+- `project-specific/testing-*.mdc` - Testing framework patterns (create as needed)
 
-### Scope Levels
+## 🏗️ v2 Rule Hierarchy
 
-#### 1. **Global Rules** (`alwaysApply: true`)
-Apply to the entire project regardless of file type or location.
+### v2 Scope Levels
+
+#### 1. **Universal Rules** (`alwaysApply: true`)
+Apply to entire project regardless of technology stack or file type.
 
 ```yaml
 ---
-description: Global development standards and practices
+description: Universal development standards applicable to any technology
 globs: "**/*.*"
 alwaysApply: true
 ---
 ```
 
 **Use Cases:**
-- Project-wide coding standards
-- General development principles
-- Universal quality requirements
-- Team collaboration guidelines
+- Technology-agnostic coding standards
+- Universal development principles
+- Cross-platform quality requirements
+- Team collaboration guidelines that transcend technology choices
 
-#### 2. **Domain Rules** (`alwaysApply: false`)
-Apply to specific technology domains or file patterns.
+#### 2. **Technology Domain Rules** (`alwaysApply: false`)
+Apply to specific technology domains using flexible glob patterns.
 
 ```yaml
 ---
-description: Frontend development guidelines for React components
-globs: "src/components/**/*.{tsx,jsx}"
+description: React component development guidelines
+globs: "src/components/**/*.{tsx,jsx,ts,js}"
 alwaysApply: false
 ---
 ```
 
 **Use Cases:**
-- Technology-specific guidelines
-- Framework conventions
-- Language-specific patterns
-- File type specific rules
+- Technology-specific guidelines (React, Vue, Angular, etc.)
+- Framework conventions (Express, FastAPI, Spring Boot, etc.)
+- Language-specific patterns (TypeScript, Python, Java, etc.)
+- Platform-specific rules (Web, Mobile, Desktop)
 
-#### 3. **Feature Rules** (`alwaysApply: false`)
-Apply to specific features or modules within the project.
+#### 3. **Epic Context Rules** (`alwaysApply: false`)
+Apply within specific epic contexts, integrating with the epic management system.
 
 ```yaml
 ---
-description: Authentication module development guidelines  
+description: Authentication epic development guidelines
 globs: "src/auth/**/*.*"
 alwaysApply: false
+epicContext: "AUTHENTICATION_SYSTEM_EPIC"
 ---
 ```
 
 **Use Cases:**
-- Feature-specific implementations
-- Module-specific patterns
-- Component-specific guidelines
-- Business logic rules
+- Epic-specific implementations
+- Feature module patterns
+- Business domain rules
+- Initiative-specific guidelines
 
-## 📋 MDC Metadata Standards
+## 📋 v2 MDC Metadata Standards
 
-### Required Fields
-Every rule must include proper metadata:
+### Enhanced Required Fields
+Every v2 rule must include comprehensive metadata:
 
 ```yaml
 ---
 description: Clear, concise description of the rule's purpose
 globs: "pattern/to/match/**/*.ext"
 alwaysApply: true/false
+technologyStack: ["React", "TypeScript", "Node.js"]  # Optional
+epicContext: "EPIC_ID"                                # Optional
+architectureDomain: "frontend" | "backend" | "core"  # Optional
 ---
 ```
 
-### Metadata Best Practices
+### v2 Metadata Best Practices
 
 #### **Description Field**
-- **Be Specific**: Clearly state what the rule does
-- **Keep Concise**: One sentence explaining the purpose
+- **Be Technology-Agnostic**: When possible, describe universal patterns
+- **Specify Technology When Needed**: Clarify technology-specific rules
 - **Use Action Words**: Start with verbs like "Defines", "Enforces", "Guides"
 
 ```yaml
-# ✅ Good
-description: "Enforces React component naming conventions and structure"
+# ✅ Good - Technology-agnostic
+description: "Enforces consistent naming conventions across all components"
 
-# ❌ Bad  
-description: "React stuff"
+# ✅ Good - Technology-specific when needed
+description: "Enforces React Hook rules and component lifecycle patterns"
+
+# ❌ Bad - Too vague
+description: "Component stuff"
 ```
 
-#### **Globs Field**
-- **Be Precise**: Match only the files you intend
-- **Use Patterns**: Leverage glob patterns effectively
-- **Test Patterns**: Verify patterns match expected files
+#### **Enhanced Globs Field**
+- **Support Multiple Technologies**: Use flexible patterns for technology diversity
+- **Epic-Aware Patterns**: Include epic context in glob patterns when relevant
+- **Architecture Domain Alignment**: Match architecture domain boundaries
 
 ```yaml
-# ✅ Good - Specific to React components
-globs: "src/components/**/*.{tsx,jsx}"
+# ✅ Good - Multi-technology support
+globs: ["src/components/**/*.{tsx,jsx,vue,svelte}", "components/**/*.{ts,js}"]
 
-# ✅ Good - TypeScript files only
-globs: "**/*.{ts,tsx}"
+# ✅ Good - Epic-specific
+globs: "src/epics/authentication/**/*.*"
 
-# ❌ Bad - Too broad
-globs: "**/*.*"
+# ✅ Good - Architecture domain aligned
+globs: "backend/api/**/*.{ts,js,py,java}"
 ```
 
-#### **alwaysApply Field**
-- **Global Rules**: `true` for project-wide rules
-- **Contextual Rules**: `false` for specific contexts
-- **Default Safe**: When in doubt, use `false`
+#### **Technology Stack Field**
+```yaml
+# Optional field for technology-specific rules
+technologyStack: ["React", "TypeScript", "Vite"]
+```
 
-## 📝 The Master Rule Registry: `rules.mdc`
+#### **Epic Context Field**
+```yaml
+# Optional field linking rules to specific epics
+epicContext: "USER_AUTHENTICATION_EPIC"
+```
+
+## 📝 v2 Global Rules System: `rules.mdc`
 
 ### Overview
-The `rules.mdc` file serves as the **master rule registry** for your project. This is where all custom, project-specific rules accumulate when you ask the AI to "remember a cursor rule" during development.
+The v2 `rules.mdc` file serves as the **technology-agnostic global rule registry** for your project. This enhanced system provides universal patterns while supporting technology-specific extensions.
 
 ### Purpose and Function
-- **Dynamic Rule Collection**: Automatically accumulates rules as they're created during development
-- **AI Memory System**: Provides the AI with persistent memory of project-specific patterns and decisions
-- **Rule Organization Hub**: Centralizes all custom rules before they're broken into domain-specific files
-- **Learning Repository**: Captures team knowledge and coding standards over time
+- **Universal Rule Collection**: Accumulates technology-agnostic rules applicable across any stack
+- **Epic-Integrated Memory**: Provides AI with persistent memory linked to epic context
+- **Architecture-Aware Organization**: Coordinates with architecture framework for consistency
+- **Cross-Technology Learning**: Captures patterns that work across multiple technology stacks
 
-### How It Works
+### v2 How It Works
 
-#### 1. **Rule Accumulation Process**
+#### 1. **Technology-Agnostic Rule Accumulation**
 ```bash
-# When you tell the AI to remember something:
-"Remember this cursor rule: Always use async/await instead of Promises for database operations"
+# When you tell the AI to remember universal patterns:
+"Remember this cursor rule: Always use descriptive variable names regardless of programming language"
 
 # The AI automatically adds it to rules.mdc:
-## Development Rules
-### Database Operations
-- **Use async/await pattern**: Always use async/await instead of Promises for database operations
-- **Context**: Database interactions, API calls
-- **Added**: 2025-01-16
+## Universal Development Rules
+### Code Quality
+- **Descriptive Naming**: Always use descriptive variable names regardless of programming language
+- **Technology**: Universal (applies to JavaScript, Python, TypeScript, Java, etc.)
+- **Epic Context**: Code Quality Improvement Initiative
+- **Added**: 2025-01-27
 ```
 
-#### 2. **Automatic Organization**
-When `rules.mdc` grows beyond 500 lines, the AI automatically:
-- Breaks rules into domain-specific files (`rules-frontend.mdc`, `rules-backend.mdc`, etc.)
-- Maintains references in the master file
-- Preserves rule context and relationships
+#### 2. **Epic-Architecture Integration**
+```bash
+# When rules relate to specific epics:
+"Remember this pattern for the Authentication Epic: Always validate user permissions at the API gateway level"
 
-#### 3. **Integration with Framework**
-```yaml
----
-description: Master rule registry for project-specific development guidelines
-globs: "**/*.*"
-alwaysApply: true
----
+# The AI coordinates with epic system:
+## Epic-Specific Rules
+### Authentication Epic (AUTHENTICATION_SYSTEM_EPIC)
+- **API Gateway Validation**: Always validate user permissions at the API gateway level
+- **Architecture Domain**: Backend Security
+- **Epic Phase**: Phase 2 - Core Implementation
+- **Added**: 2025-01-27
 ```
 
-### File Structure
+#### 3. **Automatic Architecture Coordination**
+When `rules.mdc` accumulates patterns, the AI automatically:
+- Evaluates rules for architecture domain relevance
+- Creates appropriate technology-specific files (`project-specific/`)
+- Maintains cross-references in architecture navigation
+- Updates epic-architecture integration
+
+### v2 File Structure
 ```markdown
-# Cursor Rule Organization and Codification
+# Cursor Rule Organization and Codification v2
 
-## Rule Locations and Scope
-[Framework documentation]
+## Universal Development Standards
+[Technology-agnostic rules applicable to any project]
 
-## Best Practices
-[Rule management guidelines]
+## Epic-Integrated Rules
+[Rules organized by epic context with architecture coordination]
 
-## Rule Addition Instructions
-[How AI should add new rules]
+## Technology-Specific Extensions
+[Links to domain-specific rule files]
 
-## Development Rules
-<-- This area stores all accumulated rules -->
-
-### [Category 1: e.g., Component Development]
-- Rule 1: Description and context
-- Rule 2: Description and context
-
-### [Category 2: e.g., Testing Patterns]
-- Rule 1: Description and context
-- Rule 2: Description and context
+## Architecture Coordination
+[Integration with modular architecture framework]
 ```
 
-### Usage Patterns
+## 🔧 v2 Rule Management Workflows
 
-#### **For Developers**
+### Creating Technology-Agnostic Rules
 ```bash
-# Add a new coding standard
-"Remember this rule: All React components must have TypeScript interfaces for props"
+# 1. Identify universal patterns
+"Create a rule for consistent error handling that works with any programming language"
 
-# Capture a design decision  
-"Remember: We use Zustand for client state, React Query for server state"
-
-# Document a pattern
-"Remember this pattern: Error boundaries should wrap each major page component"
+# 2. AI creates technology-agnostic rule
+# 3. Rule automatically added to rules.mdc
+# 4. Architecture framework notified for consistency checking
 ```
 
-#### **For AI Assistant**
-The AI uses `rules.mdc` to:
-- **Apply Consistent Patterns**: Reference accumulated rules during code generation
-- **Maintain Context**: Remember decisions across different development sessions  
-- **Enforce Standards**: Automatically apply learned patterns to new code
-- **Guide Decisions**: Use historical context to make consistent choices
-
-### Rule Categories
-
-#### **Common Rule Types**
-1. **Coding Standards**: Naming conventions, code structure, formatting
-2. **Architecture Decisions**: Technology choices, design patterns, integration approaches
-3. **Testing Requirements**: Testing patterns, coverage requirements, mock strategies
-4. **Performance Rules**: Optimization patterns, caching strategies, bundle size limits
-5. **Security Guidelines**: Authentication patterns, data validation, API security
-6. **Team Conventions**: Code review standards, documentation requirements, deployment processes
-
-#### **Example Rule Entries**
-```markdown
-### Component Development
-- **PascalCase Components**: All React components must use PascalCase naming
-- **Props Interfaces**: Every component must have a TypeScript interface for props
-- **Default Exports**: Components should use default exports, utilities use named exports
-- **Added**: 2025-01-16
-
-### API Integration  
-- **Error Handling**: All API calls must use the custom `useApiError` hook
-- **Loading States**: API calls must provide loading states using React Query
-- **Retry Logic**: Failed requests should retry up to 3 times with exponential backoff
-- **Added**: 2025-01-16
-```
-
-### Best Practices for `rules.mdc`
-
-#### **Rule Quality**
-- **Be Specific**: Vague rules are hard to apply consistently
-- **Include Context**: Explain when and why the rule applies
-- **Provide Examples**: Show correct and incorrect implementations
-- **Date Entries**: Track when rules were added for historical context
-
-#### **Organization**
-- **Use Categories**: Group related rules under clear headings
-- **Avoid Duplication**: Check existing rules before adding new ones
-- **Regular Review**: Periodically review and update outdated rules
-- **Cross-Reference**: Link to related rules in other files
-
-#### **Maintenance**
+### Creating Technology-Specific Rules
 ```bash
-# Review rules quarterly
-"Review the rules.mdc file and identify any outdated or conflicting rules"
+# 1. Identify technology-specific need
+"Create a React-specific rule for component lifecycle management"
 
-# Break up when too large
-"The rules.mdc file is getting large. Please organize it into domain-specific files"
-
-# Update based on team feedback
-"Update the authentication rules based on our new security requirements"
+# 2. AI determines appropriate technology-specific location
+# 3. Creates/updates project-specific/frontend-react.mdc
+# 4. Updates architecture navigation
+# 5. Links to relevant epic if applicable
 ```
 
-### Integration with Development Workflow
-
-#### **Blueprint Phase**
+### Epic-Driven Rule Creation
 ```bash
-# AI references rules.mdc when planning
-"Based on your accumulated rules, I'll design the component using your established patterns"
+# 1. Epic context drives rule creation
+"For the Authentication Epic, create rules for JWT token handling"
+
+# 2. AI coordinates with epic system
+# 3. Creates rules with epic context metadata
+# 4. Updates epic-architecture integration
+# 5. Tracks in epic progress
 ```
 
-#### **Construct Phase**
-```bash
-# AI applies rules during implementation
-"Following your rule about error handling, I'm adding the useApiError hook"
+## 📈 v2 Advanced Organization Patterns
+
+### Multi-Technology Projects
+```
+project-specific/
+├── frontend-react.mdc       # React web frontend
+├── frontend-vue.mdc         # Vue.js admin panel
+├── mobile-react-native.mdc  # Mobile app
+├── backend-node.mdc         # Node.js API server
+├── backend-python.mdc       # Python ML services
+├── database-postgres.mdc    # PostgreSQL patterns
+└── database-redis.mdc       # Redis caching patterns
 ```
 
-#### **Validate Phase**
-```bash
-# AI checks compliance with accumulated rules
-"Reviewing code against your established rules in rules.mdc"
+### Epic-Architecture Matrix
+```
+epic-active.mdc:
+├── AUTHENTICATION_EPIC
+│   ├── Architecture Impact: backend, frontend, database
+│   ├── Technology Stack: Node.js, React, PostgreSQL
+│   └── Rule Coordination: Automatic
+├── MOBILE_APP_EPIC
+│   ├── Architecture Impact: mobile, backend
+│   ├── Technology Stack: React Native, GraphQL
+│   └── Rule Coordination: Automatic
 ```
 
-### Troubleshooting
+### Team Specialization Support
+```
+project-specific/
+├── team-frontend/           # Frontend team patterns
+│   ├── react-patterns.mdc
+│   └── design-system.mdc
+├── team-backend/            # Backend team patterns
+│   ├── api-patterns.mdc
+│   └── database-patterns.mdc
+└── shared/                  # Cross-team patterns
+    ├── testing-patterns.mdc
+    └── ci-cd-patterns.mdc
+```
 
-#### **Rules Not Being Applied**
-1. Check if `rules.mdc` has proper MDC metadata
-2. Verify `alwaysApply: true` is set
-3. Ensure rules are clear and actionable
-4. Test rule specificity and scope
+## 🎯 v2 Migration from v1
 
-#### **Conflicting Rules**
-1. Review rules for contradictions
-2. Update or remove outdated rules
-3. Add clarification for edge cases
-4. Reorganize into clearer categories
+### Rule Migration Process
+1. **Backup existing rules**: Preserve v1 rule content
+2. **Analyze technology dependencies**: Identify technology-specific vs universal patterns
+3. **Create technology-specific files**: Extract technology patterns to project-specific directory
+4. **Update epic integration**: Link existing rules to epic context where applicable
+5. **Validate architecture alignment**: Ensure rules align with v2 architecture framework
 
-#### **Performance Issues**
-1. Break large files into domain-specific rules
-2. Use more specific glob patterns
-3. Archive historical rules that are no longer relevant
-4. Optimize rule descriptions for clarity
+### Migration Checklist
+- [ ] Move rules to `rule-framework-v2/` directory structure
+- [ ] Separate universal vs technology-specific patterns
+- [ ] Create appropriate `project-specific/` files
+- [ ] Update epic context metadata
+- [ ] Validate with architecture framework
+- [ ] Test cross-technology compatibility
+
+## 🔍 v2 Best Practices
+
+### Universal Pattern Development
+1. **Think Cross-Technology**: Design patterns that work across programming languages
+2. **Epic Integration**: Consider how rules support current epic initiatives
+3. **Architecture Alignment**: Ensure rules align with architectural domains
+4. **Team Coordination**: Design rules that support team collaboration across technologies
+
+### Technology-Specific Rule Creation
+1. **Technology Isolation**: Keep technology-specific rules in project-specific directory
+2. **Cross-Reference**: Link related patterns across different technologies
+3. **Epic Context**: Maintain epic context even in technology-specific rules
+4. **Migration Readiness**: Design rules to survive technology changes
+
+### Epic-Architecture Coordination
+1. **Epic-First Thinking**: Consider epic context when creating rules
+2. **Architecture Impact**: Evaluate how rules affect architectural consistency
+3. **Cross-Epic Learning**: Share patterns across different epic contexts
+4. **Lifecycle Management**: Plan rule evolution through epic phases
+
+---
+
+**v2 Advantage**: The enhanced rule organization system provides technology flexibility while maintaining consistency and epic coordination, supporting complex multi-technology projects with robust governance.
 
 ## 🎯 Rule Naming Conventions
 
@@ -506,86 +566,3 @@ globs: "src/**/*.ts"
 ## Guidelines
 1. Use proper naming conventions
 ```
-
-### Best Practices
-
-#### **Specific Scoping**
-```yaml
-# ✅ Good - Specific scope
-globs: "src/components/**/*.{tsx,jsx}"
-alwaysApply: false
-```
-
-#### **Clear Guidelines**
-```markdown
-✅ Good
-## Guidelines
-1. Component names must use PascalCase: `UserProfile`, `NavigationBar`
-2. File names must match component name: `UserProfile.tsx`
-3. Export default the main component from each file
-```
-
-#### **Concrete Examples**
-```markdown
-✅ Good
-### Example: Component Structure
-```typescript
-// ✅ Good - UserProfile.tsx
-export default function UserProfile({ userId }: Props) {
-  return <div>User profile content</div>
-}
-
-// ❌ Bad - userProfile.tsx
-export function userProfile() {
-  return <div>content</div>
-}
-```
-
-## 📈 Scaling Rule Organization
-
-### Small Projects (1-5 developers)
-- Keep rules in 3-5 files
-- Focus on core patterns
-- Minimal domain separation
-
-### Medium Projects (5-20 developers)
-- Organize by technology stack
-- Create role-specific rules
-- Implement review process
-
-### Large Projects (20+ developers)
-- Domain-driven rule organization
-- Team-specific rule ownership
-- Automated rule validation
-
-### Enterprise Projects
-- Centralized rule repository
-- Cross-project rule sharing
-- Governance and approval process
-
-## 🔗 Integration with Development Workflow
-
-### Code Review Integration
-- Reference specific rules in PR comments
-- Include rule compliance in review checklist
-- Use rules to guide code review discussions
-
-### CI/CD Integration
-- Validate rule compliance in build process
-- Generate rule compliance reports
-- Block merges for rule violations
-
-### Documentation Integration
-- Link rules to architectural decisions
-- Include rules in API documentation
-- Reference rules in coding standards
-
----
-
-## 📞 Need Help?
-
-- **Rule Issues**: Check the [Troubleshooting Guide](troubleshooting.md)
-- **Advanced Patterns**: See [Rule Patterns](rule-patterns.md)
-- **Team Setup**: Read [Team Integration](team-integration.md)
-
-*This guide covers the fundamentals of rule organization. For advanced topics, explore the [Advanced Rule Patterns](rule-patterns.md) guide.* 

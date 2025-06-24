@@ -1,13 +1,15 @@
 # 🔄 Migration Guide
 
-This guide helps you adopt the Cursor Rule Framework in existing projects, transforming your current development workflow into an AI-driven, rule-based approach.
+This guide helps you adopt the **Cursor Rule Framework v2** in existing projects, transforming your current development workflow into an AI-driven, rule-based approach.
+
+> **Upgrading from v1?** See our dedicated **[v1 → v2 Migration Guide](v1-to-v2-migration.md)** for complete upgrade instructions.
 
 ## 🎯 Migration Overview
 
-Migrating to the Cursor Rule Framework involves:
+Migrating to the **Cursor Rule Framework v2** involves:
 - **Assessment**: Evaluating your current project structure and patterns
 - **Planning**: Creating a migration strategy that works for your team
-- **Implementation**: Gradually introducing framework components
+- **Implementation**: Gradually introducing v2 framework components
 - **Adoption**: Training your team and establishing new workflows
 
 ## 📋 Pre-Migration Assessment
@@ -56,32 +58,17 @@ find . -name "README*" -o -name "*.md"
 - [ ] Onboarding difficulties
 ```
 
-### **2. Technology Stack Mapping**
+### **2. Technology Stack Compatibility Check**
 
-#### **Framework Compatibility Check**
+#### **v2 Framework Universal Compatibility**
 ```bash
-# Frontend Technologies
-✅ React (TypeScript/JavaScript)
-✅ Vue.js (Composition API)
-✅ Angular (TypeScript)
-✅ Next.js (Full-stack)
-✅ Svelte/SvelteKit
-
-# Backend Technologies  
-✅ Node.js (Express, Fastify, NestJS)
-✅ Python (FastAPI, Django, Flask)
-✅ TypeScript (Encore.ts, tRPC)
-✅ Java (Spring Boot)
-✅ C# (.NET Core)
-
-# Database Technologies
-✅ PostgreSQL, MySQL, SQLite
-✅ MongoDB, Redis
-✅ Prisma, TypeORM, Sequelize
-
-# Deployment Platforms
-✅ Vercel, Netlify, AWS, GCP, Azure
-✅ Docker, Kubernetes
+# v2 Framework works with ANY technology stack
+✅ Frontend Technologies: React, Vue.js, Angular, Svelte, vanilla JavaScript
+✅ Backend Technologies: Node.js, Python, Java, C#, Go, PHP, Ruby
+✅ Mobile: React Native, Flutter, native iOS/Android
+✅ Database: PostgreSQL, MySQL, MongoDB, Redis, any database
+✅ Deployment: Vercel, Netlify, AWS, GCP, Azure, Docker, Kubernetes
+✅ Languages: TypeScript, JavaScript, Python, Java, C#, Go, Rust, PHP, etc.
 ```
 
 ## 🚀 Migration Strategies
@@ -94,64 +81,54 @@ find . -name "README*" -o -name "*.md"
 # Download and install Cursor IDE
 # Copy user rules template to Cursor settings
 
-# Step 2: Create basic rule structure
-mkdir -p .cursor/rules
+# Step 2: Create v2 rule structure
+mkdir -p .cursor/rules/rule-framework-v2
 
-# Copy framework foundation files
-curl -o .cursor/rules/cursor-rules-management.mdc \
-  https://raw.githubusercontent.com/your-repo/cursor-rule-framework/main/templates/cursor-rules-management.mdc
-
-curl -o .cursor/rules/project-config.mdc \
-  https://raw.githubusercontent.com/your-repo/cursor-rule-framework/main/templates/project-config.mdc
-
-curl -o .cursor/rules/workflow-state.mdc \
-  https://raw.githubusercontent.com/your-repo/cursor-rule-framework/main/templates/workflow-state.mdc
-
-curl -o .cursor/rules/epics.mdc \
-  https://raw.githubusercontent.com/your-repo/cursor-rule-framework/main/templates/epics.mdc
-
-curl -o .cursor/rules/architecture.mdc \
-  https://raw.githubusercontent.com/your-repo/cursor-rule-framework/main/templates/architecture.mdc
+# Download complete v2 framework
+curl -L https://github.com/fbrbovic/cursor-rule-framework/archive/refs/heads/main.tar.gz | \
+  tar -xz --strip-components=3 -C .cursor/rules/rule-framework-v2 \
+  cursor-rule-framework-main/.cursor/rules/rule-framework-v2/
 ```
 
 #### **Phase 2: Project Configuration (Week 1-2)**
 ```bash
-# Step 3: Customize project-config.mdc
+# Step 3: Customize project-config.mdc for your technology stack
 # Update with your project's actual tech stack and goals
 
-# Step 4: Document current architecture
+# Step 4: Document current architecture using v2 framework
 # Use AI to help analyze and document existing patterns:
-"Analyze our current project structure and document the architecture patterns in architecture.mdc"
+"Analyze our current project structure and document the architecture patterns using v2 framework"
 
 # Step 5: Create technology-specific rules
-# Choose rules based on your stack from framework examples
-cp examples/frontend-react-typescript/.cursor/rules/react-patterns.mdc .cursor/rules/
-# OR
-cp examples/backend-api/.cursor/rules/api-patterns.mdc .cursor/rules/
+# Add technology-specific patterns to project-specific/
+mkdir -p .cursor/rules/rule-framework-v2/project-specific
+# Example for React + Node.js project:
+touch .cursor/rules/rule-framework-v2/project-specific/frontend-react.mdc
+touch .cursor/rules/rule-framework-v2/project-specific/backend-node.mdc
 ```
 
 #### **Phase 3: Workflow Introduction (Week 2-3)**
 ```bash
-# Step 6: Start using workflow for new features
+# Step 6: Start using v2 workflow for new features
 # Begin with small, non-critical features
 
-# Example first workflow usage:
-"Plan a small UI component update using the framework workflow"
+# Example first v2 workflow usage:
+"Plan a small UI component update using the v2 framework workflow"
 
 # Step 7: Epic planning for current work
-# Document current major initiatives as epics
-"Convert our current feature roadmap into epic format in epics.mdc"
+# Document current major initiatives as epics in v2 system
+"Convert our current feature roadmap into v2 epic format"
 ```
 
 #### **Phase 4: Team Adoption (Week 3-4)**
 ```bash
-# Step 8: Team training and onboarding
-# Share framework basics with team
+# Step 8: Team training and onboarding on v2 framework
+# Share v2 framework basics with team
 # Create team-specific rules and patterns
 
 # Step 9: Establish review process
-# Include rule compliance in code reviews
-# Regular epic and architecture reviews
+# Include v2 rule compliance in code reviews
+# Regular epic and architecture reviews using v2 system
 ```
 
 ### **Strategy 2: Pilot Project Approach**
@@ -159,11 +136,11 @@ cp examples/backend-api/.cursor/rules/api-patterns.mdc .cursor/rules/
 #### **Option for Large Teams/Complex Projects**
 ```bash
 # Step 1: Choose pilot project
-# Select a new feature or module for framework adoption
+# Select a new feature or module for v2 framework adoption
 # Smaller scope, lower risk
 
-# Step 2: Full framework implementation on pilot
-# Complete setup with all framework components
+# Step 2: Full v2 framework implementation on pilot
+# Complete setup with all v2 framework components
 # Document lessons learned
 
 # Step 3: Gradual expansion
@@ -173,45 +150,43 @@ cp examples/backend-api/.cursor/rules/api-patterns.mdc .cursor/rules/
 
 ## 🛠️ Technical Migration Steps
 
-### **1. Rule Creation from Existing Patterns**
+### **1. Rule Creation from Existing Patterns (v2 Approach)**
 
-#### **Extract Existing Patterns**
+#### **Extract Technology-Agnostic Patterns**
 ```bash
-# Identify common patterns in your codebase
-"Analyze our existing React components and create rules for the common patterns"
+# Identify universal patterns in your codebase
+"Analyze our existing components and create technology-agnostic rules for common patterns"
 
-# Document API conventions
-"Review our existing API endpoints and document the patterns in architecture.mdc"
+# Document API conventions (technology-portable)
+"Review our existing API endpoints and document universal patterns in v2 architecture framework"
 
-# Extract testing patterns
-"Analyze our test files and create rules for testing conventions"
+# Extract testing patterns (cross-technology)
+"Analyze our test files and create universal testing conventions for v2 framework"
 ```
 
-#### **Create Domain-Specific Rules**
+#### **Create v2 Domain-Specific Rules**
 ```yaml
-# Example: Extract database patterns
+# Example: Extract database patterns for v2 framework
 ---
-description: Database access patterns using Prisma ORM
-globs: "src/db/**/*.ts"
-alwaysApply: true
+description: Database access patterns using any ORM (technology-agnostic with specific examples)
+alwaysApply: false
+technologyStack: ["PostgreSQL", "Node.js", "TypeScript"]
+architectureDomain: "backend"
 ---
 
-# Database Access Patterns
-Based on analysis of existing codebase:
+# Universal Database Access Patterns
+Based on analysis of existing codebase, applicable to any technology stack:
 
-## Repository Pattern
-- All database access through repository classes
-- Use dependency injection for repositories
-- Include error handling for all database operations
+## Pattern 1: Consistent Error Handling
+- Always use try-catch blocks for database operations
+- Return standardized error objects
+- Log errors with appropriate context
+- **Technology Examples**: Works with Prisma (Node.js), SQLAlchemy (Python), Hibernate (Java)
 
-## Query Patterns
-- Use Prisma client for all database operations
-- Include relations using `include` option
-- Implement pagination for list queries
-
-## Transaction Handling
-- Use Prisma transactions for multi-table operations
-- Include rollback logic for failed operations
+## Pattern 2: Transaction Management
+- Use database transactions for multi-step operations
+- Implement rollback strategies for failed operations
+- **Technology Examples**: PostgreSQL transactions, MongoDB sessions, MySQL transactions
 ```
 
 ### **2. Architecture Documentation**

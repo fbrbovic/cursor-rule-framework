@@ -8,11 +8,11 @@ This guide explains how to use the **modular architecture framework** in Cursor 
 The v2 framework includes a comprehensive architecture management system:
 
 - **`architecture/index.mdc`** - Master architecture navigation and domain organization
-- **`architecture/core/patterns.mdc`** - Universal architectural patterns (technology-agnostic)
+- **`architecture/core/patterns.mdc`** - Universal patterns (technology-agnostic)
 - **`architecture/core/maintenance.mdc`** - Architecture maintenance and quality gates
 - **`architecture/decisions/`** - ADR management system with templates and examples
 - **`architecture/workflows/`** - Workflow integration patterns
-- **`project-specific/`** - Technology-specific architecture patterns (project-customizable)
+- **Custom `.mdc` files in root** - Technology-specific architecture patterns (create as needed)
 
 ### **Enhanced Features**
 - **Technology-Agnostic Core Patterns**: Universal patterns that work with any technology stack
@@ -41,7 +41,7 @@ The v2 architecture framework provides a structured, technology-agnostic approac
 │   └── sample-decisions.mdc     # Example ADRs
 ├── workflows/
 │   └── index.mdc                # Workflow patterns
-└── domains/                     # Project-specific technology domains
+└── (custom technology files in root directory as needed)
     ├── frontend-react.mdc       # React-specific patterns (example)
     ├── backend-node.mdc         # Node.js-specific patterns (example)
     ├── database-postgres.mdc    # PostgreSQL-specific patterns (example)

@@ -428,7 +428,7 @@ Each epic tracks its impact on architecture domains:
 - Epic progress updates architecture documentation
 - New patterns from epics update architecture/core/patterns.mdc
 - Epic-driven ADRs update architecture/decisions/
-- Technology-specific patterns update project-specific/
+- Technology-specific patterns → custom files in root directory
 ```
 
 ### **7. Completed Epics Archive (`epic-completed.mdc`)**
@@ -499,7 +499,7 @@ Historical epic tracking with lessons learned:
 Epic execution drives architecture documentation:
 - New patterns discovered → architecture/core/patterns.mdc
 - Technology decisions → architecture/decisions/
-- Technology-specific patterns → project-specific/
+- Technology-specific patterns → custom files in root directory
 - Integration patterns → architecture/workflows/
 ```
 

@@ -70,7 +70,7 @@ The v2 workflow system provides a structured, technology-agnostic approach to AI
 - **Domains Affected**: Backend Security, API Design, Frontend State Management
 - **Patterns to Document**: Token-based authentication flow, API security patterns
 - **ADRs to Create**: Authentication Strategy Selection, JWT vs Session-Based Authentication
-- **Technology Files to Update**: project-specific/backend-node.mdc, project-specific/frontend-react.mdc
+- **Technology Files to Update**: backend-node.mdc, frontend-react.mdc (in root directory)
 
 ### Technology-Agnostic Implementation Steps
 1. **Authentication Pattern Design** (universal patterns)
@@ -153,7 +153,7 @@ Would you like me to proceed with this enhanced v2 plan?"
 - **Code Implementation**: Write code following the approved plan (technology-aware)
 - **Architecture Framework Updates**: Update relevant architecture files when implementing new patterns
 - **Epic Progress Tracking**: Update epic system with real-time progress and architecture coordination
-- **Technology-Specific Pattern Application**: Apply technology-specific patterns from project-specific/
+- **Technology-Specific Pattern Application**: Apply technology-specific patterns from custom files in root directory
 - **ADR Creation**: Create Architecture Decision Records when planned
 - **Cross-Technology Coordination**: Ensure patterns work across different technology stacks
 - **Quality Assurance**: Apply coding standards and architectural consistency
@@ -164,7 +164,7 @@ Would you like me to proceed with this enhanced v2 plan?"
 - ✅ **Update Architecture Framework**: Document new patterns in appropriate architecture files
 - ✅ **Create ADRs**: Document architectural decisions as planned
 - ✅ **Update Epic Progress**: Track progress and coordinate with epic management system
-- ✅ **Apply Technology Patterns**: Use technology-specific patterns from project-specific/
+- ✅ **Apply Technology Patterns**: Use technology-specific patterns from custom files in root directory
 - ✅ **Ensure Cross-Technology Compatibility**: Design patterns for technology migration readiness
 - ❌ **No Plan Changes**: Major changes require return to Blueprint
 - ❌ **No Architecture Shortcuts**: Maintain architectural consistency and documentation
@@ -177,7 +177,7 @@ Would you like me to proceed with this enhanced v2 plan?"
    - Create relevant ADRs in architecture/decisions/
    
 2. **Technology-Specific Implementation**
-   - Apply technology patterns from project-specific/
+   - Apply technology patterns from custom files in root directory
    - Implement backend components (Node.js patterns)
    - Implement frontend components (React patterns)
    
@@ -231,7 +231,7 @@ Would you like me to proceed with this enhanced v2 plan?"
 ### Architecture Framework Validation
 - [ ] New patterns documented in architecture/core/patterns.mdc
 - [ ] ADRs created in architecture/decisions/ as planned
-- [ ] Technology-specific patterns updated in project-specific/
+- [ ] Technology-specific patterns updated in custom files in root directory
 - [ ] Architecture maintenance rules compliance validated
 
 ### Technology-Specific Validation

@@ -100,11 +100,10 @@ curl -L https://github.com/fbrbovic/cursor-rule-framework/archive/refs/heads/mai
 "Analyze our current project structure and document the architecture patterns using v2 framework"
 
 # Step 5: Create technology-specific rules
-# Add technology-specific patterns to project-specific/
-mkdir -p .cursor/rules/rule-framework-v2/project-specific
+# Add technology-specific patterns to root directory
 # Example for React + Node.js project:
-touch .cursor/rules/rule-framework-v2/project-specific/frontend-react.mdc
-touch .cursor/rules/rule-framework-v2/project-specific/backend-node.mdc
+touch .cursor/rules/rule-framework-v2/frontend-react.mdc
+touch .cursor/rules/rule-framework-v2/backend-node.mdc
 ```
 
 #### **Phase 3: Workflow Introduction (Week 2-3)**
@@ -170,8 +169,6 @@ touch .cursor/rules/rule-framework-v2/project-specific/backend-node.mdc
 ---
 description: Database access patterns using any ORM (technology-agnostic with specific examples)
 alwaysApply: false
-technologyStack: ["PostgreSQL", "Node.js", "TypeScript"]
-architectureDomain: "backend"
 ---
 
 # Universal Database Access Patterns

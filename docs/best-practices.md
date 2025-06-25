@@ -102,20 +102,17 @@ Check @architecture.mdc for existing patterns and
 
 #### **Large Projects (25+ rules)**
 ```
-.cursor/rules/
-├── [core files as above]
-├── domains/
-│   ├── user-management.mdc
-│   ├── billing-system.mdc
-│   └── reporting-engine.mdc
-├── technologies/
-│   ├── react-patterns.mdc
-│   ├── api-standards.mdc
-│   └── database-conventions.mdc
-└── processes/
-    ├── code-review.mdc
-    ├── deployment.mdc
-    └── testing-standards.mdc
+.cursor/rules/rule-framework-v2/
+├── [all framework files]
+├── user-management.mdc
+├── billing-system.mdc
+├── reporting-engine.mdc
+├── react-patterns.mdc
+├── api-standards.mdc
+├── database-conventions.mdc
+├── code-review.mdc
+├── deployment.mdc
+└── testing-standards.mdc
 ```
 
 ### **Rule Quality Standards**

@@ -11,7 +11,7 @@ This guide explains how to create **technology-agnostic and domain-specific cust
 - **Architecture Framework Integration**: Coordinate with modular architecture system
 
 ### **Enhanced Rule Organization**
-- **Technology Structure**: Organize rules in `project-specific/` for technology-specific patterns
+- **Technology Structure**: Organize technology-specific rules as individual files in the root directory
 - **Core Patterns**: Universal rules in `architecture/core/patterns.mdc`
 - **Architecture Decisions**: ADR integration for rule decisions
 - **Epic Context**: Rules can be linked to specific epic initiatives

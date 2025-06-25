@@ -25,34 +25,32 @@ This guide provides step-by-step instructions for migrating existing projects fr
 
 # v2 Structure  
 .cursor/rules/rule-framework-v2/
+├── architecture-lifecycle.mdc
+├── cursor-rules-management.mdc
+├── epic-active.mdc
+├── epic-architecture-integration.mdc
+├── epic-completed.mdc
+├── epic-lifecycle-rules.mdc
+├── epic-planned.mdc
+├── epic-registry.mdc
+├── epic-validation-automation.mdc
 ├── project-config.mdc (template-based)
 ├── rules.mdc (technology-agnostic)
-├── workflow-state.mdc (clean template)
 ├── user-rules-template.mdc (updated paths)
-├── Epic Management (7 Files)/
-│   ├── epic-lifecycle-rules.mdc
-│   ├── epic-active.mdc
-│   ├── epic-planned.mdc  
-│   ├── epic-completed.mdc
-│   ├── epic-registry.mdc
-│   ├── epic-validation-automation.mdc
-│   └── epic-architecture-integration.mdc
-├── Workflow System/
-│   └── workflow-lifecycle-rules.mdc
-├── architecture/
-│   ├── index.mdc
-│   ├── core/
-│   │   ├── index.mdc
-│   │   ├── patterns.mdc (generic patterns)
-│   │   └── maintenance.mdc
-│   ├── decisions/
-│   │   ├── index.mdc
-│   │   ├── adr-template.mdc
-│   │   └── sample-decisions.mdc
-│   └── workflows/
-│       └── index.mdc
-├── architecture-lifecycle.mdc
-└── cursor-rules-management.mdc
+├── workflow-lifecycle-rules.mdc
+├── workflow-state.mdc (clean template)
+└── architecture/
+    ├── index.mdc
+    ├── core/
+    │   ├── index.mdc
+    │   ├── patterns.mdc (generic patterns)
+    │   └── maintenance.mdc
+    ├── decisions/
+    │   ├── index.mdc
+    │   ├── adr-template.mdc
+    │   └── sample-decisions.mdc
+    └── workflows/
+        └── index.mdc
 ```
 
 #### **3. Enhanced Epic Management System**
@@ -181,10 +179,9 @@ code .cursor/rules/rule-framework-v2/epic-active.mdc
 #### **1. Extract Technology-Specific Patterns**
 ```bash
 # Create technology-specific architecture files
-mkdir -p .cursor/rules/rule-framework-v2/project-specific
-
-# Example: Create React-specific patterns
-touch .cursor/rules/rule-framework-v2/project-specific/react-patterns.mdc
+touch .cursor/rules/rule-framework-v2/frontend-react.mdc
+touch .cursor/rules/rule-framework-v2/backend-node.mdc
+touch .cursor/rules/rule-framework-v2/database-postgres.mdc
 ```
 
 #### **2. Migrate Custom Rules**
@@ -273,21 +270,20 @@ Initialize with your current work:
 #### **Multi-Technology Projects**
 ```bash
 # Create technology-specific architecture files
-mkdir -p .cursor/rules/rule-framework-v2/project-specific
-touch .cursor/rules/rule-framework-v2/project-specific/frontend-react.mdc
-touch .cursor/rules/rule-framework-v2/project-specific/backend-node.mdc
-touch .cursor/rules/rule-framework-v2/project-specific/database-postgres.mdc
+touch .cursor/rules/rule-framework-v2/frontend-react.mdc
+touch .cursor/rules/rule-framework-v2/backend-node.mdc
+touch .cursor/rules/rule-framework-v2/database-postgres.mdc
 ```
 
 #### **Monorepo Migration**
 ```bash
 # Structure for monorepo with multiple packages
 .cursor/rules/rule-framework-v2/
-├── project-specific/
-│   ├── frontend-package.mdc
-│   ├── backend-package.mdc
-│   ├── shared-package.mdc
-│   └── tools-package.mdc
+├── (all framework files)
+├── frontend-package.mdc
+├── backend-package.mdc
+├── shared-package.mdc
+├── tools-package.mdc
 └── architecture/
     └── decisions/
         ├── monorepo-structure.mdc

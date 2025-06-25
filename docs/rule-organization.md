@@ -13,58 +13,54 @@ Rule organization is fundamental to maintaining a clean, scalable, and maintaina
 .cursor/
 └── rules/
     └── rule-framework-v2/              # 🆕 v2 Framework Root
-        ├── Core Framework Files/
-        │   ├── project-config.mdc           # Project template
-        │   ├── rules.mdc                    # Technology-agnostic global rules
-        │   ├── workflow-state.mdc           # Workflow management
-        │   └── user-rules-template.mdc      # ⚠️ INSTALL IN CURSOR SETTINGS
-        ├── Epic Management (7 Files)/       # 🆕 7 Specialized Components
-        │   ├── epic-lifecycle-rules.mdc     # Epic lifecycle automation
-        │   ├── epic-active.mdc              # Active epics workspace
-        │   ├── epic-planned.mdc             # Planned epics pipeline
-        │   ├── epic-completed.mdc           # Completed epics archive
-        │   ├── epic-registry.mdc            # Master epic registry
-        │   ├── epic-validation-automation.mdc # Validation automation
-        │   └── epic-architecture-integration.mdc # Architecture integration
-        ├── Workflow System/                 # 🆕 Enhanced Workflow Management
-        │   └── workflow-lifecycle-rules.mdc # Workflow automation
-        ├── Architecture Framework/          # 🆕 Modular Architecture System
-        │   ├── index.mdc                    # Master architecture navigation
-        │   ├── core/
-        │   │   ├── index.mdc                # Core patterns navigation
-        │   │   ├── patterns.mdc             # Universal patterns
-        │   │   └── maintenance.mdc          # Maintenance rules
-        │   ├── decisions/
-        │   │   ├── index.mdc                # Decision navigation
-        │   │   ├── adr-template.mdc         # ADR template
-        │   │   └── sample-decisions.mdc     # Example ADRs
-        │   └── workflows/
-        │       └── index.mdc                # Workflow patterns
-        └── Framework Management/            # 🆕 Lifecycle Management
-            ├── architecture-lifecycle.mdc   # Architecture automation
-            └── cursor-rules-management.mdc  # Rule management
+        ├── architecture-lifecycle.mdc      # Architecture automation
+        ├── cursor-rules-management.mdc     # Rule management
+        ├── epic-active.mdc                 # Active epics workspace
+        ├── epic-architecture-integration.mdc # Architecture integration
+        ├── epic-completed.mdc              # Completed epics archive
+        ├── epic-lifecycle-rules.mdc        # Epic lifecycle automation
+        ├── epic-planned.mdc                # Planned epics pipeline
+        ├── epic-registry.mdc               # Master epic registry
+        ├── epic-validation-automation.mdc  # Validation automation
+        ├── project-config.mdc              # Project template
+        ├── rules.mdc                       # Technology-agnostic global rules
+        ├── user-rules-template.mdc         # ⚠️ INSTALL IN CURSOR SETTINGS
+        ├── workflow-lifecycle-rules.mdc    # Workflow automation
+        ├── workflow-state.mdc              # Workflow management
+        └── architecture/                   # Architecture framework
+            ├── index.mdc                   # Master architecture navigation
+            ├── core/
+            │   ├── index.mdc               # Core patterns navigation
+            │   ├── patterns.mdc            # Universal patterns
+            │   └── maintenance.mdc         # Maintenance rules
+            ├── decisions/
+            │   ├── index.mdc               # Decision navigation
+            │   ├── adr-template.mdc        # ADR template
+            │   └── sample-decisions.mdc    # Example ADRs
+            └── workflows/
+                └── index.mdc               # Workflow patterns
 ```
 
 ### Custom Project Extensions (Optional)
+When you need technology-specific rules, you can create additional files in the root directory:
 ```
 .cursor/rules/rule-framework-v2/
-└── project-specific/                   # 🎯 Add Your Technology-Specific Rules
-    ├── frontend-react.mdc              # React-specific patterns (create as needed)
-    ├── backend-node.mdc                # Node.js-specific patterns (create as needed)
-    ├── database-postgres.mdc           # PostgreSQL-specific patterns (create as needed)
-    ├── mobile-react-native.mdc         # React Native patterns (create as needed)
-    └── testing-jest.mdc                # Jest testing patterns (create as needed)
+├── (all existing framework files)
+├── react-patterns.mdc              # React-specific patterns (create as needed)
+├── node-patterns.mdc               # Node.js-specific patterns (create as needed)
+├── postgres-patterns.mdc           # PostgreSQL-specific patterns (create as needed)
+└── testing-patterns.mdc            # Testing patterns (create as needed)
 ```
 
 ### v2 Rule Categories
 
-#### **Core Framework Rules** (Always Required)
+#### **Core Framework Files** (Always Required)
 - `project-config.mdc` - Technology-agnostic project configuration template
 - `rules.mdc` - Universal global rules applicable to any technology stack
 - `workflow-state.mdc` - Enhanced development workflow management
 - `user-rules-template.mdc` - Cursor IDE integration template
 
-#### **Epic Management System** (7 Specialized Components)
+#### **Epic Management Files** (7 Files)
 - `epic-lifecycle-rules.mdc` - Epic lifecycle automation and state management
 - `epic-active.mdc` - Active epics workspace with current initiatives
 - `epic-planned.mdc` - Planned epics pipeline for future work
@@ -73,19 +69,23 @@ Rule organization is fundamental to maintaining a clean, scalable, and maintaina
 - `epic-validation-automation.mdc` - Automated validation and consistency checks
 - `epic-architecture-integration.mdc` - Epic-architecture coordination
 
-#### **Architecture Framework** (Modular System)
+#### **Workflow Files**
+- `workflow-lifecycle-rules.mdc` - Workflow automation and lifecycle management
+
+#### **Architecture Framework** (Directory with Subdirectories)
 - `architecture/index.mdc` - Master architecture navigation and domain organization
 - `architecture/core/patterns.mdc` - Universal architectural patterns (technology-agnostic)
 - `architecture/core/maintenance.mdc` - Architecture maintenance and quality gates
+- `architecture/core/index.mdc` - Core patterns navigation
 - `architecture/decisions/` - ADR management system with templates and examples
 - `architecture/workflows/` - Workflow integration patterns
 
+#### **Framework Management Files**
+- `architecture-lifecycle.mdc` - Architecture automation and lifecycle management
+- `cursor-rules-management.mdc` - Rule management and organization
+
 #### **Technology-Specific Extensions** (Project Created)
-- `project-specific/frontend-*.mdc` - Frontend technology patterns (create as needed)
-- `project-specific/backend-*.mdc` - Backend technology patterns (create as needed)
-- `project-specific/database-*.mdc` - Database-specific patterns (create as needed)
-- `project-specific/mobile-*.mdc` - Mobile development patterns (create as needed)
-- `project-specific/testing-*.mdc` - Testing framework patterns (create as needed)
+- Custom `.mdc` files in root directory for technology-specific patterns (create as needed)
 
 ## 🏗️ v2 Rule Hierarchy
 
@@ -133,7 +133,6 @@ Apply within specific epic contexts, integrating with the epic management system
 description: Authentication epic development guidelines
 globs: "src/auth/**/*.*"
 alwaysApply: false
-epicContext: "AUTHENTICATION_SYSTEM_EPIC"
 ---
 ```
 
@@ -146,16 +145,13 @@ epicContext: "AUTHENTICATION_SYSTEM_EPIC"
 ## 📋 v2 MDC Metadata Standards
 
 ### Enhanced Required Fields
-Every v2 rule must include comprehensive metadata:
+Every v2 rule must include the standard metadata:
 
 ```yaml
 ---
 description: Clear, concise description of the rule's purpose
 globs: "pattern/to/match/**/*.ext"
 alwaysApply: true/false
-technologyStack: ["React", "TypeScript", "Node.js"]  # Optional
-epicContext: "EPIC_ID"                                # Optional
-architectureDomain: "frontend" | "backend" | "core"  # Optional
 ---
 ```
 
@@ -193,17 +189,7 @@ globs: "src/epics/authentication/**/*.*"
 globs: "backend/api/**/*.{ts,js,py,java}"
 ```
 
-#### **Technology Stack Field**
-```yaml
-# Optional field for technology-specific rules
-technologyStack: ["React", "TypeScript", "Vite"]
-```
 
-#### **Epic Context Field**
-```yaml
-# Optional field linking rules to specific epics
-epicContext: "USER_AUTHENTICATION_EPIC"
-```
 
 ## 📝 v2 Global Rules System: `rules.mdc`
 
@@ -249,7 +235,7 @@ The v2 `rules.mdc` file serves as the **technology-agnostic global rule registry
 #### 3. **Automatic Architecture Coordination**
 When `rules.mdc` accumulates patterns, the AI automatically:
 - Evaluates rules for architecture domain relevance
-- Creates appropriate technology-specific files (`project-specific/`)
+- Creates appropriate technology-specific files in root directory
 - Maintains cross-references in architecture navigation
 - Updates epic-architecture integration
 
@@ -288,7 +274,7 @@ When `rules.mdc` accumulates patterns, the AI automatically:
 "Create a React-specific rule for component lifecycle management"
 
 # 2. AI determines appropriate technology-specific location
-# 3. Creates/updates project-specific/frontend-react.mdc
+# 3. Creates/updates react-patterns.mdc in root directory
 # 4. Updates architecture navigation
 # 5. Links to relevant epic if applicable
 ```
@@ -308,14 +294,15 @@ When `rules.mdc` accumulates patterns, the AI automatically:
 
 ### Multi-Technology Projects
 ```
-project-specific/
-├── frontend-react.mdc       # React web frontend
-├── frontend-vue.mdc         # Vue.js admin panel
-├── mobile-react-native.mdc  # Mobile app
-├── backend-node.mdc         # Node.js API server
-├── backend-python.mdc       # Python ML services
-├── database-postgres.mdc    # PostgreSQL patterns
-└── database-redis.mdc       # Redis caching patterns
+.cursor/rules/rule-framework-v2/
+├── (all framework files)
+├── react-frontend.mdc           # React web frontend
+├── vue-admin.mdc                # Vue.js admin panel
+├── react-native-mobile.mdc     # Mobile app
+├── node-backend.mdc             # Node.js API server
+├── python-ml.mdc                # Python ML services
+├── postgres-patterns.mdc        # PostgreSQL patterns
+└── redis-patterns.mdc           # Redis caching patterns
 ```
 
 ### Epic-Architecture Matrix
@@ -333,16 +320,15 @@ epic-active.mdc:
 
 ### Team Specialization Support
 ```
-project-specific/
-├── team-frontend/           # Frontend team patterns
-│   ├── react-patterns.mdc
-│   └── design-system.mdc
-├── team-backend/            # Backend team patterns
-│   ├── api-patterns.mdc
-│   └── database-patterns.mdc
-└── shared/                  # Cross-team patterns
-    ├── testing-patterns.mdc
-    └── ci-cd-patterns.mdc
+.cursor/rules/rule-framework-v2/
+├── (all framework files)
+├── frontend-team-patterns.mdc  # Frontend team patterns
+├── backend-team-patterns.mdc   # Backend team patterns
+├── design-system.mdc           # Design system patterns
+├── api-patterns.mdc            # API patterns
+├── database-patterns.mdc       # Database patterns
+├── testing-patterns.mdc        # Testing patterns
+└── ci-cd-patterns.mdc          # CI/CD patterns
 ```
 
 ## 🎯 v2 Migration from v1
@@ -350,14 +336,14 @@ project-specific/
 ### Rule Migration Process
 1. **Backup existing rules**: Preserve v1 rule content
 2. **Analyze technology dependencies**: Identify technology-specific vs universal patterns
-3. **Create technology-specific files**: Extract technology patterns to project-specific directory
+3. **Create technology-specific files**: Extract technology patterns to root directory
 4. **Update epic integration**: Link existing rules to epic context where applicable
 5. **Validate architecture alignment**: Ensure rules align with v2 architecture framework
 
 ### Migration Checklist
 - [ ] Move rules to `rule-framework-v2/` directory structure
 - [ ] Separate universal vs technology-specific patterns
-- [ ] Create appropriate `project-specific/` files
+- [ ] Create appropriate technology-specific files in root directory
 - [ ] Update epic context metadata
 - [ ] Validate with architecture framework
 - [ ] Test cross-technology compatibility
@@ -371,7 +357,7 @@ project-specific/
 4. **Team Coordination**: Design rules that support team collaboration across technologies
 
 ### Technology-Specific Rule Creation
-1. **Technology Isolation**: Keep technology-specific rules in project-specific directory
+1. **Technology Isolation**: Keep technology-specific rules in root directory as separate files
 2. **Cross-Reference**: Link related patterns across different technologies
 3. **Epic Context**: Maintain epic context even in technology-specific rules
 4. **Migration Readiness**: Design rules to survive technology changes

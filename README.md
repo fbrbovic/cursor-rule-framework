@@ -206,38 +206,34 @@ cursor-rule-framework/
 ├── .cursor/
 │   └── rules/
 │       └── rule-framework-v2/          # 🆕 v2 Framework Location
-│           ├── Core Framework Files/
-│           │   ├── project-config.mdc           # Project template
-│           │   ├── rules.mdc                    # Technology-agnostic global rules
-│           │   ├── workflow-state.mdc           # Workflow management
-│           │   └── user-rules-template.mdc      # ⚠️ INSTALL IN CURSOR SETTINGS
-│           ├── Epic Management System (7 Files)/
-│           │   ├── epic-lifecycle-rules.mdc     # Epic lifecycle automation
-│           │   ├── epic-active.mdc              # Active epics workspace
-│           │   ├── epic-planned.mdc             # Planned epics pipeline
-│           │   ├── epic-completed.mdc           # Completed epics archive
-│           │   ├── epic-registry.mdc            # Master epic registry
-│           │   ├── epic-validation-automation.mdc # Validation automation
-│           │   └── epic-architecture-integration.mdc # Architecture integration
-│           ├── Workflow System/
-│           │   └── workflow-lifecycle-rules.mdc # Workflow automation
-│           ├── Architecture Framework/          # 🆕 Modular Architecture System
-│           │   ├── index.mdc                    # Master architecture navigation
-│           │   ├── core/
-│           │   │   ├── index.mdc                # Core patterns navigation
-│           │   │   ├── patterns.mdc             # Universal patterns
-│           │   │   └── maintenance.mdc          # Maintenance rules
-│           │   ├── decisions/
-│           │   │   ├── index.mdc                # Decision navigation
-│           │   │   ├── adr-template.mdc         # ADR template
-│           │   │   └── sample-decisions.mdc     # Example ADRs
-│           │   └── workflows/
-│           │       └── index.mdc                # Workflow patterns
-│           └── Framework Management/
-│               ├── architecture-lifecycle.mdc   # Architecture automation
-│               └── cursor-rules-management.mdc  # Rule management
-├── docs/                                        # Comprehensive documentation
-├── examples/                                    # Usage examples and templates
+│           ├── architecture-lifecycle.mdc      # Architecture automation
+│           ├── cursor-rules-management.mdc     # Rule management
+│           ├── epic-active.mdc                 # Active epics workspace
+│           ├── epic-architecture-integration.mdc # Architecture integration
+│           ├── epic-completed.mdc              # Completed epics archive
+│           ├── epic-lifecycle-rules.mdc        # Epic lifecycle automation
+│           ├── epic-planned.mdc                # Planned epics pipeline
+│           ├── epic-registry.mdc               # Master epic registry
+│           ├── epic-validation-automation.mdc  # Validation automation
+│           ├── project-config.mdc              # Project template
+│           ├── rules.mdc                       # Technology-agnostic global rules
+│           ├── user-rules-template.mdc         # ⚠️ INSTALL IN CURSOR SETTINGS
+│           ├── workflow-lifecycle-rules.mdc    # Workflow automation
+│           ├── workflow-state.mdc              # Workflow management
+│           └── architecture/                   # Architecture framework
+│               ├── index.mdc                   # Master architecture navigation
+│               ├── core/
+│               │   ├── index.mdc               # Core patterns navigation
+│               │   ├── patterns.mdc            # Universal patterns
+│               │   └── maintenance.mdc         # Maintenance rules
+│               ├── decisions/
+│               │   ├── index.mdc               # Decision navigation
+│               │   ├── adr-template.mdc        # ADR template
+│               │   └── sample-decisions.mdc    # Example ADRs
+│               └── workflows/
+│                   └── index.mdc               # Workflow patterns
+├── docs/                                       # Comprehensive documentation
+├── examples/                                   # Usage examples and templates
 ├── CONTRIBUTING.md                             # Contribution guidelines
 ├── CHANGELOG.md                                # Version history
 └── README.md                                   # This file

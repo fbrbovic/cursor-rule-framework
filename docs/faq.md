@@ -42,7 +42,7 @@ Common questions about the **Cursor Rule Framework v2** and their answers.
 ### **Q: How does the v2 architecture framework work?**
 **A:** The v2 architecture framework is modular:
 - `architecture/core/patterns.mdc` - Universal patterns (technology-agnostic)
-- `project-specific/` - Technology-specific patterns (React, Node.js, etc.)
+- Custom `.mdc` files in root directory - Technology-specific patterns (React, Node.js, etc.)
 - `architecture/decisions/` - ADR management system
 - `architecture/workflows/` - Workflow integration patterns
 - Automatic coordination with epic system and workflow lifecycle

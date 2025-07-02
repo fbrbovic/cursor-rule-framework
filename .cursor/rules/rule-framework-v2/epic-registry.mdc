@@ -1,117 +1,175 @@
----
-description: Contains the registry of all of the available epics, it is an index of all epics
-globs: 
-alwaysApply: false
----
-# Epic Registry - Master Control Hub
+# Epic Registry - Master Index
 **Last Updated**: 2025-01-27
-**Framework Version**: 2.0 - Generic Template
+**Framework Version**: 3.0 - Individual Epic Files with Fast AI Updates
 
 ## Purpose & Framework Integration
-Master index of ALL epics across all statuses providing instant overview, status tracking, and epic discovery. Serves as **primary source of truth** for epic management and framework compliance.
+Master index and status hub for ALL epics stored as individual files in `/.cursor/rules/rule-framework-v2/epics/`. Optimized for fast AI updates with designated update zones for maximum efficiency.
 
-### 🔄 Framework Integration
-- ✅ **Epic Lifecycle**: Central control hub for epic-lifecycle-rules.mdc framework
-- ✅ **Status Synchronization**: Real-time synchronization across all epic files
-- ✅ **Discovery Engine**: Primary search interface for epic context and progress
-- ✅ **Integrity Validation**: Cross-file consistency validation and error detection
+### 🚀 Framework v3.0 Features
+- ✅ **Individual Epic Storage**: Each epic in separate `.mdc` file
+- ✅ **Fast AI Updates**: Designated update zones for status tracking
+- ✅ **Registry as Master Index**: Primary interface for epic discovery
+- ✅ **Integrated Step Stages**: BLUEPRINT → CONSTRUCT → VALIDATE per step
+- ✅ **Architecture Integration**: Full architecture framework compliance
 
-## Registry Status
-- **Total Epics**: 6 (framework demonstration examples)
-- **Active**: 1 (SAMPLE_FEATURE_DEVELOPMENT_EPIC)
-- **Planned**: 3 (AUTHENTICATION_SYSTEM, API_INTEGRATION_PLATFORM, USER_INTERFACE_SYSTEM)
-- **Completed**: 2 (FOUNDATION_SETUP, DATA_MANAGEMENT_SYSTEM)
-- **Framework Compliance**: 100% compliant with epic lifecycle standards
+## 📊 EPIC REGISTRY TABLE (AI UPDATE ZONE)
+| Epic Name | Status | Priority | Current Phase | Current Step | Stage | Progress | Next Action |
+|-----------|--------|----------|---------------|--------------|-------|----------|-------------|
+| SAMPLE_FEATURE_DEVELOPMENT | PLANNED | Medium | Phase1 | Step1.1 | PLANNED | 0% | Blueprint planning |
+
+## 🔍 EPIC QUICK LOOKUP (AI SEARCH ZONE)
+
+### **All Available Epics**
+- **SAMPLE_FEATURE_DEVELOPMENT** (PLANNED) - Framework demonstration epic
+  - Location: `epics/SAMPLE_FEATURE_DEVELOPMENT.mdc`
+  - Phases: 3 phases, 9 total steps
+  - Dependencies: None (foundation epic)
+
+### **Active Epics** (0/3 capacity available)
+*No epics currently active*
+
+### **Planned Epics** (1 ready for activation)
+- **SAMPLE_FEATURE_DEVELOPMENT**: Framework demonstration and template
+
+### **Completed Epics** (0 archived)
+*No epics completed yet*
+
+## 🎯 EPIC DISCOVERY & NATURAL LANGUAGE ROUTING
+
+### **Natural Language Epic Search**
+The registry supports natural language epic discovery:
+- **"work on sample feature"** → Routes to SAMPLE_FEATURE_DEVELOPMENT
+- **"feature development epic"** → Routes to SAMPLE_FEATURE_DEVELOPMENT
+- **"demonstration epic"** → Routes to SAMPLE_FEATURE_DEVELOPMENT
+
+### **Epic Context Mapping**
+- **Feature Development**: SAMPLE_FEATURE_DEVELOPMENT
+- **Framework Demo**: SAMPLE_FEATURE_DEVELOPMENT
+- **Template Example**: SAMPLE_FEATURE_DEVELOPMENT
+
+## 📈 PORTFOLIO ANALYTICS (AUTO-CALCULATED)
+
+### **Epic Count Summary**
+- **Total Epics**: 1
+- **Active**: 0 (3 slots available)
+- **Planned**: 1
+- **Completed**: 0
+- **Blocked/Paused**: 0
+
+### **Progress Overview**
+- **Overall Portfolio Progress**: 0% (no active epics)
+- **Average Epic Progress**: N/A (no active work)
+- **Active Capacity**: 0/3 epics (100% available)
+
+### **Architecture Impact Summary**
+- **Architecture Domains Affected**: 0 (no active work)
+- **Pending Architecture Changes**: To be determined
+- **Architecture Evolution Score**: Baseline (framework template)
+
+## 🔄 REGISTRY MAINTENANCE (AUTO-MANAGED)
+
+### **Automated Updates**
+The registry automatically updates when:
+- Epic status changes (AI updates registry table)
+- Step progress changes (AI updates current phase/step/stage)
+- Epic completion occurs (AI updates portfolio analytics)
+- New epics created (AI adds new registry entries)
+
+### **Registry Update Rules**
+**🎯 AI UPDATE ZONES** (AI can modify these areas):
+1. **📊 EPIC REGISTRY TABLE**: Status, progress, current phase/step/stage
+2. **🔍 EPIC QUICK LOOKUP**: Epic status and basic information
+3. **📈 PORTFOLIO ANALYTICS**: Calculated summaries and metrics
+
+**🚫 AI PROTECTED ZONES** (AI must never modify):
+- Framework documentation and rules
+- Natural language routing patterns
+- Registry structure and headers
+
+## 📋 EPIC LIFECYCLE OPERATIONS
+
+### **Adding New Epic**
+1. Create new epic file: `epics/[EPIC_NAME].mdc`
+2. Add entry to registry table with PLANNED status
+3. Update quick lookup section with epic information
+4. Update portfolio analytics with new epic count
+
+### **Activating Epic** 
+1. Change epic status to ACTIVE in registry table
+2. Update current phase/step to first step, stage to BLUEPRINT
+3. Verify active epic count < 3 (enforce capacity limit)
+4. Update portfolio analytics with active epic metrics
+
+### **Epic Progress Updates**
+1. Update registry table when step stage changes
+2. Update progress percentage when steps complete
+3. Update current phase/step when advancing
+4. Update next action with current focus
+
+### **Epic Completion**
+1. Change epic status to COMPLETED in registry table
+2. Update portfolio analytics with completion metrics
+3. Move epic from active to completed in quick lookup
+4. Archive epic file (keep in epics directory)
+
+## 🔗 Individual Epic File Integration
+
+### **Epic File Location Pattern**
+- **File Path**: `/.cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc`
+- **Naming**: Epic name in UPPERCASE with underscores
+- **Example**: `SAMPLE_FEATURE_DEVELOPMENT.mdc`
+
+### **Epic File Structure Requirements**
+Each epic file must contain:
+- **Progress Table**: Top-level table for AI updates
+- **Epic Metadata**: Status, priority, dependencies, domains
+- **Goals & Success Criteria**: Clear objectives and measurable outcomes
+- **Phases and Steps**: Detailed breakdown with requirements
+- **Step Stages**: BLUEPRINT → CONSTRUCT → VALIDATE per step
+
+### **Registry-Epic File Synchronization**
+- **Registry Table**: Reflects current status from epic files
+- **Epic Progress Tables**: Updated during step stage execution
+- **Bidirectional Sync**: Changes in either location update both
+- **Consistency Validation**: Automatic verification of sync accuracy
+
+## 🎯 AI OPERATING INSTRUCTIONS
+
+### **Epic Discovery**
+When user requests epic work:
+1. Search registry quick lookup for matching epic
+2. Route to appropriate epic file in epics directory
+3. Read epic progress table for current status
+4. Identify current step and stage for work focus
+
+### **Epic Status Updates**
+When updating epic progress:
+1. **Primary Update**: Epic file progress table
+2. **Secondary Update**: Registry table for consistency
+3. **Validation**: Verify both locations match
+4. **Analytics**: Update portfolio metrics automatically
+
+### **Epic Work Execution**
+When working on epic steps:
+1. Follow step stage workflow (BLUEPRINT → CONSTRUCT → VALIDATE)
+2. Update epic progress table at each stage transition
+3. Update registry table when changing steps or phases
+4. Maintain architecture integration throughout
+
+### **Natural Language Processing**
+When user says "work on [epic description]":
+1. Use natural language routing to identify epic
+2. Load epic file for detailed context
+3. Identify current step and stage
+4. Begin appropriate stage workflow
 
 ---
 
-## 📊 EPIC REGISTRY TABLE
+**Registry Purpose**: Master index providing instant epic overview and fast AI updates
+**Framework Integration**: Central coordination for individual epic file system
+**Update Optimization**: Designated update zones for maximum AI efficiency
+**Architecture Compliance**: Full integration with architecture framework requirements
 
-| **Epic Name** | **Status** | **Priority** | **Duration** | **Completion** | **Architecture Impact** |
-|---------------|------------|--------------|--------------|----------------|-------------------------|
-| SAMPLE_FEATURE_DEVELOPMENT_EPIC | ACTIVE | Medium | 2-3 weeks | 0% | Core patterns, decisions |
-| AUTHENTICATION_SYSTEM_EPIC | PLANNED | High | 3-4 weeks | 0% | Security framework, API design |
-| API_INTEGRATION_PLATFORM_EPIC | PLANNED | Medium | 4-5 weeks | 0% | Integration patterns, data architecture |
-| USER_INTERFACE_SYSTEM_EPIC | PLANNED | Medium | 3-4 weeks | 0% | Component architecture, design system |
-| FOUNDATION_SETUP_EPIC | COMPLETED | Critical | 2 weeks | 100% | Core patterns, build architecture |
-| DATA_MANAGEMENT_SYSTEM_EPIC | COMPLETED | High | 3 weeks | 95% | Data architecture, migration patterns |
-
----
-
-## 🔍 EPIC STATUS DETAILS
-
-### Active Epics (1/3 capacity)
-- **SAMPLE_FEATURE_DEVELOPMENT_EPIC**: Demonstrating framework capabilities and epic structure patterns
-  - **Location**: epic-active.mdc
-  - **Phase**: PLANNING_AND_DESIGN
-  - **Next Milestone**: Requirements analysis completion
-
-### Planned Epics (3 ready for activation)
-- **AUTHENTICATION_SYSTEM_EPIC**: High priority security foundation epic
-- **API_INTEGRATION_PLATFORM_EPIC**: Medium priority integration platform development
-- **USER_INTERFACE_SYSTEM_EPIC**: Medium priority UI/UX system development
-
-### Completed Epics (2 archived)
-- **FOUNDATION_SETUP_EPIC**: 100% success - Core development foundation established
-- **DATA_MANAGEMENT_SYSTEM_EPIC**: 95% success - Comprehensive data management system
-
----
-
-## 🎯 EPIC DISCOVERY & SEARCH
-
-### Natural Language Epic Search
-The registry supports natural language epic discovery for workflow integration:
-- **"work on authentication"** → Routes to AUTHENTICATION_SYSTEM_EPIC
-- **"feature development epic"** → Routes to SAMPLE_FEATURE_DEVELOPMENT_EPIC
-- **"API integration work"** → Routes to API_INTEGRATION_PLATFORM_EPIC
-- **"UI components"** → Routes to USER_INTERFACE_SYSTEM_EPIC
-
-### Epic Context Mapping
-- **Security Work**: AUTHENTICATION_SYSTEM_EPIC
-- **Integration Development**: API_INTEGRATION_PLATFORM_EPIC
-- **Frontend Development**: USER_INTERFACE_SYSTEM_EPIC
-- **Infrastructure Work**: FOUNDATION_SETUP_EPIC (completed)
-- **Data Architecture**: DATA_MANAGEMENT_SYSTEM_EPIC (completed)
-
----
-
-## 📈 PORTFOLIO ANALYTICS
-
-### Completion Metrics
-- **Overall Success Rate**: 97.5% (average across completed epics)
-- **Average Duration**: 2.5 weeks per epic
-- **Architecture Impact**: 100% of epics contribute meaningful architecture improvements
-- **Quality Standards**: All epics meet framework quality requirements
-
-### Capacity Management
-- **Current Active Capacity**: 1/3 epics (capacity available)
-- **Planned Pipeline**: 3 epics ready for activation
-- **Activation Readiness**: All planned epics meet activation criteria
-- **Resource Planning**: Epic sequencing optimized for dependencies and capacity
-
-### Architecture Evolution
-- **Pattern Development**: Each epic contributes reusable architecture patterns
-- **Decision Tracking**: Epic-driven architectural decisions documented and linked
-- **Framework Enhancement**: Epic outcomes continuously improve framework capabilities
-- **Knowledge Building**: Completed epics provide templates and lessons for future work
-
----
-
-## 🔄 REGISTRY MAINTENANCE
-
-### Automated Synchronization
-- **Status Updates**: Real-time synchronization with epic-active.mdc, epic-planned.mdc, epic-completed.mdc
-- **Completion Tracking**: Automatic progress updates from workflow completion
-- **Integrity Validation**: Cross-file consistency checks and error detection
-- **Archive Management**: Automatic epic archival after 6-month retention period
-
-### Manual Validation
-- **Weekly Reviews**: Registry accuracy validation and cleanup
-- **Epic Audits**: Periodic epic status and progress validation
-- **Architecture Alignment**: Verification of architecture impact tracking
-- **Framework Compliance**: Ongoing compliance with epic lifecycle standards
-
----
 
 **Registry Purpose**: Master control hub providing instant epic overview and discovery  
 **Framework Integration**: Central coordination point for all epic lifecycle operations  

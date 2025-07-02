@@ -15,7 +15,7 @@ This rule ensures proper location, format, and handling of all Cursor MDC rule f
 
 #### ✅ Correct Locations
 - ✅ `.cursor/rules/rule-framework-v2/rules.mdc`
-- ✅ `.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/index.mdc`
+- ✅ `.cursor/rules/rule-framework-v2/architecture/index.mdc`
 - ✅ `.cursor/rules/rule-framework-v2/any-other-rule.mdc`
 
 #### ❌ INCORRECT Locations (NEVER USE)
@@ -220,7 +220,7 @@ For architecture-related cursor rules, add this metadata enhancement:
 ```yaml
 livingDocs: true
 updateTriggers: ["component-creation", "routing-changes", "state-management", "integrations"]  
-documentationTargets: [".cursor/rules/rule-framework-v2/rule-framework-v2/architecture/index.mdc", "apps/frontend/component-patterns.mdc"]
+documentationTargets: [".cursor/rules/rule-framework-v2/architecture/index.mdc", "apps/frontend/component-patterns.mdc"]
 ```
 
 ### Automated Documentation Freshness

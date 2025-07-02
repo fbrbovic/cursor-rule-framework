@@ -94,10 +94,10 @@ done
 #### **Link Standards**
 ```markdown
 # Internal links format
-[File Name] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc`
+[File Name] → `/.cursor/rules/rule-framework-v2/architecture/domain/file.mdc`
 
 # Section links format  
-[Section Name] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc#section-anchor`
+[Section Name] → `/.cursor/rules/rule-framework-v2/architecture/domain/file.mdc#section-anchor`
 
 # Related files format
 **Related Files**:
@@ -107,7 +107,7 @@ done
 #### **Cross-Reference Validation Script**
 ```bash
 # Validate internal links
-grep -r "→ \`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/" .cursor/rules/rule-framework-v2/rule-framework-v2/architecture/ | \
+grep -r "→ \`/.cursor/rules/rule-framework-v2/architecture/" .cursor/rules/rule-framework-v2/architecture/ | \
 while read line; do
   file=$(echo "$line" | cut -d: -f1)
   link=$(echo "$line" | sed -n 's/.*→ `\([^`]*\)`.*/\1/p')
@@ -158,7 +158,7 @@ done
 
 ### **Optimized Architecture Structure**
 ```
-/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/
+/.cursor/rules/rule-framework-v2/architecture/
 ├── index.mdc                 # Master navigation (under 300 lines)
 ├── core/                     # System-wide patterns
 │   ├── index.mdc            # Core domain navigation
@@ -226,7 +226,7 @@ echo "$compliant/$total files compliant ($(( compliant * 100 / total ))%)"
 
 # Cross-reference health check
 echo "Cross-Reference Validation:"
-broken_links=$(grep -r "→ \`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/" .cursor/rules/rule-framework-v2/rule-framework-v2/architecture/ | \
+broken_links=$(grep -r "→ \`/.cursor/rules/rule-framework-v2/architecture/" .cursor/rules/rule-framework-v2/architecture/ | \
 while read line; do
   link=$(echo "$line" | sed -n 's/.*→ `\([^`]*\)`.*/\1/p')
   [ ! -f "$link" ] && echo "broken"
@@ -267,10 +267,10 @@ echo "=== MAINTENANCE COMPLETE ==="
 **Implementation**: Analyze epic success rates and identify consultation gaps
 
 **Related Files**:
-- [Core Patterns] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/patterns.mdc`
-- [Master Index] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/index.mdc`
-- [Frontend Guidelines] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/frontend/guidelines.mdc`
-- [Backend Guidelines] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/backend/guidelines.mdc`
+- [Core Patterns] → `/.cursor/rules/rule-framework-v2/architecture/core/patterns.mdc`
+- [Master Index] → `/.cursor/rules/rule-framework-v2/architecture/index.mdc`
+- [Frontend Guidelines] → `/.cursor/rules/rule-framework-v2/architecture/frontend/guidelines.mdc`
+- [Backend Guidelines] → `/.cursor/rules/rule-framework-v2/architecture/backend/guidelines.mdc`
 
 ---
 

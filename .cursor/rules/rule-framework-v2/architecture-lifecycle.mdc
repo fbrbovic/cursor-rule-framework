@@ -1,5 +1,5 @@
 ---
-description: Any time any architecture docs (cursor rules) need to be generated or updated should be referenced. Contains rules on how our architecture docs lifecycle operates. 
+description: Any time any architecture docs (cursor rules) need to be generated or updated should be referenced. Contains rules on how our architecture docs lifecycle operates with v3.0 epic system integration.
 globs: 
 alwaysApply: false
 ---
@@ -14,7 +14,7 @@ alwaysApply: false
 ## 🚨 MANDATORY FRAMEWORK RULES
 
 ### Rule 1: Domain-Based Organization (CRITICAL)
-**Location**: ALL architecture files MUST be in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/` directory
+**Location**: ALL architecture files MUST be in `/.cursor/rules/rule-framework-v2/architecture/` directory
 **Structure**: Organized by domains, categories, and topics for optimal AI navigation
 **File Limit**: Maximum 500 lines per file (NO EXCEPTIONS)
 **Index Limit**: Maximum 300 lines for index files
@@ -65,10 +65,10 @@ alwaysApply: false
 
 ## 📁 ARCHITECTURE DOMAIN STRUCTURE
 
-### Core Architecture Directory: `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/`
+### Core Architecture Directory: `/.cursor/rules/rule-framework-v2/architecture/`
 
 ```
-/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/
+/.cursor/rules/rule-framework-v2/architecture/
 ├── index.mdc                    # Master navigation (300 lines max)
 ├── core/
 │   ├── index.mdc               # Fast lookup table of core files
@@ -115,11 +115,11 @@ alwaysApply: false
 ### Level 1: Domain Identification
 **AI Decision Tree**:
 ```
-IF (frontend development) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/frontend/
-IF (backend development) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/backend/
-IF (core patterns needed) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/
-IF (architectural decision) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/decisions/
-IF (workflow guidance) → /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/workflows/
+IF (frontend development) → /.cursor/rules/rule-framework-v2/architecture/frontend/
+IF (backend development) → /.cursor/rules/rule-framework-v2/architecture/backend/
+IF (core patterns needed) → /.cursor/rules/rule-framework-v2/architecture/core/
+IF (architectural decision) → /.cursor/rules/rule-framework-v2/architecture/decisions/
+IF (workflow guidance) → /.cursor/rules/rule-framework-v2/architecture/workflows/
 ```
 
 ### Level 2: Category Selection
@@ -207,8 +207,8 @@ alwaysApply: false
 #### Cross-Reference Pattern:
 ```markdown
 **Related Files**:
-- [Dependency] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc`
-- [Integration] → `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/domain/file.mdc`
+- [Dependency] → `/.cursor/rules/rule-framework-v2/architecture/domain/file.mdc`
+- [Integration] → `/.cursor/rules/rule-framework-v2/architecture/domain/file.mdc`
 ```
 
 ## 🔧 AUTOMATED GENERATION PATTERNS
@@ -255,41 +255,44 @@ alwaysApply: false
 - **No Verbose Content**: Database-style lookup, not documentation
 - **Hierarchical Structure**: Master → Domain → Category → Topic
 
-## 🚀 AI DEVELOPMENT WORKFLOW INTEGRATION
+## 🚀 AI DEVELOPMENT WORKFLOW INTEGRATION (v3.0 Epic System)
 
-### Epic Planning Phase
+### Epic Step BLUEPRINT Stage (Architecture Consultation)
 **AI Must**:
-1. Consult `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/workflows/epic-integration.mdc`
-2. Reference domain-specific guidelines for epic scope
-3. Validate against core patterns in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/`
-4. Document architecture consultation in epic blueprint
+1. Consult `epic-lifecycle-rules.mdc` for step-level architecture guidance
+2. Reference domain-specific guidelines for epic step scope  
+3. Validate against core patterns in `/.cursor/rules/rule-framework-v2/architecture/core/`
+4. Document architecture consultation in individual epic file step stage checkboxes
+5. Update epic progress table to reflect BLUEPRINT stage completion
 
-### Development Phase
+### Epic Step CONSTRUCT Stage (Implementation)
 **AI Must**:
-1. START with domain guidelines (`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/[domain]/guidelines.mdc`)
-2. Apply core patterns (`/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/core/`)
-3. Follow technical implementation patterns
-4. Maintain security and infrastructure standards
+1. START with domain guidelines (`/.cursor/rules/rule-framework-v2/architecture/[domain]/guidelines.mdc`)
+2. Apply core patterns (`/.cursor/rules/rule-framework-v2/architecture/core/`)
+3. Follow technical implementation patterns for the specific epic step
+4. Maintain security and infrastructure standards during step implementation
+5. Update epic progress table to reflect CONSTRUCT stage progress
 
-### Validation Phase
+### Epic Step VALIDATE Stage (Architecture Verification)
 **AI Must**:
-1. Verify implementation follows architecture patterns
+1. Verify step implementation follows architecture patterns
 2. Confirm all architecture files remain under 500 lines
-3. Validate cross-reference integrity
-4. Update architecture documentation if patterns evolved
+3. Validate cross-reference integrity after step changes
+4. Update architecture documentation if patterns evolved during step
+5. Update epic progress table and registry to reflect step completion
 
 ## 📊 AUTOMATED COMPLIANCE MONITORING
 
 ### File Size Enforcement
 ```bash
 # Auto-check command for AI to run
-find /.cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec wc -l {} + | awk '$1 > 500 {print "VIOLATION: " $2 " (" $1 " lines)"}'
+find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec wc -l {} + | awk '$1 > 500 {print "VIOLATION: " $2 " (" $1 " lines)"}'
 ```
 
 ### Cross-Reference Validation
 ```bash
 # Validate internal links
-grep -r "\[.*\](mdc:.*\.mdc)" /.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/ | while IFS=: read file content; do
+grep -r "\[.*\](mdc:.*\.mdc)" .cursor/rules/rule-framework-v2/architecture/ | while IFS=: read file content; do
   link=$(echo "$content" | grep -o "\[.*\](mdc:.*\.mdc)" | grep -o "(.*\.mdc)" | tr -d "()")
   [[ ! -f "$(dirname "$file")/$link" ]] && echo "BROKEN: $file → $link"
 done
@@ -298,14 +301,14 @@ done
 ### Index File Optimization
 ```bash
 # Check index file sizes
-find /.cursor/rules/rule-framework-v2/architecture -name "index.mdc" -exec wc -l {} + | awk '$1 > 300 {print "INDEX VIOLATION: " $2 " (" $1 " lines)"}'
+find .cursor/rules/rule-framework-v2/architecture -name "index.mdc" -exec wc -l {} + | awk '$1 > 300 {print "INDEX VIOLATION: " $2 " (" $1 " lines)"}'
 ```
 
 ## 🔄 ARCHITECTURE EVOLUTION PATTERNS
 
 ### Pattern: New Domain Addition
 **AI Process**:
-1. Create domain directory in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/[domain]/`
+1. Create domain directory in `/.cursor/rules/rule-framework-v2/architecture/[domain]/`
 2. Generate domain index with standard categories
 3. Update master index with new domain
 4. Create initial guidelines file for domain
@@ -319,7 +322,7 @@ find /.cursor/rules/rule-framework-v2/architecture -name "index.mdc" -exec wc -l
 
 ### Pattern: Cross-Domain Integration
 **AI Process**:
-1. Create integration patterns in `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/workflows/`
+1. Create integration patterns in `/.cursor/rules/rule-framework-v2/architecture/workflows/`
 2. Reference from relevant domain files
 3. Maintain single source of truth for shared patterns
 4. Update navigation indices appropriately
@@ -349,14 +352,14 @@ find /.cursor/rules/rule-framework-v2/architecture -name "index.mdc" -exec wc -l
 ## 🚨 CRITICAL AI DIRECTIVES
 
 ### ALWAYS Do:
-1. Reference `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/index.mdc` first for navigation
+1. Reference `/.cursor/rules/rule-framework-v2/architecture/index.mdc` first for navigation
 2. Follow domain → category → topic hierarchy
 3. Include AI usage instructions in every architecture file
 4. Maintain file size limits strictly
 5. Update indices when creating/modifying files
 
 ### NEVER Do:
-1. Create architecture files outside `/.cursor/rules/rule-framework-v2/rule-framework-v2/architecture/`
+1. Create architecture files outside `/.cursor/rules/rule-framework-v2/architecture/`
 2. Exceed 500 lines in any architecture file
 3. Create files without AI usage instructions
 4. Break cross-reference integrity

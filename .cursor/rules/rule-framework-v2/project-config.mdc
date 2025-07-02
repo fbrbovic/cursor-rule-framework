@@ -1,10 +1,5 @@
----
-description: 
-globs: 
-alwaysApply: true
----
 # Project Configuration Template
-**Framework Version**: 2.0 - Generic Template
+**Framework Version**: 3.0 - Epic v3.0 Integration
 **Last Updated**: 2025-01-27
 
 ## Project Goal
@@ -45,11 +40,12 @@ alwaysApply: true
 [Configure framework-specific settings]
 - Estimated chars-per-token: 3.5  
 - Max tokens for AI: 120,000
-- Plan for summary when **workflow-state.mdc** exceeds ~15K chars
+- Epic system: Individual epic files in `.cursor/rules/rule-framework-v2/epics/`
+- Epic progress tracking: Integrated step stages (BLUEPRINT → CONSTRUCT → VALIDATE)
 
 ---
 
 ## Changelog
-<!-- The AI prepends the latest summary here as a new list item after each VALIDATE phase -->
+<!-- The AI prepends the latest summary here as a new list item after each epic step completion -->
 <!-- Example format: -->
-<!-- - [YYYY-MM-DD] [AI] [CATEGORY] - Brief description of completed work -->
+<!-- - [YYYY-MM-DD] [AI] [EPIC:STEP] - Brief description of completed work -->

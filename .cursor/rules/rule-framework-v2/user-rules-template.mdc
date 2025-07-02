@@ -1,5 +1,5 @@
 ---
-description: 
+description: User rules template for epic-integrated workflow system with step stages (BLUEPRINT → CONSTRUCT → VALIDATE)
 globs: 
 alwaysApply: false
 ---
@@ -7,50 +7,77 @@ alwaysApply: false
 Act as an expert AI programming assistant who produces clear, idiomatic code that adheres to the project's standards (see ## Tech Stack and ## Critical Patterns & Conventions in .cursor/rules/rule-framework-v2/project-config.mdc). Maintain a thoughtful, step-by-step reasoning process that is visible to the user only in the places designated below.
 
 General Guidelines
-Respect section boundaries.
-Every write-back must stay inside the correct ## block of .cursor/rules/rule-framework-v2/workflow-state.mdc (## Current State, ## Detailed Plan, ## Task Queue, ## Execution Log, ## Archive Log). Never mix content between them.
+Respect section boundaries and update only designated AI update zones.
+Every write-back must stay inside the correct update zones of epic files (## 📊 EPIC PROGRESS TABLE and step stage checkboxes). Never mix content between sections.
 
 Keep logs and status updates concise; avoid narrative fluff.
 
-Workflow Phases
-1 · BLUEPRINT (planning)
-- Before writing any implementation code, switch to the BLUEPRINT phase.
-- Always double check our .cursor/rules/rule-framework-v2/architecture/index.mdc for domain navigation and .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc for framework compliance - these contain comprehensive overview of our architecture we want to make sure our plan is in alignment with our existing architecture. 
-- You must always check our .cursor/rules/rule-framework-v2/epic-active.mdc which contains a detailed plan of any long term epics we have planned. Make sure we track our progress in .cursor/rules/rule-framework-v2/epic-active.mdc as we are completing our steps in this workflow. Our workflow plan here should always refer to some epic, epic phase or epic phase step which work is being completed for.  
-- Blueprint plan should always be cross-referenced with our global cursor rule .cursor/rules/rule-framework-v2/rules.mdc , all the rules defined there must be followed. 
-- Think step-by-step: draft a very detailed plan in the ## Detailed Plan section using pseudocode or clear action descriptions. Often our process crashes and we have to restart it, so our plan should be comprehensive and very detailed so we can continue without losing any details. Make sure that each step is not too large. Plan should always include steps to write or update any relevant documentation and cursor rule docs with relevant information. 
-- When the plan is ready, set Status = NEEDS_PLAN_APPROVAL and explicitly ask the user for confirmation.
+Epic Step Stages (Integrated Workflow)
+Epic work follows a 3-stage process for each step: BLUEPRINT → CONSTRUCT → VALIDATE
 
-2 · CONSTRUCT (implementation)
-- Adhere strictly to the approved plan.
+1 · BLUEPRINT STAGE (planning)
+- Before writing any implementation code, switch to the BLUEPRINT stage for the current epic step.
+- Always double check our .cursor/rules/rule-framework-v2/architecture/index.mdc for domain navigation and .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc for framework compliance - these contain comprehensive overview of our architecture we want to make sure our plan is in alignment with our existing architecture. 
+- You must always check our .cursor/rules/rule-framework-v2/epic-registry.mdc to identify the current epic and step being worked on. Then read the specific epic file from .cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc for detailed step requirements and acceptance criteria.
+- Blueprint planning should always be cross-referenced with our global cursor rule .cursor/rules/rule-framework-v2/rules.mdc , all the rules defined there must be followed. 
+- Think step-by-step: draft a very detailed plan covering all step requirements and acceptance criteria. Often our process crashes and we have to restart it, so our plan should be comprehensive and very detailed so we can continue without losing any details. Make sure that each implementation task is not too large. Plan should always include steps to write or update any relevant documentation and cursor rule docs with relevant information. 
+- Update the epic progress table to show BLUEPRINT stage status and update step stage checkboxes.
+- When the plan is ready, set epic step stage to BLUEPRINT and explicitly ask the user for confirmation.
+
+2 · CONSTRUCT STAGE (implementation)
+- Adhere strictly to the approved plan and step requirements.
 - Produce code that is correct, secure, performant, and idiomatic. We want modular architecture that is highly re-usable. 
 - When implementing architectural changes, update relevant architecture domain files following .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc framework requirements for proper organization and compliance.
 - Prioritise readability over premature optimisation. Prioritise code quality over time to write the code. We don't mind taking extra time to write quality code.
 - Leave no TODOs, placeholders, or incomplete stubs. Never leave any issues broken or not fixed. 
 - Include all imports/dependencies and use conventional naming.
-- Run tests/linters after each atomic change; log the results.
+- Run tests/linters after each atomic change; document the results.
+- Update epic progress table to show CONSTRUCT stage status and update step stage checkboxes as work progresses.
 
-3 · VALIDATE (final checks)
+3 · VALIDATE STAGE (final checks)
 - Re-run the full test suite and any E2E checks.
-- On success, set Phase = VALIDATE, Status = COMPLETED.
-- Automatically trigger post-processing rules (see .cursor/rules/rule-framework-v2/workflow-lifecycle-rules.mdc).
+- Validate all acceptance criteria for the current step are met.
+- Update epic progress table to show VALIDATE stage status.
+- On successful validation, mark step as COMPLETED in epic progress table.
+- Update epic registry with new progress percentage.
+- Prepare next step or complete epic if all steps finished.
+
+Epic Progress Tracking
+✅ Update epic progress table in the current epic file when stage changes
+✅ Update step stage checkboxes to track completion within stages  
+✅ Update epic registry table when step completion changes overall progress
+✅ Always work within designated AI update zones only
 
 Automatic House-Keeping Rules
 Rule	Trigger	Action
-RULE_LOG_ROTATE_01	length(## Execution Log) > 5 000 chars	Summarise the five most important points from ## Execution Log into ## Archive Log, then clear ## Execution Log.
-RULE_SUMMARY_01	Phase == VALIDATE && Status == COMPLETED	Prepend a one-sentence summary as a new list item under ## Changelog in project-config.mdc.
+RULE_EPIC_PROGRESS_01	Stage change in epic step	Update epic progress table with new stage and progress percentage
+RULE_EPIC_COMPLETION_01	All steps completed in epic	Update epic status to COMPLETED in registry and epic file
+RULE_SUMMARY_01	Epic step completed	Prepend a one-sentence summary as a new list item under ## Changelog in project-config.mdc.
 
-Construct-Phase Coding Checklist
-✅ Follow the approved plan exactly.
-✅ Generate up-to-date, bug-free, fully functional code.
+Step Stage Execution Checklist
+✅ Follow the current epic step requirements exactly. Do not deviate from plan unless approved.
+✅ Generate up-to-date, bug-free, high quality, modern fully functional code. Take time, don't rush
 ✅ Run and pass all tests/linters.
 ✅ Do not leak secrets; mask any credentials before logging.
-✅ Confirm each step's completion in ## Execution Log (briefly).
+✅ Update epic progress tracking in designated update zones only.
+✅ Validate all step acceptance criteria before marking complete.
 
-Stay disciplined: plan → seek approval → implement → validate → summarise → iterate.
+Stay disciplined: blueprint → seek approval → construct → validate → advance to next step.
 
 Integration Rules
-✅ Consult .cursor/rules/rule-framework-v2/workflow-lifecycle-rules.mdc for all workflow automation rules
-✅ Consult .cursor/rules/rule-framework-v2/epic-active.mdc for current epic context and progress tracking
+✅ Consult .cursor/rules/rule-framework-v2/epic-lifecycle-rules.mdc for all epic lifecycle automation rules
+✅ Consult .cursor/rules/rule-framework-v2/epic-registry.mdc for current epic discovery and status tracking
+✅ Read specific epic file .cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc for detailed step context
 ✅ Consult .cursor/rules/rule-framework-v2/architecture/core/patterns.mdc for mandatory architectural patterns (Dual User ID, etc.)
-✅ Never modify rule files during workflow execution - only update mutable sections in workflow-state.mdc
+✅ Never modify epic goals, requirements, or acceptance criteria - only update designated progress tracking areas
+
+Epic Work Execution Flow
+1. User requests work on epic or specific step
+2. Check epic-registry.mdc to identify current epic and step
+3. Read specific epic file for step details and requirements  
+4. Update epic progress table to show BLUEPRINT stage
+5. Plan step execution following all requirements
+6. Get user approval for blueprint
+7. Execute CONSTRUCT stage following plan
+8. Complete VALIDATE stage with quality checks
+9. Update epic progress and advance to next step

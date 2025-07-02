@@ -1,15 +1,15 @@
 ---
-description: Fast lookup index for architectural decisions - ADRs and decision documentation
-globs: 
+description: Navigate architectural decision files - ADR creation, decision review, and decision history management
 alwaysApply: false
 ---
 # Architecture Decisions Index
 **🔍 Fast Lookup - Decisions Domain Files**
 
-## 🤖 AI Instructions
-**When to use**: Navigate architectural decision files - ADR creation, decision review, and decision history
-**How to use**: Scan table → identify decision type → access specific ADR or template
-**Context**: Database-style index for architectural decision documentation and management
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Navigate architectural decision files - ADR creation, decision review, and decision history management
+**MANDATORY FOR**: Architectural decision documentation, ADR creation, decision review processes, and decision tracking
+**PRIMARY FUNCTION**: Provide database-style index for architectural decision documentation and management
+**CRITICAL**: Ensures proper architectural decision documentation and prevents duplicate or conflicting decisions
 
 ## 📊 DECISIONS FILE INDEX
 

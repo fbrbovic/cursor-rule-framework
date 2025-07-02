@@ -1,4 +1,14 @@
+---
+description: When working on sample feature development epic, demonstrating epic framework v3.0, or understanding step stage workflows
+alwaysApply: false
+---
 # EPIC: SAMPLE_FEATURE_DEVELOPMENT
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: When working on sample feature development epic, demonstrating epic framework v3.0, or understanding step stage workflows
+**MANDATORY FOR**: Epic progress updates, step stage execution, architecture integration demonstration, and framework template usage
+**PRIMARY FUNCTION**: Demonstrate comprehensive epic structure with BLUEPRINT → CONSTRUCT → VALIDATE workflow and architecture compliance
+**CRITICAL**: Serves as definitive template for epic structure and must be referenced for proper epic file creation
 
 ## 📊 EPIC PROGRESS TABLE (AI UPDATE ZONE)
 | Phase | Step | Stage | Status | Progress | Next Action |
@@ -460,7 +470,471 @@ This epic serves as a comprehensive template demonstrating:
 - Architecture framework compliance and integration
 - AI update optimization with designated update zones
 - Quality standards and comprehensive validation requirements
-description:
-globs:
-alwaysApply: false
----
+# EPIC: SAMPLE_FEATURE_DEVELOPMENT
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: When working on sample feature development epic, demonstrating epic framework v3.0, or understanding step stage workflows
+**MANDATORY FOR**: Epic progress updates, step stage execution, architecture integration demonstration, and framework template usage
+**PRIMARY FUNCTION**: Demonstrate comprehensive epic structure with BLUEPRINT → CONSTRUCT → VALIDATE workflow and architecture compliance
+**CRITICAL**: Serves as definitive template for epic structure and must be referenced for proper epic file creation
+
+## 📊 EPIC PROGRESS TABLE (AI UPDATE ZONE)
+| Phase | Step | Stage | Status | Progress | Next Action |
+|-------|------|-------|--------|----------|-------------|
+| Phase1 | Step1.1 | PLANNED | PENDING | 0% | Blueprint planning for requirements analysis |
+| Phase1 | Step1.2 | PLANNED | PENDING | 0% | Awaiting Step1.1 completion |
+| Phase1 | Step1.3 | PLANNED | PENDING | 0% | Awaiting Step1.2 completion |
+| Phase2 | Step2.1 | PLANNED | PENDING | 0% | Awaiting Phase1 completion |
+| Phase2 | Step2.2 | PLANNED | PENDING | 0% | Awaiting Step2.1 completion |
+| Phase2 | Step2.3 | PLANNED | PENDING | 0% | Awaiting Step2.2 completion |
+| Phase3 | Step3.1 | PLANNED | PENDING | 0% | Awaiting Phase2 completion |
+| Phase3 | Step3.2 | PLANNED | PENDING | 0% | Awaiting Step3.1 completion |
+| Phase3 | Step3.3 | PLANNED | PENDING | 0% | Awaiting Step3.2 completion |
+
+## 📋 EPIC METADATA
+- **Status**: PLANNED
+- **Priority**: Medium
+- **Dependencies**: None (foundation epic for framework demonstration)
+- **Architecture Domains**: Core patterns, decisions, implementation standards
+- **Estimated Duration**: 2-3 weeks
+- **Started**: Not started
+- **Target Completion**: Framework template completion
+
+## 🎯 EPIC GOALS & SUCCESS CRITERIA
+
+### Goal
+Demonstrate the epic framework v3.0 with a comprehensive sample feature development epic that shows how to structure, plan, and execute complex development work using individual epic files with integrated step stages.
+
+### Success Criteria
+- [ ] **Complete Feature Implementation**: Fully functional feature with comprehensive testing
+- [ ] **Architecture Compliance**: All architectural patterns followed and documented per framework
+- [ ] **Step Stage Demonstration**: All steps show BLUEPRINT → CONSTRUCT → VALIDATE workflow
+- [ ] **Quality Standards**: 90%+ test coverage and performance benchmarks met
+- [ ] **Framework Template**: Epic serves as reusable template for future development work
+- [ ] **AI Update Optimization**: Demonstrate efficient AI update patterns in designated zones
+- [ ] **Documentation Excellence**: Complete feature documentation and architecture updates
+
+## 🏗️ EPIC PHASES AND STEPS
+
+### PHASE 1: PLANNING_AND_DESIGN
+**Goal**: Complete feature analysis, design, and architecture planning with step stage integration
+**Architecture Impact**: Core patterns and decisions documentation
+
+#### STEP 1.1: REQUIREMENTS_ANALYSIS
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Analyze complete feature scope with user stories and acceptance criteria
+- Requirement 2: Define measurable success metrics and quality gates
+- Requirement 3: Identify all stakeholders and obtain requirement validation
+- Requirement 4: Document all functional and non-functional requirements
+- Requirement 5: Create comprehensive requirement traceability matrix
+
+**Acceptance Criteria**:
+- [ ] All user stories documented with acceptance criteria and story points
+- [ ] Success metrics defined with measurable targets and validation methods
+- [ ] Stakeholder approval obtained with documented sign-off
+- [ ] Functional requirements cover all user workflows and edge cases
+- [ ] Non-functional requirements include performance, security, scalability standards
+- [ ] Requirement traceability matrix links requirements to design and tests
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: New feature requirement patterns and validation standards
+- Validation: Requirements review against existing architecture patterns
+- Patterns: Requirement analysis methodology and documentation standards
+
+**Dependencies**: Project architecture framework established and stakeholder availability
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation completed for requirement patterns
+- [ ] Detailed analysis plan created and approved by stakeholders
+- [ ] All requirement gathering methods validated and ready
+- [ ] Dependencies and blockers identified and resolved
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] Requirements gathering sessions conducted following approved plan
+- [ ] User stories and acceptance criteria documented completely
+- [ ] Stakeholder review and approval completed with sign-off
+- [ ] Requirement documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] Full requirement validation completed with all stakeholders
+- [ ] Quality gates validated (completeness, accuracy, traceability)
+- [ ] Epic progress table updated with completion status
+- [ ] Step 1.2 preparation completed and dependencies resolved
+
+#### STEP 1.2: ARCHITECTURE_DESIGN
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Design complete system architecture with integration points
+- Requirement 2: Create data models and database design with optimization
+- Requirement 3: Define API contracts and service interfaces with versioning
+- Requirement 4: Document security architecture and compliance requirements
+- Requirement 5: Plan scalability and performance architecture patterns
+
+**Acceptance Criteria**:
+- [ ] System architecture diagrams created with all components and interactions
+- [ ] Data models designed with normalization and performance optimization
+- [ ] API contracts documented with OpenAPI specification and examples
+- [ ] Security architecture includes authentication, authorization, data protection
+- [ ] Scalability plan includes load balancing, caching, database optimization
+- [ ] Architecture review completed by technical team with approval
+
+**Architecture Impact**: 
+- File: `architecture/decisions/`
+- Changes: New architectural decision records for feature implementation
+- Validation: Architecture review against framework compliance requirements
+- Patterns: System design patterns and integration architecture standards
+
+**Dependencies**: Requirements analysis completion and technical team availability
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation completed for design patterns and decisions
+- [ ] Detailed design plan created covering all architecture domains
+- [ ] Design review process validated with technical team approval
+- [ ] Dependencies on existing architecture patterns identified
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] System architecture designed following approved blueprint
+- [ ] Data models and API contracts created per architectural standards
+- [ ] Security and scalability considerations integrated into design
+- [ ] Architecture documentation updated following framework compliance
+
+**🟢 VALIDATE STAGE**
+- [ ] Architecture design review completed with technical team approval
+- [ ] All architectural decisions documented and validated
+- [ ] Epic progress table updated with design completion
+- [ ] Step 1.3 preparation completed with implementation planning
+
+#### STEP 1.3: TECHNICAL_PLANNING
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Create detailed technical implementation plan with timelines
+- Requirement 2: Define technology choices and justify decisions with ADRs
+- Requirement 3: Plan development environment and tooling requirements
+- Requirement 4: Create comprehensive testing strategy and automation plan
+- Requirement 5: Document deployment and DevOps pipeline requirements
+
+**Acceptance Criteria**:
+- [ ] Implementation plan includes detailed tasks with time estimates
+- [ ] Technology choices documented with ADRs and decision rationale
+- [ ] Development environment setup documented with automation scripts
+- [ ] Testing strategy covers unit, integration, E2E, performance, security testing
+- [ ] Deployment pipeline designed with CI/CD automation and rollback procedures
+- [ ] Technical plan review completed with development team approval
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: Technical implementation patterns and development standards
+- Validation: Technical plan review against architecture framework requirements
+- Patterns: Development methodology patterns and tooling standards
+
+**Dependencies**: Architecture design completion and development team alignment
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation completed for implementation patterns
+- [ ] Technical planning approach validated with development standards
+- [ ] All planning requirements and deliverables clearly defined
+- [ ] Team capacity and timeline dependencies validated
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] Technical implementation plan created following approved methodology
+- [ ] Technology decisions documented with architectural decision records
+- [ ] Development and testing environments planned with automation
+- [ ] Technical documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] Technical plan validated with development team and stakeholders
+- [ ] All technology decisions and implementation approach approved
+- [ ] Epic progress table updated with Phase 1 completion
+- [ ] Phase 2 preparation completed with implementation readiness
+
+### PHASE 2: IMPLEMENTATION
+**Goal**: Implement feature according to approved design and architecture with step stage execution
+**Architecture Impact**: Implementation patterns and integration standards
+
+#### STEP 2.1: CORE_IMPLEMENTATION
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Implement core feature logic following approved architecture design
+- Requirement 2: Build data models and database integration with optimization
+- Requirement 3: Implement business logic with comprehensive error handling
+- Requirement 4: Create unit tests achieving 90%+ coverage for all components
+- Requirement 5: Follow coding standards and establish code review process
+
+**Acceptance Criteria**:
+- [ ] Core functionality implemented following architectural specifications
+- [ ] Database integration working with optimized queries and indexing
+- [ ] Business logic handles all requirements with comprehensive error cases
+- [ ] Unit tests achieve 90%+ coverage with meaningful assertions
+- [ ] Code review process completed with approval from senior developers
+- [ ] Performance benchmarks met for core functionality components
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: Core implementation patterns and coding standards
+- Validation: Code review against architecture patterns and quality standards
+- Patterns: Implementation methodology and error handling patterns
+
+**Dependencies**: Technical planning completion and development environment setup
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation for implementation patterns and standards
+- [ ] Detailed implementation plan created with task breakdown and estimates
+- [ ] Code review process and quality gates defined and validated
+- [ ] Development environment and tooling dependencies resolved
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] Core feature implementation completed following approved blueprint
+- [ ] Unit tests written and achieving required coverage standards
+- [ ] Code review process completed with quality approval
+- [ ] Implementation documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] All core functionality tested and validated against requirements
+- [ ] Performance benchmarks verified and meeting quality standards
+- [ ] Epic progress table updated with core implementation completion
+- [ ] Step 2.2 preparation completed with integration readiness
+
+#### STEP 2.2: INTEGRATION_DEVELOPMENT
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Implement feature integrations and external API connections
+- Requirement 2: Build internal service integration with error handling and retry logic
+- Requirement 3: Implement data synchronization and consistency mechanisms
+- Requirement 4: Create integration tests covering all connection points
+- Requirement 5: Implement monitoring and alerting for integration health
+
+**Acceptance Criteria**:
+- [ ] All external API integrations working with proper authentication
+- [ ] Internal service connections established with robust error handling
+- [ ] Data synchronization working with consistency validation
+- [ ] Integration tests cover all integration points with edge cases
+- [ ] Monitoring and alerting configured for integration health tracking
+- [ ] Integration performance meets SLA requirements under load
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: Integration patterns and API design standards
+- Validation: Integration testing against architecture integration requirements
+- Patterns: Service integration methodology and error handling standards
+
+**Dependencies**: Core implementation completion and external service availability
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation for integration patterns and standards
+- [ ] Integration plan created covering all external and internal connections
+- [ ] Error handling and monitoring strategy validated and approved
+- [ ] External service dependencies and SLAs validated
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] Integration implementation completed following approved blueprint
+- [ ] Integration tests written covering all connection scenarios
+- [ ] Monitoring and alerting configured per integration requirements
+- [ ] Integration documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] All integrations tested under various load and error conditions
+- [ ] Integration performance validated against SLA requirements
+- [ ] Epic progress table updated with integration completion
+- [ ] Step 2.3 preparation completed with UI development readiness
+
+#### STEP 2.3: USER_INTERFACE
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Implement user interface following design system and accessibility standards
+- Requirement 2: Build responsive design working across all target devices and browsers
+- Requirement 3: Implement user experience flows with usability optimization
+- Requirement 4: Create UI tests covering all user interactions and workflows
+- Requirement 5: Implement UI performance optimization and monitoring
+
+**Acceptance Criteria**:
+- [ ] User interface implemented following design system guidelines
+- [ ] Responsive design working on mobile, tablet, desktop with cross-browser support
+- [ ] User experience flows optimized with usability testing validation
+- [ ] UI tests cover all user interactions with accessibility validation
+- [ ] UI performance optimized with page load times under 3 seconds
+- [ ] User acceptance testing completed with stakeholder approval
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: UI/UX patterns and component development standards
+- Validation: UI testing against design system and accessibility requirements
+- Patterns: Component architecture and user experience design patterns
+
+**Dependencies**: Integration development completion and design system availability
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation for UI patterns and component standards
+- [ ] UI implementation plan created following design system guidelines
+- [ ] Accessibility and performance requirements validated and defined
+- [ ] Design system dependencies and component library validated
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] User interface implemented following approved design specifications
+- [ ] UI tests written covering all user interactions and accessibility
+- [ ] Performance optimization implemented per requirements
+- [ ] UI documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] User interface tested across all target devices and browsers
+- [ ] Accessibility and performance requirements validated and met
+- [ ] Epic progress table updated with Phase 2 completion
+- [ ] Phase 3 preparation completed with testing and validation readiness
+
+### PHASE 3: TESTING_AND_VALIDATION
+**Goal**: Comprehensive testing and quality validation with final step stage execution
+**Architecture Impact**: Testing patterns and quality assurance standards
+
+#### STEP 3.1: COMPREHENSIVE_TESTING
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Execute complete test suite including unit, integration, E2E testing
+- Requirement 2: Perform comprehensive performance testing under expected load
+- Requirement 3: Conduct security testing including vulnerability assessments
+- Requirement 4: Execute accessibility testing ensuring WCAG compliance
+- Requirement 5: Perform regression testing ensuring existing functionality integrity
+
+**Acceptance Criteria**:
+- [ ] All test suites passing with 90%+ coverage across all testing types
+- [ ] Performance testing validates system handles expected load with SLA compliance
+- [ ] Security testing completed with no critical vulnerabilities found
+- [ ] Accessibility testing ensures WCAG 2.1 AA compliance
+- [ ] Regression testing confirms no existing functionality degradation
+- [ ] Test automation integrated into CI/CD pipeline with quality gates
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: Testing patterns and quality assurance methodology
+- Validation: Testing strategy validation against architecture quality standards
+- Patterns: Comprehensive testing methodology and automation patterns
+
+**Dependencies**: Complete implementation (Phase 2) and testing environment readiness
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation for testing patterns and quality standards
+- [ ] Comprehensive testing plan created covering all quality requirements
+- [ ] Testing environment and automation tools validated and ready
+- [ ] Quality gates and acceptance criteria clearly defined
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] All test suites executed following approved testing methodology
+- [ ] Performance and security testing completed per requirements
+- [ ] Test automation integrated into CI/CD pipeline
+- [ ] Testing documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] All testing requirements validated and quality gates passed
+- [ ] Test results documented and approved by quality assurance team
+- [ ] Epic progress table updated with testing completion
+- [ ] Step 3.2 preparation completed with security validation readiness
+
+#### STEP 3.2: SECURITY_VALIDATION
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Conduct comprehensive security audit and penetration testing
+- Requirement 2: Validate authentication and authorization mechanisms
+- Requirement 3: Perform data protection and privacy compliance validation
+- Requirement 4: Execute security vulnerability scanning and remediation
+- Requirement 5: Document security compliance and obtain security team approval
+
+**Acceptance Criteria**:
+- [ ] Security audit completed with comprehensive vulnerability assessment
+- [ ] Authentication and authorization mechanisms validated and secure
+- [ ] Data protection measures verified with privacy compliance validation
+- [ ] Vulnerability scanning completed with all critical issues resolved
+- [ ] Security documentation complete with compliance certification
+- [ ] Security team approval obtained with documented sign-off
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: Security patterns and compliance methodology
+- Validation: Security validation against architecture security requirements
+- Patterns: Security audit methodology and compliance patterns
+
+**Dependencies**: Comprehensive testing completion and security team availability
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation for security patterns and compliance requirements
+- [ ] Security validation plan created following compliance methodology
+- [ ] Security testing tools and environment validated and ready
+- [ ] Security compliance requirements and standards clearly defined
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] Security audit and validation completed following approved methodology
+- [ ] All security vulnerabilities identified and remediated
+- [ ] Security compliance documentation completed per requirements
+- [ ] Security validation documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] All security requirements validated and compliance achieved
+- [ ] Security team approval obtained with documented certification
+- [ ] Epic progress table updated with security validation completion
+- [ ] Step 3.3 preparation completed with performance optimization readiness
+
+#### STEP 3.3: PERFORMANCE_OPTIMIZATION
+**Detailed Requirements** (100% COMPLIANCE MANDATORY):
+- Requirement 1: Execute comprehensive performance testing and optimization
+- Requirement 2: Validate scalability requirements under projected load
+- Requirement 3: Optimize system performance with benchmarking validation
+- Requirement 4: Implement production monitoring and alerting systems
+- Requirement 5: Document performance characteristics and obtain final approval
+
+**Acceptance Criteria**:
+- [ ] Performance testing completed with all benchmarks met or exceeded
+- [ ] Scalability requirements validated under 3x projected load
+- [ ] System optimization completed with measurable performance improvements
+- [ ] Production monitoring and alerting systems configured and tested
+- [ ] Performance documentation complete with baseline and optimization results
+- [ ] Final stakeholder approval obtained for production deployment
+
+**Architecture Impact**: 
+- File: `architecture/core/patterns.mdc`
+- Changes: Performance optimization patterns and monitoring standards
+- Validation: Performance validation against architecture performance requirements
+- Patterns: Performance optimization methodology and monitoring patterns
+
+**Dependencies**: Security validation completion and production environment readiness
+
+#### STEP STAGES EXECUTION:
+**🔵 BLUEPRINT STAGE**
+- [ ] Architecture consultation for performance patterns and optimization standards
+- [ ] Performance optimization plan created with benchmarking methodology
+- [ ] Production monitoring strategy validated and tools ready
+- [ ] Performance requirements and success criteria clearly defined
+
+**🟡 CONSTRUCT STAGE** 
+- [ ] Performance optimization implemented following approved methodology
+- [ ] Production monitoring and alerting systems configured
+- [ ] Performance benchmarking completed with results documentation
+- [ ] Performance optimization documentation updated in architecture framework
+
+**🟢 VALIDATE STAGE**
+- [ ] All performance requirements validated and benchmarks achieved
+- [ ] Production readiness confirmed with monitoring systems operational
+- [ ] Epic progress table updated with COMPLETED status
+- [ ] Epic completion documentation and lessons learned captured
+
+## 📝 EPIC COMPLETION NOTES
+
+### **Epic Completion Checklist**
+- [ ] All phases and steps completed with VALIDATE stage success
+- [ ] Architecture framework updated with new patterns and decisions
+- [ ] Epic progress table shows 100% completion across all steps
+- [ ] Quality standards met with comprehensive testing and validation
+- [ ] Stakeholder approval obtained for all deliverables
+- [ ] Epic lessons learned documented for future reference
+
+### **Architecture Contributions**
+- **Core Patterns**: New feature development methodology patterns
+- **Implementation Standards**: Code quality and testing standards
+- **Integration Patterns**: Service integration and API design patterns
+- **Quality Assurance**: Comprehensive testing and validation methodology
+
+### **Framework Template Value**
+This epic serves as a comprehensive template demonstrating:
+- Individual epic file structure with progress tracking
+- Step stage integration (BLUEPRINT → CONSTRUCT → VALIDATE)
+- Architecture framework compliance and integration
+- AI update optimization with designated update zones
+- Quality standards and comprehensive validation requirements

@@ -1,14 +1,14 @@
 ---
-description:
-globs:
+description: Creating new architectural decision records (ADRs) for any significant architectural choice
 alwaysApply: false
 ---
 # ADR Template - Architectural Decision Record
 
-## 🤖 AI Instructions
-**When to use**: Creating new architectural decision records (ADRs) for any significant architectural choice
-**How to use**: Copy this template, fill in all sections, and save as new ADR file
-**Context**: Standardized format for documenting architectural decisions with rationale and consequences
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Creating new architectural decision records (ADRs) for any significant architectural choice
+**MANDATORY FOR**: All significant architectural decisions that need documentation and tracking
+**PRIMARY FUNCTION**: Provide standardized template format for documenting architectural decisions with rationale and consequences
+**CRITICAL**: Ensures consistent ADR documentation that enables proper decision tracking and future reference
 
 ## 📋 ADR Template Structure
 

@@ -1,15 +1,15 @@
 ---
-description:
-globs:
+description: Reference examples when creating new ADRs, reviewing decision patterns, or understanding proper decision documentation
 alwaysApply: false
 ---
 # Sample Architectural Decisions
 **Examples of ADR patterns and decision documentation**
 
-## 🤖 AI Instructions
-**When to use**: Reference examples when creating new ADRs or reviewing decision patterns
-**How to use**: Use these samples as inspiration for documenting your own architectural decisions
-**Context**: Generic examples demonstrating decision documentation patterns for any technology stack
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Reference examples when creating new ADRs, reviewing decision patterns, or understanding proper decision documentation
+**MANDATORY FOR**: ADR creation guidance, decision pattern understanding, and architectural decision best practices
+**PRIMARY FUNCTION**: Provide generic examples demonstrating decision documentation patterns for any technology stack
+**CRITICAL**: Essential reference for proper ADR structure and decision reasoning that ensures quality architectural documentation
 
 ## 📋 Sample ADRs
 

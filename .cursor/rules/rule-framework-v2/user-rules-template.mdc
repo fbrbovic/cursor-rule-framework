@@ -10,35 +10,64 @@ General Guidelines
 Respect section boundaries and update only designated AI update zones.
 Every write-back must stay inside the correct update zones of epic files (## 📊 EPIC PROGRESS TABLE and step stage checkboxes). Never mix content between sections.
 
+**MANDATORY CURSOR-RULES-MANAGEMENT COMPLIANCE**: Before ANY .mdc file creation or update, MUST follow .cursor/rules/rule-framework-v2/cursor-rules-management.mdc procedures exactly. This ensures Cursor IDE compatibility and prevents file corruption.
+
 Keep logs and status updates concise; avoid narrative fluff.
 
 Epic Step Stages (Integrated Workflow)
 Epic work follows a 3-stage process for each step: BLUEPRINT → CONSTRUCT → VALIDATE
 
-1 · BLUEPRINT STAGE (planning)
+1 · BLUEPRINT STAGE (planning with mandatory architecture integration)
 - Before writing any implementation code, switch to the BLUEPRINT stage for the current epic step.
-- Always double check our .cursor/rules/rule-framework-v2/architecture/index.mdc for domain navigation and .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc for framework compliance - these contain comprehensive overview of our architecture we want to make sure our plan is in alignment with our existing architecture. 
-- You must always check our .cursor/rules/rule-framework-v2/epic-registry.mdc to identify the current epic and step being worked on. Then read the specific epic file from .cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc for detailed step requirements and acceptance criteria.
+- **ARCHITECTURE CONSULTATION** (MANDATORY): Execute TRIGGER_EPIC_BLUEPRINT_STAGE from .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc which automatically:
+  - Reads architecture/core/patterns.mdc for mandatory patterns
+  - Consults relevant domain-specific architecture files based on epic step scope
+  - Reviews architecture/decisions/ for relevant ADRs
+  - Documents architecture consultation in epic step stage checkboxes
+  - Identifies architecture changes needed for step implementation
+- Check .cursor/rules/rule-framework-v2/epic-registry.mdc to identify the current epic and step being worked on. Then read the specific epic file from .cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc for detailed step requirements and acceptance criteria.
 - Blueprint planning should always be cross-referenced with our global cursor rule .cursor/rules/rule-framework-v2/rules.mdc , all the rules defined there must be followed. 
-- Think step-by-step: draft a very detailed plan covering all step requirements and acceptance criteria. Often our process crashes and we have to restart it, so our plan should be comprehensive and very detailed so we can continue without losing any details. Make sure that each implementation task is not too large. Plan should always include steps to write or update any relevant documentation and cursor rule docs with relevant information. 
+- Think step-by-step: draft a very detailed plan covering all step requirements and acceptance criteria. Often our process crashes and we have to restart it, so our plan should be comprehensive and very detailed so we can continue without losing any details. Make sure that each implementation task is not too large. Plan should always include steps to write or update any relevant architecture documentation following architecture-lifecycle.mdc standards.
+- **MANDATORY cursor-rules-management.mdc COMPLIANCE**: If blueprint requires creating new .mdc files or updating existing ones, MUST execute cursor-rules-management.mdc CREATE_MDC_FILE or UPDATE_MDC_FILE operations to ensure Cursor IDE compatibility.
 - Update the epic progress table to show BLUEPRINT stage status and update step stage checkboxes.
 - When the plan is ready, set epic step stage to BLUEPRINT and explicitly ask the user for confirmation.
 
-2 · CONSTRUCT STAGE (implementation)
+2 · CONSTRUCT STAGE (implementation with mandatory architecture updates)
 - Adhere strictly to the approved plan and step requirements.
 - Produce code that is correct, secure, performant, and idiomatic. We want modular architecture that is highly re-usable. 
-- When implementing architectural changes, update relevant architecture domain files following .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc framework requirements for proper organization and compliance.
+- **ARCHITECTURE UPDATES** (MANDATORY): Execute TRIGGER_EPIC_CONSTRUCT_STAGE from .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc which automatically:
+  - ALL architecture file operations MUST follow cursor-rules-management.mdc procedures
+  - Updates relevant architecture domain files with new patterns/decisions
+  - Follows file size limits (500 lines max, 300 for indexes)
+  - Includes proper metadata headers in any new architecture files
+  - Updates domain index files if new files created
+  - Maintains cross-reference integrity
+- **MANDATORY cursor-rules-management.mdc COMPLIANCE**: ALL .mdc file creation/updates during CONSTRUCT stage MUST use cursor-rules-management.mdc operations to preserve Cursor IDE metadata requirements.
 - Prioritise readability over premature optimisation. Prioritise code quality over time to write the code. We don't mind taking extra time to write quality code.
 - Leave no TODOs, placeholders, or incomplete stubs. Never leave any issues broken or not fixed. 
 - Include all imports/dependencies and use conventional naming.
 - Run tests/linters after each atomic change; document the results.
 - Update epic progress table to show CONSTRUCT stage status and update step stage checkboxes as work progresses.
 
-3 · VALIDATE STAGE (final checks)
+3 · VALIDATE STAGE (final checks with architecture compliance)
 - Re-run the full test suite and any E2E checks.
 - Validate all acceptance criteria for the current step are met.
+- **ARCHITECTURE COMPLIANCE** (MANDATORY): Execute TRIGGER_EPIC_VALIDATE_STAGE from .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc which automatically:
+  - ALL validations MUST follow cursor-rules-management.mdc standards
+  - Verifies all architecture changes documented correctly
+  - Validates file size compliance (≤500 lines)
+  - Checks cross-reference integrity
+  - Confirms architecture impact documented in epic step
+  - Updates architecture changelog if needed
+- **MANDATORY cursor-rules-management.mdc VALIDATION**: Execute cursor-rules-management.mdc validation checklist to ensure all .mdc files maintain proper Cursor IDE metadata format.
 - Update epic progress table to show VALIDATE stage status.
 - On successful validation, mark step as COMPLETED in epic progress table.
+- **STEP COMPLETION ARCHITECTURE FINALIZATION** (MANDATORY): Execute TRIGGER_EPIC_STEP_COMPLETION from .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc which automatically:
+  - Finalizes all architecture file updates from step
+  - Updates architecture domain indexes with any new files
+  - Documents architectural evolution in architecture/decisions/
+  - Verifies epic step architecture impact is accurately documented
+  - Prepares architecture context for next epic step
 - Update epic registry with new progress percentage.
 - Prepare next step or complete epic if all steps finished.
 
@@ -50,7 +79,9 @@ Epic Progress Tracking
 
 Automatic House-Keeping Rules
 Rule	Trigger	Action
+RULE_CURSOR_RULES_COMPLIANCE_01	ANY .mdc file creation/update	Execute cursor-rules-management.mdc compliance procedures (CREATE_MDC_FILE or UPDATE_MDC_FILE) to ensure Cursor IDE metadata requirements
 RULE_EPIC_PROGRESS_01	Stage change in epic step	Update epic progress table with new stage and progress percentage
+RULE_ARCHITECTURE_INTEGRATION_01	Epic step stage change	Execute corresponding architecture-lifecycle.mdc trigger (BLUEPRINT/CONSTRUCT/VALIDATE/COMPLETION)
 RULE_EPIC_COMPLETION_01	All steps completed in epic	Update epic status to COMPLETED in registry and epic file
 RULE_SUMMARY_01	Epic step completed	Prepend a one-sentence summary as a new list item under ## Changelog in project-config.mdc.
 
@@ -65,9 +96,11 @@ Step Stage Execution Checklist
 Stay disciplined: blueprint → seek approval → construct → validate → advance to next step.
 
 Integration Rules
+✅ **MANDATORY CURSOR-RULES-MANAGEMENT COMPLIANCE**: Before ANY .mdc file operation, execute .cursor/rules/rule-framework-v2/cursor-rules-management.mdc procedures for Cursor IDE compatibility
 ✅ Consult .cursor/rules/rule-framework-v2/epic-lifecycle-rules.mdc for all epic lifecycle automation rules
 ✅ Consult .cursor/rules/rule-framework-v2/epic-registry.mdc for current epic discovery and status tracking
 ✅ Read specific epic file .cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc for detailed step context
+✅ **MANDATORY ARCHITECTURE INTEGRATION**: Execute .cursor/rules/rule-framework-v2/architecture-lifecycle.mdc triggers at every epic stage
 ✅ Consult .cursor/rules/rule-framework-v2/architecture/core/patterns.mdc for mandatory architectural patterns (Dual User ID, etc.)
 ✅ Never modify epic goals, requirements, or acceptance criteria - only update designated progress tracking areas
 

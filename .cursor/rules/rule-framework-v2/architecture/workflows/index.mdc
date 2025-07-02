@@ -1,16 +1,15 @@
 ---
-description: Fast lookup index for workflow architecture patterns - integration of architecture into epic planning and development processes
-globs: 
+description: Navigate workflow architecture patterns - integration of architecture into epic planning and development processes
 alwaysApply: false
 ---
-
 # Workflows Architecture Index
 **🔍 Fast Lookup - Workflow Domain Files**
 
-## 🤖 AI Instructions
-**When to use**: Navigate workflow architecture patterns - integration of architecture into epic planning and development processes
-**How to use**: Scan table → identify workflow → apply integration patterns
-**Context**: Database-style index for workflow architecture integration
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Navigate workflow architecture patterns - integration of architecture into epic planning and development processes
+**MANDATORY FOR**: Epic planning with architecture integration, development process workflow patterns, and architecture checkpoint validation
+**PRIMARY FUNCTION**: Provide database-style index for workflow architecture integration patterns
+**CRITICAL**: Ensures proper integration of architecture validation and compliance throughout epic and development workflows
 
 ## 📊 WORKFLOWS FILE INDEX
 

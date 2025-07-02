@@ -1,371 +1,689 @@
 ---
-description: Any time any architecture docs (cursor rules) need to be generated or updated should be referenced. Contains rules on how our architecture docs lifecycle operates with v3.0 epic system integration.
+description: Before ANY architecture file creation/modification, during epic BLUEPRINT stages, when implementing architectural changes
+alwaysApply: false
+---
+
+# Architecture Lifecycle Framework - AI Operations v3.0
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Before ANY architecture file creation/modification, during epic BLUEPRINT stages, when implementing architectural changes
+**MANDATORY TRIGGERS**: Epic step BLUEPRINT stage, CONSTRUCT stage architecture updates, VALIDATE stage compliance checks
+**PRIMARY FUNCTION**: Enforce architecture standards, file organization, epic integration compliance
+**INTEGRATION**: Automatic execution during epic lifecycle stages via epic-lifecycle-rules.mdc
+
+## 🚨 MANDATORY CURSOR-RULES-MANAGEMENT COMPLIANCE
+
+### **CRITICAL REQUIREMENT: ALL MDC File Operations MUST Follow cursor-rules-management.mdc**
+- ✅ **BEFORE ANY FILE OPERATION**: Execute cursor-rules-management.mdc compliance procedures
+- ✅ **FILE CREATION**: Use cursor-rules-management.mdc CREATE_MDC_FILE operation exclusively
+- ✅ **FILE UPDATES**: Use cursor-rules-management.mdc UPDATE_MDC_FILE operation exclusively  
+- ✅ **METADATA REQUIREMENTS**: Follow cursor-rules-management.mdc metadata templates exactly
+- ✅ **CURSOR IDE COMPATIBILITY**: Ensure metadata starts line 1, proper --- delimiters, YAML format
+
+### **Integration Points with cursor-rules-management.mdc**
+- **CREATE_ARCHITECTURE_FILE** → **MANDATORY**: cursor-rules-management.mdc CREATE_MDC_FILE
+- **UPDATE_ARCHITECTURE_FILE** → **MANDATORY**: cursor-rules-management.mdc UPDATE_MDC_FILE  
+- **VALIDATE_ARCHITECTURE_COMPLIANCE** → **MANDATORY**: cursor-rules-management.mdc validation checklist
+- **ERROR_HANDLING** → **MANDATORY**: cursor-rules-management.mdc auto-repair procedures
+
+### **Zero Tolerance Policy**
+- **MDC file operations without cursor-rules-management.mdc compliance are FORBIDDEN**
+- **Cursor IDE requirements are NON-NEGOTIABLE** (metadata format, file location)
+- **Architecture file corruption prevention through mandatory compliance**
+
+## 🚨 MANDATORY AI TRIGGERS (AUTO-EXECUTE)
+
+### **TRIGGER_EPIC_BLUEPRINT_STAGE** (ALWAYS EXECUTE)
+```
+CONDITION: Epic step enters BLUEPRINT stage
+OPERATION: Architecture consultation mandatory
+LOCATION: Current epic file step stage checklist
+REQUIRED_ACTIONS:
+  1. Read architecture/core/patterns.mdc (MANDATORY)
+  2. Consult domain-specific architecture files based on epic step scope
+  3. Review architecture/decisions/ for relevant ADRs
+  4. Document architecture consultation in epic step stage checkboxes
+  5. Identify architecture changes needed for step implementation
+STATUS: Update epic progress table - BLUEPRINT stage architecture consultation complete
+```
+
+### **TRIGGER_EPIC_CONSTRUCT_STAGE** (ALWAYS EXECUTE)
+```
+CONDITION: Epic step in CONSTRUCT stage AND architectural changes planned
+OPERATION: Update architecture files during implementation
+LOCATION: Architecture domain files specified in epic step
+REQUIRED_ACTIONS:
+  1. Update relevant architecture domain files with new patterns/decisions
+  2. Follow file size limits (500 lines max, 300 for indexes)
+  3. Include proper metadata headers in any new architecture files
+  4. Update domain index files if new files created
+  5. Maintain cross-reference integrity
+STATUS: Update epic progress table - CONSTRUCT stage architecture updates complete
+```
+
+### **TRIGGER_EPIC_VALIDATE_STAGE** (ALWAYS EXECUTE)
+```
+CONDITION: Epic step enters VALIDATE stage
+OPERATION: Verify architecture compliance and documentation
+LOCATION: Architecture files and epic step documentation
+REQUIRED_ACTIONS:
+  1. Verify all architecture changes documented correctly
+  2. Validate file size compliance (≤500 lines)
+  3. Check cross-reference integrity
+  4. Confirm architecture impact documented in epic step
+  5. Update architecture changelog if needed
+STATUS: Update epic progress table - VALIDATE stage architecture compliance verified
+```
+
+### **TRIGGER_EPIC_STEP_COMPLETION** (ALWAYS EXECUTE)
+```
+CONDITION: Epic step marked COMPLETED
+OPERATION: Archive architecture changes and update documentation
+LOCATION: Architecture domain files and epic registry
+REQUIRED_ACTIONS:
+  1. Finalize all architecture file updates from step
+  2. Update architecture domain indexes with any new files
+  3. Document architectural evolution in architecture/decisions/
+  4. Verify epic step architecture impact is accurately documented
+  5. Prepare architecture context for next epic step
+STATUS: Update epic registry - Architecture changes documented for completed step
+```
+
+## 📁 AI NAVIGATION MAP (FAST LOOKUP)
+
+### **Domain Routing Table**
+```
+CORE_PATTERNS → architecture/core/patterns.mdc
+DECISIONS → architecture/decisions/index.mdc
+WORKFLOWS → architecture/workflows/index.mdc
+
+FRONTEND → architecture/frontend/index.mdc
+BACKEND → architecture/backend/index.mdc
+MOBILE → architecture/mobile/index.mdc
+DESKTOP → architecture/desktop/index.mdc
+DATABASE → architecture/database/index.mdc
+API_SERVICES → architecture/api/index.mdc
+
+INFRASTRUCTURE → architecture/infrastructure/index.mdc
+DEVOPS → architecture/infrastructure/devops.mdc
+SECURITY → architecture/security/index.mdc
+INTEGRATION → architecture/integration/index.mdc
+TESTING → architecture/testing/index.mdc
+PERFORMANCE → architecture/performance/index.mdc
+MONITORING → architecture/monitoring/index.mdc
+ANALYTICS → architecture/analytics/index.mdc
+```
+
+### **File Creation Decision Tree**
+```
+NEW_ARCHITECTURE_FILE_NEEDED?
+├─ PLATFORM SPECIFIC
+│   ├─ Web frontend → architecture/frontend/[category].mdc
+│   ├─ Server backend → architecture/backend/[category].mdc
+│   ├─ Mobile app → architecture/mobile/[platform].mdc
+│   └─ Desktop app → architecture/desktop/[platform].mdc
+├─ DATA & SERVICES
+│   ├─ Database work → architecture/database/[db-type].mdc
+│   ├─ API design → architecture/api/[service-type].mdc
+│   └─ Integration → architecture/integration/[system].mdc
+├─ OPERATIONS & QUALITY
+│   ├─ Infrastructure → architecture/infrastructure/[component].mdc
+│   ├─ Security → architecture/security/[domain].mdc
+│   ├─ Testing → architecture/testing/[test-type].mdc
+│   ├─ Performance → architecture/performance/[optimization].mdc
+│   └─ Monitoring → architecture/monitoring/[metrics].mdc
+├─ CROSS-CUTTING
+│   ├─ Core pattern → architecture/core/[topic].mdc
+│   ├─ Major decision → architecture/decisions/[topic]-decisions.mdc
+│   ├─ Workflow integration → architecture/workflows/[process].mdc
+│   └─ Analytics → architecture/analytics/[tracking].mdc
+```
+
+## 🔄 ARCHITECTURE FILE OPERATIONS (AI EXECUTION)
+
+### **CREATE_ARCHITECTURE_FILE**
+```
+PRECONDITIONS:
+  1. File size projection ≤ 500 lines (300 for indexes)
+  2. Proper domain placement identified
+  3. File name follows naming convention
+  4. MANDATORY: cursor-rules-management.mdc compliance verified
+
+EXECUTION_STEPS:
+  1. MANDATORY: Execute cursor-rules-management.mdc CREATE_MDC_FILE operation
+  2. Create file at .cursor/rules/rule-framework-v2/architecture/[domain]/[file].mdc
+  3. Use architecture rule template from cursor-rules-management.mdc exactly
+  4. MANDATORY: Include AI CONTEXT DESCRIPTION section with all four fields
+  5. Structure content following domain patterns
+  6. Update relevant domain index file
+  7. Add cross-references as needed
+
+VALIDATION:
+  1. MANDATORY: cursor-rules-management.mdc compliance checklist completed
+  2. File location: .cursor/rules/rule-framework-v2/ (verified)
+  3. Metadata header starts on line 1 with --- (verified)
+  4. YAML format and required fields present (verified)
+  5. MANDATORY: AI CONTEXT DESCRIPTION header with all four fields present
+  6. File size within limits
+  7. Domain index updated
+  8. Cross-references valid
+
+POST_ACTIONS:
+  1. Update epic step architecture impact documentation
+  2. Log architecture file creation in epic progress tracking
+  3. MANDATORY: Confirm Cursor IDE compatibility via cursor-rules-management.mdc
+```
+
+### **UPDATE_ARCHITECTURE_FILE**
+```
+PRECONDITIONS:
+  1. File exists and is identified
+  2. Changes align with epic step requirements
+  3. File size will remain ≤ 500 lines after update
+  4. MANDATORY: cursor-rules-management.mdc compliance required
+
+EXECUTION_STEPS:
+  1. MANDATORY: Execute cursor-rules-management.mdc UPDATE_MDC_FILE operation
+  2. Load current file content and preserve metadata exactly
+  3. Apply updates ONLY below second --- line (cursor-rules-management.mdc requirement)
+  4. Follow established patterns from cursor-rules-management.mdc
+  5. Validate cross-references remain intact
+  6. Verify AI Instructions remain accurate
+
+VALIDATION:
+  1. MANDATORY: cursor-rules-management.mdc UPDATE_MDC_FILE validation completed
+  2. Metadata preservation verified (no changes to header)
+  3. Content updates only below second --- line (verified)
+  4. File size within limits
+  5. Content consistency maintained
+  6. Cross-references functional
+  7. Changes properly documented
+
+POST_ACTIONS:
+  1. Update epic step with architecture changes made
+  2. Log specific updates in epic progress tracking
+  3. MANDATORY: Execute cursor-rules-management.mdc post-update validation
+```
+
+### **VALIDATE_ARCHITECTURE_COMPLIANCE**
+```
+EXECUTION_STEPS:
+  1. Check all architecture files ≤ 500 lines (300 for indexes)
+  2. Verify metadata headers present on all files
+  3. Validate cross-reference integrity
+  4. Confirm domain organization compliance
+  5. Check AI Instructions accuracy
+
+ERROR_HANDLING:
+  1. Size violations → Split file following domain patterns
+  2. Missing metadata → Generate from AI Instructions
+  3. Broken references → Update or remove
+  4. Misplaced files → Move to correct domain
+  5. Missing AI Instructions → Generate from file purpose
+
+REPORTING:
+  1. Log compliance status in epic progress table
+  2. Document any fixes applied
+  3. Update architecture health metrics
+```
+
+## 📊 MANDATORY FILE STANDARDS (ENFORCED)
+
+### **Metadata Header Template** (REQUIRED)
+```yaml
+---
+description: [COPY EXACT TEXT FROM "WHEN TO USE" IN AI INSTRUCTIONS]
 globs: 
 alwaysApply: false
 ---
-# Architecture Lifecycle Framework
-**AI-Optimized Architecture Documentation Generation & Navigation System**
-
-## 🤖 AI USAGE INSTRUCTIONS
-**When to use**: ALWAYS reference this file before generating, modifying, or accessing architecture documentation
-**How to use**: Follow domain categorization, file organization, and generation patterns exactly as specified
-**Context Priority**: This file provides complete AI navigation framework - reference first, then access specific domains
-
-## 🚨 MANDATORY FRAMEWORK RULES
-
-### Rule 1: Domain-Based Organization (CRITICAL)
-**Location**: ALL architecture files MUST be in `/.cursor/rules/rule-framework-v2/architecture/` directory
-**Structure**: Organized by domains, categories, and topics for optimal AI navigation
-**File Limit**: Maximum 500 lines per file (NO EXCEPTIONS)
-**Index Limit**: Maximum 300 lines for index files
-
-### Rule 2: AI-First Design (MANDATORY)
-**Purpose**: Optimize for AI consumption, not human readability
-**Context Awareness**: Minimize content, maximize actionable guidance
-**Navigation**: Clear domain/category/topic hierarchy for instant AI lookup
-**Instructions**: Every file MUST include AI usage instructions
-
-### Rule 3: Metadata & Cursor Integration (MANDATORY)
-**Metadata Headers**: All architecture files MUST include proper cursor rule metadata
-**Description Sync**: "When to use" from AI Instructions MUST match metadata description
-**AlwaysApply**: MUST be set to false for all architecture files
-**Integration**: Seamless integration with Cursor's rule system
-
-### Rule 4: Self-Enforcing Maintenance (AUTOMATED)
-**Compliance**: Continuous monitoring of file sizes, organization, and cross-references
-**Quality Gates**: Block creation of oversized or incorrectly organized files
-**Automation**: Self-healing systems for common compliance issues
-**Index Optimization**: Continuous monitoring of index efficiency and navigation speed
-
-### Rule 5: Index File Optimization (MANDATORY)
-**Purpose**: Enforce database-style fast lookup structures for all index files
-**Standard**: Index files must function as instant navigation tools, not narrative documents
-**Structure**: Table-based file listings with "When to Use" and "Contains" columns
-**Speed**: AI must be able to scan and navigate in under 2 seconds
-
-### Rule 6: Metadata Header Compliance (MANDATORY)
-**Purpose**: Ensure all architecture files have proper Cursor rule metadata headers
-**Standard**: ALL architecture files MUST include YAML metadata at the beginning
-**Format**: Exact structure with description copied from AI Instructions and alwaysApply: false
-**Validation**: Automated checking with zero tolerance for missing or incomplete metadata
-
-#### **Required Metadata Structure**
-```yaml
----
-description: [Copy exact text from "When to use" in AI Instructions section]
-alwaysApply: false
----
 ```
+**MANDATORY COMPLIANCE**: Use cursor-rules-management.mdc architecture rule template EXACTLY
+**CURSOR IDE REQUIREMENT**: Metadata MUST start on line 1, exactly 3 dashes, proper YAML format
 
-#### **Compliance Enforcement**
-- **Pre-creation**: Block creation of architecture files without proper metadata
-- **Modification**: Validate metadata presence on every file edit
-- **Audit**: Regular automated scanning for metadata compliance
-- **Repair**: Automated metadata generation from AI Instructions when missing
-
-## 📁 ARCHITECTURE DOMAIN STRUCTURE
-
-### Core Architecture Directory: `/.cursor/rules/rule-framework-v2/architecture/`
-
-```
-/.cursor/rules/rule-framework-v2/architecture/
-├── index.mdc                    # Master navigation (300 lines max)
-├── core/
-│   ├── index.mdc               # Fast lookup table of core files
-│   ├── patterns.mdc            # Dual User ID System + Critical patterns
-│   └── maintenance.mdc         # Architecture maintenance automation
-├── frontend/
-│   ├── index.mdc               # Fast lookup table of frontend files
-│   ├── guidelines.mdc          # MANDATORY development principles
-│   ├── technical.mdc           # Nuxt.js/Vue patterns
-│   ├── components.mdc          # UI component patterns
-│   ├── security.mdc            # Clerk auth patterns
-│   ├── infrastructure.mdc      # Performance/deployment
-│   └── utilities/
-│       ├── component-audit.mdc  # Template component inventory
-│       ├── materialize-templates.mdc
-│       ├── project-structure.mdc
-│       ├── logo-and-layout.mdc
-│       └── profile-menu.mdc
-├── backend/
-│   ├── index.mdc               # Fast lookup table of backend files
-│   ├── guidelines.mdc          # MANDATORY development principles
-│   ├── technical.mdc           # Encore.ts patterns
-│   ├── domain.mdc              # Service boundaries
-│   ├── integrations.mdc        # External APIs
-│   ├── infrastructure.mdc      # Database/deployment patterns
-│   └── security/
-│       ├── index.mdc           # Fast lookup table of security files
-│       ├── authentication.mdc  # Auth middleware patterns
-│       ├── authorization.mdc   # RBAC patterns
-│       └── integrations.mdc    # External service security
-├── decisions/
-│   ├── index.mdc               # Fast lookup table of ADR files
-│   ├── core-decisions.mdc      # Core architecture ADRs
-│   ├── frontend-decisions.mdc  # Frontend ADRs
-│   └── backend-decisions.mdc   # Backend ADRs
-└── workflows/
-    ├── index.mdc               # Fast lookup table of workflow files
-    ├── epic-integration.mdc    # Epic architecture patterns
-    └── development.mdc         # Development workflows
-```
-
-## 🎯 AI NAVIGATION PATTERNS
-
-### Level 1: Domain Identification
-**AI Decision Tree**:
-```
-IF (frontend development) → /.cursor/rules/rule-framework-v2/architecture/frontend/
-IF (backend development) → /.cursor/rules/rule-framework-v2/architecture/backend/
-IF (core patterns needed) → /.cursor/rules/rule-framework-v2/architecture/core/
-IF (architectural decision) → /.cursor/rules/rule-framework-v2/architecture/decisions/
-IF (workflow guidance) → /.cursor/rules/rule-framework-v2/architecture/workflows/
-```
-
-### Level 2: Category Selection
-**Within Each Domain**:
-- `guidelines.mdc` - MANDATORY development principles (START HERE)
-- `technical.mdc` - Framework/technology implementation patterns
-- `security.mdc` - Authentication/authorization patterns
-- `infrastructure.mdc` - Deployment/performance patterns
-
-### Level 3: Topic Access
-**AI Lookup Pattern**:
-1. Check domain index for topic location
-2. Access specific file for detailed patterns
-3. Apply patterns to current development context
-
-## 📋 FILE GENERATION STANDARDS
-
-### Every Architecture File MUST Include:
-
-#### Cursor Rule Metadata Header:
+### **AI CONTEXT DESCRIPTION Template** (MANDATORY)
 ```markdown
----
-description: [Copy the "When to use" description from AI Instructions section]
-alwaysApply: false
----
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: [Specific triggers for AI to use this file]
+**MANDATORY FOR**: [Specific scenarios where this file is required]
+**PRIMARY FUNCTION**: [Main purpose and functionality of this file]
+**CRITICAL**: [Critical information AI must understand about this file]
 ```
+**ENFORCEMENT**: ALL architecture files MUST include this exact header format with all four fields
 
-#### File Header Template:
+### **Index File Structure** (MANDATORY)
 ```markdown
-# [FILE_TITLE]
-**[ONE_LINE_PURPOSE]**
+# [Domain] Architecture Index
+**🔍 Fast Lookup - [Domain] Files**
 
 ## 🤖 AI Instructions
-**When to use**: [Specific scenarios when AI should reference this file]
-**How to use**: [Exact steps for AI to apply this content]
-**Context**: [How this relates to other architecture files]
-
-## Content Sections...
-```
-
-#### INDEX FILE SPECIFIC REQUIREMENTS (MANDATORY):
-```markdown
-# [DOMAIN] Architecture Index
-**🔍 Fast Lookup - [Domain] Domain Files**
-
-## 🤖 AI Instructions
-**When to use**: Navigate [domain] architecture files - instant lookup
-**How to use**: Scan table → identify need → go to specific file
-**Context**: Database-style index for [domain] architecture navigation
+**When to use**: Navigate [domain] architecture - instant lookup for [specific scenarios]
+**How to use**: Scan table → identify file → apply patterns
+**Context**: Database-style index for [domain] architecture
 
 ## 📊 [DOMAIN] FILE INDEX
 
-### 🚨 **MANDATORY START** (Use Every Time)
 | **File** | **When to Use** | **Line Count** | **Contains** |
 |----------|-----------------|----------------|--------------|
-| `file.mdc` | Description | ### lines | Content summary |
+| file.mdc | Trigger description | ### lines | Content summary |
 
-### 🏗️ **Category Name** (Purpose)
-| **File** | **When to Use** | **Line Count** | **Contains** |
-|----------|-----------------|----------------|--------------|
-| `file.mdc` | Description | ### lines | Content summary |
-
-## ⚡ **QUICK DECISION PATHS**
-```
-🎯 WHAT ARE YOU BUILDING?
-├─ Use case 1 → file1.mdc + file2.mdc
-├─ Use case 2 → file3.mdc + core/patterns.mdc
-└─ Use case 3 → file4.mdc
-```
+## ⚡ QUICK DECISION PATHS
+[ASCII decision tree for common use cases]
 ```
 
-#### INDEX QUALITY STANDARDS:
-- **Table Format**: All files listed in markdown tables with consistent columns
-- **Line Counts**: Include actual line counts for size awareness
-- **Decision Trees**: Quick ASCII decision trees for common use cases
-- **Speed Optimization**: Scannable in under 2 seconds by AI
-- **No Narrative**: Eliminate verbose descriptions, focus on lookup speed
+## 🏗️ DOMAIN-SPECIFIC STANDARDS (COMPREHENSIVE)
 
-#### AI Usage Guidelines:
-- **When to use**: Specific triggers for AI to access this file (COPY TO METADATA DESCRIPTION)
-- **How to use**: Step-by-step application instructions
-- **Dependencies**: References to other required architecture files
-- **Context**: Integration with broader architecture framework
+### **Platform Domains**
 
-#### Cross-Reference Pattern:
+#### **Frontend Architecture** (`architecture/frontend/`)
+**Common Files**:
+- `components.mdc` - UI component patterns and design system integration
+- `state-management.mdc` - Application state patterns (Redux, Context, etc.)
+- `routing.mdc` - Navigation and routing architecture
+- `performance.mdc` - Frontend optimization patterns and metrics
+- `accessibility.mdc` - A11y compliance and implementation patterns
+- `testing.mdc` - Frontend testing strategies (unit, integration, E2E)
+
+#### **Backend Architecture** (`architecture/backend/`)
+**Common Files**:
+- `api-design.mdc` - REST/GraphQL API patterns and conventions
+- `data-access.mdc` - Database access patterns and ORM usage
+- `middleware.mdc` - Request processing and middleware patterns
+- `authentication.mdc` - Auth patterns and security implementation
+- `caching.mdc` - Caching strategies and implementation patterns
+- `services.mdc` - Business logic and service layer patterns
+
+#### **Mobile Architecture** (`architecture/mobile/`)
+**Common Files**:
+- `platform-patterns.mdc` - iOS/Android specific patterns
+- `cross-platform.mdc` - React Native, Flutter, Xamarin patterns
+- `offline-support.mdc` - Offline-first architecture and sync patterns
+- `push-notifications.mdc` - Notification service integration patterns
+- `app-store.mdc` - Deployment and release management patterns
+- `device-integration.mdc` - Hardware integration patterns (camera, GPS, etc.)
+
+#### **Desktop Architecture** (`architecture/desktop/`)
+**Common Files**:
+- `framework-patterns.mdc` - Electron, Qt, WPF, etc. patterns
+- `system-integration.mdc` - OS-specific integration patterns
+- `packaging.mdc` - Application packaging and distribution patterns
+- `updates.mdc` - Auto-update and version management patterns
+- `security.mdc` - Desktop security patterns and sandboxing
+- `performance.mdc` - Memory and CPU optimization patterns
+
+### **Data & Service Domains**
+
+#### **Database Architecture** (`architecture/database/`)
+**Common Files**:
+- `schema-design.mdc` - Database schema patterns and normalization
+- `migration.mdc` - Database migration strategies and versioning
+- `indexing.mdc` - Index design and query optimization patterns
+- `replication.mdc` - Database replication and clustering patterns
+- `backup.mdc` - Backup and disaster recovery patterns
+- `scaling.mdc` - Database scaling patterns (sharding, partitioning)
+
+#### **API Architecture** (`architecture/api/`)
+**Common Files**:
+- `rest-patterns.mdc` - RESTful API design patterns and conventions
+- `graphql-patterns.mdc` - GraphQL schema and resolver patterns
+- `versioning.mdc` - API versioning strategies and migration patterns
+- `documentation.mdc` - API documentation and testing patterns
+- `rate-limiting.mdc` - Rate limiting and throttling patterns
+- `error-handling.mdc` - API error response and handling patterns
+
+#### **Integration Architecture** (`architecture/integration/`)
+**Common Files**:
+- `external-apis.mdc` - Third-party API integration patterns
+- `webhooks.mdc` - Webhook implementation and handling patterns
+- `message-queues.mdc` - Message queue and event-driven patterns
+- `data-sync.mdc` - Data synchronization patterns between systems
+- `etl-patterns.mdc` - Extract, Transform, Load patterns
+- `event-sourcing.mdc` - Event sourcing and CQRS patterns
+
+### **Operations & Quality Domains**
+
+#### **Infrastructure Architecture** (`architecture/infrastructure/`)
+**Common Files**:
+- `deployment.mdc` - Deployment patterns and environment management
+- `containerization.mdc` - Docker and Kubernetes patterns
+- `networking.mdc` - Network architecture and service mesh patterns
+- `storage.mdc` - Storage solutions and data persistence patterns
+- `scalability.mdc` - Auto-scaling and load balancing patterns
+- `disaster-recovery.mdc` - Backup and recovery strategy patterns
+
+#### **Security Architecture** (`architecture/security/`)
+**Common Files**:
+- `authentication.mdc` - Identity and access management patterns
+- `authorization.mdc` - Permission and role-based access patterns
+- `encryption.mdc` - Data encryption and key management patterns
+- `compliance.mdc` - Regulatory compliance patterns (GDPR, SOC2, etc.)
+- `threat-modeling.mdc` - Security threat analysis patterns
+- `penetration-testing.mdc` - Security testing and validation patterns
+
+#### **Testing Architecture** (`architecture/testing/`)
+**Common Files**:
+- `test-strategies.mdc` - Testing pyramid and strategy patterns
+- `automation.mdc` - CI/CD and test automation patterns
+- `performance-testing.mdc` - Load and stress testing patterns
+- `security-testing.mdc` - Security and vulnerability testing patterns
+- `contract-testing.mdc` - API contract testing patterns
+- `e2e-testing.mdc` - End-to-end testing patterns and frameworks
+
+#### **Performance Architecture** (`architecture/performance/`)
+**Common Files**:
+- `optimization.mdc` - Code and system optimization patterns
+- `profiling.mdc` - Performance profiling and analysis patterns
+- `caching.mdc` - Caching strategies and implementation patterns
+- `cdn.mdc` - Content delivery network patterns
+- `database-optimization.mdc` - Database performance patterns
+- `frontend-performance.mdc` - Frontend optimization patterns
+
+#### **Monitoring Architecture** (`architecture/monitoring/`)
+**Common Files**:
+- `logging.mdc` - Structured logging and log management patterns
+- `metrics.mdc` - Application and system metrics patterns
+- `alerting.mdc` - Alert management and notification patterns
+- `tracing.mdc` - Distributed tracing and observability patterns
+- `dashboards.mdc` - Monitoring dashboard and visualization patterns
+- `health-checks.mdc` - System health monitoring patterns
+
+#### **Analytics Architecture** (`architecture/analytics/`)
+**Common Files**:
+- `data-collection.mdc` - User and system data collection patterns
+- `reporting.mdc` - Business intelligence and reporting patterns
+- `user-tracking.mdc` - User behavior tracking patterns
+- `ab-testing.mdc` - A/B testing and experimentation patterns
+- `data-pipeline.mdc` - Analytics data pipeline patterns
+- `privacy.mdc` - Privacy-compliant analytics patterns
+
+### **Domain Creation Guidelines**
+
+#### **When to Create New Domain**
+- **5+ Related Files**: When a topic accumulates 5+ architecture files
+- **Distinct Concerns**: When topic has unique patterns not covered by existing domains
+- **Cross-Platform Impact**: When patterns affect multiple platforms or systems
+- **Specialized Expertise**: When domain requires specialized knowledge or tools
+
+#### **Domain Organization Patterns**
+```
+architecture/[domain]/
+├── index.mdc                    # Domain navigation and quick lookup
+├── patterns.mdc                 # Core patterns specific to domain
+├── [platform-specific].mdc     # Platform/technology specific patterns
+├── integration.mdc              # How domain integrates with others
+└── [subdomain]/                 # Sub-folders when domain grows >5 files
+    ├── index.mdc               # Sub-domain navigation
+    └── [specific-files].mdc    # Focused topic files
+```
+
+#### **Domain Index Template**
 ```markdown
-**Related Files**:
-- [Dependency] → `/.cursor/rules/rule-framework-v2/architecture/domain/file.mdc`
-- [Integration] → `/.cursor/rules/rule-framework-v2/architecture/domain/file.mdc`
+# [Domain] Architecture Index
+**🔍 Fast Lookup - [Domain] Files**
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: [Domain-specific triggers and scenarios]
+**MANDATORY FOR**: [Required usage scenarios for this domain]
+**PRIMARY FUNCTION**: [Main purpose of this domain's architecture]
+**CRITICAL**: [Critical domain-specific information]
+
+## 📊 [DOMAIN] FILE INDEX
+| **File** | **When to Use** | **Line Count** | **Contains** |
+|----------|-----------------|----------------|--------------|
+| patterns.mdc | All [domain] work | ### lines | Core [domain] patterns |
+
+## ⚡ QUICK DECISION PATHS
+[Domain-specific decision tree]
+
+## 🔗 RELATED DOMAINS
+- **Core Patterns**: Required foundation patterns
+- **Security**: Security patterns for [domain]
+- **Testing**: Testing strategies for [domain]
+- **[Other domains]**: Integration points and dependencies
 ```
 
-## 🔧 AUTOMATED GENERATION PATTERNS
+## 🎯 EPIC INTEGRATION COMPLIANCE (MANDATORY)
 
-### Pattern 1: New Architecture File Creation
-**AI Process**:
-1. Identify domain/category/topic from content
-2. Check file size limits in target location
-3. Generate with mandatory header template
-4. Update relevant index files
-5. Validate cross-references
+### **BLUEPRINT Stage Architecture Requirements**
+- ✅ **Core Patterns Consultation**: Read architecture/core/patterns.mdc
+- ✅ **Domain Guidelines**: Access relevant domain-specific files
+- ✅ **Decision Context**: Review architecture/decisions/ for ADRs
+- ✅ **Impact Planning**: Document architecture changes needed in epic step
+- ✅ **Compliance Check**: Validate approach against existing patterns
 
-### Pattern 2: File Size Management & Content Distribution
-**When**: File approaches 450+ lines or logical content separation needed
-**AI Process**:
-1. Analyze content for logical separation points
-2. Create domain-appropriate new files or sub-folders if needed
-3. Generate clear index files for navigation
-4. Update parent index files with new structure
-5. Maintain cross-reference integrity
-6. Archive original if completely migrated
+### **CONSTRUCT Stage Architecture Operations**
+- ✅ **File Updates**: Update architecture files during implementation
+- ✅ **Pattern Application**: Follow established architectural patterns exactly
+- ✅ **New File Creation**: Create architecture files if new patterns needed
+- ✅ **Index Maintenance**: Update domain indexes when files added
+- ✅ **Cross-Reference Management**: Maintain link integrity during changes
 
-**Sub-folder Creation Guidelines**:
-- Create sub-folders when domain has 5+ related files
-- Each sub-folder MUST have its own index.mdc
-- Parent index MUST link to sub-folder indices
-- Sub-folder structure: `domain/category/index.mdc` + topic files
+### **VALIDATE Stage Architecture Verification**
+- ✅ **Documentation Verification**: Confirm all architecture changes documented
+- ✅ **Compliance Validation**: Check file sizes, metadata, organization
+- ✅ **Pattern Consistency**: Verify implementation follows architecture patterns
+- ✅ **Impact Accuracy**: Confirm epic step architecture impact documented correctly
+- ✅ **Evolution Tracking**: Update architecture changelog if significant changes
 
-### Pattern 3: Architecture Index Optimization
-**AI Responsibility**:
-1. Keep index files under 300 lines for optimal AI scanning
-2. Design indexes for SPEED - quick navigation, minimal content
-3. Use table format for file listings with "When to Use" and "Contains" columns
-4. Include quick decision trees for common development scenarios
-5. Maintain accurate line counts for all indexed files
-6. Ensure AI lookup patterns remain optimal across all index levels
-7. Eliminate narrative content - focus purely on navigation speed
+### **Step Completion Architecture Finalization**
+- ✅ **Change Archival**: Finalize all architecture updates from step
+- ✅ **Index Updates**: Ensure domain indexes reflect current file structure
+- ✅ **Decision Documentation**: Create ADRs for major architectural decisions
+- ✅ **Epic Documentation**: Update epic with final architecture impact summary
+- ✅ **Next Step Preparation**: Prepare architecture context for subsequent steps
 
-**Index Design Principles**:
-- **Speed First**: Indexes should be scannable in seconds by AI
-- **Table Structure**: Consistent markdown tables for all file listings
-- **Decision Trees**: ASCII trees for instant use case navigation
-- **Line Count Tracking**: Actual file sizes for AI context awareness
-- **No Verbose Content**: Database-style lookup, not documentation
-- **Hierarchical Structure**: Master → Domain → Category → Topic
+## 🚨 AI COMPLIANCE RULES (ZERO TOLERANCE)
 
-## 🚀 AI DEVELOPMENT WORKFLOW INTEGRATION (v3.0 Epic System)
+### **File Size Enforcement** (AUTO-BLOCK)
+- ❌ **Block creation** of files >500 lines (>300 for indexes)
+- ❌ **Block edits** that would exceed size limits
+- ✅ **Auto-suggest** file splitting when approaching limits
+- ✅ **Provide patterns** for proper content distribution
 
-### Epic Step BLUEPRINT Stage (Architecture Consultation)
-**AI Must**:
-1. Consult `epic-lifecycle-rules.mdc` for step-level architecture guidance
-2. Reference domain-specific guidelines for epic step scope  
-3. Validate against core patterns in `/.cursor/rules/rule-framework-v2/architecture/core/`
-4. Document architecture consultation in individual epic file step stage checkboxes
-5. Update epic progress table to reflect BLUEPRINT stage completion
+### **Metadata Compliance** (AUTO-REPAIR)
+- ❌ **Block creation** of architecture files without metadata
+- ✅ **Auto-generate** metadata from AI Instructions when missing
+- ✅ **Validate** metadata accuracy during epic stages
+- ✅ **Sync** description with AI Instructions automatically
 
-### Epic Step CONSTRUCT Stage (Implementation)
-**AI Must**:
-1. START with domain guidelines (`/.cursor/rules/rule-framework-v2/architecture/[domain]/guidelines.mdc`)
-2. Apply core patterns (`/.cursor/rules/rule-framework-v2/architecture/core/`)
-3. Follow technical implementation patterns for the specific epic step
-4. Maintain security and infrastructure standards during step implementation
-5. Update epic progress table to reflect CONSTRUCT stage progress
+### **Epic Integration Enforcement** (MANDATORY)
+- ❌ **Block epic BLUEPRINT** without architecture consultation
+- ❌ **Block epic CONSTRUCT** without planned architecture updates
+- ❌ **Block epic VALIDATE** without architecture compliance check
+- ✅ **Auto-trigger** architecture operations during epic stages
 
-### Epic Step VALIDATE Stage (Architecture Verification)
-**AI Must**:
-1. Verify step implementation follows architecture patterns
-2. Confirm all architecture files remain under 500 lines
-3. Validate cross-reference integrity after step changes
-4. Update architecture documentation if patterns evolved during step
-5. Update epic progress table and registry to reflect step completion
+### **Organization Compliance** (AUTO-CORRECT)
+- ❌ **Block creation** outside architecture/ directory
+- ❌ **Block incorrect** domain placement
+- ✅ **Auto-suggest** correct location for new files
+- ✅ **Auto-update** indexes when files added/moved
 
-## 📊 AUTOMATED COMPLIANCE MONITORING
+## 📋 AI EXECUTION CHECKLIST
 
-### File Size Enforcement
-```bash
-# Auto-check command for AI to run
-find .cursor/rules/rule-framework-v2/architecture -name "*.mdc" -exec wc -l {} + | awk '$1 > 500 {print "VIOLATION: " $2 " (" $1 " lines)"}'
+### **Before Architecture Work**
+- [ ] Identify current epic step and architecture requirements
+- [ ] Check file size limits for target files
+- [ ] Verify domain placement for new files
+- [ ] Prepare metadata headers for new files
+
+### **During Architecture Updates**
+- [ ] Follow established patterns from domain guidelines
+- [ ] Maintain file size limits during edits
+- [ ] Update cross-references when moving/creating files
+- [ ] Document changes in epic step architecture impact
+
+### **After Architecture Changes**
+- [ ] Validate file size compliance
+- [ ] Check metadata header accuracy
+- [ ] Verify cross-reference integrity  
+- [ ] Update epic progress with architecture changes completed
+
+## 🔗 FRAMEWORK INTEGRATION POINTS
+
+### **Epic Lifecycle Rules Integration**
+- **BLUEPRINT**: Mandatory architecture consultation via this file
+- **CONSTRUCT**: Architecture updates following this file's standards
+- **VALIDATE**: Architecture compliance checking via this file
+- **COMPLETION**: Architecture finalization following this file's procedures
+
+### **User Rules Template Integration**
+- **AI Instructions**: Reference this file during epic work
+- **Architecture Updates**: Execute via this file's operation procedures
+- **Compliance Checks**: Validate against this file's standards
+- **Progress Tracking**: Document architecture work via this file's requirements
+
+### **Epic Registry Integration**
+- **Status Updates**: Include architecture compliance status
+- **Progress Tracking**: Track architecture work completion
+- **Portfolio Management**: Consider architecture impact in epic capacity
+- **Completion Verification**: Require architecture compliance for step completion
+
+## 📁 COMPREHENSIVE DOMAIN ARCHITECTURE STRUCTURE
+
+### **Recommended Directory Structure**
+```
+/.cursor/rules/rule-framework-v2/architecture/
+├── index.mdc                           # Master navigation (under 300 lines)
+├── core/                               # System-wide patterns
+│   ├── index.mdc                      # Core domain navigation
+│   ├── patterns.mdc                   # Mandatory patterns (under 500 lines)
+│   └── maintenance.mdc                # Architecture maintenance automation
+├── decisions/                          # Architecture Decision Records
+│   ├── index.mdc                      # ADR navigation
+│   ├── adr-template.mdc               # ADR creation template
+│   ├── sample-decisions.mdc           # ADR examples and patterns
+│   └── [topic]-decisions.mdc          # Specific decision records
+├── workflows/                          # Process integration patterns
+│   ├── index.mdc                      # Workflow navigation
+│   └── [process].mdc                  # Specific workflow patterns
+├── frontend/                           # Web frontend architecture
+│   ├── index.mdc                      # Frontend navigation
+│   ├── components.mdc                 # UI component patterns
+│   ├── state-management.mdc           # State management patterns
+│   ├── routing.mdc                    # Navigation patterns
+│   ├── performance.mdc                # Frontend optimization
+│   ├── accessibility.mdc              # A11y patterns
+│   └── testing.mdc                    # Frontend testing
+├── backend/                            # Server-side architecture
+│   ├── index.mdc                      # Backend navigation
+│   ├── api-design.mdc                 # API patterns
+│   ├── data-access.mdc                # Database access patterns
+│   ├── middleware.mdc                 # Request processing
+│   ├── authentication.mdc             # Auth implementation
+│   ├── caching.mdc                    # Caching strategies
+│   └── services.mdc                   # Business logic patterns
+├── mobile/                             # Mobile application architecture
+│   ├── index.mdc                      # Mobile navigation
+│   ├── platform-patterns.mdc          # iOS/Android patterns
+│   ├── cross-platform.mdc             # React Native/Flutter
+│   ├── offline-support.mdc            # Offline-first patterns
+│   ├── push-notifications.mdc         # Notification patterns
+│   ├── app-store.mdc                  # Release management
+│   └── device-integration.mdc         # Hardware integration
+├── desktop/                            # Desktop application architecture
+│   ├── index.mdc                      # Desktop navigation
+│   ├── framework-patterns.mdc         # Electron/Qt/WPF patterns
+│   ├── system-integration.mdc         # OS integration
+│   ├── packaging.mdc                  # App packaging
+│   ├── updates.mdc                    # Auto-update patterns
+│   ├── security.mdc                   # Desktop security
+│   └── performance.mdc                # Optimization patterns
+├── database/                           # Database architecture
+│   ├── index.mdc                      # Database navigation
+│   ├── schema-design.mdc              # Schema patterns
+│   ├── migration.mdc                  # Migration strategies
+│   ├── indexing.mdc                   # Query optimization
+│   ├── replication.mdc                # Clustering patterns
+│   ├── backup.mdc                     # Disaster recovery
+│   └── scaling.mdc                    # Scaling patterns
+├── api/                                # API and service architecture
+│   ├── index.mdc                      # API navigation
+│   ├── rest-patterns.mdc              # RESTful patterns
+│   ├── graphql-patterns.mdc           # GraphQL patterns
+│   ├── versioning.mdc                 # API versioning
+│   ├── documentation.mdc              # API documentation
+│   ├── rate-limiting.mdc              # Rate limiting
+│   └── error-handling.mdc             # Error patterns
+├── integration/                        # System integration architecture
+│   ├── index.mdc                      # Integration navigation
+│   ├── external-apis.mdc              # Third-party APIs
+│   ├── webhooks.mdc                   # Webhook patterns
+│   ├── message-queues.mdc             # Event-driven patterns
+│   ├── data-sync.mdc                  # Data synchronization
+│   ├── etl-patterns.mdc               # ETL patterns
+│   └── event-sourcing.mdc             # Event sourcing/CQRS
+├── infrastructure/                     # Infrastructure architecture
+│   ├── index.mdc                      # Infrastructure navigation
+│   ├── deployment.mdc                 # Deployment patterns
+│   ├── containerization.mdc           # Docker/Kubernetes
+│   ├── networking.mdc                 # Network architecture
+│   ├── storage.mdc                    # Storage patterns
+│   ├── scalability.mdc                # Auto-scaling
+│   └── disaster-recovery.mdc          # Recovery patterns
+├── security/                           # Security architecture
+│   ├── index.mdc                      # Security navigation
+│   ├── authentication.mdc             # Identity management
+│   ├── authorization.mdc              # Access control
+│   ├── encryption.mdc                 # Data protection
+│   ├── compliance.mdc                 # Regulatory compliance
+│   ├── threat-modeling.mdc            # Security analysis
+│   └── penetration-testing.mdc        # Security testing
+├── testing/                            # Testing architecture
+│   ├── index.mdc                      # Testing navigation
+│   ├── test-strategies.mdc            # Testing pyramid
+│   ├── automation.mdc                 # CI/CD testing
+│   ├── performance-testing.mdc        # Load testing
+│   ├── security-testing.mdc           # Security validation
+│   ├── contract-testing.mdc           # API contracts
+│   └── e2e-testing.mdc                # End-to-end testing
+├── performance/                        # Performance architecture
+│   ├── index.mdc                      # Performance navigation
+│   ├── optimization.mdc               # Code optimization
+│   ├── profiling.mdc                  # Performance analysis
+│   ├── caching.mdc                    # Caching strategies
+│   ├── cdn.mdc                        # Content delivery
+│   ├── database-optimization.mdc      # DB performance
+│   └── frontend-performance.mdc       # Frontend optimization
+├── monitoring/                         # Monitoring architecture
+│   ├── index.mdc                      # Monitoring navigation
+│   ├── logging.mdc                    # Log management
+│   ├── metrics.mdc                    # System metrics
+│   ├── alerting.mdc                   # Alert management
+│   ├── tracing.mdc                    # Distributed tracing
+│   ├── dashboards.mdc                 # Visualization
+│   └── health-checks.mdc              # Health monitoring
+└── analytics/                          # Analytics architecture
+    ├── index.mdc                      # Analytics navigation
+    ├── data-collection.mdc            # Data collection
+    ├── reporting.mdc                  # BI reporting
+    ├── user-tracking.mdc              # User behavior
+    ├── ab-testing.mdc                 # Experimentation
+    ├── data-pipeline.mdc              # Analytics pipeline
+    └── privacy.mdc                    # Privacy compliance
 ```
 
-### Cross-Reference Validation
-```bash
-# Validate internal links
-grep -r "\[.*\](mdc:.*\.mdc)" .cursor/rules/rule-framework-v2/architecture/ | while IFS=: read file content; do
-  link=$(echo "$content" | grep -o "\[.*\](mdc:.*\.mdc)" | grep -o "(.*\.mdc)" | tr -d "()")
-  [[ ! -f "$(dirname "$file")/$link" ]] && echo "BROKEN: $file → $link"
-done
+### **Domain Growth Management**
+- **Sub-domain Creation**: When domain reaches 8+ files, create sub-directories
+- **Index Management**: Each sub-directory requires its own index.mdc
+- **Cross-References**: Maintain navigation links between related domains
+- **Specialized Domains**: Create custom domains for project-specific needs
+
+### **Domain Dependencies**
 ```
-
-### Index File Optimization
-```bash
-# Check index file sizes
-find .cursor/rules/rule-framework-v2/architecture -name "index.mdc" -exec wc -l {} + | awk '$1 > 300 {print "INDEX VIOLATION: " $2 " (" $1 " lines)"}'
+CORE → All other domains (mandatory foundation)
+DECISIONS → Referenced by all domains for architectural choices
+SECURITY → Integrated into all platform and service domains
+TESTING → Covers all domains with specific testing strategies
+PERFORMANCE → Cross-cuts all domains with optimization patterns
+MONITORING → Observes all domains with metrics and logging
 ```
-
-## 🔄 ARCHITECTURE EVOLUTION PATTERNS
-
-### Pattern: New Domain Addition
-**AI Process**:
-1. Create domain directory in `/.cursor/rules/rule-framework-v2/architecture/[domain]/`
-2. Generate domain index with standard categories
-3. Update master index with new domain
-4. Create initial guidelines file for domain
-
-### Pattern: Category Expansion
-**AI Process**:
-1. Identify if new category fits existing domain
-2. Create category-specific file following naming conventions
-3. Update domain index with new category
-4. Ensure file stays under 500-line limit
-
-### Pattern: Cross-Domain Integration
-**AI Process**:
-1. Create integration patterns in `/.cursor/rules/rule-framework-v2/architecture/workflows/`
-2. Reference from relevant domain files
-3. Maintain single source of truth for shared patterns
-4. Update navigation indices appropriately
-
-## 📋 AI QUALITY GATES
-
-### Before Architecture File Creation
-- [ ] Domain/category/topic identified correctly
-- [ ] Target location follows framework structure
-- [ ] File size will remain under 500 lines
-- [ ] Required AI instructions included
-
-### During Architecture Development
-- [ ] Content follows domain-specific patterns
-- [ ] Cross-references maintained accurately
-- [ ] Index files updated when needed
-- [ ] AI navigation patterns preserved
-
-### After Architecture Updates
-- [ ] All references validated functional
-- [ ] File sizes within limits
-- [ ] Index files under 300 lines
-- [ ] AI lookup patterns optimized
 
 ---
 
-## 🚨 CRITICAL AI DIRECTIVES
+**AI ENFORCEMENT**: Automatic execution during epic stages with zero-tolerance compliance
+**EPIC INTEGRATION**: Seamless workflow with epic-lifecycle-rules.mdc and user-rules-template.mdc
+**FRAMEWORK COMPLIANCE**: Mandatory standards for all architecture documentation and evolution
+**DOMAIN SUPPORT**: Comprehensive coverage for modern software architecture domains
 
-### ALWAYS Do:
-1. Reference `/.cursor/rules/rule-framework-v2/architecture/index.mdc` first for navigation
-2. Follow domain → category → topic hierarchy
-3. Include AI usage instructions in every architecture file
-4. Maintain file size limits strictly
-5. Update indices when creating/modifying files
-
-### NEVER Do:
-1. Create architecture files outside `/.cursor/rules/rule-framework-v2/architecture/`
-2. Exceed 500 lines in any architecture file
-3. Create files without AI usage instructions
-4. Break cross-reference integrity
-5. Generate human-optimized over AI-optimized content
-
----
 
 **Last Updated**: 2025-01-27  
 **Framework Status**: ✅ PRODUCTION READY  

@@ -1,15 +1,15 @@
 ---
-description: Master architecture index providing fast lookup to all architectural components - domains, decisions, workflows, and core patterns
-globs: 
+description: ALWAYS reference this file FIRST before accessing any architecture documentation
 alwaysApply: false
 ---
 # Architecture Master Index
 **🔍 Fast Lookup - Complete Architecture Navigation**
 
-## 🤖 AI Instructions
-**When to use**: ALWAYS reference this file FIRST before accessing any architecture documentation
-**How to use**: Scan table → identify domain → go to specific domain index → access target file
-**Context**: Database-style master index for instant domain lookup and navigation
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: ALWAYS reference this file FIRST before accessing any architecture documentation
+**MANDATORY FOR**: Architecture navigation, domain lookup, and file discovery for all architectural work
+**PRIMARY FUNCTION**: Provide fast database-style master index for instant domain lookup and navigation
+**CRITICAL**: Must be consulted before making any architectural decisions or accessing specific architecture files
 
 ## 📊 ARCHITECTURE DOMAIN INDEX
 

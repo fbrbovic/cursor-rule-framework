@@ -1,9 +1,54 @@
+---
+description: Epic lifecycle operations with mandatory cursor-rules-management compliance and integrated step stages.
+globs: 
+alwaysApply: false
+---
+
 # Epic Lifecycle Management Framework v3.0
 **Last Updated**: 2025-01-27
 **Version**: 3.0 - Optimized with Integrated Validation & Architecture Rules
 
 ## Framework Purpose
 Streamlined epic management with individual epic files, integrated step stages (BLUEPRINT → CONSTRUCT → VALIDATE), validation rules, and architecture integration for AI operation.
+
+## 🚨 MANDATORY CURSOR-RULES-MANAGEMENT COMPLIANCE
+
+### **CRITICAL REQUIREMENT: ALL Epic File Operations MUST Follow cursor-rules-management.mdc**
+- ✅ **BEFORE ANY EPIC FILE OPERATION**: Execute cursor-rules-management.mdc compliance procedures
+- ✅ **EPIC FILE CREATION**: Use cursor-rules-management.mdc CREATE_MDC_FILE operation exclusively
+- ✅ **EPIC FILE UPDATES**: Use cursor-rules-management.mdc UPDATE_MDC_FILE operation exclusively
+- ✅ **METADATA REQUIREMENTS**: Follow cursor-rules-management.mdc epic lifecycle rule template exactly
+- ✅ **CURSOR IDE COMPATIBILITY**: Ensure metadata starts line 1, proper --- delimiters, YAML format
+
+### **Epic File Operations Integration**
+- **Individual Epic Creation** → **MANDATORY**: cursor-rules-management.mdc CREATE_MDC_FILE
+- **Epic Progress Updates** → **MANDATORY**: cursor-rules-management.mdc UPDATE_MDC_FILE (content only below ---)
+- **Epic Registry Updates** → **MANDATORY**: cursor-rules-management.mdc UPDATE_MDC_FILE (preserve metadata)
+- **Rule File Creation** → **MANDATORY**: cursor-rules-management.mdc CREATE_MDC_FILE
+
+### **MANDATORY AI CONTEXT DESCRIPTION Header** (NEW REQUIREMENT)
+**ALL EPIC FILES MUST INCLUDE**:
+```markdown
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: [Specific triggers for AI to use this epic file]
+**MANDATORY FOR**: [Specific scenarios where this epic file is required]
+**PRIMARY FUNCTION**: [Main purpose and functionality of this epic]
+**CRITICAL**: [Critical information AI must understand about this epic]
+```
+**ENFORCEMENT**: Epic file creation and updates MUST validate AI CONTEXT DESCRIPTION header presence
+
+### **Epic-Specific Compliance Requirements**
+- **Epic File Location**: MUST be .cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc
+- **Epic Registry Location**: MUST be .cursor/rules/rule-framework-v2/epic-registry.mdc
+- **Metadata Template**: Use cursor-rules-management.mdc epic lifecycle rule template
+- **AI CONTEXT DESCRIPTION**: MANDATORY header with all four fields for every epic file
+- **Update Zones**: Only update designated AI UPDATE ZONES, preserve all other content
+
+### **Zero Tolerance Policy for Epic Files**
+- **Epic file operations without cursor-rules-management.mdc compliance are FORBIDDEN**
+- **Cursor IDE requirements are NON-NEGOTIABLE** (metadata format, file location)
+- **Epic file corruption prevention through mandatory compliance**
+- **Architecture trigger integration MUST follow cursor-rules-management.mdc standards**
 
 ## 🏗️ Epic Storage Architecture
 
@@ -27,6 +72,12 @@ globs:
 alwaysApply: false
 ---
 # EPIC: [EPIC_NAME]
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: [When working on this specific epic]
+**MANDATORY FOR**: [Epic progress updates, step stage execution, specific requirements]
+**PRIMARY FUNCTION**: [Main purpose and functionality of this epic]
+**CRITICAL**: [Critical information AI must understand about this epic]
 
 ## 📊 EPIC PROGRESS TABLE (AI UPDATE ZONE)
 | Phase | Step | Stage | Status | Progress | Next Action |
@@ -114,20 +165,26 @@ alwaysApply: false
 
 ### **BLUEPRINT STAGE** (Planning & Architecture Validation)
 **Required Actions**:
-1. **Architecture Consultation** (MANDATORY):
+1. **Architecture Consultation** (MANDATORY - AUTO-TRIGGER):
+   - Execute TRIGGER_EPIC_BLUEPRINT_STAGE from `architecture-lifecycle.mdc`
    - Read `architecture/core/patterns.mdc` for mandatory patterns
    - Consult relevant domain-specific architecture files
    - Review `architecture/decisions/` for contextual ADRs
+   - Document architecture consultation in step stage checkboxes
 2. **Epic Context Integration**:
    - Validate against epic requirements and acceptance criteria
    - Check dependencies and blockers
 3. **Detailed Planning**:
    - Create step-by-step implementation plan
-   - Identify architecture changes needed
-4. **Approval Gate**: Request user confirmation before proceeding
+   - Identify architecture changes needed (documented via architecture-lifecycle.mdc)
+4. **MANDATORY cursor-rules-management.mdc Compliance**:
+   - If creating new rule files: Execute cursor-rules-management.mdc CREATE_MDC_FILE
+   - If updating epic files: Execute cursor-rules-management.mdc UPDATE_MDC_FILE
+   - Validate Cursor IDE metadata requirements
+5. **Approval Gate**: Request user confirmation before proceeding
 
 **Completion Criteria & Validation**:
-- [ ] Architecture consultation completed and documented
+- [ ] Architecture consultation completed and documented (TRIGGER_EPIC_BLUEPRINT_STAGE executed)
 - [ ] Epic progress table updated to BLUEPRINT stage
 - [ ] Epic registry synchronized with step status
 - [ ] User approval obtained
@@ -136,24 +193,44 @@ alwaysApply: false
 **Required Actions**:
 1. **Plan Adherence**: Follow approved blueprint exactly
 2. **Implementation**: Make atomic, testable changes with immediate test validation
-3. **Architecture Updates**: Update architecture files when implementing changes
-4. **Progress Tracking**: Update epic progress table regularly
+3. **Architecture Updates** (MANDATORY - AUTO-TRIGGER):
+   - Execute TRIGGER_EPIC_CONSTRUCT_STAGE from `architecture-lifecycle.mdc`
+   - ALL architecture file operations MUST use cursor-rules-management.mdc procedures
+   - Update architecture files following architecture-lifecycle.mdc standards
+   - Maintain file size limits and metadata compliance
+   - Update domain indexes when new files created
+4. **MANDATORY cursor-rules-management.mdc Compliance**:
+   - All .mdc file updates MUST use cursor-rules-management.mdc UPDATE_MDC_FILE
+   - Preserve metadata headers exactly as specified
+   - Validate Cursor IDE compatibility after updates
+5. **Progress Tracking**: Update epic progress table regularly
 
 **Completion Criteria & Validation**:
 - [ ] All planned implementation completed
 - [ ] Tests written and passing
-- [ ] Architecture documentation updated
+- [ ] Architecture documentation updated (TRIGGER_EPIC_CONSTRUCT_STAGE executed)
 - [ ] Epic progress table updated to CONSTRUCT stage
 - [ ] Epic registry synchronized
 
 ### **VALIDATE STAGE** (Completion & Final Validation)
 **Required Actions**:
 1. **Quality Validation**: Run full test suite and verify acceptance criteria
-2. **Epic Progress Updates**: Update both epic progress table and registry
-3. **Step Completion**: Advance to next step or complete epic
+2. **Architecture Compliance** (MANDATORY - AUTO-TRIGGER):
+   - Execute TRIGGER_EPIC_VALIDATE_STAGE from `architecture-lifecycle.mdc`
+   - ALL architecture validations MUST follow cursor-rules-management.mdc standards
+   - Verify all architecture changes documented correctly
+   - Validate file size compliance and cross-reference integrity
+   - Confirm architecture impact documented in epic step
+3. **MANDATORY cursor-rules-management.mdc Validation**:
+   - Execute cursor-rules-management.mdc validation checklist
+   - Verify all .mdc files maintain proper metadata headers
+   - Confirm Cursor IDE compatibility for all updated files
+4. **Epic Progress Updates**: Update both epic progress table and registry
+5. **Step Completion**: Advance to next step or complete epic
 
 **Completion Criteria & Validation**:
 - [ ] All acceptance criteria validated
+- [ ] Architecture compliance verified (TRIGGER_EPIC_VALIDATE_STAGE executed)
 - [ ] Epic progress updated to reflect completion
 - [ ] Epic registry synchronized with new progress percentage
 - [ ] Next step prepared or epic marked COMPLETED
@@ -166,7 +243,16 @@ alwaysApply: false
 - ✅ Step stages completed in sequence (BLUEPRINT → CONSTRUCT → VALIDATE)
 - ✅ Epic progress table updated with completion percentage
 - ✅ Epic registry synchronized with step status
-- ✅ Architecture documentation updated if required
+- ✅ Architecture documentation updated (TRIGGER_EPIC_STEP_COMPLETION executed from architecture-lifecycle.mdc)
+
+### **RULE_EPIC_AI_CONTEXT_VALIDATION** (Always Applied - NEW)
+**Trigger**: Epic file creation or modification
+**Validation Checks**:
+- ✅ AI CONTEXT DESCRIPTION header present with all four required fields
+- ✅ WHEN TO USE field describes specific triggers for AI usage
+- ✅ MANDATORY FOR field lists required scenarios
+- ✅ PRIMARY FUNCTION field describes main purpose
+- ✅ CRITICAL field includes essential AI context information
 
 ### **RULE_EPIC_REGISTRY_SYNC** (Always Applied)
 **Trigger**: Any epic status or progress update
@@ -182,11 +268,13 @@ alwaysApply: false
 - ✅ Epic dependencies satisfied before activation
 
 ### **RULE_ARCHITECTURE_COMPLIANCE** (Always Applied)
-**Trigger**: BLUEPRINT stage completion
+**Trigger**: BLUEPRINT stage completion and throughout epic stages
 **Validation Checks**:
-- ✅ Architecture consultation completed during BLUEPRINT
+- ✅ Architecture consultation completed during BLUEPRINT (via architecture-lifecycle.mdc triggers)
 - ✅ Core patterns (`architecture/core/patterns.mdc`) referenced
 - ✅ Architecture impact documented for step
+- ✅ Architecture files updated during CONSTRUCT stage (via architecture-lifecycle.mdc)
+- ✅ Architecture compliance verified during VALIDATE stage (via architecture-lifecycle.mdc)
 
 ## 🔗 Architecture Integration Requirements
 
@@ -264,6 +352,21 @@ Update registry when:
 - ✅ **Optimized AI Updates**: Clear update zones with automatic synchronization
 - ✅ **Portfolio Management**: Active epic limits and dependency tracking
 - ✅ **Quality Control**: Step-by-step validation and compliance enforcement
+
+
+**This enhanced framework provides a bulletproof, scalable foundation for epic management that preserves and enhances all existing capabilities while adding enterprise-grade reliability and unlimited scalability.**
+
+**END OF COMPATIBILITY VALIDATION**
+
+
+**This enhanced framework provides a bulletproof, scalable foundation for epic management that preserves and enhances all existing capabilities while adding enterprise-grade reliability and unlimited scalability.**
+
+**END OF COMPATIBILITY VALIDATION**
+
+
+**This enhanced framework provides a bulletproof, scalable foundation for epic management that preserves and enhances all existing capabilities while adding enterprise-grade reliability and unlimited scalability.**
+
+**END OF COMPATIBILITY VALIDATION**
 
 
 **This enhanced framework provides a bulletproof, scalable foundation for epic management that preserves and enhances all existing capabilities while adding enterprise-grade reliability and unlimited scalability.**

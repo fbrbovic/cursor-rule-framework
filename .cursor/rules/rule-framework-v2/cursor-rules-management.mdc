@@ -1,241 +1,288 @@
 ---
-description: Comprehensive cursor rules management including location policy and metadata preservation. Used anytime new cursor AI rule is to be generated or if existing one is updated.
+description: Before creating/updating ANY .mdc file, when lifecycle rules create architecture files, when epic work creates rule files
+alwaysApply: false
+---
+# File content starts here
+```
+
+### **Cursor IDE Critical Requirements**
+- ✅ **First Line**: Metadata MUST start on line 1 with `---`
+- ✅ **Delimiters**: Exactly 3 dashes, no spaces, no other characters
+- ✅ **One Metadata Block**: Only ONE metadata section per file
+- ✅ **YAML Format**: Proper YAML syntax within delimiters
+- ✅ **Required Fields**: description, globs, alwaysApply
+- ✅ **Closing Delimiter**: Second `---` line to close metadata
+
+### **AI Compliance Operations**
+
+#### **CREATE_MDC_FILE**
+```
+PRECONDITIONS:
+  1. Target location: .cursor/rules/rule-framework-v2/[filename].mdc
+  2. Metadata header prepared with exact format
+  3. Description matches AI Instructions section
+
+EXECUTION_STEPS:
+  1. Create file starting with metadata header (line 1)
+  2. Add description matching "When to use" from AI Instructions
+  3. Set globs: (empty) and alwaysApply: false
+  4. Close metadata with second --- line
+  5. Add empty line before content
+  6. MANDATORY: Add AI CONTEXT DESCRIPTION header with all four fields
+  7. Add file content below AI CONTEXT DESCRIPTION header
+
+VALIDATION:
+  1. File location correct (.cursor/rules/rule-framework-v2/)
+  2. Metadata starts on line 1
+  3. Exactly one metadata block
+  4. All required fields present
+  5. YAML syntax valid
+  6. MANDATORY: AI CONTEXT DESCRIPTION header present with all four fields
+```
+
+#### **UPDATE_MDC_FILE**
+```
+PRECONDITIONS:
+  1. File exists and metadata identified
+  2. Metadata preservation required
+  3. Content updates only below second ---
+
+EXECUTION_STEPS:
+  1. Read current metadata (lines 1 to second ---)
+  2. Preserve ALL metadata exactly as-is
+  3. Update ONLY content below second ---
+  4. Maintain file structure integrity
+
+FORBIDDEN_ACTIONS:
+  - Never modify metadata delimiters
+  - Never change metadata fields without explicit requirement
+  - Never add content above second ---
+  - Never remove metadata section
+```
+
+## 📁 MANDATORY FILE LOCATION (ENFORCED)
+
+### **Cursor Rules Directory** (ONLY LOCATION)
+- **Path**: `.cursor/rules/rule-framework-v2/`
+- **Enforcement**: ALL .mdc files MUST be in this directory
+- **Cursor IDE Requirement**: Rules outside this location are ignored
+
+### **File Location Operations**
+
+#### **VALIDATE_FILE_LOCATION**
+```
+OPERATION: Check file location compliance
+REQUIREMENT: File path MUST start with .cursor/rules/rule-framework-v2/
+ERROR_HANDLING: 
+  - Incorrect location → Move file to correct location
+  - Missing directory → Create directory structure
+  - Duplicate files → Consolidate to framework directory
+```
+
+#### **CREATE_DIRECTORY_STRUCTURE**
+```
+OPERATION: Ensure proper directory exists
+STRUCTURE: .cursor/rules/rule-framework-v2/[subdirectories as needed]
+VALIDATION: Directory exists before file creation
+```
+
+## 🔄 AI EXECUTION PROTOCOLS
+
+### **Before ANY MDC File Operation**
+- [ ] Verify target location: .cursor/rules/rule-framework-v2/
+- [ ] Check existing metadata if updating file
+- [ ] Prepare metadata header with exact format
+- [ ] Validate AI Instructions section for description
+
+### **During MDC File Creation**
+- [ ] Start file with metadata header (line 1)
+- [ ] Use exact YAML format for metadata
+- [ ] Copy "When to use" text to description field
+- [ ] Set globs: (empty) and alwaysApply: false
+- [ ] Close with second --- line
+- [ ] Add content below metadata only
+
+### **During MDC File Updates**
+- [ ] Read and preserve existing metadata exactly
+- [ ] Modify ONLY content below second ---
+- [ ] Maintain metadata field integrity
+- [ ] Validate structure after changes
+
+### **After MDC File Operations**
+- [ ] Verify metadata compliance
+- [ ] Check file location correctness
+- [ ] Validate YAML syntax
+- [ ] Confirm Cursor IDE compatibility
+
+## 🚨 AI CONTEXT DESCRIPTION VALIDATION (MANDATORY)
+
+### **Required AI CONTEXT DESCRIPTION Format**
+```markdown
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: [Specific triggers for AI to use this file]
+**MANDATORY FOR**: [Specific scenarios where this file is required]
+**PRIMARY FUNCTION**: [Main purpose and functionality of this file]
+**CRITICAL**: [Critical information AI must understand about this file]
+```
+
+### **AI CONTEXT DESCRIPTION Validation Checklist**
+- [ ] Header starts with exact text: "## 🤖 AI CONTEXT DESCRIPTION"
+- [ ] **WHEN TO USE** field describes specific triggers for AI usage
+- [ ] **MANDATORY FOR** field lists required scenarios or conditions
+- [ ] **PRIMARY FUNCTION** field describes main purpose and functionality
+- [ ] **CRITICAL** field includes essential AI context information
+- [ ] All four fields are present and properly formatted
+- [ ] Content provides clear guidance for AI decision-making
+
+### **AI CONTEXT DESCRIPTION Content Requirements**
+- **WHEN TO USE**: Must describe specific conditions, triggers, or scenarios
+- **MANDATORY FOR**: Must list non-optional usage scenarios or requirements
+- **PRIMARY FUNCTION**: Must explain the main purpose and core functionality
+- **CRITICAL**: Must highlight essential information for proper AI usage
+
+### **Validation Enforcement**
+- ✅ **Architecture files**: AI CONTEXT DESCRIPTION mandatory via architecture-lifecycle.mdc
+- ✅ **Epic files**: AI CONTEXT DESCRIPTION mandatory via epic-lifecycle-rules.mdc
+- ✅ **Rule files**: AI CONTEXT DESCRIPTION mandatory for all new rule creation
+- ✅ **Template compliance**: All templates include AI CONTEXT DESCRIPTION structure
+
+## 🚨 ERROR DETECTION & REPAIR (AUTO-FIX)
+
+### **Metadata Corruption Detection**
+```
+SYMPTOMS:
+  - Missing --- delimiters
+  - Metadata not on line 1
+  - Invalid YAML syntax
+  - Missing required fields
+
+AUTO_REPAIR:
+  1. Restore proper --- delimiters
+  2. Move metadata to line 1
+  3. Fix YAML syntax errors
+  4. Add missing required fields
+  5. Preserve existing content
+```
+
+### **Location Compliance Detection**
+```
+SYMPTOMS:
+  - File outside .cursor/rules/rule-framework-v2/
+  - Duplicate files in multiple locations
+  - Missing directory structure
+
+AUTO_REPAIR:
+  1. Move files to correct location
+  2. Remove duplicates after content merge
+  3. Create directory structure if missing
+```
+
+## 📋 MDC METADATA TEMPLATES (COPY EXACT FORMAT)
+
+### **Architecture Rule Template**
+```yaml
+---
+description: [Domain] architecture [purpose] - [specific trigger description]
 globs: 
 alwaysApply: false
 ---
-# 🚨 CRITICAL: Cursor Rules Management Policy 🚨
 
-This rule ensures proper location, format, and handling of all Cursor MDC rule files.
-
-## PART 1: MANDATORY LOCATION POLICY
-
-### All Cursor Rules Must Live in `.cursor/rules/rule-framework-v2/`
-
-**This is the ONLY acceptable location for cursor rules files (.mdc).**
-
-#### ✅ Correct Locations
-- ✅ `.cursor/rules/rule-framework-v2/rules.mdc`
-- ✅ `.cursor/rules/rule-framework-v2/architecture/index.mdc`
-- ✅ `.cursor/rules/rule-framework-v2/any-other-rule.mdc`
-
-#### ❌ INCORRECT Locations (NEVER USE)
-- ❌ `rules.mdc` (root level)
-- ❌ `migration.mdc` (root level)
-- ❌ `backend-encore/rules.mdc`
-- ❌ Any other location outside `.cursor/rules/rule-framework-v2/`
-
-#### Why Location Matters
-1. **Cursor IDE Integration**: Cursor only recognizes rules in `.cursor/rules/rule-framework-v2/`
-2. **Team Consistency**: All team members expect rules in standard location
-3. **Version Control**: Proper .gitignore handling for cursor-specific files
-4. **Tool Compatibility**: Other cursor-compatible tools expect this structure
-
-## PART 2: MANDATORY MDC METADATA FORMAT
-
-### What is MDC Metadata?
-Every `.mdc` file in the `.cursor/rules/rule-framework-v2/` directory must have metadata at the top in this format:
-
-```
----
-description: Brief description of what this rule does
-globs: file/pattern/to/match/**/*.*
-alwaysApply: true/false
----
-
-# Rule content starts here
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: [Specific triggers for AI to use this file]
+**MANDATORY FOR**: [Specific scenarios where this file is required]
+**PRIMARY FUNCTION**: [Main purpose and functionality of this file]
+**CRITICAL**: [Critical information AI must understand about this file]
 ```
 
-### ABSOLUTE REQUIREMENTS
-
-#### 1. Never Remove or Modify Delimiters
-- The `---` lines at the beginning and end of metadata are CRITICAL
-- Removing these breaks the MDC format and disables the rule
-- Always preserve exactly three dashes on each line
-
-#### 2. Always Preserve Existing Fields
-When updating an MDC file, you MUST preserve:
-- `description`: Brief description of the rule's purpose
-- `globs`: File patterns that trigger this rule
-- `alwaysApply`: Whether rule applies to all contexts (true/false)
-
-#### 3. Only Update Content Below Metadata
-- Only modify content below the second `---` line
-- Never modify anything between the first and second `---` lines
-- If you need to change metadata fields, do so carefully and preserve the format
-
-## PART 3: AI ASSISTANT WORKFLOW
-
-### Before Creating/Editing Rules
-1. **ALWAYS** check if `.cursor/rules/rule-framework-v2/` directory exists
-2. If it doesn't exist, create it first
-3. **ALWAYS** create rules in `.cursor/rules/rule-framework-v2/filename.mdc`
-4. **ALWAYS** start with proper MDC metadata
-5. Choose appropriate `globs` pattern for the rule's scope
-6. Use `alwaysApply: true` only for workspace-wide rules
-
-### Before Deleting Root-Level Rules
-1. **ALWAYS** compare root-level rules with `.cursor/rules/rule-framework-v2/` versions
-2. Merge any new content from root-level to `.cursor/rules/rule-framework-v2/`
-3. Only delete root-level after confirming merge is complete
-
-### When Updating Existing Rules
-1. Read the entire file first to understand current metadata
-2. Preserve existing metadata exactly as-is
-3. Only modify content below the second `---` line
-4. Test the rule still works after updating
-
-## PART 4: COMMON MDC FILE TYPES AND METADATA
-
-### Architecture Rules
-```
----
-description: Backend architecture guidelines and service structure
-globs: backend-encore/**/*.*
-alwaysApply: true
----
-```
-
-### Service-Specific Rules
-```
----
-description: Rules for specific service or integration
-globs: backend-encore/service-name/**/*.*
-alwaysApply: false
----
-```
-
-### Testing Rules
-```
----
-description: Testing patterns and requirements
-globs: **/*.test.ts, **/*.spec.ts
-alwaysApply: false
----
-```
-
-### Global Workspace Rules
-```
----
-description: Rules applying to entire workspace
-globs: **/*.*
-alwaysApply: true
----
-```
-
-## PART 5: ERROR DETECTION AND RECOVERY
-
-### Symptoms of Broken MDC Files
-- Rule doesn't appear in Cursor's rule picker
-- Rule doesn't automatically apply when expected
-- File patterns don't match correctly
-- Rule appears as "invalid" in Cursor settings
-
-### Recovery Process
-1. Check for missing or malformed `---` delimiters
-2. Verify all required fields are present
-3. Ensure proper YAML format in metadata section
-4. Verify file is in `.cursor/rules/rule-framework-v2/` directory
-5. Test rule functionality after fixing
-
-## PART 6: VALIDATION CHECKLIST
-
-Before saving any MDC file, verify:
-- [ ] File is saved in `.cursor/rules/rule-framework-v2/` directory
-- [ ] Metadata section starts and ends with `---`
-- [ ] All required fields are present and properly formatted
-- [ ] `globs` pattern matches intended files
-- [ ] `alwaysApply` setting is appropriate
-- [ ] Content below metadata follows proper markdown format
-- [ ] No duplicate rules files in root or other locations
-
-## PART 7: COMMON MISTAKES TO AVOID
-
-### Location Mistakes
-- Placing MDC files outside `.cursor/rules/rule-framework-v2/` directory
-- Creating duplicate rules in multiple locations
-- Not checking for existing `.cursor/rules/rule-framework-v2/` directory
-
-### Format Mistakes  
-- Removing metadata when updating content
-- Changing `globs` patterns without understanding implications
-- Using incorrect YAML syntax in metadata
-- Mixing content with metadata section
-
-### Memory Reminder for AI Assistant
-- **Never** create rules files outside `.cursor/rules/rule-framework-v2/`
-- **Always** use the full path: `.cursor/rules/rule-framework-v2/filename.mdc`
-- **Always** preserve existing metadata exactly
-- **Always** check for content differences before deleting duplicates
-
-## PART 8: DEBUGGING TIPS
-
-- Use Cursor's rule management interface to validate MDC files
-- Check Cursor settings to see if rules are properly loaded
-- Test rule application by matching against expected file patterns
-- Verify rule behavior in different contexts (auto-apply vs manual)
-
-## PART 9: LIVING DOCUMENTATION ENHANCEMENT
-
-### Architecture Documentation Integration
-Living documentation rules ensure architecture documentation stays current with code changes.
-
-#### Architecture Update Triggers
-When working on tasks that involve:
-- New components or architectural patterns
-- Framework or build system changes  
-- Authentication or security modifications
-- API integration updates
-- Deployment or infrastructure changes
-
-The system will automatically assess architectural impact and prompt for documentation updates.
-
-#### Living Documentation Templates
-
-**Architecture Change Documentation Template:**
-```markdown
-## Architecture Change: [CHANGE_TITLE]
-**Date**: [YYYY-MM-DD]
-**Impact Level**: [MINOR/MODERATE/MAJOR]
-**Areas Affected**: [List of architecture sections]
-
-### Change Description
-- What was changed
-- Why it was changed
-- Implementation approach
-
-### Architecture Documentation Updates Required
-- [ ] Update section: [specific section]
-- [ ] Update ADR: [relevant ADR]
-- [ ] Update cursor rule: [if applicable]
-- [ ] Cross-reference updates needed
-
-### Validation
-- [ ] Architecture documentation reflects new reality
-- [ ] Cross-references updated appropriately
-- [ ] AI context enhanced for future decisions
-```
-
-#### Living Documentation Metadata
-For architecture-related cursor rules, add this metadata enhancement:
+### **Epic Lifecycle Rule Template**
 ```yaml
-livingDocs: true
-updateTriggers: ["component-creation", "routing-changes", "state-management", "integrations"]  
-documentationTargets: [".cursor/rules/rule-framework-v2/architecture/index.mdc", "apps/frontend/component-patterns.mdc"]
+---
+description: Epic [lifecycle operation] with [specific functionality]
+globs: 
+alwaysApply: false
+---
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: [Specific triggers for AI to use this epic file]
+**MANDATORY FOR**: [Specific scenarios where this epic file is required]
+**PRIMARY FUNCTION**: [Main purpose and functionality of this epic]
+**CRITICAL**: [Critical information AI must understand about this epic]
 ```
 
-### Automated Documentation Freshness
-The system tracks documentation freshness and prompts updates when:
-1. Major architectural changes are detected during development
-2. New patterns are introduced that should be documented
-3. Existing patterns are modified significantly
-4. Integration or infrastructure changes occur
+### **Workflow Rule Template**
+```yaml
+---
+description: [Workflow type] automation for [specific purpose]
+globs: 
+alwaysApply: false
+---
+```
 
-### Documentation Currency Validation
-Periodic validation ensures architecture documentation remains aligned with actual implementation:
-- Component architecture matches actual component organization
-- ADRs reflect current technology choices and configurations  
-- Integration patterns documented match actual integrations
-- Build and deployment documentation reflects current setup
+## 🎯 LIFECYCLE RULE INTEGRATION (MANDATORY)
+
+### **Architecture File Creation Compliance**
+When architecture-lifecycle.mdc creates files:
+- ✅ **MANDATORY**: Use cursor-rules-management.mdc CREATE_MDC_FILE operation
+- ✅ **MANDATORY**: Validate metadata compliance before file creation
+- ✅ **MANDATORY**: Follow exact template format for architecture rules
+
+### **Epic File Creation Compliance**
+When epic-lifecycle-rules.mdc creates files:
+- ✅ **MANDATORY**: Use cursor-rules-management.mdc CREATE_MDC_FILE operation
+- ✅ **MANDATORY**: Ensure Cursor IDE compatibility
+- ✅ **MANDATORY**: Follow exact template format for epic rules
+
+### **Rule Update Compliance**
+When any lifecycle rule updates .mdc files:
+- ✅ **MANDATORY**: Use cursor-rules-management.mdc UPDATE_MDC_FILE operation
+- ✅ **MANDATORY**: Preserve metadata exactly
+- ✅ **MANDATORY**: Validate compliance after updates
+
+## 🔗 FRAMEWORK INTEGRATION POINTS
+
+### **Architecture Lifecycle Integration**
+- **File Creation**: All architecture file creation MUST follow cursor-rules-management.mdc
+- **Metadata Templates**: Use architecture rule template exactly
+- **Compliance Validation**: Execute cursor-rules-management.mdc validation
+
+### **Epic Lifecycle Integration**
+- **Rule File Creation**: All epic-related rule creation MUST follow cursor-rules-management.mdc
+- **Update Operations**: All epic file updates MUST preserve metadata
+- **Error Prevention**: Use cursor-rules-management.mdc error detection
+
+### **User Rules Template Integration**
+- **Rule Creation Instructions**: Reference cursor-rules-management.mdc compliance
+- **Metadata Requirements**: Emphasize Cursor IDE metadata criticality
+- **Error Avoidance**: Include cursor-rules-management.mdc validation steps
+
+## 🚨 AI COMPLIANCE CHECKLIST (MANDATORY)
+
+### **Before File Creation**
+- [ ] Target location verified: .cursor/rules/rule-framework-v2/
+- [ ] Metadata template prepared with exact format
+- [ ] Description matches AI Instructions section
+- [ ] YAML syntax validated
+
+### **During File Creation**
+- [ ] Metadata starts on line 1 with ---
+- [ ] Required fields present and properly formatted
+- [ ] Metadata closed with second --- line
+- [ ] AI CONTEXT DESCRIPTION header added with all four fields
+- [ ] Content added below AI CONTEXT DESCRIPTION header
+
+### **After File Creation**
+- [ ] File location compliance verified
+- [ ] Metadata structure validated
+- [ ] AI CONTEXT DESCRIPTION header validated (all four fields)
+- [ ] Cursor IDE compatibility confirmed
+- [ ] Integration with framework verified
+
+---
+
+**AI ENFORCEMENT**: Mandatory compliance for ALL .mdc file operations
+**CURSOR IDE REQUIREMENT**: Exact metadata format required for rule functionality
+**FRAMEWORK INTEGRATION**: Central compliance for all lifecycle rule operations
+
 
 ---
 

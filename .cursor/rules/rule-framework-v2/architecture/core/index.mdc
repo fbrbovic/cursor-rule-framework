@@ -1,15 +1,15 @@
 ---
-description: Fast lookup index for core architectural components - patterns, maintenance rules, and foundational concepts
-globs: 
+description: Navigate core architectural components - patterns, maintenance rules, and foundational concepts required by all development
 alwaysApply: false
 ---
 # Core Architecture Index
 **🔍 Fast Lookup - Core Domain Files**
 
-## 🤖 AI Instructions
-**When to use**: Navigate core architectural components - patterns, maintenance rules, and foundational concepts
-**How to use**: Scan table → identify pattern → apply to ALL development work
-**Context**: Database-style index for core architecture patterns required by all domains
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Navigate core architectural components - patterns, maintenance rules, and foundational concepts required by all development
+**MANDATORY FOR**: All development work, core pattern application, and foundational architecture compliance
+**PRIMARY FUNCTION**: Provide database-style index for core architecture patterns required by all domains
+**CRITICAL**: Essential patterns that form the foundation for all other architectural domains and development work
 
 ## 📊 CORE FILE INDEX
 

@@ -1,16 +1,15 @@
 ---
-description: Architecture file maintenance rules and quality gates - file size limits, metadata requirements, and automated compliance
-globs: 
+description: Before creating/modifying architecture documentation, implementing architecture features, validating compliance, or detecting regression
 alwaysApply: false
 ---
-
 # Architecture Maintenance Automation
 **Self-Enforcing Systems for Sustainable Architecture Quality**
 
-## 🤖 AI Instructions
-**When to use**: Reference when creating/modifying architecture documentation, implementing architecture features, validating compliance in workflows, or detecting documentation regression - establishes permanent maintenance automation for architecture optimization
-**How to use**: Apply maintenance rules as automated quality gates and follow compliance procedures for all architecture work
-**Context**: Ensures architecture documentation remains AI-accessible, maintainable, and continuously optimized for development productivity
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Before creating/modifying architecture documentation, implementing architecture features, validating compliance, or detecting regression
+**MANDATORY FOR**: Architecture file creation, modification, compliance validation, and maintenance automation for all architectural work
+**PRIMARY FUNCTION**: Establish permanent maintenance automation and quality gates for sustainable architecture documentation
+**CRITICAL**: Ensures architecture documentation remains AI-accessible, maintainable, and continuously optimized for development productivity
 
 ## 🚨 CRITICAL MAINTENANCE RULES
 

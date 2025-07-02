@@ -1,26 +1,6 @@
-# Core Development Rules v3.0
-**Essential rules for all projects using the Cursor Rule Framework v3.0**
-
-## 🎯 Purpose
-This file contains ONLY the most critical global rules. Detailed implementations are in specialized rule files.
-
 ---
-
-## 📁 Rule File Organization
-
-### **Specialized Rule Files** (Reference for details)
-- **`architecture/core/patterns.mdc`** → Core architectural patterns and conventions
-- **`epic-lifecycle-rules.mdc`** → Epic management with integrated step stages, validation, and architecture integration
-- **`architecture-lifecycle.mdc`** → File size limits, metadata requirements, quality gates
-- **`architecture/index.mdc`** → Master architecture navigation and domain lookup
-
-### **Rule Scope Guidelines**
-- **Global rules** → This file (rules.mdc)
-- **Domain-specific rules** → `architecture/` directory  
-- **Specialized rules** → Named pattern files (e.g., `architecture-*.mdc`, `epic-*.mdc`)
-
+alwaysApply: true
 ---
-
 ## 🚨 MANDATORY GLOBAL RULES
 
 ### **1. Architecture Governance (CRITICAL)**

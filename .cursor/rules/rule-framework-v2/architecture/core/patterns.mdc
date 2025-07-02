@@ -1,15 +1,15 @@
 ---
-description: Critical architectural patterns that MUST be followed in all development work - dual user ID system, organization access control, and core framework patterns
-globs: 
+description: Before ANY architectural decisions or feature implementation - FIRST reference for all development work
 alwaysApply: false
 ---
 # Core Architectural Patterns
 **🚨 MANDATORY SYSTEM-WIDE PATTERNS - Zero Exceptions Policy**
 
-## 🤖 AI Instructions
-**When to use**: Critical architectural patterns that MUST be followed in all development work - reference this file FIRST before making any architectural decisions or implementing features - mandatory with zero exceptions
-**How to use**: Apply all patterns as mandatory requirements - no exceptions allowed. Use specific pattern sections based on implementation context
-**Context**: Core foundation for all development - these patterns ensure system integrity, security, and scalability
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Before ANY architectural decisions or feature implementation - FIRST reference for all development work
+**MANDATORY FOR**: All development work, architectural decisions, data modeling, access control, and service implementation with zero exceptions
+**PRIMARY FUNCTION**: Provide critical architectural patterns that MUST be followed to ensure system integrity, security, and scalability
+**CRITICAL**: Zero exceptions policy - all patterns are mandatory requirements that cannot be bypassed or modified
 
 ## 🚨 CRITICAL PATTERN HIERARCHY
 

@@ -1,176 +1,340 @@
-# Epic Registry - Master Index
-**Last Updated**: 2025-01-27
-**Framework Version**: 3.0 - Individual Epic Files with Fast AI Updates
+---
+description: Epic discovery, status tracking, progress updates, epic routing, portfolio management
+alwaysApply: false
+---
+# Epic Registry - AI Master Index v3.0
 
-## Purpose & Framework Integration
-Master index and status hub for ALL epics stored as individual files in `/.cursor/rules/rule-framework-v2/epics/`. Optimized for fast AI updates with designated update zones for maximum efficiency.
-
-### 🚀 Framework v3.0 Features
-- ✅ **Individual Epic Storage**: Each epic in separate `.mdc` file
-- ✅ **Fast AI Updates**: Designated update zones for status tracking
-- ✅ **Registry as Master Index**: Primary interface for epic discovery
-- ✅ **Integrated Step Stages**: BLUEPRINT → CONSTRUCT → VALIDATE per step
-- ✅ **Architecture Integration**: Full architecture framework compliance
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Epic discovery, status tracking, progress updates, epic routing, portfolio management
+**PRIMARY FUNCTION**: Fast lookup and status coordination for individual epic files
+**UPDATE FREQUENCY**: Every epic status/progress change, step advancement, epic activation/completion
+**SEARCH PURPOSE**: Route user requests to specific epics, identify current work, track portfolio capacity
 
 ## 📊 EPIC REGISTRY TABLE (AI UPDATE ZONE)
-| Epic Name | Status | Priority | Current Phase | Current Step | Stage | Progress | Next Action |
-|-----------|--------|----------|---------------|--------------|-------|----------|-------------|
-| SAMPLE_FEATURE_DEVELOPMENT | PLANNED | Medium | Phase1 | Step1.1 | PLANNED | 0% | Blueprint planning |
+| Epic Name | Status | Priority | Current Phase | Current Step | Stage | Progress | Next Action | File Location |
+|-----------|--------|----------|---------------|--------------|-------|----------|-------------|---------------|
+| SAMPLE_FEATURE_DEVELOPMENT | PLANNED | Medium | Phase1 | Step1.1 | PLANNED | 0% | Blueprint planning | epics/SAMPLE_FEATURE_DEVELOPMENT.mdc |
 
-## 🔍 EPIC QUICK LOOKUP (AI SEARCH ZONE)
+## 🔍 EPIC FAST LOOKUP (AI SEARCH ZONE)
 
-### **All Available Epics**
-- **SAMPLE_FEATURE_DEVELOPMENT** (PLANNED) - Framework demonstration epic
-  - Location: `epics/SAMPLE_FEATURE_DEVELOPMENT.mdc`
-  - Phases: 3 phases, 9 total steps
-  - Dependencies: None (foundation epic)
-
-### **Active Epics** (0/3 capacity available)
-*No epics currently active*
+### **Active Epics** (0/3 capacity)
+*No active epics - full capacity available*
 
 ### **Planned Epics** (1 ready for activation)
-- **SAMPLE_FEATURE_DEVELOPMENT**: Framework demonstration and template
+- **SAMPLE_FEATURE_DEVELOPMENT**: Framework demo epic, 3 phases, 9 steps
 
 ### **Completed Epics** (0 archived)
-*No epics completed yet*
+*No completed epics*
 
-## 🎯 EPIC DISCOVERY & NATURAL LANGUAGE ROUTING
+### **Epic File Mapping** (AI REFERENCE)
+```
+SAMPLE_FEATURE_DEVELOPMENT → epics/SAMPLE_FEATURE_DEVELOPMENT.mdc
+```
 
-### **Natural Language Epic Search**
-The registry supports natural language epic discovery:
-- **"work on sample feature"** → Routes to SAMPLE_FEATURE_DEVELOPMENT
-- **"feature development epic"** → Routes to SAMPLE_FEATURE_DEVELOPMENT
-- **"demonstration epic"** → Routes to SAMPLE_FEATURE_DEVELOPMENT
+## 🎯 NATURAL LANGUAGE ROUTING (AI PROCESSING)
 
-### **Epic Context Mapping**
-- **Feature Development**: SAMPLE_FEATURE_DEVELOPMENT
-- **Framework Demo**: SAMPLE_FEATURE_DEVELOPMENT
-- **Template Example**: SAMPLE_FEATURE_DEVELOPMENT
+### **Epic Keywords → File Mapping**
+- **"sample"** → SAMPLE_FEATURE_DEVELOPMENT
+- **"feature development"** → SAMPLE_FEATURE_DEVELOPMENT  
+- **"demo"** → SAMPLE_FEATURE_DEVELOPMENT
+- **"framework"** → SAMPLE_FEATURE_DEVELOPMENT
 
-## 📈 PORTFOLIO ANALYTICS (AUTO-CALCULATED)
+### **User Request Patterns**
+- **"work on [keyword]"** → Route to matching epic file
+- **"continue [keyword]"** → Route to epic + identify current step/stage
+- **"status of [keyword]"** → Return current progress from registry table
 
-### **Epic Count Summary**
+## 📈 PORTFOLIO METRICS (AUTO-UPDATE ZONE)
+
+### **Capacity Status**
+- **Active Slots**: 0/3 (100% available)
+- **Ready to Activate**: 1 planned epic
 - **Total Epics**: 1
-- **Active**: 0 (3 slots available)
-- **Planned**: 1
-- **Completed**: 0
-- **Blocked/Paused**: 0
 
-### **Progress Overview**
-- **Overall Portfolio Progress**: 0% (no active epics)
-- **Average Epic Progress**: N/A (no active work)
-- **Active Capacity**: 0/3 epics (100% available)
+### **Progress Summary**
+- **Portfolio Progress**: 0% (no active work)
+- **Steps Completed**: 0/9 total steps
+- **Current Focus**: No active epic
 
-### **Architecture Impact Summary**
-- **Architecture Domains Affected**: 0 (no active work)
-- **Pending Architecture Changes**: To be determined
-- **Architecture Evolution Score**: Baseline (framework template)
+## 🔄 AI UPDATE OPERATIONS
 
-## 🔄 REGISTRY MAINTENANCE (AUTO-MANAGED)
+### **Epic Status Change**
+```
+OPERATION: Update epic status
+LOCATION: Registry table row for epic
+FIELDS: Status, Current Phase, Current Step, Stage, Progress, Next Action
+SYNC: Must match epic file progress table
+```
 
-### **Automated Updates**
-The registry automatically updates when:
-- Epic status changes (AI updates registry table)
-- Step progress changes (AI updates current phase/step/stage)
-- Epic completion occurs (AI updates portfolio analytics)
-- New epics created (AI adds new registry entries)
+### **Step Advancement**
+```
+OPERATION: Advance epic step
+LOCATION: Registry table Current Step + Stage columns
+UPDATE: Phase, Step, Stage, Progress percentage, Next Action
+VALIDATION: Verify progress calculation from completed steps
+```
 
-### **Registry Update Rules**
-**🎯 AI UPDATE ZONES** (AI can modify these areas):
-1. **📊 EPIC REGISTRY TABLE**: Status, progress, current phase/step/stage
-2. **🔍 EPIC QUICK LOOKUP**: Epic status and basic information
-3. **📈 PORTFOLIO ANALYTICS**: Calculated summaries and metrics
-
-**🚫 AI PROTECTED ZONES** (AI must never modify):
-- Framework documentation and rules
-- Natural language routing patterns
-- Registry structure and headers
-
-## 📋 EPIC LIFECYCLE OPERATIONS
-
-### **Adding New Epic**
-1. Create new epic file: `epics/[EPIC_NAME].mdc`
-2. Add entry to registry table with PLANNED status
-3. Update quick lookup section with epic information
-4. Update portfolio analytics with new epic count
-
-### **Activating Epic** 
-1. Change epic status to ACTIVE in registry table
-2. Update current phase/step to first step, stage to BLUEPRINT
-3. Verify active epic count < 3 (enforce capacity limit)
-4. Update portfolio analytics with active epic metrics
-
-### **Epic Progress Updates**
-1. Update registry table when step stage changes
-2. Update progress percentage when steps complete
-3. Update current phase/step when advancing
-4. Update next action with current focus
+### **Epic Activation**
+```
+OPERATION: Activate planned epic
+PRECONDITION: Active epics < 3
+UPDATES: Status→ACTIVE, Stage→BLUEPRINT, Current Step→first step
+PORTFOLIO: Update active count, capacity status
+```
 
 ### **Epic Completion**
-1. Change epic status to COMPLETED in registry table
-2. Update portfolio analytics with completion metrics
-3. Move epic from active to completed in quick lookup
-4. Archive epic file (keep in epics directory)
+```
+OPERATION: Complete active epic
+UPDATES: Status→COMPLETED, Progress→100%
+PORTFOLIO: Update completed count, free active slot
+LOOKUP: Move from active to completed section
+```
 
-## 🔗 Individual Epic File Integration
+## 🎯 AI SEARCH ALGORITHMS
 
-### **Epic File Location Pattern**
-- **File Path**: `/.cursor/rules/rule-framework-v2/epics/[EPIC_NAME].mdc`
-- **Naming**: Epic name in UPPERCASE with underscores
-- **Example**: `SAMPLE_FEATURE_DEVELOPMENT.mdc`
+### **Epic Discovery Process**
+1. **User Input Analysis**: Extract keywords from user request
+2. **Keyword Matching**: Search routing table for epic matches
+3. **File Routing**: Return epic file path for detailed context
+4. **Status Loading**: Read current phase/step/stage from registry
 
-### **Epic File Structure Requirements**
-Each epic file must contain:
-- **Progress Table**: Top-level table for AI updates
-- **Epic Metadata**: Status, priority, dependencies, domains
-- **Goals & Success Criteria**: Clear objectives and measurable outcomes
-- **Phases and Steps**: Detailed breakdown with requirements
-- **Step Stages**: BLUEPRINT → CONSTRUCT → VALIDATE per step
+### **Progress Tracking Process**
+1. **Epic Identification**: Match user input to epic in registry
+2. **Current Status**: Read stage and progress from registry table
+3. **Next Action**: Identify current step requirements
+4. **Update Coordination**: Sync registry with epic file changes
 
-### **Registry-Epic File Synchronization**
-- **Registry Table**: Reflects current status from epic files
-- **Epic Progress Tables**: Updated during step stage execution
-- **Bidirectional Sync**: Changes in either location update both
-- **Consistency Validation**: Automatic verification of sync accuracy
+### **Portfolio Management**
+1. **Capacity Check**: Validate active epic count ≤ 3
+2. **Status Distribution**: Track planned/active/completed counts
+3. **Progress Calculation**: Aggregate step completion across epics
+4. **Workflow Optimization**: Identify bottlenecks and next priorities
 
-## 🎯 AI OPERATING INSTRUCTIONS
+## 🔗 EPIC FILE INTEGRATION PATTERNS
 
-### **Epic Discovery**
-When user requests epic work:
-1. Search registry quick lookup for matching epic
-2. Route to appropriate epic file in epics directory
-3. Read epic progress table for current status
-4. Identify current step and stage for work focus
+### **Registry → Epic File Sync**
+- **Registry Update**: Triggers epic file progress table update
+- **Epic File Update**: Triggers registry table sync
+- **Bidirectional Sync**: Automatic consistency validation
+- **Primary Source**: Epic file for detailed context, registry for fast lookup
 
-### **Epic Status Updates**
-When updating epic progress:
-1. **Primary Update**: Epic file progress table
-2. **Secondary Update**: Registry table for consistency
-3. **Validation**: Verify both locations match
-4. **Analytics**: Update portfolio metrics automatically
+### **Step Stage Workflow Integration**
+- **BLUEPRINT**: Registry stage = BLUEPRINT, epic step stage checkboxes
+- **CONSTRUCT**: Registry stage = CONSTRUCT, epic implementation tracking
+- **VALIDATE**: Registry stage = VALIDATE, epic completion verification
+- **COMPLETED**: Registry progress = step completion %, advance to next step
 
-### **Epic Work Execution**
-When working on epic steps:
-1. Follow step stage workflow (BLUEPRINT → CONSTRUCT → VALIDATE)
-2. Update epic progress table at each stage transition
-3. Update registry table when changing steps or phases
-4. Maintain architecture integration throughout
+## 📋 AI OPERATING CHECKLIST
 
-### **Natural Language Processing**
-When user says "work on [epic description]":
-1. Use natural language routing to identify epic
-2. Load epic file for detailed context
-3. Identify current step and stage
-4. Begin appropriate stage workflow
+### **Before Epic Work**
+- [ ] Check registry table for current epic status
+- [ ] Identify current phase/step/stage
+- [ ] Verify epic file location and load context
+- [ ] Confirm step requirements and acceptance criteria
+
+### **During Epic Work**
+- [ ] Update registry table when changing stages
+- [ ] Sync epic file progress table with registry
+- [ ] Calculate progress percentage from completed steps
+- [ ] Update next action based on current work
+
+### **After Epic Updates**
+- [ ] Verify registry-epic file consistency
+- [ ] Update portfolio metrics if needed
+- [ ] Recalculate capacity and progress summaries
+- [ ] Prepare next step context if advancing
+
+## 🚨 AI COMPLIANCE RULES
+
+### **Registry Table Updates** (MANDATORY)
+- ✅ Update registry table for every epic status change
+- ✅ Sync with epic file progress table simultaneously
+- ✅ Validate progress percentage calculations
+- ✅ Maintain accurate current phase/step/stage tracking
+
+### **Portfolio Limits** (ENFORCED)
+- ✅ Maximum 3 active epics at any time
+- ✅ Block epic activation if capacity exceeded
+- ✅ Accurate capacity tracking in lookup section
+- ✅ Portfolio metrics auto-calculated from registry data
+
+### **File Coordination** (REQUIRED)
+- ✅ Epic file creation requires registry entry
+- ✅ Registry updates require epic file sync
+- ✅ Consistent naming: EPIC_NAME.mdc format
+- ✅ Bidirectional synchronization validation
 
 ---
 
-**Registry Purpose**: Master index providing instant epic overview and fast AI updates
-**Framework Integration**: Central coordination for individual epic file system
-**Update Optimization**: Designated update zones for maximum AI efficiency
-**Architecture Compliance**: Full integration with architecture framework requirements
+**AI OPTIMIZATION**: Database-style lookup with designated update zones
+**CONTEXT EFFICIENCY**: Minimal content, maximum information density
+**UPDATE ACCURACY**: 100% epic tracking with automated validation
+**FRAMEWORK INTEGRATION**: Central coordination for epic-lifecycle-rules.mdc system
+# Epic Registry - AI Master Index v3.0
 
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: Epic discovery, status tracking, progress updates, epic routing, portfolio management
+**PRIMARY FUNCTION**: Fast lookup and status coordination for individual epic files
+**UPDATE FREQUENCY**: Every epic status/progress change, step advancement, epic activation/completion
+**SEARCH PURPOSE**: Route user requests to specific epics, identify current work, track portfolio capacity
 
-**Registry Purpose**: Master control hub providing instant epic overview and discovery  
-**Framework Integration**: Central coordination point for all epic lifecycle operations  
-**Quality Assurance**: Primary source of truth ensuring epic system integrity and compliance
+## 📊 EPIC REGISTRY TABLE (AI UPDATE ZONE)
+| Epic Name | Status | Priority | Current Phase | Current Step | Stage | Progress | Next Action | File Location |
+|-----------|--------|----------|---------------|--------------|-------|----------|-------------|---------------|
+| SAMPLE_FEATURE_DEVELOPMENT | PLANNED | Medium | Phase1 | Step1.1 | PLANNED | 0% | Blueprint planning | epics/SAMPLE_FEATURE_DEVELOPMENT.mdc |
+
+## 🔍 EPIC FAST LOOKUP (AI SEARCH ZONE)
+
+### **Active Epics** (0/3 capacity)
+*No active epics - full capacity available*
+
+### **Planned Epics** (1 ready for activation)
+- **SAMPLE_FEATURE_DEVELOPMENT**: Framework demo epic, 3 phases, 9 steps
+
+### **Completed Epics** (0 archived)
+*No completed epics*
+
+### **Epic File Mapping** (AI REFERENCE)
+```
+SAMPLE_FEATURE_DEVELOPMENT → epics/SAMPLE_FEATURE_DEVELOPMENT.mdc
+```
+
+## 🎯 NATURAL LANGUAGE ROUTING (AI PROCESSING)
+
+### **Epic Keywords → File Mapping**
+- **"sample"** → SAMPLE_FEATURE_DEVELOPMENT
+- **"feature development"** → SAMPLE_FEATURE_DEVELOPMENT  
+- **"demo"** → SAMPLE_FEATURE_DEVELOPMENT
+- **"framework"** → SAMPLE_FEATURE_DEVELOPMENT
+
+### **User Request Patterns**
+- **"work on [keyword]"** → Route to matching epic file
+- **"continue [keyword]"** → Route to epic + identify current step/stage
+- **"status of [keyword]"** → Return current progress from registry table
+
+## 📈 PORTFOLIO METRICS (AUTO-UPDATE ZONE)
+
+### **Capacity Status**
+- **Active Slots**: 0/3 (100% available)
+- **Ready to Activate**: 1 planned epic
+- **Total Epics**: 1
+
+### **Progress Summary**
+- **Portfolio Progress**: 0% (no active work)
+- **Steps Completed**: 0/9 total steps
+- **Current Focus**: No active epic
+
+## 🔄 AI UPDATE OPERATIONS
+
+### **Epic Status Change**
+```
+OPERATION: Update epic status
+LOCATION: Registry table row for epic
+FIELDS: Status, Current Phase, Current Step, Stage, Progress, Next Action
+SYNC: Must match epic file progress table
+```
+
+### **Step Advancement**
+```
+OPERATION: Advance epic step
+LOCATION: Registry table Current Step + Stage columns
+UPDATE: Phase, Step, Stage, Progress percentage, Next Action
+VALIDATION: Verify progress calculation from completed steps
+```
+
+### **Epic Activation**
+```
+OPERATION: Activate planned epic
+PRECONDITION: Active epics < 3
+UPDATES: Status→ACTIVE, Stage→BLUEPRINT, Current Step→first step
+PORTFOLIO: Update active count, capacity status
+```
+
+### **Epic Completion**
+```
+OPERATION: Complete active epic
+UPDATES: Status→COMPLETED, Progress→100%
+PORTFOLIO: Update completed count, free active slot
+LOOKUP: Move from active to completed section
+```
+
+## 🎯 AI SEARCH ALGORITHMS
+
+### **Epic Discovery Process**
+1. **User Input Analysis**: Extract keywords from user request
+2. **Keyword Matching**: Search routing table for epic matches
+3. **File Routing**: Return epic file path for detailed context
+4. **Status Loading**: Read current phase/step/stage from registry
+
+### **Progress Tracking Process**
+1. **Epic Identification**: Match user input to epic in registry
+2. **Current Status**: Read stage and progress from registry table
+3. **Next Action**: Identify current step requirements
+4. **Update Coordination**: Sync registry with epic file changes
+
+### **Portfolio Management**
+1. **Capacity Check**: Validate active epic count ≤ 3
+2. **Status Distribution**: Track planned/active/completed counts
+3. **Progress Calculation**: Aggregate step completion across epics
+4. **Workflow Optimization**: Identify bottlenecks and next priorities
+
+## 🔗 EPIC FILE INTEGRATION PATTERNS
+
+### **Registry → Epic File Sync**
+- **Registry Update**: Triggers epic file progress table update
+- **Epic File Update**: Triggers registry table sync
+- **Bidirectional Sync**: Automatic consistency validation
+- **Primary Source**: Epic file for detailed context, registry for fast lookup
+
+### **Step Stage Workflow Integration**
+- **BLUEPRINT**: Registry stage = BLUEPRINT, epic step stage checkboxes
+- **CONSTRUCT**: Registry stage = CONSTRUCT, epic implementation tracking
+- **VALIDATE**: Registry stage = VALIDATE, epic completion verification
+- **COMPLETED**: Registry progress = step completion %, advance to next step
+
+## 📋 AI OPERATING CHECKLIST
+
+### **Before Epic Work**
+- [ ] Check registry table for current epic status
+- [ ] Identify current phase/step/stage
+- [ ] Verify epic file location and load context
+- [ ] Confirm step requirements and acceptance criteria
+
+### **During Epic Work**
+- [ ] Update registry table when changing stages
+- [ ] Sync epic file progress table with registry
+- [ ] Calculate progress percentage from completed steps
+- [ ] Update next action based on current work
+
+### **After Epic Updates**
+- [ ] Verify registry-epic file consistency
+- [ ] Update portfolio metrics if needed
+- [ ] Recalculate capacity and progress summaries
+- [ ] Prepare next step context if advancing
+
+## 🚨 AI COMPLIANCE RULES
+
+### **Registry Table Updates** (MANDATORY)
+- ✅ Update registry table for every epic status change
+- ✅ Sync with epic file progress table simultaneously
+- ✅ Validate progress percentage calculations
+- ✅ Maintain accurate current phase/step/stage tracking
+
+### **Portfolio Limits** (ENFORCED)
+- ✅ Maximum 3 active epics at any time
+- ✅ Block epic activation if capacity exceeded
+- ✅ Accurate capacity tracking in lookup section
+- ✅ Portfolio metrics auto-calculated from registry data
+
+### **File Coordination** (REQUIRED)
+- ✅ Epic file creation requires registry entry
+- ✅ Registry updates require epic file sync
+- ✅ Consistent naming: EPIC_NAME.mdc format
+- ✅ Bidirectional synchronization validation
+
+---
+
+**AI OPTIMIZATION**: Database-style lookup with designated update zones
+**CONTEXT EFFICIENCY**: Minimal content, maximum information density
+**UPDATE ACCURACY**: 100% epic tracking with automated validation
+**FRAMEWORK INTEGRATION**: Central coordination for epic-lifecycle-rules.mdc system

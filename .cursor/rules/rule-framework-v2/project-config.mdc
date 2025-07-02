@@ -1,6 +1,73 @@
+---
+description: When understanding project scope, tech stack, patterns, constraints, and framework settings
+alwaysApply: false
+---
 # Project Configuration Template
 **Framework Version**: 3.0 - Epic v3.0 Integration
 **Last Updated**: 2025-01-27
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: When understanding project scope, tech stack, patterns, constraints, and framework settings
+**MANDATORY FOR**: Project setup, technology decisions, coding standards validation, and framework integration
+**PRIMARY FUNCTION**: Define project-specific configuration, standards, and integration settings for the Cursor Rule Framework
+**CRITICAL**: Must be consulted to understand project context before implementing features or making technology choices
+
+## Project Goal
+[Replace with your project's main objective and purpose]
+
+### Project Features
+[List your project's key features and capabilities]
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Tech Stack
+[Define your technology choices]
+- **Language(s):** [Your programming languages]
+- **Framework(s):** [Your frameworks]
+- **Build / Tooling:** [Your build tools]
+- **Architecture:** [Your architectural pattern]
+
+## Critical Patterns & Conventions
+[Define your project-specific patterns and conventions]
+- Follow consistent naming conventions appropriate for your language/framework
+- Use meaningful variable and function names
+- Write clear and concise comments
+- Break down complex functions into smaller, more manageable units
+- Handle errors gracefully and provide informative error messages
+- Write comprehensive tests for critical components
+- Keep code DRY (Don't Repeat Yourself) by abstracting reusable logic
+- Prioritize code quality, maintainability, and security
+- If you encounter complex issues, break them down into smaller issues and document your thinking
+
+## Constraints
+[Define your project constraints]
+- Limited AI context window considerations
+- Follow established coding standards and best practices
+- Avoid making assumptions; ask clarifying questions when needed
+
+## Framework Integration Settings
+[Configure framework-specific settings]
+- Estimated chars-per-token: 3.5  
+- Max tokens for AI: 120,000
+- Epic system: Individual epic files in `.cursor/rules/rule-framework-v2/epics/`
+- Epic progress tracking: Integrated step stages (BLUEPRINT → CONSTRUCT → VALIDATE)
+
+---
+
+## Changelog
+<!-- The AI prepends the latest summary here as a new list item after each epic step completion -->
+<!-- Example format: -->
+<!-- - [YYYY-MM-DD] [AI] [EPIC:STEP] - Brief description of completed work -->
+# Project Configuration Template
+**Framework Version**: 3.0 - Epic v3.0 Integration
+**Last Updated**: 2025-01-27
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: When understanding project scope, tech stack, patterns, constraints, and framework settings
+**MANDATORY FOR**: Project setup, technology decisions, coding standards validation, and framework integration
+**PRIMARY FUNCTION**: Define project-specific configuration, standards, and integration settings for the Cursor Rule Framework
+**CRITICAL**: Must be consulted to understand project context before implementing features or making technology choices
 
 ## Project Goal
 [Replace with your project's main objective and purpose]

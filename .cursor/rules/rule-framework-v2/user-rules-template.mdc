@@ -1,6 +1,4 @@
 ---
-description: User rules template for epic-integrated workflow system with step stages (BLUEPRINT → CONSTRUCT → VALIDATE)
-globs: 
 alwaysApply: false
 ---
 <!-- This rule is to be added to your Cursor IDE Settings "User Rules" section  - COPY BELOW THIS LINE -->

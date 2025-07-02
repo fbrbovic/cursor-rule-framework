@@ -42,6 +42,7 @@ Before starting any development work:
 **For Epic Discovery**: → `epic-registry.mdc` (fast lookup and status)  
 **For Individual Epic Details**: → `epics/[EPIC_NAME].mdc` (specific epic requirements)  
 **For File Maintenance**: → `architecture-lifecycle.mdc` (organization standards)  
+**For Stubborn Issues**: → `fix-stubborn-issues.mdc` (systematic problem-solving - user invoked only)  
 
 ---
 

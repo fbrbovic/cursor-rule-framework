@@ -1,0 +1,25 @@
+# Temporary analysis files created by fix-stubborn-issues.mdc
+# These files should not be committed to version control
+
+# Analysis files
+issue-analysis-*.md
+problem-breakdown-*.md
+solution-tracking-*.md
+test-results-*.md
+final-summary-*.md
+debug-notes-*.md
+backup-state-*.md
+
+# Any other temporary files
+*.tmp
+*.temp
+*-temp.md
+*-tmp.md
+
+# Backup files
+*.bak
+*.backup
+
+# OS specific files
+.DS_Store
+Thumbs.db 

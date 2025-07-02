@@ -1,0 +1,368 @@
+# Fix Stubborn Issues Framework - AI Operations v3.0
+
+## 🤖 AI CONTEXT DESCRIPTION
+**WHEN TO USE**: User explicitly requests systematic problem analysis, AI stuck in solution loops, repeated failed attempts, complex multi-layered technical issues
+**MANDATORY FOR**: User-invoked problem breakdown, systematic debugging, loop-breaking analysis, comprehensive issue resolution
+**PRIMARY FUNCTION**: Structured methodology for AI to systematically break down and solve stubborn technical issues through research, analysis, and incremental resolution
+**CRITICAL**: AI-ONLY FILE - Optimized for AI parsing and execution - Only activate on explicit user request - Never for routine problem solving
+
+## ⚡ QUICK START CHECKLIST (SCAN FIRST)
+```
+□ User explicitly requested this framework (REQUIRED)
+□ Problem is genuinely complex/stubborn (VERIFY)
+□ Create /.cursor/rules/tmp/ directory if missing
+□ Generate timestamp: YYYY-MM-DD-HHMM format
+□ Start with STAGE 1: RESEARCH & DOCUMENTATION
+□ Follow stages sequentially: RESEARCH → DECOMPOSE → EXECUTE → VALIDATE → CLEANUP
+```
+
+## 🔍 STAGE 1: RESEARCH & COMPREHENSIVE DOCUMENTATION
+
+### **1.1 CODEBASE RESEARCH (MANDATORY)**
+```
+RESEARCH_ACTIONS (Execute in parallel):
+1. CODEBASE_SCAN:
+   - Search for related code patterns using grep/ripgrep
+   - Find similar implementations or previous solutions
+   - Identify relevant configuration files
+   - Locate existing documentation about the problem domain
+   - Find related tests that might show expected behavior
+
+2. DOCUMENTATION_RESEARCH:
+   - Search project README and docs/ for related topics
+   - Find architecture documentation for affected components
+   - Locate API documentation if relevant
+   - Search for troubleshooting guides
+   - Find any existing issue reports or solutions
+
+3. DEPENDENCY_ANALYSIS:
+   - Check package.json/requirements.txt for related dependencies
+   - Search for dependency-specific documentation
+   - Find version compatibility issues
+   - Identify external service integrations
+
+CREATE_FILE: /.cursor/rules/tmp/research-findings-[timestamp].md
+```
+
+### **1.2 WEB RESEARCH (MANDATORY)**
+```
+WEB_SEARCH_STRATEGY:
+1. EXACT_PROBLEM_SEARCH:
+   - Search exact error messages (in quotes)
+   - Search specific function/method names + error
+   - Search technology stack + specific issue
+   - Search framework version + problem description
+
+2. SIMILAR_SOLUTIONS_SEARCH:
+   - Search general problem category + technology
+   - Search "how to solve [problem type]" + stack
+   - Search Stack Overflow, GitHub Issues, Documentation
+   - Search recent blog posts and tutorials
+
+3. CONTEXTUAL_RESEARCH:
+   - Search for breaking changes in versions
+   - Search for known bugs in used technologies
+   - Search for best practices related to problem domain
+   - Search for alternative approaches
+
+UPDATE_FILE: /.cursor/rules/tmp/research-findings-[timestamp].md
+```
+
+### **1.3 PROBLEM DOCUMENTATION WORKSPACE**
+```
+CREATE_FILE: /.cursor/rules/tmp/issue-analysis-[timestamp].md
+
+REQUIRED_STRUCTURE:
+# Issue Analysis - [Timestamp]
+
+## Problem Statement
+- **Exact Error/Issue**: [Copy exact error messages]
+- **Expected Behavior**: [What should happen]
+- **Actual Behavior**: [What actually happens]
+- **Reproduction Steps**: [Exact steps to reproduce]
+
+## Research Findings
+### Codebase Research
+- **Related Code Found**: [List files and patterns]
+- **Similar Implementations**: [Previous solutions found]
+- **Relevant Documentation**: [Internal docs found]
+- **Test Evidence**: [Related test files/behavior]
+
+### Web Research
+- **Exact Matches Found**: [Direct solutions found online]
+- **Similar Issues**: [Related problems and solutions]
+- **Technology-Specific Info**: [Framework/library specific insights]
+- **Breaking Changes**: [Version-related issues found]
+
+## Failed Solutions Analysis
+- **Attempt 1**: [What was tried] → [Why it failed] → [Lesson learned]
+- **Attempt 2**: [What was tried] → [Why it failed] → [Lesson learned]
+- **Pattern Analysis**: [Common failure patterns identified]
+
+## Environment Context
+- **System Info**: [OS, versions, environment details]
+- **Dependencies**: [Relevant package versions]
+- **Configuration**: [Relevant config settings]
+- **Recent Changes**: [What changed recently]
+```
+
+## 🧩 STAGE 2: SYSTEMATIC DECOMPOSITION
+
+### **2.1 LAYERED PROBLEM ANALYSIS**
+```
+DECOMPOSITION_LAYERS (Analyze each):
+
+Layer 1 - SURFACE SYMPTOMS:
+- What error messages appear?
+- What visible behavior is wrong?
+- What user actions trigger the issue?
+
+Layer 2 - DIRECT TECHNICAL CAUSES:
+- What code is executing when problem occurs?
+- What functions/methods are involved?
+- What data is being processed?
+
+Layer 3 - SYSTEM INTERACTIONS:
+- What components are communicating?
+- What external services are involved?
+- What dependencies are being called?
+
+Layer 4 - ARCHITECTURE FACTORS:
+- What design patterns are at play?
+- What architectural decisions affect this?
+- What constraints are we operating under?
+
+Layer 5 - ENVIRONMENT FACTORS:
+- What external factors could influence this?
+- What timing or concurrency issues exist?
+- What resource limitations apply?
+```
+
+### **2.2 RESEARCH-INFORMED DECOMPOSITION**
+```
+CREATE_FILE: /.cursor/rules/tmp/problem-breakdown-[timestamp].md
+
+STRUCTURE (Use research findings):
+# Problem Breakdown - [Timestamp]
+
+## Research-Validated Sub-Problems
+### Sub-Problem 1: [Title based on research]
+- **Description**: [Enhanced with research findings]
+- **Web Solutions Found**: [Link relevant online solutions]
+- **Codebase Evidence**: [Reference similar code patterns]
+- **Priority**: [High/Medium/Low based on research impact]
+- **Research Confidence**: [How well-supported by research]
+
+### Sub-Problem 2: [Continue pattern]
+
+## Component Analysis (Research-Enhanced)
+### Component 1: [Name]
+- **Current Behavior**: [What research shows it should do]
+- **Expected Behavior**: [Based on documentation found]
+- **Research Insights**: [What online sources say about this component]
+- **Similar Implementations**: [How others solved this]
+
+## Solution Strategy (Research-Informed)
+- **Primary Approach**: [Based on most reliable research]
+- **Backup Approaches**: [Alternative solutions found]
+- **Risk Assessment**: [Based on reported issues online]
+- **Implementation Order**: [Based on dependency research]
+```
+
+## 🔧 STAGE 3: RESEARCH-GUIDED EXECUTION
+
+### **3.1 RESEARCH-PRIORITIZED SOLUTION IMPLEMENTATION**
+```
+IMPLEMENTATION_PROTOCOL:
+
+FOR_EACH_SUB_PROBLEM:
+1. RESEARCH_VALIDATION:
+   - Verify solution approach against web research
+   - Check codebase for similar successful implementations
+   - Validate against documentation standards
+   - Confirm no known breaking changes affect approach
+
+2. INCREMENTAL_IMPLEMENTATION:
+   - Implement smallest testable change first
+   - Follow patterns found in research
+   - Use exact solutions from web research where applicable
+   - Adapt successful codebase patterns
+
+3. RESEARCH_GUIDED_TESTING:
+   - Test using methods found in research
+   - Validate against examples found online
+   - Check behavior matches documented expectations
+   - Compare with similar implementations in codebase
+```
+
+### **3.2 SOLUTION TRACKING WITH RESEARCH CONTEXT**
+```
+CREATE_FILE: /.cursor/rules/tmp/solution-tracking-[timestamp].md
+
+# Solution Implementation Tracking - [Timestamp]
+
+## Implementation Log
+### [Timestamp] Sub-Problem: [Name]
+- **Research Basis**: [Which research informed this solution]
+- **Solution Source**: [Web/Codebase/Documentation reference]
+- **Implementation**: [Exact steps taken]
+- **Test Method**: [How tested - based on research]
+- **Result**: [Success/Failure/Partial]
+- **Research Validation**: [Does result match research expectations]
+- **Next Action**: [Based on research findings]
+
+## Research Application Status
+- **Web Solutions Applied**: [Which online solutions were implemented]
+- **Codebase Patterns Used**: [Which internal patterns were followed]
+- **Documentation Compliance**: [How well solution follows docs]
+- **Research Gaps**: [Where research was insufficient]
+```
+
+## ✅ STAGE 4: VALIDATION & RESEARCH VERIFICATION
+
+### **4.1 RESEARCH-VALIDATED TESTING**
+```
+VALIDATION_CHECKLIST:
+□ Solution matches behavior described in research
+□ Implementation follows patterns found in codebase
+□ Result aligns with documentation expectations
+□ No conflicts with web-researched best practices
+□ Performance matches research benchmarks
+□ Edge cases covered based on research findings
+□ No regression in areas highlighted by research
+
+CREATE_FILE: /.cursor/rules/tmp/validation-results-[timestamp].md
+```
+
+### **4.2 COMPREHENSIVE DOCUMENTATION**
+```
+CREATE_FILE: /.cursor/rules/tmp/final-summary-[timestamp].md
+
+# Final Solution Summary - [Timestamp]
+
+## Problem Resolution
+- **Root Cause**: [What research revealed as actual cause]
+- **Solution Applied**: [Final working solution]
+- **Research Sources**: [Key web sources that led to solution]
+- **Codebase Patterns**: [Internal patterns that informed solution]
+
+## Research Impact Analysis
+- **Web Research Value**: [How much web search contributed]
+- **Codebase Research Value**: [How much internal research helped]
+- **Documentation Gaps**: [What docs were missing/unclear]
+- **Future Prevention**: [Based on research insights]
+
+## Solution Validation
+- **Test Results**: [Comprehensive validation results]
+- **Performance Impact**: [Based on research benchmarks]
+- **Compliance Check**: [Against documented standards]
+- **Research Verification**: [Solution matches research expectations]
+```
+
+## 🧹 OPTIMIZED CLEANUP PROTOCOL
+
+### **AI-OPTIMIZED CLEANUP CHECKLIST**
+```
+PRE_CLEANUP_SCAN:
+□ Problem status: [SOLVED/PARTIALLY_SOLVED/UNSOLVABLE]
+□ Research findings preserved in permanent documentation
+□ Key solutions extracted from temporary files
+□ Web sources documented for future reference
+□ Codebase insights integrated into project docs
+□ User explicitly approves cleanup
+
+CLEANUP_EXECUTION:
+1. Extract essential research findings → permanent project docs
+2. Archive web search results that led to solution
+3. Document codebase patterns discovered for reuse
+4. Remove all /.cursor/rules/tmp/ files for this session
+5. Verify no references to temporary files remain
+6. Log cleanup completion with research summary
+
+POST_CLEANUP_VERIFICATION:
+□ All temp files removed: /.cursor/rules/tmp/*[timestamp]*
+□ Research insights preserved outside temp files
+□ Solution documented for future similar issues
+□ No orphaned file references exist
+```
+
+## 🚨 AI ACTIVATION & EXECUTION PROTOCOL
+
+### **ACTIVATION_TRIGGERS (AI Detection)**
+```
+USER_REQUESTS:
+- "fix-stubborn-issues" OR "systematic problem analysis"
+- "I'm stuck in a loop" OR "AI keeps trying same solution"
+- "research this problem" OR "comprehensive debugging"
+- "break down this issue" OR "systematic approach"
+
+AI_DETECTION_PATTERNS:
+- Multiple failed solution attempts (3+ cycles)
+- Same error persisting after multiple approaches
+- Complex multi-component failure
+- User frustration with repeated failures
+```
+
+### **FRAMEWORK_EXECUTION_SEQUENCE**
+```
+MANDATORY_SEQUENCE (DO NOT SKIP):
+1. CONFIRM_ACTIVATION: Verify user wants systematic approach
+2. INITIALIZE_WORKSPACE: Create tmp directory and timestamp
+3. STAGE_1_RESEARCH: Codebase + Web research (parallel execution)
+4. STAGE_2_DECOMPOSE: Break down informed by research
+5. STAGE_3_EXECUTE: Implement solutions using research guidance
+6. STAGE_4_VALIDATE: Test and verify against research expectations
+7. CLEANUP_COMPLETE: Remove temp files, preserve insights
+
+PARALLEL_OPERATIONS (When possible):
+- Codebase search + Web search (Stage 1)
+- Multiple sub-problem analysis (Stage 2)
+- Component testing (Stage 4)
+```
+
+## 📊 AI SUCCESS METRICS
+
+### **RESEARCH_SUCCESS_INDICATORS**
+```
+□ Relevant codebase patterns identified
+□ External documentation found and applied
+□ Web research yielded actionable solutions
+□ Similar problems/solutions discovered
+□ Root cause validated through multiple sources
+```
+
+### **IMPLEMENTATION_SUCCESS_INDICATORS**
+```
+□ Research-informed solutions implemented
+□ Incremental progress documented
+□ Each solution attempt based on research
+□ Validation matches research expectations
+□ No regression in researched functionality
+```
+
+### **FRAMEWORK_SUCCESS_CRITERIA**
+```
+COMPLETE_SUCCESS:
+□ Original problem fully resolved using research-guided approach
+□ Solution validated against research findings
+□ Implementation follows discovered best practices
+
+PARTIAL_SUCCESS:
+□ Problem broken into manageable research-informed pieces
+□ Clear path forward based on research insights
+□ Root cause identified through systematic research
+
+RESEARCH_VALUE_SUCCESS:
+□ Comprehensive research documented for future reference
+□ Codebase patterns identified and cataloged
+□ External solutions evaluated and documented
+```
+
+---
+
+**AI_OPTIMIZATION**: Structured for context-window efficiency and parallel execution  
+**RESEARCH_INTEGRATION**: Mandatory codebase and web research at every stage  
+**EXECUTION_MODE**: AI-only access with systematic progression tracking  
+**USAGE_TYPE**: On-demand only - explicit user request required  
+**INTEGRATION**: Compatible with epic lifecycle and architecture frameworks  
+**LAST_UPDATED**: 2025-01-27

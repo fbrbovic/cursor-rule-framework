@@ -6,6 +6,10 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Cursor IDE](https://img.shields.io/badge/Cursor-IDE-black.svg)](https://cursor.com/)
 
+> ⭐  We have migrated to a NEW REPO: https://github.com/fbrbovic/ai-epic-framework with a brand NEW VERSION 🚀
+> Streamlined and improved version now available for many AI Coding IDE, not only cursor 
+
+
 A comprehensive, production-ready framework of Cursor AI rules and best practices designed to supercharge your development workflow. If you wanted to do vibe coding but didn't know how to start. 
 
 ## 🚀 What Is This?

@@ -1,6 +1,6 @@
 # 🎯 Cursor Rule Framework
 
-> **Professional Cursor AI Rule Framework for "Vibe Coding" - Co-Built by Engineers & AI, for Engineers & AI**
+> **Professional Cursor AI Rule Framework for "Vibe Coding" - Co-Built by Engineers & AI, for Engineers & AI** 
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -8,6 +8,7 @@
 
 > ⭐  We have migrated to a NEW REPO: https://github.com/fbrbovic/ai-epic-framework with a brand NEW VERSION 🚀
 > Streamlined and improved version now available for many AI Coding IDE, not only cursor 
+> You can still use this framework, it is still valid since it is all context based. 
 
 
 A comprehensive, production-ready framework of Cursor AI rules and best practices designed to supercharge your development workflow. If you wanted to do vibe coding but didn't know how to start. 

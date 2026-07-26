@@ -16,6 +16,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - 
 
+## [1.3.0] - 2026-07-26
+
+# [1.3.0](https://github.com/fbrbovic/cursor-rule-framework/compare/v1.2.1...v1.3.0) (2026-07-26)
+
+## [Unreleased]
+
+### Added
+- 
+
+### Changed
+- 
+
+### Fixed
+- 
+
 ## [1.2.1] - 2025-07-21
 
 ## [1.2.1](https://github.com/fbrbovic/cursor-rule-framework/compare/v1.2.0...v1.2.1) (2025-07-21)
